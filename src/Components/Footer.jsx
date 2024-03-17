@@ -149,8 +149,10 @@ const Footer = () => {
 
       <div className="main-footer" style={{ background: "#000" }}>
         <div className="container d-flex align-items-center flex-column gap-3">
+
           <img src={Logo} alt="White Logo" className="img-fluid"/>
           <p className="text-center mb-0">&copy; {new Date().getFullYear()} <span className="text-white">Raque</span> Designed By <span className="text-white">DigitalDove</span> | All rights reserved.</p>
+          
         </div>
       </div>
     </>

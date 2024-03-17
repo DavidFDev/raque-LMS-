@@ -12,51 +12,66 @@ import USFlag from "../assets/Flags/us-flag.jpg"
 import { useState } from "react";
 
 const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }) => {
-    const flagStyling = {
-        backgroundColor: "#fff",
-        padding: "3px",
-        borderRadius: "5px",
-        width: "35%",
+  const flagStyling = {
+    backgroundColor: "#fff",
+    padding: "3px",
+    borderRadius: "5px",
+    width: "35%",
+  }
+  
+  const [isActive, setIsActive] = useState(false);
+  
+  const options = [
+  {
+      img: USFlag,
+      text: "Eng"
+  },
+
+  {
+      img: GermanyFlag,
+      text: "Ger"
+  },
+
+  {
+      img: FranceFlag,
+      text: "Fre"
+  },
+
+  {
+      img: SpainFlag,
+      text: "Spa"
+  },
+
+  {
+      img: RussiaFlag,
+      text: "Rus"
+  },
+
+  {
+      img: ItalyFlag,
+      text: "Ita"
+  },
+  ];
+
+  // GET THE THE TARGETED ITEMS THEN ADD AN EVENT LISTENER TO THE WINDOW 
+  const mainNavbar = document.querySelector(".main-nav");
+  window.addEventListener("scroll", showItems);
+
+  // GET THE ITEM'S SENSITIVITY
+  function showItems() {
+    const navSensitivity = mainNavbar.getBoundingClientRect().bottom;
+    const bottomScroll = window.innerHeight / 120;
+    if (navSensitivity < bottomScroll) {
+      mainNavbar.style.display = "block";
     }
-    
-    const [isActive, setIsActive] = useState(false);
-    
-    const options = [
-    {
-        img: USFlag,
-        text: "Eng"
-    },
+  }
 
-    {
-        img: GermanyFlag,
-        text: "Ger"
-    },
 
-    {
-        img: FranceFlag,
-        text: "Fre"
-    },
-
-    {
-        img: SpainFlag,
-        text: "Spa"
-    },
-
-    {
-        img: RussiaFlag,
-        text: "Rus"
-    },
-
-    {
-        img: ItalyFlag,
-        text: "Ita"
-    },
-    ];
 
   return (
     <>
       {/* HEADER */}
-      <nav className="navbar navbar-expand-lg navbar-white bg-white">
+      <nav className="main-nav navbar navbar-expand-lg navbar-white bg-white">
         <div className="container">
           <a className="navbar-brand" href="#">
             <img src={Logo} alt="Logo" className="img-fluid" />
