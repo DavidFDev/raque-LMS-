@@ -13,7 +13,7 @@ const HeroSection = ({ options }) => {
         {/* SECTION 1 [SHOWCASE] */}
 
         {/* OWL CAROUSEL */}
-        <OwlCarousel className="owl-one owl-carousel owl-theme mb-0 pb-0" {...options}>
+        <OwlCarousel className="owl-one owl-carousel owl-theme mb-0 pb-0" {...options} items={1} smartSpeed={1000} autoPlay={true} loop={true} autoplayTimeout={5000} autoplayHoverPause={true} animateOut="fadeOut">
 
             {/* <!-- SLIDE[0] --> */}
             <div className="item item-1">

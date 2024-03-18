@@ -54,17 +54,23 @@ const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }
   ];
 
   // GET THE THE TARGETED ITEMS THEN ADD AN EVENT LISTENER TO THE WINDOW 
-  const mainNavbar = document.querySelector(".main-nav");
-  window.addEventListener("scroll", showItems);
+  const mainNav = document.querySelector('.main-nav');
+  const arrowTop = document.querySelector('.arrow-top');
+  window.addEventListener('scroll', showItem);
+  
+  function showItem() {
+    const topScroll = window.innerHeight / 120;
+    const navSensitivity = mainNav.getBoundingClientRect().bottom;
 
-  // GET THE ITEM'S SENSITIVITY
-  function showItems() {
-    const navSensitivity = mainNavbar.getBoundingClientRect().bottom;
-    const bottomScroll = window.innerHeight / 120;
-    if (navSensitivity < bottomScroll) {
-      mainNavbar.style.display = "block";
+    if (navSensitivity < topScroll) {
+      arrowTop.classList.remove('off')
+      mainNav.classList.add('main-nav-show')
+    } else {
+      arrowTop.classList.add('off');
+      mainNav.classList.remove('main-nav-show');
     }
-  }
+  };
+  
 
 
 

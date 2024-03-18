@@ -18,8 +18,8 @@ const FunFact = () => {
     <div className="funfacts-section">
         <div className="container">
             <div className="funfacts-inner bg-deepred">
-                <div className="row">
-                    <div className="col-6 col-md-3 col-lg-3">
+                <div className="row align-items-center">
+                    <div className="col-6 col-xm-6 col-md-3 col-lg-3 mb-3 mb-lg-0">
                         <div className="single-funfact">
                             <div className="icon">
                                 <ImUsers />
@@ -34,7 +34,7 @@ const FunFact = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-6 col-md-3 col-lg-3">
+                    <div className="col-6 col-xm-6 col-md-3 col-lg-3 mb-3 mb-lg-0">
                         <div className="single-funfact">
                             <div className="icon">
                                 <BiBookReader />
@@ -49,7 +49,7 @@ const FunFact = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-6 col-md-3 col-lg-3">
+                    <div className="col-6 col-xm-6 col-md-3 col-lg-3 mb-3 mb-lg-0">
                         <div className="single-funfact">
                             <div className="icon">
                                 <BiUserPin/>
@@ -64,7 +64,8 @@ const FunFact = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-6 col-md-3 col-lg-3">
+
+                    <div className="col-6 col-xs-6 col-md-3 col-lg-3">
                         <div className="single-funfact">
                             <div className="icon">
                                 <FaDeviantart/>
