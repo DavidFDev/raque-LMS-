@@ -13,7 +13,16 @@ const HeroSection = ({ options }) => {
         {/* SECTION 1 [SHOWCASE] */}
 
         {/* OWL CAROUSEL */}
-        <OwlCarousel className="owl-one owl-carousel owl-theme mb-0 pb-0" {...options} items={1} smartSpeed={1000} autoPlay={true} loop={true} autoplayTimeout={5000} autoplayHoverPause={true} animateOut="fadeOut">
+        <OwlCarousel className="owl-one owl-carousel owl-theme mb-0 pb-0" {...options} items={1} smartSpeed={1000} autoPlay={true} 
+            loop={true} 
+            autoplayTimeout={5000} 
+            autoplayHoverPause={true} 
+            animateOut="fadeOut"
+            // navText = {[
+            //     "<span><FaArrowsAltH/></span>",
+            //     "<span><FaArrowsAltH/></span>"
+            // ]}
+        >
 
             {/* <!-- SLIDE[0] --> */}
             <div className="item item-1">
@@ -31,13 +40,11 @@ const HeroSection = ({ options }) => {
                                         <p>Raque students students by introducing collaboratives outside R, internships and search experience abroad</p>
 
                                         <div className="links">
-                                            <button className="default-btn btn btn-deepred text-white d-flex flex-nowrap gap-2 align-items-center">
+                                            <Link to={"courses-category-style-1.html"} className="btn btn-deepred text-white default-btn d-flex gap-2 flex-nowrap align-items-center">
                                                 <FaArrowsAltH className="start-icon"/>
-                                                <span>
-                                                    View Courses
-                                                </span>
+                                                <span class="label">View Courses</span>
                                                 <FaArrowsAltH className="end-icon"/>
-                                            </button>                        
+                                            </Link>                     
                                             <button className="starter-btn btn text-white">
                                                 <span>Get Started Free</span>
                                             </button>
@@ -69,9 +76,9 @@ const HeroSection = ({ options }) => {
                                         <p>Raque students students by introducing collaboratives outside R, internships and search experience abroad</p>
 
                                         <div className="links">
-                                            <button className="default-btn btn btn-deepred text-white d-flex flex-nowrap gap-2 align-items-center">
+                                            <button className="default-btn hero-btn d-flex gap-2 align-items-center flex-nowrap justify-content-center m-auto ">
                                                 <FaArrowsAltH className="start-icon"/>
-                                                <span>
+                                                <span className='label'>
                                                     View Courses
                                                 </span>
                                                 <FaArrowsAltH className="end-icon"/>
@@ -107,9 +114,9 @@ const HeroSection = ({ options }) => {
                                         <p>Raque students students by introducing collaboratives outside R, internships and search experience abroad</p>
 
                                         <div className="links">
-                                            <button className="default-btn btn btn-deepred text-white d-flex flex-nowrap gap-2 align-items-center">
+                                            <button className="default-btn hero-btn d-flex gap-2 align-items-center flex-nowrap justify-content-center">
                                                 <FaArrowsAltH className="start-icon"/>
-                                                <span>
+                                                <span className='label'>
                                                     View Courses
                                                 </span>
                                                 <FaArrowsAltH className="end-icon"/>

@@ -53,27 +53,37 @@ const StudentFormArea = () => {
                             <div className="row">
                                 <div className="col-lg-6 col-md-6">
                                     <div className="form-group">
-                                        <input type="text" className="form-control" placeholder="Your name*" onChange={(e) => handleNameChange(e)} value={name}/>
+                                        <input type="text" className="form-control" placeholder="Your name*" 
+                                            onChange={(e) => handleNameChange(e)} 
+                                            value={name}
+                                            required={true}
+                                        />
                                         <span className="label-title">
-                                            <FaRegUser/>
+                                            <FaRegUser className='icon'/>
                                         </span>
                                     </div>
                                 </div>
 
                                 <div className="col-lg-6 col-md-6">
                                     <div className="form-group">
-                                        <input type="text" className="form-control" placeholder="Your address*" onChange={(e) => handleAddressChange(e)} value={address}/>
+                                        <input type="text" className="form-control" placeholder="Your address*" onChange={(e) => handleAddressChange(e)} 
+                                            value={address}
+                                            required={true}
+                                        />
                                         <span className="label-title">
-                                            <AiOutlineHome/>    
+                                            <AiOutlineHome className='icon'/>    
                                         </span>
                                     </div>
                                 </div>
 
                                 <div className="col-lg-6 col-md-6">
                                     <div className="form-group">
-                                        <input type="email" className="form-control" placeholder="Your email*" onChange={(e) => handleEmailChange(e)} value={email}/>
+                                        <input type="email" className="form-control" placeholder="Your email*" onChange={(e) => handleEmailChange(e)} 
+                                            value={email}
+                                            required={true}
+                                        />
                                         <span className="label-title">
-                                            <MdMailOutline/>
+                                            <MdMailOutline className='icon'/>
                                         </span>
                                     </div>
                                 </div>
@@ -90,7 +100,7 @@ const StudentFormArea = () => {
                                             autoComplete='true'
                                         />
                                         <span className="label-title">
-                                            <FiPhone/>
+                                            <FiPhone className='icon'/>
                                         </span>
                                     </div>
                                 </div>
@@ -98,14 +108,14 @@ const StudentFormArea = () => {
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
                                         <textarea cols="30" rows="5" className="form-control" placeholder="Write something here (Optional)" onChange={(e) => handleRandomTextChange(e)} value={randonText}></textarea>
-                                        <span className="textarea-title">
+                                        <span className="label-title">
                                             <FaRegEdit/>
                                         </span>
                                     </div>
                                 </div>
 
                                 <div className="col-lg-12 col-md-12">
-                                    <button type="submit" className="default-btn d-flex gap-2 align-items-center flex-nowrap justify-content-center m-auto">
+                                    <button type="submit" className="default-btn d-flex gap-2 align-items-center flex-nowrap justify-content-center m-auto ">
                                         <VscFeedback className="start-icon"/>
                                         <span className="label">Send Message</span>
                                         <VscFeedback className="end-icon"/>

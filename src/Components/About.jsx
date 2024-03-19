@@ -36,7 +36,7 @@ const AboutSection = () => {
 
                                     <button className="default-btn btn btn-deepred text-white d-flex flex-nowrap gap-2 align-items-center m-auto m-lg-0">
                                         <FaArrowsAltH className="start-icon"/>
-                                        <span>
+                                        <span className="label">
                                             View Courses
                                         </span>
                                         <FaArrowsAltH className="end-icon"/>

@@ -1,11 +1,21 @@
 import { FiPhoneCall } from "react-icons/fi";
 import { LiaMapMarkerAltSolid } from "react-icons/lia";
 import { MdOutlineEmail } from "react-icons/md";
-import { GrLogin } from "react-icons/gr";
+import { GrLogin } from "react-icons/gr"
+import $ from 'jquery';
+import React from "react";
 
 const Header = () => {
+
   return (
     <>
+      <div class="preloader">
+        <div class="loader">
+          <div class="shadow"></div>
+          <div class="box"></div>
+        </div>
+      </div>
+
       <div className='top-header bg-deepred'>
         <div className="container">
           <div className="row align-items-center">

@@ -8,6 +8,7 @@ import Footer from './Components/Footer'
 import Shop from './Pages/Shop'
 import Home from './Pages/Home'
 import PageNotFound from './Pages/404Page'
+import Contact from './Pages/Contact'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path='/' element={<Layout/>}>
             <Route index element={<Home/>}/>
             <Route path='shop' element={<Shop/>}/>
+            <Route path='contact' element={<Contact/>}/>
             <Route path='*' element={<PageNotFound/>}/>
           </Route>
         </Routes>

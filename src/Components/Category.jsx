@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const Category = ({ options }) => {
 
   return (
-    <div className="category-section">
+    <div className="category-section ptb-100">
         <div className="container">
             <div className="category-info">
                 <div className="section-title text-center text-lg-start">
@@ -26,7 +26,7 @@ const Category = ({ options }) => {
                     </h1>
                 </div>
 
-                <Link to={"courses-category-style-1.html"} className="btn btn-deepred text-white default-btn d-none d-lg-flex gap-2 d-flex flex-nowrap align-items-center">
+                <Link to={"courses-category-style-1.html"} className="default-btn d-none d-lg-inline-block">
                     <FaRegEye className="start-icon"/>
                     <span class="label">View All</span>
                     <FaRegEye className="end-icon"/>

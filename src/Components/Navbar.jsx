@@ -115,7 +115,7 @@ const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }
               </li>
 
               <li className="nav-item">
-                <Link to="/" className="nav-link">Contact 
+                <Link to="/contact" className="nav-link">Contact 
                 </Link>
               </li>
             </ul>
