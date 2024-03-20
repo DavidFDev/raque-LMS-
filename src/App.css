@@ -23,7 +23,7 @@ body, p {
 
 /* Default Styling */
 a,button,input {
-    outline: 0!important
+    outline: 0!important;
 }
 
 a {
@@ -392,6 +392,14 @@ p {
         font-size: 37px;
     }
 }
+
+.section-title p {
+    max-width: 620px;
+    line-height: 1.8;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* END OF DEFAULT STYLING */
 
 /* TOP HEADER STYLING */
 .top-header {
@@ -1765,7 +1773,6 @@ p {
 /* PAGE TITLE AREA */
 .page-title-area {
     background: url("../src/assets/Page-Title/Contact.jpeg") center center/cover no-repeat fixed padding-box border-box;
-    position: relative;
     padding-top: 330px;
     padding-bottom: 120px;
 }
@@ -1879,4 +1886,257 @@ p {
 .contact-info-box p a, .courses-sidebar-syllabus .courses-list ul li a, .myAccount-profile .profile-content .contact-info li a, .product-details-desc .product-meta span a, .single-blog-post .post-content .post-meta li a, .widget-area .widget_events_details ul li a {
     display: inline-block;
     color: #727695;
+}
+
+/* CONTACT FORM */
+.contact-area-form {
+    .section-title {
+        text-align: center!important;
+        position: relative!important;
+        margin-top: -5px!important;
+        margin-bottom: 60px!important;
+    }
+}
+
+.contact-form {
+    background-color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(146,184,255,.2);
+    border-radius: 5px;
+    padding: 50px;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contactForm .form-group .form-control {
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+#contactForm .form-group .form-control::-moz-placeholder {
+    color: #727695;
+    -moz-transition: .5s;
+    transition: .5s;
+}
+
+#contactForm .form-group .form-control::placeholder {
+    color: #727695;
+    transition: .5s;
+}
+
+#contactForm .form-group .form-control:focus::-moz-placeholder {
+    color: transparent;
+}
+
+#contactForm .form-group .form-control:focus::placeholder {
+    color: transparent;
+}
+
+#contactForm .form-group textarea.form-control {
+    box-shadow: none;
+    height: auto;
+}
+
+#contactForm .form-group .help-block.with-errors ul {
+    color: red;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+#contactForm .default-btn {
+    border-radius: 30px;
+    margin-top: 10px;
+    box-shadow: 0 5px 28.5px 1.5px rgba(255,25,73,.2);
+}
+
+#contactForm .default-btn:focus,#contactForm .default-btn:hover {
+    box-shadow: 0 5px 28.5px 1.5px rgba(14,181,130,.2)
+}
+
+#contactForm #msgSubmit {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.contact-bg-image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 65%;
+    transform: translateY(-65%);
+    text-align: center;
+    z-index: -1;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#map iframe {
+    height: 550px;
+    width: 100%;
+    border: none;
+    margin-bottom: -7px;
+}
+
+#contactForm .form-group, .courses-box .courses-content .course-author, .free-trial-form form .form-group, .login-content .login-form form .form-group, .product-details-desc .product-review, .products-details-tab .tab-content .tabs-item .products-details-tab-content .product-review-form .review-form form .form-group, .register-content .register-form form .form-group, .single-courses-box-item .courses-content .course-author, .single-motivation-courses-box .courses-content .course-author, .single-motivation-courses-box .courses-content .courses-tag, .single-motivation-courses-item .courses-content .course-author, .start-free-trial-content .start-free-trial-form .form-group {
+    margin-bottom: 15px;
+}
+
+/* SHOP PAGE */
+.page-title-area.shop {
+    background: url("../src/assets/Page-Title/checkout.jpeg") center center/cover no-repeat fixed padding-box border-box !important;
+    padding-top: 330px;
+    padding-bottom: 120px;
+}
+
+.woocommerce-topbar {
+    margin-bottom: 40px;
+}
+
+.woocommerce-topbar .topbar-result-count p {
+    line-height: initial;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+}
+
+.woocommerce-topbar .topbar-ordering-and-search {
+    text-align: right;
+    position: relative;
+}
+
+.woocommerce-topbar .topbar-ordering-and-search .sort-dropdown {
+    position: absolute;
+    top: 110%;
+    background-color: #ccc;
+    padding: 20px;
+}
+
+.woocommerce-topbar .topbar-ordering-and-search .topbar-search form {
+    position: relative;
+}
+
+.woocommerce-topbar .topbar-ordering-and-search .topbar-search form label {
+    display: block;
+    margin-bottom: 0;
+    position: absolute;
+    left: 20px;
+    top: 14.2px;
+    font-size: 18px;
+    color: #ff1949;
+}
+
+.woocommerce-topbar .topbar-ordering-and-search .topbar-search form .input-search {
+    height: 50px;
+    color: #252525;
+    background-color: #eef5f9;
+    display: block;
+    width: 100%;
+    border-radius: 30px;
+    padding: 3px 15px 0 48px;
+    border: none;
+    transition: .5s;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.single-product-box {
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 40px 3px rgba(0,0,0,.05)
+}
+
+.cart-totals,.user-actions {
+    box-shadow: 0 2px 48px 0 rgba(0,0,0,.08);
+    background: #fff
+}
+
+.single-product-box .product-image {
+    overflow: hidden;
+    position: relative;
+    text-align: left
+}
+
+.single-product-box .product-image a img {
+    transition: .5s
+}
+
+.single-product-box .product-image a img:nth-child(2) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    margin-left: 20px
+}
+
+.single-product-box .product-image .add-to-cart-btn {
+    position: absolute;
+    bottom: -45px;
+    left: 0;
+    width: 100%;
+    background-color: #252525;
+    color: #fff;
+    padding: 18px 20px 13px;
+    text-transform: uppercase;
+    opacity: 0;
+    visibility: hidden;
+    display: block;
+    font-size: 15px;
+    font-weight: 600
+}
+
+.single-product-box .product-image .add-to-cart-btn i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px
+}
+
+.single-product-box .product-image .sale-btn {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background-color: red;
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px
+}
+
+.single-product-box .product-content {
+    padding: 30px 25px
+}
+
+.single-product-box .product-content .price {
+    color: #252525;
+    font-weight: 500;
+    font-size: 15px
+}
+
+.single-product-box .product-content .price .old {
+    text-decoration: line-through;
+    color: #828893;
+    font-size: 14px
+}
+
+.single-product-box .product-content .rating {
+    margin-top: 10px;
+    color: #ffb708;
+    font-size: 18px
+}
+
+.single-product-box .product-content .rating svg {
+    margin-right: -1px
+}
+
+.single-product-box:hover .product-image a img:nth-child(2) {
+    opacity: 1;
+    visibility: visible;
+    margin-left: 0
 }
