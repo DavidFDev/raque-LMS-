@@ -15,26 +15,6 @@ const StudentFormArea = () => {
     const [phone, setPhone] = useState();
     const [randonText, setRandownText] = useState("");
 
-    function handleNameChange(e) {
-        setName(e.target.value);
-    }
-
-    function handleAddressChange(e) {
-        setAddress(e.target.value);
-    }
-
-    function handleEmailChange(e) {
-        setEmail(e.target.value);
-    }
-
-    function handlePhoneChange(e) {
-        setPhone(e.target.value);
-    }
-
-    function handleRandomTextChange(e) {
-        setRandownText(e.target.value);
-    }
-
   return (
     <div className='student-form-area ptb-100'>
         <div className="container">
@@ -54,7 +34,7 @@ const StudentFormArea = () => {
                                 <div className="col-lg-6 col-md-6">
                                     <div className="form-group">
                                         <input type="text" className="form-control" placeholder="Your name*" 
-                                            onChange={(e) => handleNameChange(e)} 
+                                            onChange={(e) => setName(e.target.value)} 
                                             value={name}
                                             required={true}
                                         />
@@ -66,7 +46,7 @@ const StudentFormArea = () => {
 
                                 <div className="col-lg-6 col-md-6">
                                     <div className="form-group">
-                                        <input type="text" className="form-control" placeholder="Your address*" onChange={(e) => handleAddressChange(e)} 
+                                        <input type="text" className="form-control" placeholder="Your address*" onChange={(e) => setAddress(e.target.value)} 
                                             value={address}
                                             required={true}
                                         />
@@ -78,7 +58,7 @@ const StudentFormArea = () => {
 
                                 <div className="col-lg-6 col-md-6">
                                     <div className="form-group">
-                                        <input type="email" className="form-control" placeholder="Your email*" onChange={(e) => handleEmailChange(e)} 
+                                        <input type="email" className="form-control" placeholder="Your email*" onChange={(e) => setEmail(e.target.value)} 
                                             value={email}
                                             required={true}
                                         />
@@ -92,7 +72,7 @@ const StudentFormArea = () => {
                                     <div className="form-group">
                                         <input type="tel" className="form-control" 
                                             placeholder="Your phone*" 
-                                            onChange={(e) => handlePhoneChange(e)} value={phone} 
+                                            onChange={(e) => setPhone(e.target.value)} value={phone} 
                                             // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
                                             maxlength="11"
                                             pattern=".{10,10}"
@@ -107,7 +87,7 @@ const StudentFormArea = () => {
 
                                 <div className="col-lg-12 col-md-12">
                                     <div className="form-group">
-                                        <textarea cols="30" rows="5" className="form-control" placeholder="Write something here (Optional)" onChange={(e) => handleRandomTextChange(e)} value={randonText}></textarea>
+                                        <textarea cols="30" rows="5" className="form-control" placeholder="Write something here (Optional)" onChange={(e) => setRandownText(e.target.value)} value={randonText}></textarea>
                                         <span className="label-title">
                                             <FaRegEdit/>
                                         </span>

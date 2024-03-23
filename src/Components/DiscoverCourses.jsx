@@ -32,13 +32,13 @@ const DiscoverCourses = ({ infos }) => {
           </div>
 
           <div class="sorting-menu d-flex flex-wrap gap-1 mt-0 pt-0">
-            <button class="filter mixitup-control-active" data-filter="all">All (06)</button>
-            <button class="filter" data-filter=".business">Business (02)</button>
-            <button class="filter" data-filter=".design">Design (05)</button>
-            <button class="filter" data-filter=".development">Development (04)</button>
-            <button class="filter" data-filter=".language">Language (02)</button>
-            <button class="filter" data-filter=".management">Management (03)</button>
-            <button class="filter" data-filter=".photography">Photography (04)</button>
+            <button className="filter mixitup-control-active" data-filter="all">All (06)</button>
+            <button className="filter" data-filter=".business">Business (02)</button>
+            <button className="filter" data-filter=".design">Design (05)</button>
+            <button className="filter" data-filter=".development">Development (04)</button>
+            <button className="filter" data-filter=".language">Language (02)</button>
+            <button className="filter" data-filter=".management">Management (03)</button>
+            <button className="filter" data-filter=".photography">Photography (04)</button>
           </div>
 
           <div className="shorting" id="MixItUp0F3ADE">

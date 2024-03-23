@@ -462,6 +462,11 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+    /* SHOP PRODUCT */
+    .single-product-box .product-content h3 {
+        font-size: 18px!important;
+    }
 }
 
 @media only screen and (max-width: 991px) {

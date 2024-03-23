@@ -54,22 +54,22 @@ const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }
   ];
 
   // GET THE THE TARGETED ITEMS THEN ADD AN EVENT LISTENER TO THE WINDOW 
-  const mainNav = document.querySelector('.main-nav');
-  const arrowTop = document.querySelector('.arrow-top');
-  window.addEventListener('scroll', showItem);
+  // const mainNav = document.querySelector('.main-nav');
+  // const arrowTop = document.querySelector('.arrow-top');
+  // window.addEventListener('scroll', showItem);
   
-  function showItem() {
-    const topScroll = window.innerHeight / 120;
-    const navSensitivity = mainNav.getBoundingClientRect().bottom;
+  // function showItem() {
+  //   const topScroll = window.innerHeight / 120;
+  //   const navSensitivity = mainNav.getBoundingClientRect().bottom;
 
-    if (navSensitivity < topScroll) {
-      arrowTop.classList.remove('off')
-      mainNav.classList.add('main-nav-show')
-    } else {
-      arrowTop.classList.add('off');
-      mainNav.classList.remove('main-nav-show');
-    }
-  };
+  //   if (navSensitivity < topScroll) {
+  //     arrowTop.classList.remove('off')
+  //     mainNav.classList.add('main-nav-show')
+  //   } else {
+  //     arrowTop.classList.add('off');
+  //     mainNav.classList.remove('main-nav-show');
+  //   }
+  // };
   
 
 
@@ -83,7 +83,7 @@ const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }
             <img src={Logo} alt="Logo" className="img-fluid" />
           </a>
           <div className="collapse navbar-collapse" id="collapsibleNavId">
-            <ul className="navbar-nav me-auto mt-2 mt-lg-0">
+            <ul className="navbar-nav mx-lg-auto mt-2 mt-lg-0">
               <li className="nav-item">
                 <Link to="/" className="nav-link d-flex flex-nowrap">Home 
                   <span><FaAngleDown className="icon"/></span>

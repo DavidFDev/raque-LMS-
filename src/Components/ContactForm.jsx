@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa"; 
 
 const ContactForm = () => {
     const [name, setName] = useState("");
@@ -71,7 +71,12 @@ const ContactForm = () => {
                         </div>
 
                         <div className="col-lg-12 col-md-12">
-                            <button type="submit" className="default-btn"><i className='bx bx-paper-plane icon-arrow before'></i><span className="label">Send Message</span><i className="bx bx-paper-plane icon-arrow after"></i></button>
+                            <button type="submit" className="default-btn">
+                                <FaLongArrowAltRight className='start-icon before'/>
+                                <span className="label">Send Message</span>
+                                <FaLongArrowAltRight className="end-icon after"/>
+                            </button>
+
                             <div id="msgSubmit" className="h3 text-center hidden"></div>
                             <div className="clearfix"></div>
                         </div>

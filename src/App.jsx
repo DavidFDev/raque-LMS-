@@ -6,6 +6,8 @@ import Shop from './Pages/Shop'
 import Home from './Pages/Home'
 import PageNotFound from './Pages/404Page'
 import Contact from './Pages/Contact'
+import Cart from './Pages/Cart/Cart'
+import ProductDetails from './Pages/ProductDetails'
 
 function App() {
 
@@ -17,6 +19,8 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path='shop' element={<Shop/>}/>
             <Route path='contact' element={<Contact/>}/>
+            <Route path='product/:id' element={<ProductDetails/>}/>
+            <Route path='cart' element={<Cart/>}/>
             <Route path='*' element={<PageNotFound/>}/>
           </Route>
         </Routes>

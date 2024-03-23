@@ -28,7 +28,7 @@ const Category = ({ options }) => {
 
                 <Link to={"courses-category-style-1.html"} className="default-btn d-none d-lg-inline-block">
                     <FaRegEye className="start-icon"/>
-                    <span class="label">View All</span>
+                    <span className="label">View All</span>
                     <FaRegEye className="end-icon"/>
                 </Link>
             </div>
@@ -67,7 +67,7 @@ const Category = ({ options }) => {
                 }
             >
                 <div className="item item-1 single-categories-course-box">
-                    <div class="icon">
+                    <div className="icon">
                         <FaCode/>
                     </div>
                     <h3>Web&nbsp;Development</h3>
@@ -76,7 +76,7 @@ const Category = ({ options }) => {
                 </div>
 
                 <div className="item item-2 single-categories-course-box">
-                    <div class="icon">
+                    <div className="icon">
                         <IoCameraOutline/>
                     </div>
                     <h3>Photography </h3>
@@ -85,7 +85,7 @@ const Category = ({ options }) => {
                 </div>
 
                 <div className="item item-3 single-categories-course-box">
-                    <div class="icon">
+                    <div className="icon">
                         <IoLayersOutline/>
                     </div>
                     <h3>Graphics Design</h3>
@@ -94,7 +94,7 @@ const Category = ({ options }) => {
                 </div>
 
                 <div className="item item-4 single-categories-course-box">
-                    <div class="icon">
+                    <div className="icon">
                         <LiaFlagCheckeredSolid/>
                     </div>
                     <h3>Web Language</h3>
@@ -104,7 +104,7 @@ const Category = ({ options }) => {
                 </div>
 
                 <div className="item item-5 single-categories-course-box">
-                    <div class="icon">
+                    <div className="icon">
                         <BiHealth/>
                     </div>
                     <h3>Health &amp; Fitness</h3>
@@ -114,7 +114,7 @@ const Category = ({ options }) => {
                 </div>
 
                 <div className="item item-6 single-categories-course-box">
-                    <div class="icon">
+                    <div className="icon">
                         <LuLineChart/>
                     </div>
                     <h3>Business Studies</h3>

@@ -3,16 +3,16 @@ import { LiaMapMarkerAltSolid } from "react-icons/lia";
 import { MdOutlineEmail } from "react-icons/md";
 import { GrLogin } from "react-icons/gr"
 import $ from 'jquery';
-import React from "react";
+import React, { useEffect } from "react";
 
 const Header = () => {
 
   return (
     <>
-      <div class="preloader">
-        <div class="loader">
-          <div class="shadow"></div>
-          <div class="box"></div>
+      <div className="preloader">
+        <div className="loader">
+          <div className="shadow"></div>
+          <div className="box"></div>
         </div>
       </div>
 
