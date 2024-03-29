@@ -34,7 +34,7 @@ const Category = ({ options }) => {
             </div>
 
             {/* OWL CAROUSEL */}
-            <OwlCarousel className="owl-two owl-carousel owl-theme mb-0 pb-0" {...options} margin={10} loop={false} autoplay={true} items={3} nav={true} dots={false} 
+            <OwlCarousel className="owl-two owl-carousel owl-theme mb-0 pb-0" margin={10} loop={false} autoplay={true} items={3} nav={true} dots={false} 
                 responsive={ {
                     320:{
                             items: 1

@@ -24,7 +24,8 @@ const Shop = () => {
         <ShopHeading/>
       </section>
 
-      <section className="shop-products pb-100">
+      {/* PRODUCTS SECTION */}
+      <section className="shop-products pb-100 pt-5 pt-lg-0">
         <div className="container">
           <div className="woocommerce-topbar">
             <div className="row align-items-center">

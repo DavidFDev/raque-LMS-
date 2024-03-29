@@ -6,22 +6,18 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowDown } from "react-icons/io";
 import { FaArrowsAltH } from "react-icons/fa";
 
-const HeroSection = ({ options }) => {
+const HeroSection = () => {
 
   return (
     <div className='hero-section'>
         {/* SECTION 1 [SHOWCASE] */}
 
         {/* OWL CAROUSEL */}
-        <OwlCarousel className="owl-one owl-carousel owl-theme mb-0 pb-0" {...options} items={1} smartSpeed={1000} autoPlay={true} 
+        <OwlCarousel className="owl-one owl-carousel owl-theme mb-0 pb-0" items={1} smartSpeed={1000} autoPlay={true} 
             loop={true} 
             autoplayTimeout={5000} 
             autoplayHoverPause={true} 
             animateOut="fadeOut"
-            // navText = {[
-            //     "<span><FaArrowsAltH/></span>",
-            //     "<span><FaArrowsAltH/></span>"
-            // ]}
         >
 
             {/* <!-- SLIDE[0] --> */}

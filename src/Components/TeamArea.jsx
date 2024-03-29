@@ -36,11 +36,11 @@ const TeamArea = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut nisi ut aliquip ex ea.</p>
             </div>
 
-            <div class="row justify-content-center">
+            <div className="row justify-content-center">
                 {teamMembers.map((member, index) => 
                     <div className="col-lg-4 col-md-6 col-sm-6 mb-3" key={index}>
                         <div className="single-instructor-member mb-30">
-                            <div class="member-image">
+                            <div className="member-image">
                                 <img src={member.img} alt="images" className="img-fluid"/>
                             </div>
 
@@ -50,29 +50,29 @@ const TeamArea = () => {
                                 </h3>
                                 <span className="text-deepred">{member.profession}</span>
 
-                                <ul class="social list-unstyled d-flex flex-nowrap gap-2 align-items-center justify-content-center">
+                                <ul className="social list-unstyled d-flex flex-nowrap gap-2 align-items-center justify-content-center">
                                     <li>
-                                        <Link href="#" className="facebook" target="_blank">
+                                        <a href="www.facebook.com" className="facebook" target="_blank">
                                             <FaFacebookF/>
-                                        </Link>
+                                        </a>
                                     </li>
                                     
                                     <li>
-                                        <Link href="#" className="twitter" target="_blank">
+                                        <a href="www.twitter.com" className="twitter" target="_blank">
                                             <FaTwitter/>
-                                        </Link>
+                                        </a>
                                     </li>
                                     
                                     <li>
-                                        <Link href="#" className="instagram" target="_blank">
+                                        <a href="www.instagram.com" className="instagram" target="_blank">
                                             <FaInstagram/>
-                                        </Link>
+                                        </a>
                                     </li>
                                     
                                     <li>
-                                        <Link href="#" className="linkedin" target="_blank">
+                                        <a href="www.linkedin.com" className="linkedin" target="_blank">
                                             <FaLinkedinIn/>
-                                        </Link>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -82,7 +82,11 @@ const TeamArea = () => {
                 
                 <div className="col-lg-12 col-md-12 col-sm-12">
                     <div className="team-btn-box text-center">
-                        <a href="team-1.html" className="default-btn"><i className="bx bx-show-alt icon-arrow before"></i><span className="label">Meet All Instructor</span><i className="bx bx-show-alt icon-arrow after"></i></a>
+                        <Link to="/" className="default-btn">
+                            <i className="bx bx-show-alt icon-arrow before"></i>
+                            <span className="label">Meet All Instructor</span>
+                            <i className="bx bx-show-alt icon-arrow after"></i>
+                        </Link>
                     </div>
                 </div>
             </div>

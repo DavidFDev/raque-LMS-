@@ -16,5 +16,18 @@ $custom-theme-colors: (
 
 $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 
+@import "~bootstrap/scss/bootstrap-utilities";
+
+//Generate utilites for Cursor
+$utilities: map-merge(
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      values: auto default pointer wait text move help not-allowed
+    ),
+  )
+);
+
 // IMPORT BOOTSTRAP
 @import '../node_modules/bootstrap/scss/bootstrap.scss'

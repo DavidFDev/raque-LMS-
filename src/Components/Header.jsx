@@ -2,8 +2,7 @@ import { FiPhoneCall } from "react-icons/fi";
 import { LiaMapMarkerAltSolid } from "react-icons/lia";
 import { MdOutlineEmail } from "react-icons/md";
 import { GrLogin } from "react-icons/gr"
-import $ from 'jquery';
-import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -61,10 +60,10 @@ const Header = () => {
 
             <div className="col-lg-4 p-0 d-none d-lg-inline">
               <div className="top-header-btn">
-                <a href="/" type="button" className="text-deepred bg-white fw-bolder">
+                <Link to="/login" type="button" className="text-deepred bg-white fw-bolder">
                   <GrLogin className="icon"/>&nbsp; &nbsp;
                   <span>Log In</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

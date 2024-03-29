@@ -249,6 +249,16 @@
     .countdown-timer #timer div::before {
         display: none;
     }
+
+    /* LOGIN AND REGISTER PAGE */
+    .login-content, .register-content {
+        height: 100%;
+        padding: 60px 15px;
+        
+        .login-form h3, .register-form h3 {
+            font-size: 26px!important;
+        }   
+    } 
 }
 
 @media (min-width: 768px) {
@@ -281,6 +291,15 @@
                     right: -30px;
                 }
             }
+        }
+    }
+
+    /* LOGIN & REGISTER PAGE */
+    .login area, .register-area {
+        .login-content, .register-content {
+            height: 100%;
+            padding-top: 80px;
+            padding-bottom: 80px;
         }
     }
 }
@@ -467,9 +486,39 @@
     .single-product-box .product-content h3 {
         font-size: 18px!important;
     }
+
+    /* LOGIN & REGISTER PAGE*/
+    .login-area, .register-area {
+        height: 100vh!important;
+        .login-image {
+            background-image: none!important;
+        }
+
+        .register-image {
+            background-image: none!important;
+        }
+    
+        .login-content, .register-content {
+            height: 100%;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    }
+
+    /* PROFILE AREA */
+    .ui.container {
+        width: 723px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+        
 }
 
 @media only screen and (max-width: 991px) {
+    .navbar {
+        box-shadow: 0 2px 28px 0 rgba(0,0,0,.06);
+    }
+
     .course-category {
         .category-info {
             justify-content: center!important;
@@ -499,6 +548,8 @@
             justify-content: center;
         }
     }
+
+    
 }
 
 @media only screen and (min-width: 991px) {
@@ -522,6 +573,7 @@
     /* NAVBAR */
     .navbar {
         .container {
+            box-shadow: 0 2px 28px 0 rgba(0,0,0,.06);
             z-index: 999;
             background-color: #fff;
             transform: translateY(-20px);
@@ -681,6 +733,37 @@
         height: 550px;
         padding: 150px 0 100px 0!important;
         transform: translateY(-164px);
+    }
+
+    /* LOGIN PAGE */
+    .login-area, .register-area {
+        .login-image {
+            height: 100%;
+            background-image: url("../src/assets/Login-Form/login-bg.jpg");
+            width: 100%;
+            background-repeat: no-repeat;
+
+            & img {
+                display: none;
+            }
+        }
+
+        .register-image {
+            height: 100%;
+            background-image: url("../src/assets/Signup/register-bg.jpg");
+            width: 100%;
+            background-repeat: no-repeat;
+
+            & img {
+                display: none;
+            }
+        }
+    
+        .login-content, .register-content {
+            height: 100%;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
     }
 }
 

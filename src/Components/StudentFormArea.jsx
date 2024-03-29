@@ -20,7 +20,7 @@ const StudentFormArea = () => {
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-6 col-md-12 mb-md-4 mb-lg-0 text-center text-lg-start">
-                    <div class="students-feedback-form-content">
+                    <div className="students-feedback-form-content">
                         <h2>Learning together, we achieve great things.</h2>
                     </div>
                 </div>
@@ -74,7 +74,7 @@ const StudentFormArea = () => {
                                             placeholder="Your phone*" 
                                             onChange={(e) => setPhone(e.target.value)} value={phone} 
                                             // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
-                                            maxlength="11"
+                                            maxLength="11"
                                             pattern=".{10,10}"
                                             required
                                             autoComplete='true'

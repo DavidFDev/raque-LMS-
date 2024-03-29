@@ -1,7 +1,7 @@
 import { ImUsers } from "react-icons/im";
 import { BiBookReader, BiUserPin } from "react-icons/bi";
 import { FaDeviantart } from "react-icons/fa";
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Odometer from 'react-odometerjs';
 
 const FunFact = () => {

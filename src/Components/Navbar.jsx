@@ -22,57 +22,37 @@ const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }
   const [isActive, setIsActive] = useState(false);
   
   const options = [
-  {
+    {
       img: USFlag,
       text: "Eng"
-  },
+    },
 
-  {
+    {
       img: GermanyFlag,
       text: "Ger"
-  },
+    },
 
-  {
+    {
       img: FranceFlag,
       text: "Fre"
-  },
+    },
 
-  {
+    {
       img: SpainFlag,
       text: "Spa"
-  },
+    },
 
-  {
+    {
       img: RussiaFlag,
       text: "Rus"
-  },
+    },
 
-  {
+    {
       img: ItalyFlag,
       text: "Ita"
-  },
+    },
   ];
-
-  // GET THE THE TARGETED ITEMS THEN ADD AN EVENT LISTENER TO THE WINDOW 
-  // const mainNav = document.querySelector('.main-nav');
-  // const arrowTop = document.querySelector('.arrow-top');
-  // window.addEventListener('scroll', showItem);
   
-  // function showItem() {
-  //   const topScroll = window.innerHeight / 120;
-  //   const navSensitivity = mainNav.getBoundingClientRect().bottom;
-
-  //   if (navSensitivity < topScroll) {
-  //     arrowTop.classList.remove('off')
-  //     mainNav.classList.add('main-nav-show')
-  //   } else {
-  //     arrowTop.classList.add('off');
-  //     mainNav.classList.remove('main-nav-show');
-  //   }
-  // };
-  
-
-
 
   return (
     <>
@@ -138,9 +118,9 @@ const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }
                 <div className="dropdown-content d-flex flex-column gap-3 py-3 px-2" style={{ cursor: "pointer" }}>
 
                   {options.map((option, i) => 
-                    <div className="d-flex flex-nowrap gap-2" 
+                    <div className="d-flex flex-nowrap gap-2 align-items-center" 
                     key={i} 
-                    onClick={e => {
+                    onClick={() => {
                       setSelectedName(option.text)
                       setSelectedFlag(option.img)
                       setIsActive(!isActive)
@@ -155,7 +135,7 @@ const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }
               }
             </div>
 
-            <span><BiCartAlt className="cart-icon icon fs-4"/></span>
+            <span className="cursor-pointer"><BiCartAlt className="cart-icon icon fs-4"/></span>
 
             <form className="d-flex my-2 my-lg-0">
               <span><IoSearch className="serach-icon icon fs-4"/></span>

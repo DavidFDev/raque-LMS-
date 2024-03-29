@@ -16,7 +16,6 @@ import user3 from '../assets/DiscoverCourses/user3.jpg'
 import user4 from '../assets/DiscoverCourses/user4.jpg'
 import user5 from '../assets/DiscoverCourses/user5.jpg'
 import user6 from '../assets/DiscoverCourses/user6.jpg'
-import { useContext } from "react";
 
 const BlogArea = () => {
     const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -96,6 +95,7 @@ const BlogArea = () => {
     <div className="blog-area ptb-100">
         <div className="container">
             <div className="blog-content d-flex align-items-center justify-content-lg-between justify-content-center">
+                {/* BLOG TITLE */}
                 <div className="section-title text-center text-lg-start">
                     <span className="sub-title text-uppercase">
                         explore news
@@ -105,6 +105,7 @@ const BlogArea = () => {
 
                 </div>
 
+                {/* RIGHT BUTTON */}
                 <Link to={"courses-category-style-1.html"} className="btn btn-deepred text-white default-btn d-none d-lg-flex gap-2 d-flex flex-nowrap align-items-center">
                     <BiBookReader className="start-icon"/>
                     <span className="label">Read All</span>
@@ -112,6 +113,7 @@ const BlogArea = () => {
                 </Link>
             </div>
 
+            {/* CAROUSEL AREA */}
             <OwlCarousel className="blog-slides owl-carousel owl-theme mt-5" margin={30} dots={false} 
                 responsive={ 
                     {
@@ -140,7 +142,8 @@ const BlogArea = () => {
                         },
                     }
                 }>
-
+                
+                {/* POST LIST */}
                 {blogPosts.map((singlePost, index) => 
 
                     <div className="item" key={index}>
@@ -171,8 +174,11 @@ const BlogArea = () => {
                                     <Link to="single-blog.html" className="d-inline-block text-dark">{singlePost.review}</Link>
                                 </h3>
 
-                                <Link to="single-blog.html" className="read-more-btn text-dark">
-                                    Read More <FaArrowRightLong/>
+                                <Link to="/" className="read-more-btn text-dark">
+                                    <span>
+                                        Read More &nbsp;
+                                        <FaArrowRightLong/>
+                                    </span>
                                 </Link>
                             </div>
                         </div>
