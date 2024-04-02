@@ -35,7 +35,7 @@ const LoginForm = () => {
                 setErrParagraph(result.data);
             }
         })
-        .catch(err => alert(err))
+        .catch(err => console.log(err))
     }
 
 

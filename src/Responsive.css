@@ -27,6 +27,12 @@
     }
 }
 
+
+
+
+
+
+/* | MAX-WIDTH-(767px) | */
 @media only screen and (max-width: 767px) {
     body {
         font-size: 14px;
@@ -261,6 +267,11 @@
     } 
 }
 
+
+
+
+
+/* MIN WIDTH-(768px) */
 @media (min-width: 768px) {
     .course-category {
         .category-info {
@@ -305,6 +316,11 @@
 }
 
 
+
+
+
+
+/* MIN-WIDTH-(576px) */
 @media only screen and (min-width: 567px) {
     /* ABOUT SECTION */
     .about-section {
@@ -320,6 +336,13 @@
     }
 }
 
+
+
+
+
+
+
+/* MIN WIDTH-(576px) | MAX-WIDTH-(767px) */
 @media (576px <= width <= 767px) {
     .about-section {
         .content {
@@ -333,6 +356,13 @@
     }
 }
 
+
+
+
+
+
+
+/* MIN WIDTH-(576px) | MAX-WIDTH-(991px) */
 @media (576px <= width <= 991px) {
     .about-section {
         .content {
@@ -344,6 +374,12 @@
     }
 }
 
+
+
+
+
+
+/* MIN WIDTH-(768PX) | MAX-WIDTH-(991PX) */
 @media  (768px <= width <= 991px) {
     /* HERO SECTION */
     .hero-section {
@@ -400,6 +436,19 @@
                     }
                 }
             }
+        }
+    }
+
+    /* REFERENCE F */
+    .ptb-100 {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    /* PRICING AREA */
+    .pricing-area {
+        .pricing-table table thead tr th {
+            white-space: nowrap;
         }
     }
 
@@ -511,9 +560,24 @@
         margin-left: auto !important;
         margin-right: auto !important;
     }
+
+    /* PRICING AREA */
+    .user-account-area .order-form .table tbody td {
+        font-size: 14px;
+    }
         
+    /* USER ACCOUNT */
+    .userAccount-navigation ul li a {
+        font-size: 14px;
+    }
 }
 
+
+
+
+
+
+/* MAX-WIDTH-(991PX) */
 @media only screen and (max-width: 991px) {
     .navbar {
         box-shadow: 0 2px 28px 0 rgba(0,0,0,.06);
@@ -552,6 +616,12 @@
     
 }
 
+
+
+
+
+
+/* MIN-WIDTH-(991px) */
 @media only screen and (min-width: 991px) {
     .top-header {
         padding: 15px 0px 25px 0px;
@@ -767,7 +837,12 @@
     }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+
+
+
+/* MIN WIDTH-(992px) | MAX-WIDTH-(1199px) */
+@media (992px <= width <= 1199px) {
     .single-courses-box .courses-content h3 {
         & a {
             font-size: 18px;
@@ -775,6 +850,10 @@
     }
 }
 
+
+
+
+/* | MIN WIDTH-(1200px) | */
 @media only screen and (min-width: 1200px) {
      .about-section {
         .left-content {

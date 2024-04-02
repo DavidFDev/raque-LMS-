@@ -59,14 +59,13 @@ const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }
       {/* HEADER */}
       <nav className="main-nav navbar navbar-expand-lg navbar-white bg-white">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             <img src={Logo} alt="Logo" className="img-fluid" />
-          </a>
+          </Link>
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav mx-lg-auto mt-2 mt-lg-0">
               <li className="nav-item">
                 <Link to="/" className="nav-link d-flex flex-nowrap">Home 
-                  <span><FaAngleDown className="icon"/></span>
                 </Link>
               </li>
 

@@ -106,7 +106,7 @@ const BlogArea = () => {
                 </div>
 
                 {/* RIGHT BUTTON */}
-                <Link to={"courses-category-style-1.html"} className="btn btn-deepred text-white default-btn d-none d-lg-flex gap-2 d-flex flex-nowrap align-items-center">
+                <Link to={"courses-category-style-1.html"} className="btn-deepred default-btn d-none d-lg-inline-block ">
                     <BiBookReader className="start-icon"/>
                     <span className="label">Read All</span>
                     <BiBookReader className="end-icon"/>

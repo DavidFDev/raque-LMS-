@@ -8,13 +8,6 @@ const Header = () => {
 
   return (
     <>
-      <div className="preloader">
-        <div className="loader">
-          <div className="shadow"></div>
-          <div className="box"></div>
-        </div>
-      </div>
-
       <div className='top-header bg-deepred'>
         <div className="container">
           <div className="row align-items-center">
@@ -29,7 +22,7 @@ const Header = () => {
 
                     <span className="d-flex flex-column">
                       <p className="d-none d-md-inline text-white mb-0">Contact support</p>
-                      <a href="tel:+502 464 674"> +502 464 674</a>
+                      <a href="tel:+234 704 459 3001"> +234 704 459 3001</a>
                     </span> 
 
                   </div>
@@ -39,7 +32,7 @@ const Header = () => {
 
                     <span className="d-flex flex-column">
                       <p className="d-none d-md-inline text-white mb-0">Our location</p>
-                      <a href="address: New York, USA" className="text-capitalize"> New York, USA</a>
+                      <a href="address:Lagos State, NIG" className="text-capitalize">Lagos State, NIG</a>
                     </span>
 
                   </div>

@@ -24,7 +24,7 @@ const DiscoverCourses = ({ infos }) => {
               </h1>
             </div>
 
-            <Link to={"courses-category-style-1.html"} className="btn btn-deepred text-white default-btn d-none d-lg-flex gap-2 d-flex flex-nowrap align-items-center">
+            <Link to={"courses-category-style-1.html"} className="btn-deepred default-btn d-none d-lg-inline-block">
               <FaRegEye className="start-icon"/>
               <span class="label">View All</span>
               <FaRegEye className="end-icon"/>
