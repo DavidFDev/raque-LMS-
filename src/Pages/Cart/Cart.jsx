@@ -1,4 +1,4 @@
-import React from 'react'
+import CartForm from '../../Components/CartForm';
 import { Link } from 'react-router-dom';
 
 
@@ -28,6 +28,14 @@ const Cart = () => {
                 </div>
             </div>
         </section>
+
+
+        <div className="cart-area ptb-100">
+            <div className="container">
+                <CartForm/>
+            </div>
+        </div>
+
     </div>
   )
 }

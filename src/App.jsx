@@ -1,61 +1,53 @@
-import './App.css'
-import './Responsive.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Layout from './Components/Layout'
-import Shop from './Pages/Shop'
-import Home from './Pages/Home'
-import PageNotFound from './Pages/404Page'
-import Contact from './Pages/Contact'
-import Cart from './Pages/Cart/Cart'
-import ProductDetails from './Pages/ProductDetails'
-import Login from "./Pages/User/User-Entry/Login"
-import SignUp from "./Pages/User/User-Entry/SignUp"
-import Profile from './Pages/UserProfile/Profile'
-import { LoginContext } from './Context/LoginContext'
-import { useState } from 'react'
-import UserAccount from './Pages/User/User-Entry/UserAccount'
-import { Suspense } from 'react'
-import Loading from './Components/Loading'
-import Pricing from './Pages/Pricing'
+import React, { Suspense } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import "./App.css";
+import Layout from "./Components/Layout";
+import Loading from "./Components/Loading";
+import AuthProvider from "./Context/AuthContext";
+import PageNotFound from "./Pages/404Page";
+import Profile from "./Pages/UserProfile/Profile";
+import "./Responsive.css";
+const Cart = React.lazy(() => import("./Pages/Cart/Cart"));
+const Contact = React.lazy(() => import("./Pages/Contact"));
+const Home = React.lazy(() => import("./Pages/Home"));
+const Pricing = React.lazy(() => import("./Pages/Pricing"));
+const ProductDetails = React.lazy(() => import("./Pages/ProductDetails"));
+const Shop = React.lazy(() => import("./Pages/Shop"));
+const Login = React.lazy(() => import("./Pages/User/User-Entry/Login"));
+const SignUp = React.lazy(() => import("./Pages/User/User-Entry/SignUp"));
+const UserAccount = React.lazy(() => import("./Pages/User/User-Entry/UserAccount"));
 
 const App = () => {
-  // const [userEmail, setUserEmail] = useState();
-  // const [isFuntioning, setIsFunctioning] = useState(false)
-
   return (
-    <div className=''>
-        <Suspense fallback={<Loading/>}>
-          <Router>
+    <div className="">
+        <Router>
+          <Suspense fallback={<Loading />}>
+            <AuthProvider>
               <Routes>
-                
                 {/* ENTRY PAGES */}
 
-                {/* <LoginContext.Provider value={{userEmail, setUserEmail, isFuntioning, setIsFunctioning}}> */}
-                  <Route path='login' element={<Login/>} />
-                  <Route path='register' element={<SignUp/>} />
-                {/* </LoginContext.Provider> */}
-                
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<SignUp />} />
+
                 {/* END OF ENTRY PAGES */}
 
-                <Route path='/' element={<Layout/>}>
-                  <Route path='profile' element={<Profile/>}/>
-                  <Route index element={<Home/>}/>
-                  <Route path='shop' element={<Shop/>}/>
-                  <Route path='product/:id' element={<ProductDetails/>}/>
-                  <Route path='cart' element={<Cart/>}/>
-                  <Route path='pricing' element={<Pricing/>}/>
-                  <Route path='contact' element={<Contact/>}/>
-                  <Route path='*' element={<PageNotFound/>}/>
-                  <Route path='account' element={<UserAccount/>} />
+                <Route path="/" element={<Layout />}>
+                  <Route path="profile" element={<Profile />} />
+                  <Route index element={<Home />} />
+                  <Route path="shop" element={<Shop />} />
+                  <Route path="product/:id" element={<ProductDetails />} />
+                  <Route path="cart" element={<Cart />} />
+                  <Route path="pricing" element={<Pricing />} />
+                  <Route path="contact" element={<Contact />} />
+                  <Route path="*" element={<PageNotFound />} />
+                  <Route path="account" element={<UserAccount />} />
                 </Route>
-
-
               </Routes>
-
-          </Router>
-        </Suspense>
+            </AuthProvider>
+          </Suspense>
+        </Router>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

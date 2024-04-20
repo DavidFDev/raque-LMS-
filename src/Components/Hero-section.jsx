@@ -40,7 +40,7 @@ const HeroSection = () => {
                                         <div className="links">
                                             <Link to={"courses-category-style-1.html"} className="btn btn-deepred text-white default-btn d-flex gap-2 flex-nowrap align-items-center">
                                                 <FaArrowsAltH className="start-icon"/>
-                                                <span class="label">View Courses</span>
+                                                <span className="label">View Courses</span>
                                                 <FaArrowsAltH className="end-icon"/>
                                             </Link>                     
                                             <button className="starter-btn btn text-white">

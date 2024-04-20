@@ -1,12 +1,16 @@
+import { useContext, useState } from "react";
+import { FaChevronDown, FaTimes } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
 import Products from "../Components/Products";
 import ShopHeading from "../Components/shopHeading";
-import { FaChevronDown } from "react-icons/fa";
-import { useState } from "react";
-import { PRODUCTS } from "../products";
-import { IoSearch } from "react-icons/io5";
+import { cartContext } from "../Context/CartContext";
+import { ProductContext } from "../Context/ProductContext";
 
 
 const Shop = () => {
+  const {products} = useContext(ProductContext);
+  const {cart, removeFromCart} = useContext(cartContext);
+  
   const [sortName, setSortName] = useState("Sort by Popularity");
   const [isActive, setIsActive] = useState(false);
   
@@ -31,7 +35,7 @@ const Shop = () => {
             <div className="row align-items-center">
                 <div className="col-lg-4 col-md-4">
                   <div className="topbar-result-count">
-                    <p>Showing 1 – 6 of 54</p>
+                    <p>Showing 1 – 6 of 6</p>
                   </div>
                 </div>
 
@@ -42,7 +46,7 @@ const Shop = () => {
                           <div className="topbar-ordering">
                             <div className="sort-options-box d-flex flex-nowrap align-items-center gap-3" onClick={() => setIsActive(!isActive)}>
                               {sortName}
-                              <FaChevronDown className={isActive ? "rotate180" : "rotate-none"} />
+                              <FaChevronDown className={isActive ? "rotate180" : "rotate360"} style={{transition: "0.5s ease"}}/>
                             </div>
 
                             {isActive && 
@@ -70,23 +74,34 @@ const Shop = () => {
           </div>
 
           <div className="row">
-            {PRODUCTS.map((product) => 
-              <Products product={product} key={product.id}/>
+            {products.map((item) => 
+              <Products product={item} key={item.id}/>
             )}
             
             <div className="col-lg-12 col-md-12 col-sm-12">
               <div className="pagination-area text-center">
                 <span className="page-numbers current" aria-current="page">1</span>
-                <a href="#" className="page-numbers">2</a>
-                <a href="#" className="page-numbers">3</a>
-                <a href="#" className="page-numbers">4</a>
-                <a href="#" className="page-numbers">5</a>
-                <a href="#" className="next page-numbers"><i className='bx bx-chevron-right'></i></a>
+                <a href="" className="page-numbers">2</a>
+                <a href="" className="page-numbers">3</a>
+                <a href="" className="page-numbers">4</a>
+                <a href="" className="page-numbers">5</a>
+                <a href="" className="next page-numbers"><i className='bx bx-chevron-right'></i></a>
               </div>
             </div>
           </div>
+
         </div>
         
+        <div>
+          {cart.map(item => {
+            return (
+              <div key={item.id}>
+                {item.productName}
+                <FaTimes onClick={() => removeFromCart(id)} />
+              </div>
+            )
+          })}
+        </div>
       </section>
     </>
   )

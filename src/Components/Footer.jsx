@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom"
-import Logo from "../assets/Logo/white-logo.png"
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPinterestP, FaTwitter } from "react-icons/fa";
 import { FiPhoneCall } from "react-icons/fi";
 import { LiaMapMarkerAltSolid } from "react-icons/lia";
 import { MdOutlineEmail } from "react-icons/md";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import WhiteLogo from "./WhiteLogo";
+import NewsLetterForm from "./NewsletterForm";
 
 const Footer = () => {
   const textFMT = {
@@ -24,8 +25,8 @@ const Footer = () => {
                 <div className="contact-info main-footer-info special-info">
                   <ul className="list-unstyled">
                     <li>
-                      <LiaMapMarkerAltSolid className="icon fs-1"/>
-                      <a href="#" target="_blank">2750 Quadra Street Victoria Road, New York, USA</a>
+                      <LiaMapMarkerAltSolid className="icon"/>
+                      <a href="#" target="_blank">Herbert Macaulay Road, Opposite WAEC office, Yaba Lagos.</a>
                     </li>
                     <li>
                       <FiPhoneCall  className="icon"/>
@@ -134,11 +135,7 @@ const Footer = () => {
                   <p className="text-white" style={{ lineHeight: "1.8" }}>To get the latest news and latest updates from us.</p>
                 </div>
 
-                <form className="newsletter-form d-flex flex-column gap-2">
-                  <label htmlFor="email" className="text-white">Your e-mail address:</label>
-                  <input className="form-control mb-1 bg-transparent" type="email" name="email" id="email" placeholder="Enter your email" required autoComplete="on"/>
-                  <button type="submit" className="btn w-100 bg-deepred text-white">Subscribe</button>
-                </form>
+                <NewsLetterForm/>
               </div>
 
             </div>
@@ -149,8 +146,7 @@ const Footer = () => {
 
       <div className="main-footer" style={{ background: "#000" }}>
         <div className="container d-flex align-items-center flex-column gap-3">
-
-          <img src={Logo} alt="White Logo" className="img-fluid"/>
+          <WhiteLogo/>
           <p className="text-center mb-0">&copy; {new Date().getFullYear()} <span className="text-white">Raque</span> Designed By <span className="text-white">DigitalDove</span> | All rights reserved.</p>
           
         </div>

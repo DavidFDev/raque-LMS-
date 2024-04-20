@@ -9,7 +9,9 @@ import ItalyFlag from "../assets/Flags/italy-flag.jpg"
 import RussiaFlag from "../assets/Flags/russia-flag.jpg"
 import SpainFlag from "../assets/Flags/spain-flag.jpg"
 import USFlag from "../assets/Flags/us-flag.jpg"
-import { useState } from "react";
+import { useContext, useState } from "react";
+import MainLogo from "./MainLogo";
+import { cartContext } from "../Context/CartContext";
 
 const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }) => {
   const flagStyling = {
@@ -18,6 +20,8 @@ const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }
     borderRadius: "5px",
     width: "35%",
   }
+
+  const {cartItemsAmount} = useContext(cartContext)
   
   const [isActive, setIsActive] = useState(false);
   
@@ -56,11 +60,11 @@ const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }
 
   return (
     <>
-      {/* HEADER */}
+      {/* NAVBAR */}
       <nav className="main-nav navbar navbar-expand-lg navbar-white bg-white">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            <img src={Logo} alt="Logo" className="img-fluid" />
+            <MainLogo/>
           </Link>
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav mx-lg-auto mt-2 mt-lg-0">
@@ -134,7 +138,10 @@ const Navbar = ({ selectedName, setSelectedName, selectedFlag, setSelectedFlag }
               }
             </div>
 
-            <span className="cursor-pointer"><BiCartAlt className="cart-icon icon fs-4"/></span>
+            <Link to={'/cart'} className="cart-wrapper-btn cursor-pointer">
+              <BiCartAlt className="cart-icon icon fs-4"/>
+              <span>{cartItemsAmount}</span>
+            </Link>
 
             <form className="d-flex my-2 my-lg-0">
               <span><IoSearch className="serach-icon icon fs-4"/></span>

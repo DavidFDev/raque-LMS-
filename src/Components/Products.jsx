@@ -3,11 +3,14 @@ import { FaStar } from "react-icons/fa";
 import { BiCartAlt } from "react-icons/bi";
 // Import link...
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { cartContext } from "../Context/CartContext";
 
 
 const Products = ({product}) => {
     // Destructure Product...
     const { id, className, mainProduct, mainProduct2, productName, outdatedPrice, price } = product;
+    const {addToCart} = useContext(cartContext)
 
   return (
     // SINGLE PRODUCT...
@@ -20,8 +23,10 @@ const Products = ({product}) => {
                     <img src={mainProduct2} alt="image" className="img-fluid"/>
                 </Link>
 
+                {/* {console.log(cart)} */}
+
                 {/* BUTTON */}
-                <Link to={"/"} className="add-to-cart-btn d-flex flex-nowrap align-items-center gap-2">
+                <Link to={"/cart"} className="add-to-cart-btn d-flex flex-nowrap align-items-center gap-2" onClick={() => addToCart(product, id, price)}>
                     Add To Cart <BiCartAlt/>
                 </Link>
                 {/* SPECIAL SALE */}
@@ -31,13 +36,13 @@ const Products = ({product}) => {
             <div className="product-content">
                 {/* PRODUCT NAME */}
                 <h3>
-                    <a href="single-product.html">{productName}</a>
+                    <Link to={`/product/${id}`}>{productName}</Link>
                 </h3>
                 
                 {/* PRODUCT PRICE */}
                 <div className={`${className} d-flex flex-nowrap gap-2 justify-content-center align-items-center`}>
                     <span className="old">{outdatedPrice && `$${outdatedPrice}${Number(0)}`}</span>
-                    <span className="new">${price}0</span>
+                    <span className="new">${parseFloat(price).toFixed(2)}</span>
                 </div>
 
                 {/* RATING */}

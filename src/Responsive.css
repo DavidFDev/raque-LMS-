@@ -46,7 +46,7 @@
 
     .top-header .top-header-address{
         & a{
-            font-size: 13px;
+            font-size: 13px!important;
             margin: auto;
         }
 
@@ -265,6 +265,36 @@
             font-size: 26px!important;
         }   
     } 
+
+    /* USER ACCOUNT */
+    .user-account-area .order-form .table tbody td {
+        padding: 10px 15px 9px;
+        font-size: 13px;
+    }
+
+    .user-account-area .order-form .main-table {
+        overflow: auto!important;
+    }
+
+    .userAccount-profile .profile-content h3 {
+        font-size: 19px!important;
+    }
+}
+
+
+
+
+
+/* MIN-WIDTH (576px) */
+@media (min-width: 576px) {
+    /* FOOTER */
+    .footer-info {
+        & li:first-child {
+          & svg {
+            font-size: 35px!important;
+          }
+        }
+    }
 }
 
 
@@ -313,6 +343,7 @@
             padding-bottom: 80px;
         }
     }
+
 }
 
 
@@ -612,6 +643,9 @@
             justify-content: center;
         }
     }
+
+    /* NAVBAR CARTICON */
+    
 
     
 }

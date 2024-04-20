@@ -26,12 +26,12 @@ const DiscoverCourses = ({ infos }) => {
 
             <Link to={"courses-category-style-1.html"} className="btn-deepred default-btn d-none d-lg-inline-block">
               <FaRegEye className="start-icon"/>
-              <span class="label">View All</span>
+              <span className="label">View All</span>
               <FaRegEye className="end-icon"/>
             </Link>
           </div>
 
-          <div class="sorting-menu d-flex flex-wrap gap-1 mt-0 pt-0">
+          <div className="sorting-menu d-flex flex-wrap gap-1 mt-0 pt-0">
             <button className="filter mixitup-control-active" data-filter="all">All (06)</button>
             <button className="filter" data-filter=".business">Business (02)</button>
             <button className="filter" data-filter=".design">Design (05)</button>
