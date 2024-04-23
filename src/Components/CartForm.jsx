@@ -9,7 +9,7 @@ import CartItem from "./CartItem";
 const CartForm = () => {
     const { cart, cartSubTotalPrice, shippingFee } = useContext(cartContext)
     const [coupon, setCoupon] = useState("")
-    const [amount, setAmount] = useState()
+
 
   return (
     <form className="cart-form">
@@ -56,7 +56,7 @@ const CartForm = () => {
 
             <ul>
                 <li>Subtotal <span>&#8358;{parseFloat(cartSubTotalPrice).toFixed(2)}</span></li>
-                <li>Shipping <span>&#8358;{shippingFee}</span></li>
+                <li>Shipping <span>&#8358;{parseFloat(shippingFee).toFixed(2)}</span></li>
                 <li>Total <span>&#8358;{parseFloat(cartSubTotalPrice + shippingFee).toFixed(2)}</span></li>
             </ul>
             

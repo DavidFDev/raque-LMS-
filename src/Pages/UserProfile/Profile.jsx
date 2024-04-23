@@ -1,12 +1,11 @@
-import ProfileArea from "../../Components/ProfileArea"
+import ProfileArea from "../../Components/ProfileArea";
 
 const Profile = () => {
-
   return (
     <>
-        <ProfileArea/>
+      <ProfileArea />
     </>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

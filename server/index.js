@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const StudentModel = require("./models/Student");
 
+
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -31,7 +32,14 @@ app.post("/login", (req, res) => {
   StudentModel.findOne({ email: email }).then((user) => {
     if (user) {
       if (user.password === password) {
-        res.json({ message: "Success", userInfo: { userName: user.name, userEmail: user.email, userPassword: user.password } });
+        res.json({
+          message: "Success",
+          userInfo: {
+            userName: user.name,
+            userEmail: user.email,
+            userPassword: user.password,
+          },
+        });
       } else {
         res.json({ message: "the password is incorrect" });
       }

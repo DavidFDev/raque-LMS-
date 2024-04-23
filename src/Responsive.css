@@ -279,6 +279,10 @@
     .userAccount-profile .profile-content h3 {
         font-size: 19px!important;
     }
+
+    .productDeetails-page .products-details-area .container {
+        padding: 0!important;
+    }
 }
 
 
@@ -601,6 +605,14 @@
     .userAccount-navigation ul li a {
         font-size: 14px;
     }
+
+    .related-single-products {
+        .content {
+            .header {
+                font-size: 20px;
+            }
+        }
+      }
 }
 
 
@@ -887,14 +899,57 @@
 
 
 
+/* | MIN WIDTH-(867px) | */
+@media only screen and (min-width: 768px) {
+    .productDetails-page {
+        .ui.container {
+          display: block;
+          max-width: 100% !important;
+        }
+      
+        .products-details-area {
+          padding: 0px;
+        }
+
+        .ui .ui.items .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+    
+            .ui.image {
+                max-width: 450px;
+            }
+        }
+
+        .ui.items>.item>.image+.content {
+            min-width: 0;
+            width: auto;
+            display: block;
+            margin-left: 0;
+            align-self: top;
+            padding-left: 1.5em;
+        }
+    }
+
+}
+
+
+
+
 /* | MIN WIDTH-(1200px) | */
 @media only screen and (min-width: 1200px) {
-     .about-section {
+    .about-section {
         .left-content {
             .right-img {
                 transform: translateY(-100px);
             }
         }
-     }
+    }
+
+    .ui.container {
+        width: 1127px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 
 }
