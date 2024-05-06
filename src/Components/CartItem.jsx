@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";
 import { cartContext } from "../Context/CartContext";
@@ -6,7 +6,32 @@ import { cartContext } from "../Context/CartContext";
 const CartItem = ({ item }) => {
   const { removeFromCart, increaseQuantity, decreaseQuantity } =
     useContext(cartContext);
-  const { id, mainProduct, productName, price, quantity } = item;
+  const [ cartItems, setCartItems] = useState({});
+  const [itemValue, setItemValue] = useState({})
+  const { id, mainProduct, productName, price, quantity } = item;  
+
+  // useEffect(() => {
+  //   setCartItems(item)
+  //   function getIntoLocalStg() {
+      
+  //     let string = JSON.stringify([{id, mainProduct,productName, price, quantity}])
+
+  //     localStorage.setItem("item", string)
+
+  //   }
+
+  //   getIntoLocalStg();
+
+  //   function manipulateLocalStorage() {
+  //     let getItem = localStorage.getItem("item")
+
+  //     let mainItem = JSON.parse(getItem)
+
+      
+  //   }
+
+  //   manipulateLocalStorage()
+  // }, [])
 
   return (
     <tbody>
