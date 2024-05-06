@@ -7,7 +7,7 @@ const SignupForm = () => {
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    // const [phone, setPhone] = useState("")
+    const [phone, setPhone] = useState("")
     const [password, setPassword] = useState("")
 
     console.log('SIGNUP COMPONENT ')
@@ -16,7 +16,7 @@ const SignupForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        handleSignup ({name, email, password})
+        handleSignup ({name, email, password, phone})
 
     }
 
@@ -40,13 +40,13 @@ const SignupForm = () => {
 
         {/* EMAIL */}
         <div className="form-group">
-            <input type="email" name="email" id="email" placeholder="Your email address" autoComplete="off" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+            <input type="email" name="email" id="email" placeholder="Your email address" autoComplete="on" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} required/>
         </div>
 
         {/* PHONE */}
-        {/* <div className="form-group">
+        <div className="form-group">
             <input type="tel" placeholder="Phone Number" id="phone" name="phone" className="form-control" value={phone} onChange={e => setPhone(e.target.value)} required/>
-        </div> */}
+        </div>
 
         {/* PASSWORD */}
         <div className="form-group">

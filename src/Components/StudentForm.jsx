@@ -23,6 +23,7 @@ const StudentForm = () => {
                         onChange={(e) => setName(e.target.value)} 
                         value={name}
                         required={true}
+                        autoComplete='on'
                     />
                     <span className="label-title">
                         <FaRegUser className='icon'/>
@@ -35,6 +36,7 @@ const StudentForm = () => {
                     <input type="text" className="form-control" placeholder="Your address*" onChange={(e) => setAddress(e.target.value)} 
                         value={address}
                         required={true}
+                        autoComplete='on'
                     />
                     <span className="label-title">
                         <AiOutlineHome className='icon'/>    
@@ -47,6 +49,7 @@ const StudentForm = () => {
                     <input type="email" className="form-control" placeholder="Your email*" onChange={(e) => setEmail(e.target.value)} 
                         value={email}
                         required={true}
+                        autoComplete='on'
                     />
                     <span className="label-title">
                         <MdMailOutline className='icon'/>
@@ -63,7 +66,7 @@ const StudentForm = () => {
                         maxLength="11"
                         pattern=".{10,10}"
                         required
-                        autoComplete='true'
+                        autoComplete='on'
                     />
                     <span className="label-title">
                         <FiPhone className='icon'/>

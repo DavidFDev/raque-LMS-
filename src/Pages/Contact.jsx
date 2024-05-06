@@ -1,17 +1,65 @@
-import ContactForm from "../Components/ContactForm"
-import ContactInfo from "../Components/ContactInfo"
-import ContactPage from "../Components/ContactPage"
-import Map from "../Components/Map"
+import ContactForm from "../Components/ContactForm";
+import ContactInfo from "../Components/ContactInfo";
+import { IoChevronForward } from "react-icons/io5";
+import { Link } from 'react-router-dom';
+import Map from "../Components/Map";
+
+import ParticlesComponent from "../Components/Particles";
+
 
 const Contact = () => {
   return (
-    <>
-      <ContactPage/>
-      <ContactInfo/>
-      <ContactForm/>
-      <Map/>
-    </>
-  )
-}
+    <div id="contact">
+      <div className="all-contact-info">
+        <section className="contact-area">
+          <div className="page-title-area">
+            <div className="container p-lg-0">
+              <div className="d-table">
+                <div className="d-table-cell">
+                  <div className="title-content">
+                    <ul>
+                      <li>
+                        <Link
+                          to={"/contact"}
+                          className="text-decoration-none text-dark"
+                        >
+                          Home
+                        </Link>
+                      </li>
+                      <li>
+                        <span>
 
-export default Contact
+                          <IoChevronForward />
+                        </span>
+                      </li>
+                      <li>
+                        <span>Contact</span>
+                      </li>
+                    </ul>
+                    <h2>Contact Us</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="contact-info">
+          <ContactInfo />
+        </section>
+
+        <section className="contact-form-section">
+          <ContactForm />
+        </section>
+
+        <ParticlesComponent id="particles"/>
+      </div>
+
+      <section className="map">
+        <Map />
+      </section>
+    </div>
+  );
+};
+
+export default Contact;

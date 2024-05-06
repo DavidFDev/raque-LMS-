@@ -1,4 +1,21 @@
 import { FaEdit, FaOpencart } from "react-icons/fa";
+import { IoChevronForward } from "react-icons/io5";
+import { MdDashboard } from "react-icons/md";
+import userImg from "../../../assets/User/userImg.png";
+
+import { FiHome } from "react-icons/fi";
+import { Link } from "react-router-dom";
+
+import AccountDetails from "../../../Components/AccountDetails";
+import AllOrders from "../../../Components/AllOrders";
+import RecentOrders from "../../../Components/RecentOrders";
+
+
+import { useAuthContext } from "../../../Context/AuthContext";
+import BioForm from "../../../Components/BioForm";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.bundle.js";
+
 import {
   FaFacebookF,
   FaInstagram,
@@ -7,23 +24,11 @@ import {
   FaPinterestP,
   FaTwitter,
 } from "react-icons/fa6";
-import { IoChevronForward, IoDownloadOutline } from "react-icons/io5";
-import { MdDashboard, MdOutlineMailOutline } from "react-icons/md";
+import { MdOutlineMailOutline } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
-import userImg from "../../../assets/Team/1.jpg";
-
-import { BiLogOut } from "react-icons/bi";
-import { FiHome } from "react-icons/fi";
-import { Link } from "react-router-dom";
-
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.bundle.js";
-
-import UserForm from "../../../Components/UserForm";
-import { useAuthContext } from "../../../Context/AuthContext";
 
 const UserAccount = () => {
-  const { email, name, handleLogout, isLoggedIn } = useAuthContext();
+  const { isLoggedIn, handleLogout, name, email, phone } = useAuthContext();
 
   return (
     <>
@@ -37,17 +42,13 @@ const UserAccount = () => {
                   <div className="title-content">
                     <ul>
                       <li>
-                        <Link
-                          to={"/contact"}
-                          className="text-decoration-none text-dark"
-                        >
+                        <Link to="/" className="text-decoration-none text-dark">
                           Home
                         </Link>
                       </li>
                       <li>
                         <span>
-                          {" "}
-                          <IoChevronForward />{" "}
+                          <IoChevronForward />
                         </span>
                       </li>
                       <li>
@@ -80,23 +81,23 @@ const UserAccount = () => {
                   <div className="col-lg-8 col-md-7">
                     <div className="profile-content">
                       <h3 className="profile-name text-capitalize">{name}</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Labore atque officiis maxime suscipit expedita
-                        obcaecati nulla in ducimus.
-                      </p>
+
+                      <BioForm/>
+
 
                       <ul className="contact-info">
                         <li>
-                          <MdOutlineMailOutline className="icon" />{" "}
+                          <MdOutlineMailOutline className="icon" />
                           <a href="#">{email}</a>
                         </li>
                         <li>
-                          <FaPhone className="icon" />{" "}
-                          <a href="tel:+234 704 459 3001">+234 704 459 3001</a>
+                          <FaPhone className="icon" />
+                          <a href="tel:+234 704 459 3001">
+                            {isLoggedIn && phone}
+                          </a>
                         </li>
                         <li>
-                          <TbWorld className="icon" />{" "}
+                          <TbWorld className="icon" />
                           <a href="#" target="_blank">
                             www.digitaldove.com
                           </a>
@@ -131,12 +132,9 @@ const UserAccount = () => {
                         </li>
                       </ul>
 
-                      <div
-                        className="userAccount-logout"
-                        onClick={handleLogout}
-                      >
+                      <button type="button" onClick={handleLogout} className="userAccount-logout">
                         Logout
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -176,17 +174,6 @@ const UserAccount = () => {
                       <li className="nav-item" role="representation">
                         <a
                           href="#tab3Id"
-                          className="nav-link"
-                          data-bs-toggle="tab"
-                        >
-                          <IoDownloadOutline />
-                          <span className="">Downloads</span>
-                        </a>
-                      </li>
-
-                      <li className="nav-item" role="representation">
-                        <a
-                          href="#tab4Id"
                           className="nav-link text-capitalize"
                           data-bs-toggle="tab"
                         >
@@ -197,23 +184,12 @@ const UserAccount = () => {
 
                       <li className="nav-item" role="representation">
                         <a
-                          href="#tab5Id"
+                          href="#tab4Id"
                           className="nav-link text-capitalize"
                           data-bs-toggle="tab"
                         >
                           <FaEdit />
                           <span> Account Details</span>
-                        </a>
-                      </li>
-
-                      <li className="nav-item" role="representation">
-                        <a
-                          href="#tab5Id"
-                          className="nav-link text-capitalize"
-                          data-bs-toggle="tab"
-                        >
-                          <BiLogOut />
-                          <span>Logout</span>
                         </a>
                       </li>
                     </ul>
@@ -229,121 +205,33 @@ const UserAccount = () => {
                         <p>
                           Hello <b className="text-capitalize">{name}</b> (not{" "}
                           <b className="text-capitalize">{name}</b>?{" "}
-                          <span
-                            className="text-deepred"
+                          <Link
+                            to="/login"
                             onClick={handleLogout}
+                            className="text-deepred"
                             style={{ cursor: "pointer" }}
                           >
                             Logout
-                          </span>{" "}
+                          </Link>{" "}
                           )
                         </p>
 
                         <p>
                           From your account dashboard you can view your{" "}
                           <span className="text-deepred">recent orders</span>,
-                          manage your{" "}
+                          manage your
                           <span className="text-deepred">
                             shipping and billing addresses
                           </span>
-                          , and{" "}
+                          , and
                           <span className="text-deepred">
                             edit your password and account details
                           </span>
                           .
                         </p>
 
-                        {/* ORDER FORM */}
-                        <div className="order-form">
-                          <h3>Recent Orders</h3>
-                          <div className="main-table">
-                            <table className="table border text-center">
-                              <thead className="">
-                                <tr>
-                                  <th>Order</th>
-                                  <th>Date</th>
-                                  <th>Status</th>
-                                  <th>Total</th>
-                                  <th>Actions</th>
-                                </tr>
-                              </thead>
-
-                              <tbody>
-                                <tr>
-                                  <td>#074145O5</td>
-                                  <td>October 18, 2023</td>
-                                  <td>Completed </td>
-                                  <td>&#8358;49.00 for 1 item </td>
-                                  <td>
-                                    <Link to={""} className="view-button">
-                                      View
-                                    </Link>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td>#074145O6</td>
-                                  <td>October 18, 2023</td>
-                                  <td>On Hold </td>
-                                  <td>&#8358;49.00 for 1 item </td>
-                                  <td>
-                                    <Link to={""} className="view-button">
-                                      View
-                                    </Link>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td>#074145O7</td>
-                                  <td>October 18, 2023</td>
-                                  <td>Completed </td>
-                                  <td>&#8358;49.00 for 1 item </td>
-                                  <td>
-                                    <Link to={""} className="view-button">
-                                      View
-                                    </Link>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td>#074145O5</td>
-                                  <td>October 18, 2023</td>
-                                  <td>Completed </td>
-                                  <td>&#8358;49.00 for 1 item </td>
-                                  <td>
-                                    <Link to={""} className="view-button">
-                                      View
-                                    </Link>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td>#074145O6</td>
-                                  <td>October 18, 2023</td>
-                                  <td>On Hold</td>
-                                  <td>&#8358;49.00 for 1 item </td>
-                                  <td>
-                                    <Link to={""} className="view-button">
-                                      View
-                                    </Link>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td>#074145O7</td>
-                                  <td>October 18, 2023</td>
-                                  <td>Completed </td>
-                                  <td>&#8358;49.00 for 1 item </td>
-                                  <td>
-                                    <Link to={""} className="view-button">
-                                      View
-                                    </Link>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
+                        {/* RECENT ORDER FORM */}
+                        <RecentOrders />
                       </div>
 
                       {/* PANEL TWO */}
@@ -353,104 +241,14 @@ const UserAccount = () => {
                         role="tabpanel"
                       >
                         <div className="order-form overflow-auto">
-                          <table className="table border text-center">
-                            <thead className="">
-                              <tr>
-                                <th>Order</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Total</th>
-                                <th>Actions</th>
-                              </tr>
-                            </thead>
-
-                            <tbody>
-                              <tr>
-                                <td>#074145O5</td>
-                                <td>October 18, 2023</td>
-                                <td>Completed </td>
-                                <td>&#8358;49.00 for 1 item </td>
-                                <td>
-                                  <Link to={""} className="view-button">
-                                    View
-                                  </Link>
-                                </td>
-                              </tr>
-
-                              <tr>
-                                <td>#074145O6</td>
-                                <td>October 18, 2023</td>
-                                <td>On Hold </td>
-                                <td>&#8358;49.00 for 1 item </td>
-                                <td>
-                                  <Link to={""} className="view-button">
-                                    View
-                                  </Link>
-                                </td>
-                              </tr>
-
-                              <tr>
-                                <td>#074145O7</td>
-                                <td>October 18, 2023</td>
-                                <td>Completed </td>
-                                <td>&#8358;49.00 for 1 item </td>
-                                <td>
-                                  <Link to={""} className="view-button">
-                                    View
-                                  </Link>
-                                </td>
-                              </tr>
-
-                              <tr>
-                                <td>#074145O5</td>
-                                <td>October 18, 2023</td>
-                                <td>Completed </td>
-                                <td>&#8358;49.00 for 1 item </td>
-                                <td>
-                                  <Link to={""} className="view-button">
-                                    View
-                                  </Link>
-                                </td>
-                              </tr>
-
-                              <tr>
-                                <td>#074145O6</td>
-                                <td>October 18, 2023</td>
-                                <td>On Hold</td>
-                                <td>&#8358;49.00 for 1 item </td>
-                                <td>
-                                  <Link to={""} className="view-button">
-                                    View
-                                  </Link>
-                                </td>
-                              </tr>
-
-                              <tr>
-                                <td>#074145O7</td>
-                                <td>October 18, 2023</td>
-                                <td>Completed </td>
-                                <td>&#8358;49.00 for 1 item </td>
-                                <td>
-                                  <Link to={""} className="view-button">
-                                    View
-                                  </Link>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
+                          <AllOrders />
                         </div>
                       </div>
-
-                      {/* <div className="tab-pane fade" id="tab3Id" role="tabpanel">
-                                            <table className="table table-striped">
-
-                                            </table>
-                                        </div> */}
 
                       {/* ADDRESS */}
                       <div
                         className="tab-pane fade"
-                        id="tab4Id"
+                        id="tab3Id"
                         role="tabpanel"
                       >
                         <div className="address">
@@ -514,13 +312,13 @@ const UserAccount = () => {
                       {/* ACCOUNT DETAILS AND EDIT */}
                       <div
                         className="tab-pane fade"
-                        id="tab5Id"
+                        id="tab4Id"
                         role="tabpanel"
                       >
                         <div className="user-details">
                           {/* User Review Form */}
                           <div className="userAccount-content">
-                            <UserForm />
+                            <AccountDetails />
                           </div>
                         </div>
                       </div>
