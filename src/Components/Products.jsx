@@ -33,13 +33,13 @@ const Products = ({ product }) => {
           {/* {console.log(cart)} */}
 
           {/* BUTTON */}
-          <Link
-            to={"/cart"}
+          <button
             className="add-to-cart-btn d-flex flex-nowrap align-items-center gap-2"
             onClick={() => addToCart(product, id, price)}
           >
             Add To Cart <BiCartAlt />
-          </Link>
+          </button>
+          
           {/* SPECIAL SALE */}
           {productName === "Book Chicks" && (
             <div className="sale-btn">Sale!</div>
