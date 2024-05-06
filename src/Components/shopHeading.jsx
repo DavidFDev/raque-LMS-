@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { IoChevronForward } from 'react-icons/io5'
+
 
 const ShopHeading = () => {
   return (
@@ -11,7 +13,7 @@ const ShopHeading = () => {
                             <Link to={"/"} className="text-decoration-none text-dark">Home</Link>
                         </li>
                         <li>
-                            <span> &times; </span>
+                            <span> <IoChevronForward/> </span>
                         </li>
                         <li>
                             <span className='page-name'>Shop</span>
