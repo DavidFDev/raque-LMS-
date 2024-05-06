@@ -10,8 +10,12 @@ const ProductProvider = ({ children }) => {
 
   // FETCH PRODUCTS - (API) USE useEffect()//REACT HOOK || IMPORT A CREATED DATA INTO THIS FILES AND USE IT AS THE PRODUCT CONTEXT VALUE
   useEffect(() => {
-    setProducts(PRODUCTS);
-  }, [PRODUCTS]);
+    try {
+      setProducts(PRODUCTS);
+    } catch (error) {
+      console.log(error)
+    }
+  }, [PRODUCTS, setProducts]);
 
   return (
     <ProductContext.Provider value={{ products }}>

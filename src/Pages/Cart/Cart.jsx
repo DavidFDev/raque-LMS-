@@ -1,3 +1,4 @@
+import { IoChevronForward } from "react-icons/io5";
 import CartForm from "../../Components/CartForm";
 import { Link } from "react-router-dom";
 
@@ -16,7 +17,7 @@ const Cart = () => {
                     </Link>
                   </li>
                   <li>
-                    <span> &times; </span>
+                    <span> <IoChevronForward/> </span>
                   </li>
                   <li>
                     <span className="page-name">Cart</span>

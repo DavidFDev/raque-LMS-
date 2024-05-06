@@ -6,24 +6,30 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [cartItemsQuantity, setCartItemsQuantity] = useState(0);
   const [cartSubTotalPrice, setCartTotalPrice] = useState(0);
-  const [shippingFee, setShippingFee] = useState(30);
+  const [networkFee, setNetworkFee] = useState(3);
 
   useEffect(() => {
-    if (cart) {
-      const quantity = cart.reduce((accumulator, currentItem) => {
-        return accumulator + currentItem.quantity;
-      }, 0);
+    const rawStoredCart = localStorage.getItem("cartItems");
+    let storedCart = [];
 
-      setCartItemsQuantity(quantity);
-    }
+    if (rawStoredCart) {
+      storedCart = JSON.parse(rawStoredCart);
+      setCart(storedCart);
+    } else return localStorage.setItem("cartItems", []);
+
+    const quantity = storedCart.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.quantity;
+    }, 0);
+
+    setCartItemsQuantity(quantity);
 
     // TOTAL PRICE
-    const cartTotalPrice = cart.reduce((accumulator, currentItem) => {
+    const cartTotalPrice = storedCart.reduce((accumulator, currentItem) => {
       return accumulator + currentItem.price * currentItem.quantity;
     }, 0);
 
-    setCartTotalPrice(cartTotalPrice);
-  }, [cart]);
+    return setCartTotalPrice(cartTotalPrice);
+  }, [setCart]);
 
   // ADD TO CART
   const addToCart = (product, id) => {
@@ -34,19 +40,20 @@ const CartProvider = ({ children }) => {
     });
 
     /* If cart item is already in the cart */
-    if (cartItem) {
-      const newCart = [...cart].map((item) => {
+    let newCart = [];
+    if (cartItem)
+      newCart = [...cart].map((item) => {
         if (item.id === id) {
           return { ...item, quantity: cartItem.quantity + 1 };
         } else {
           return item;
         }
       });
+    else newCart = [...cart, newItem];
 
-      setCart(newCart);
-    } else {
-      setCart([...cart, newItem]);
-    }
+    setCart(newCart);
+
+    localStorage.setItem("cartItems", JSON.stringify(newCart));
   };
 
   // INCREASE ITEM QUANTITY
@@ -84,6 +91,7 @@ const CartProvider = ({ children }) => {
       return item.id !== id;
     });
     setCart(newCart);
+    localStorage.setItem("cartItems", JSON.stringify(newCart));
   };
 
   return (
@@ -91,10 +99,10 @@ const CartProvider = ({ children }) => {
       value={{
         cart,
         addToCart,
+        networkFee,
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
-        shippingFee,
         cartItemsQuantity,
         cartSubTotalPrice,
       }}
