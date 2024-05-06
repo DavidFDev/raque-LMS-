@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { FaCheckCircle, FaTimes } from "react-icons/fa";
 import { Fa0 } from "react-icons/fa6";
+import { IoChevronForward } from "react-icons/io5";
 
 const Pricing = () => {
   return (
@@ -17,7 +18,7 @@ const Pricing = () => {
                                         <Link to={"/"} className="text-decoration-none text-dark">Home</Link>
                                     </li>
                                     <li>
-                                        <span> &times; </span>
+                                        <span> <IoChevronForward/> </span>
                                     </li>
                                     <li>
                                         <span className='page-name'>Pricing</span>
