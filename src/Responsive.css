@@ -1,955 +1,1291 @@
 @media only screen and (max-width: 576px) {
-    /* ABOUT SECTION */
-    .about-section {
-
-        .content {
-            .left-content {
-
-                .right-img {
-                    margin: 25px 0 25px 0;
-                }
-            }
+  /* ABOUT SECTION */
+  .about-section {
+    .content {
+      .left-content {
+        .right-img {
+          margin: 25px 0 25px 0;
         }
+      }
+    }
+  }
+
+  /* HEADER */
+  .top-header .top-header-address {
+    & a {
+      font-size: 9px !important;
+      margin: auto;
     }
 
-    /* HEADER */
-    .top-header .top-header-address{
-        & a{
-            font-size: 9px!important;
-            margin: auto;
-        }
-
-        .icon {
-            color: #fff;
-            font-weight: 700;
-            font-size: 17px;
-        }
+    .icon {
+      color: #fff;
+      font-weight: 700;
+      font-size: 17px;
     }
+  }
 }
-
-
-
-
-
 
 /* | MAX-WIDTH-(767px) | */
 @media only screen and (max-width: 767px) {
-    body {
-        font-size: 14px;
+  body {
+    font-size: 14px;
+  }
+
+  .section-title {
+    & h2 {
+      font-size: 27px;
     }
+  }
 
-    .section-title {
-        & h2 {
-            font-size: 27px;
-        }
-    }
+  .user-account-area {
+    .profile-content {
+      padding: 4px !important;
 
-    .top-header .top-header-address{
-        & a{
-            font-size: 13px!important;
-            margin: auto;
-        }
-
-        .icon {
-            color: #fff;
-            font-weight: 700;
-            font-size: 17px;
-        }
-    }
-
-    /* MISSON AREA */
-    .mission-area {
-        .mission-area-content {
-            padding: 25px!important;
-            max-width: 100%;
-
-            .owl-nav {
-                transform: translateY(-20px)!important;
-            }
-
-            .owl-prev {
-                transform: translateX(-20px)!important;
-            }
-
-            .owl-next {
-                transform: translateX(20px)!important;
-            }
-        }
-    }
-
-    /* REFERENCE */
-    .partner-area {
-        .section-title h1 {
-            font-size: 27px!important;
-        }
-    }
-
-
-
-    /* HERO SECTION */
-    .hero-section {
-        .owl-one {
-            height: 528px;
-        }
-        .main-banner {
-            height: 100%!important;
-            display: flex;
-            justify-content: center;
-            padding: 150px 0px 125px;
-
-            .main-banner-content {
-                & h1 {
-                    font-size: 30px!important;
-                    color: #fff;
-                    margin-bottom: 17px;
-    
-                }  
-    
-                
-                .links {
-                    .starter-btn {
-                        font-size: 13px;
-                    }
-                }
-            }
-        }
-        
-
-        /* OWL CAROUSEL */
-        .owl-nav {
-            transform: translateY(-300px)!important;
-
-            & button {
-                left: 20px;
-                top: 50%;
-                color: #252525;
-                font-size: 35px;
-                border: none;
-                background: rgba(255, 255, 255, .7)!important;
-                border-radius: 0;
-                width: 35px!important;
-                height: 35px!important;
-                transition: .2s;
-
-                &:hover {
-                    background-color: #ff1949!important;
-                }
-            }
-        }
-
-        .owl-dots {
-            transform: translateY(-150px)!important;
-        }
-    }
-
-    /* ABOUT SECTION */
-    .about-section {
-        .content {
-            .top h1 {
-                font-size: 26px!important;
-                
-            }
-        }
-    }
-
-    /* FUNFACT */
-    .funfacts-inner {
-        border-radius: 10px;
-        padding: 25px 20px 0;
-
-        .col-lg-3:nth-child(2) {
-            border-right:  none!important;
-            color: #fff;
-        }
-    }
-
-    /* COURSE CATEGORY */
-    .category-section, .discover-section, .discover-section {
-        .section-title, .discover-info {
-            & .title {
-                font-size: 27px!important;
-            }
-        }
-    }
-
-    .category-section .container .owl-carousel.owl-two {
-        position: relative;
-    }
-
-    .category-section .container .owl-nav {
-        position: absolute!important;
-        top: 100%!important;
+      & textarea {
         width: 100%;
-        display: flex!important;
-        align-items: center;
-        justify-content: center!important;
-        gap: 15px;
+      }
 
-        & button {
-            border: 2px dashed #252525!important;
-
-            &:hover {
-                border: none!important;
-            }
-        }
-    }
-
-    /* STUDENT FORM */
-    .students-feedback-form-content {
-        text-align: center;
-        margin-bottom: 35px;
-
-        & h2 {
-            font-size: 30px;
-        }
-
-        & h3 {
-            padding: 20px 15px;
-            font-size: 17px;
-        }
-
-        & form {
-            color: #252525;
-            padding: 30px;
-        }
-    }
-
-    /* COUNTDOWN AREA */
-    .countdown-content {
-        margin-bottom: 40px;
-        text-align: center;
-    }
-
-    .countdown-content h2 {
-        font-size: 26px;
-        margin-bottom: 15px;
-        line-height: 1.4;
-    }
-
-    .countdown-timer #timer div .chevron-icon {
-        content: "";
-        position: absolute;
-        right: -25px;
-        top: 30%;
-        bottom: 30%;
+      .icon-container {
+        background-color: var(--main-color);
+        border-radius: 50px;
+        display: grid;
+        place-content: center;
         color: #fff;
-        font-size: 17px;
-        font-weight: 400
+        cursor: pointer;
+        transition: 0.5s ease-in-out;
+        width: 33px;
+        height: 33px;
+        border: none;
+
+        &.addWidth {
+          height: 40px;
+        }
+      }
     }
 
-    .countdown-content .sign-up-btn {
+    & .userAccount-navigation {
+      & .userAccount-content {
+        .edit-account {
+          background-color: #fff;
+          box-shadow: 0 8px 16px 0 rgba(146, 184, 255, 0.2);
+          padding: 10px !important;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+
+  .checkout-area {
+    .form-group {
+      margin-bottom: 25px;
+
+      .form-control {
+        background: #f3f3f3;
+        border-color: #f3f3f3;
+      }
+
+      & label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
         font-size: 14px;
+
+        .required {
+          color: red;
+        }
+      }
     }
 
-    .countdown-timer #timer div {
-        font-size: 33px;
-        margin-left: 10px;
-        margin-right: 20px;
+    .billing-details {
+      .col-lg-12:last-child .form-group {
+        margin-bottom: 0;
+
+        & textarea.form-control {
+          height: auto !important;
+          padding-top: 12px;
+        }
+      }
     }
 
-    .countdown-timer #timer div span {
-        font-size: 14px;
-        margin-top: -5px;
+    .order-details {
+      margin-top: 30px !important;
+
+      .title {
+        font-size: 18px;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          background: #ff1949;
+          bottom: -1px;
+          left: 0;
+          width: 50px;
+          height: 1px;
+        }
+      }
+
+      .order-table table {
+        margin-bottom: 0;
+
+        & thead tr th {
+          padding: 12px 20px 10px;
+          white-space: nowrap;
+        }
+
+        & tbody tr td {
+          white-space: nowrap;
+          vertical-align: middle;
+          color: #727695;
+          border-color: #eaedff;
+          font-size: 14.5px;
+          padding: 15px 20px 13px;
+        }
+      }
     }
 
-    .countdown-timer #timer div::before {
-        display: none;
+    .billing-details .title {
+      font-size: 18px;
+    }
+  }
+
+  .top-header .top-header-address {
+    & a {
+      font-size: 13px !important;
+      margin: auto;
     }
 
-    /* LOGIN AND REGISTER PAGE */
-    .login-content, .register-content {
-        height: 100%;
-        padding: 60px 15px;
-        
-        .login-form h3, .register-form h3 {
-            font-size: 26px!important;
-        }   
-    } 
+    .icon {
+      color: #fff;
+      font-weight: 700;
+      font-size: 17px;
+    }
+  }
 
-    /* USER ACCOUNT */
-    .user-account-area .order-form .table tbody td {
-        padding: 10px 15px 9px;
-        font-size: 13px;
+  /* PAGE TITLE AREA */
+  .page-title-area h2 {
+    font-size: 30px !important;
+  }
+
+  /* CONTACT FORM */
+  .contact-form {
+    background-color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(146, 184, 255, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* MISSON AREA */
+  .mission-area {
+    .mission-area-content {
+      padding: 25px !important;
+      max-width: 100%;
+
+      .owl-nav {
+        transform: translateY(-20px) !important;
+      }
+
+      .owl-prev {
+        transform: translateX(-20px) !important;
+      }
+
+      .owl-next {
+        transform: translateX(20px) !important;
+      }
+    }
+  }
+
+  /* REFERENCE */
+  .partner-area {
+    .section-title h1 {
+      font-size: 27px !important;
+    }
+  }
+
+  /* HERO SECTION */
+  .hero-section {
+    .owl-one {
+      height: 528px;
+    }
+    .main-banner {
+      height: 100% !important;
+      display: flex;
+      justify-content: center;
+      padding: 150px 0px 125px;
+
+      .main-banner-content {
+        & h1 {
+          font-size: 30px !important;
+          color: #fff;
+          margin-bottom: 17px;
+        }
+
+        .links {
+          .starter-btn {
+            font-size: 13px;
+          }
+        }
+      }
     }
 
-    .user-account-area .order-form .main-table {
-        overflow: auto!important;
+    /* OWL CAROUSEL */
+    .owl-nav {
+      transform: translateY(-300px) !important;
+
+      & button {
+        left: 20px;
+        top: 50%;
+        color: #252525;
+        font-size: 35px;
+        border: none;
+        background: rgba(255, 255, 255, 0.7) !important;
+        border-radius: 0;
+        width: 35px !important;
+        height: 35px !important;
+        transition: 0.2s;
+
+        &:hover {
+          background-color: #ff1949 !important;
+        }
+      }
     }
 
-    .userAccount-profile .profile-content h3 {
-        font-size: 19px!important;
+    .owl-dots {
+      transform: translateY(-150px) !important;
+    }
+  }
+
+  /* ABOUT SECTION */
+  .about-section {
+    .content {
+      .top h1 {
+        font-size: 26px !important;
+      }
+    }
+  }
+
+  /* FUNFACT */
+  .funfacts-inner {
+    border-radius: 10px;
+    padding: 25px 20px 0;
+
+    .col-lg-3:nth-child(2) {
+      border-right: none !important;
+      color: #fff;
+    }
+  }
+
+  /* COURSE CATEGORY */
+  .category-section,
+  .discover-section,
+  .discover-section {
+    .section-title,
+    .discover-info {
+      & .title {
+        font-size: 27px !important;
+      }
+    }
+  }
+
+  .category-section .container .owl-carousel.owl-two {
+    position: relative;
+  }
+
+  .category-section .container .owl-nav {
+    position: absolute !important;
+    top: 100% !important;
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center !important;
+    gap: 15px;
+
+    & button {
+      border: 2px dashed #252525 !important;
+
+      &:hover {
+        border: none !important;
+      }
+    }
+  }
+
+  /* STUDENT FORM */
+  .students-feedback-form-content {
+    text-align: center;
+    margin-bottom: 35px;
+
+    & h2 {
+      font-size: 30px;
     }
 
-    .productDeetails-page .products-details-area .container {
-        padding: 0!important;
+    & h3 {
+      padding: 20px 15px;
+      font-size: 17px;
     }
+
+    & form {
+      color: #252525;
+      padding: 30px;
+    }
+  }
+
+  /* COUNTDOWN AREA */
+  .countdown-content {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .countdown-content h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+
+  .countdown-timer #timer div .chevron-icon {
+    content: "";
+    position: absolute;
+    right: -25px;
+    top: 30%;
+    bottom: 30%;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 400;
+  }
+
+  .countdown-content .sign-up-btn {
+    font-size: 14px;
+  }
+
+  .countdown-timer #timer div {
+    font-size: 33px;
+    margin-left: 10px;
+    margin-right: 20px;
+  }
+
+  .countdown-timer #timer div span {
+    font-size: 14px;
+    margin-top: -5px;
+  }
+
+  .countdown-timer #timer div::before {
+    display: none;
+  }
+
+  /* LOGIN AND REGISTER PAGE */
+  .login-content,
+  .register-content,
+  .forgotpassword-content {
+    height: 100%;
+    padding: 60px 15px;
+
+    & h3 {
+      font-size: 26px !important;
+    }
+  }
+
+  /* USER ACCOUNT */
+  .user-account-area .order-form .table tbody td {
+    padding: 10px 15px 9px;
+    font-size: 13px;
+  }
+
+  .user-account-area .order-form .main-table {
+    overflow: auto !important;
+  }
+
+  .userAccount-profile .profile-content h3 {
+    font-size: 19px !important;
+  }
+
+  .productDeetails-page .products-details-area .container {
+    padding: 0 !important;
+  }
+
+  /* CONTACT INFO */
+  .contact-info-box {
+    & h3 {
+      font-size: 18px;
+    }
+
+    & p {
+      & a {
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  /* PRODUCT DETAILS  */
+  .productDetails-page {
+    .product-details-desc {
+      & h3 {
+        font-size: 19px !important;
+      }
+
+      .product-add-to-cart {
+        .input-counter {
+          max-width: 120px !important;
+          min-width: 120px !important;
+          margin-right: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: nowrap;
+          background-color: #f8f8f8;
+          padding: 0 10px 0 10px;
+          height: 50px;
+
+          & p {
+            font-size: 18px !important;
+          }
+
+          & svg {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+
+    .nav-tabs {
+      gap: 2px !important;
+      .nav-item {
+        width: 100% !important;
+      }
+
+      .tab-content {
+        border: 1px dashed #eee;
+        padding: 20px;
+        border-top: none !important;
+        .tab-pane {
+          background-color: transparent !important;
+        }
+      }
+
+      & li a {
+        border-radius: 0 !important;
+        display: block !important;
+        position: relative;
+        color: #252525;
+        border: 1px dashed #eee;
+        padding: 13px 30px 13px 48px;
+        font-weight: 500;
+        font-size: 15px;
+        transition: 0.3s ease;
+
+        .dot {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 30px;
+          width: 12px;
+          height: 12px;
+          border: 1px solid #252525;
+          transition: 0.5s;
+          border-radius: 50%;
+
+          &::before {
+            position: absolute;
+            top: 0;
+            content: "";
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #252525;
+            margin: 2px;
+            border-radius: 50%;
+            transition: 0.5s;
+          }
+        }
+
+        & span {
+          transition: 0.1s ease !important;
+        }
+
+        &:hover {
+          background-color: var(--main-color) !important;
+          color: #fff;
+          border: 1px dashed transparent;
+
+          .dot {
+            border: 1px solid #fff;
+            &::before {
+              background-color: #fff;
+            }
+          }
+        }
+      }
+
+      .active {
+        background-color: var(--main-color) !important;
+        color: #fff;
+        border: 1px dashed transparent;
+
+        .dot {
+          border: 1px solid #fff;
+          &::before {
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .default-btn {
+    padding: 12px 20px 11px 50px;
+    font-size: 13px;
+
+    & svg {
+      top: 13px !important;
+      font-size: 22px !important;
+    }
+  }
 }
-
-
-
-
 
 /* MIN-WIDTH (576px) */
 @media (min-width: 576px) {
-    /* FOOTER */
-    .footer-info {
-        & li:first-child {
-          & svg {
-            font-size: 35px!important;
-          }
-        }
+  /* FOOTER */
+  .footer-info {
+    & li:first-child {
+      & svg {
+        font-size: 35px !important;
+      }
     }
+  }
 }
-
-
-
-
 
 /* MIN WIDTH-(768px) */
 @media (min-width: 768px) {
-    .course-category {
-        .category-info {
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-            justify-content: space-between!important;
-            margin: -5px 0px 60px;
-        }
+  .course-category {
+    .category-info {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between !important;
+      margin: -5px 0px 60px;
     }
+  }
 
-    .category-section .container .owl-carousel.owl-two {
-        .owl-nav {
-            top: 45%;
-            position: relative;
-            width: 100%;
-            display: flex;
+  .user-account-area {
+    .profile-content {
+      & form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
 
-            & button {
-                box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-                position: absolute;
-
-                &:first-child {
-                    left: -30px;
-                }
-
-                &:last-child {
-                    right: -30px;
-                }
-            }
+        & textarea {
+          width: 100% !important;
         }
-    }
 
-    /* LOGIN & REGISTER PAGE */
-    .login area, .register-area {
-        .login-content, .register-content {
-            height: 100%;
-            padding-top: 80px;
-            padding-bottom: 80px;
+        .form-group {
+          flex: 0 0 85%;
         }
-    }
 
+        .icon-container {
+          background-color: var(--main-color);
+          border-radius: 50px;
+          display: grid;
+          place-content: center;
+          color: #fff;
+          cursor: pointer;
+          transition: 0.5s ease-in-out;
+          width: 33px;
+          height: 33px;
+          border: none;
+
+          &.addWidth {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+
+  .category-section .container .owl-carousel.owl-two {
+    .owl-nav {
+      top: 45%;
+      position: relative;
+      width: 100%;
+      display: flex;
+
+      & button {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        position: absolute;
+
+        &:first-child {
+          left: -30px;
+        }
+
+        &:last-child {
+          right: -30px;
+        }
+      }
+    }
+  }
+
+  /* LOGIN & REGISTER PAGE */
+  .login area,
+  .register-area,
+  .forgotpassword-area {
+    .login-content,
+    .register-content,
+    .forgotpassword-content {
+      height: 100%;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
 }
-
-
-
-
-
 
 /* MIN-WIDTH-(576px) */
 @media only screen and (min-width: 567px) {
-    /* ABOUT SECTION */
-    .about-section {
-        .left-content {
-            position: relative;
-    
-            .right-img {
-                position: absolute;
-                bottom: -89px;
-                right: -30px;
-            }
-        }
+  /* ABOUT SECTION */
+  .about-section {
+    .left-content {
+      position: relative;
+
+      .right-img {
+        position: absolute;
+        bottom: -89px;
+        right: -30px;
+      }
     }
+  }
 }
-
-
-
-
-
-
 
 /* MIN WIDTH-(576px) | MAX-WIDTH-(767px) */
 @media (576px <= width <= 767px) {
-    .about-section {
-        .content {
-
-            .left-content {
-                & img {
-                    width: auto;
-                }
-            }
+  .about-section {
+    .content {
+      .left-content {
+        & img {
+          width: auto;
         }
+      }
     }
+  }
 }
-
-
-
-
-
-
 
 /* MIN WIDTH-(576px) | MAX-WIDTH-(991px) */
 @media (576px <= width <= 991px) {
-    .about-section {
-        .content {
-
-            .left-content {
-                margin-bottom: 120px;
-            }
-        }
+  .about-section {
+    .content {
+      .left-content {
+        margin-bottom: 120px;
+      }
     }
+  }
 }
-
-
-
-
-
 
 /* MIN WIDTH-(768PX) | MAX-WIDTH-(991PX) */
-@media  (768px <= width <= 991px) {
-    /* HERO SECTION */
-    .hero-section {
-        .owl-one {
-            height: 750px;
-            .owl-nav {
-                margin: 0!important;
-            }
+@media (768px <= width <= 991px) {
+  /* HERO SECTION */
+  .hero-section {
+    .owl-one {
+      height: 750px;
+      .owl-nav {
+        margin: 0 !important;
+      }
 
-            .owl-dots {
-                flex-wrap: nowrap!important;
-                position: absolute;
-                bottom: -90px;
-                left: 0;
-                right: 0;
-                transform: translateY(-100px);
-            }
+      .owl-dots {
+        flex-wrap: nowrap !important;
+        position: absolute;
+        bottom: -90px;
+        left: 0;
+        right: 0;
+        transform: translateY(-100px);
+      }
+    }
+
+    .main-banner {
+      height: 100%;
+      padding-top: 210px !important;
+      padding-bottom: 165px !important;
+      justify-content: start !important;
+
+      .main-banner-content {
+        align-items: start !important;
+        text-align: start !important;
+        padding: 0;
+
+        & h1 {
+          font-size: 50px !important;
+          margin-bottom: 15px;
         }
 
-        .main-banner {
+        .sub-title {
+          text-align: start;
+          position: relative;
+          font-weight: 700 !important;
+          display: flex;
+          font-size: 14px;
+          gap: 10px;
+
+          &::before {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 0;
+            width: 3px;
             height: 100%;
-            padding-top: 210px!important;
-            padding-bottom: 165px!important;
-            justify-content: start!important;
-
-            .main-banner-content {
-                align-items: start!important;
-                text-align: start!important;
-                padding: 0;
-
-
-                & h1 {
-                    font-size: 50px!important;
-                    margin-bottom: 15px;
-                }
-
-                .sub-title {
-                    text-align: start;
-                    position: relative;
-                    font-weight: 700!important;
-                    display: flex;
-                    font-size: 14px;
-                    gap: 10px;
-
-                    &::before {
-                        position: absolute;
-                        content: "";
-                        left: 0;
-                        top: 0;
-                        width: 3px;
-                        height: 100%;
-                        background: var(--main-color);
-                        margin-right: 20px!important;
-                    }
-                }
-            }
-        }
-    }
-
-    /* REFERENCE F */
-    .ptb-100 {
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-
-    /* PRICING AREA */
-    .pricing-area {
-        .pricing-table table thead tr th {
-            white-space: nowrap;
-        }
-    }
-
-    /* ABOUT SECTION */
-    .about-section {
-        .content {
-            padding-left: 0;
-            text-align: center;
-            max-width: 575px;
-            margin-left: auto;
-            margin-right: auto;
-
-
-            .top {
-                .sub-title {
-                    color: #ff1949;
-                    font-weight: 500;
-                }
-
-                & h1 {
-                    font-weight: 700;
-                    line-height: 1.4;
-                    font-size: 38px;
-                }
-
-                & h6 {
-                    font-weight: 500;
-                    color: #252525;
-                    line-height: 1.4;
-                }
-            }
-
-        }
-    }
-
-    /* COURSE CATEGORY */
-    .course-category {
-        .category-info {
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-            margin: -5px 0px 60px;
-    
-            .section-title {
-                .sub-title {
-                    text-transform: uppercase;
-                    display: block;
-                    font-weight: 500;
-                    margin-bottom: 10px;
-                }
-        
-                & h1 {
-                    font-size: 37px;
-                    font-weight: 700;
-                }
-            }
-        }
-
-        .owl-two {
-            .single-categories-course-box {
-                padding: 20px 15px;
-
-                & h3 {
-                    font-size: 13px!important;
-                }
-            }
-        }
-    }
-
-    /* FUNFACT */
-    .single-funfact p {
-        font-size: 15px!important;
-    }
-
-    /* STUDENT FORM AREA */
-    .students-feedback-form-content h2 {
-        font-size: 37px;
-        max-width: 580px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* SHOP PRODUCT */
-    .single-product-box .product-content h3 {
-        font-size: 18px!important;
-    }
-
-    /* LOGIN & REGISTER PAGE*/
-    .login-area, .register-area {
-        height: 100vh!important;
-        .login-image {
-            background-image: none!important;
-        }
-
-        .register-image {
-            background-image: none!important;
-        }
-    
-        .login-content, .register-content {
-            height: 100%;
-            padding-top: 80px;
-            padding-bottom: 80px;
-        }
-    }
-
-    /* PROFILE AREA */
-    .ui.container {
-        width: 723px;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    /* PRICING AREA */
-    .user-account-area .order-form .table tbody td {
-        font-size: 14px;
-    }
-        
-    /* USER ACCOUNT */
-    .userAccount-navigation ul li a {
-        font-size: 14px;
-    }
-
-    .related-single-products {
-        .content {
-            .header {
-                font-size: 20px;
-            }
+            background: var(--main-color);
+            margin-right: 20px !important;
+          }
         }
       }
+    }
+  }
+
+  /* SECTION TITLE */
+  .section-title.text-left {
+    text-align: center !important;
+    margin-bottom: 50px;
+  }
+
+  /* BIO EDIT */
+  .user-account-area {
+    .profile-content {
+      .icon-container {
+        background-color: var(--main-color);
+        border-radius: 50px;
+        display: grid;
+        place-content: center;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.5s ease-in-out;
+        width: 33px;
+        height: 33px;
+        padding: 10px;
+
+        &.addWidth {
+          height: 30px;
+
+          /* padding: 10px; */
+        }
+      }
+    }
+  }
+
+  /* REFERENCE F */
+  .ptb-100 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  /* PRICING AREA */
+  .pricing-area {
+    .pricing-table table thead tr th {
+      white-space: nowrap;
+    }
+  }
+
+  /* ABOUT SECTION */
+  .about-section {
+    .content {
+      padding-left: 0;
+      text-align: center;
+      max-width: 575px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .top {
+        .sub-title {
+          color: #ff1949;
+          font-weight: 500;
+        }
+
+        & h1 {
+          font-weight: 700;
+          line-height: 1.4;
+          font-size: 38px;
+        }
+
+        & h6 {
+          font-weight: 500;
+          color: #252525;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+
+  /* COURSE CATEGORY */
+  .course-category {
+    .category-info {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin: -5px 0px 60px;
+
+      .section-title {
+        .sub-title {
+          text-transform: uppercase;
+          display: block;
+          font-weight: 500;
+          margin-bottom: 10px;
+        }
+
+        & h1 {
+          font-size: 37px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .owl-two {
+      .single-categories-course-box {
+        padding: 20px 15px;
+
+        & h3 {
+          font-size: 13px !important;
+        }
+      }
+    }
+  }
+
+  /* FUNFACT */
+  .single-funfact p {
+    font-size: 15px !important;
+  }
+
+  /* STUDENT FORM AREA */
+  .students-feedback-form-content h2 {
+    font-size: 37px;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* SHOP PRODUCT */
+  .single-product-box .product-content h3 {
+    font-size: 18px !important;
+  }
+
+  /* LOGIN & REGISTER PAGE*/
+  .login-area,
+  .register-area,
+  .forgotpassword-area {
+    height: 100vh !important;
+    .login-image,
+    .register-image,
+    .forgotpassword-image {
+      background-image: none !important;
+    }
+
+    .login-content,
+    .register-content,
+    .forgotpassword-content {
+      height: 100%;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  /* PROFILE AREA */
+  .ui.container {
+    width: 723px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* PRICING AREA */
+  .user-account-area .order-form .table tbody td {
+    font-size: 14px;
+  }
+
+  /* USER ACCOUNT */
+  .userAccount-navigation ul li a {
+    font-size: 14px;
+  }
+
+  .related-single-products {
+    .content {
+      .header {
+        font-size: 20px;
+      }
+    }
+  }
 }
-
-
-
-
-
 
 /* MAX-WIDTH-(991PX) */
 @media only screen and (max-width: 991px) {
-    .navbar {
-        box-shadow: 0 2px 28px 0 rgba(0,0,0,.06);
-    }
+  .navbar {
+    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+  }
 
-    .course-category {
-        .category-info {
-            justify-content: center!important;
-            margin: auto!important;
-    
-            .section-title {
-                .sub-title {
-                    text-transform: uppercase;
-                    display: block;
-                    font-weight: 500;
-                    margin-bottom: 10px;
-                }
-        
-                & h1 {
-                    font-size: 37px;
-                    max-width: 100%;
-                    font-weight: 700;
-                }
-            }
+  .user-account-area {
+    .profile-content {
+      & textarea {
+        width: 100%;
+      }
+    }
+  }
+
+  .course-category {
+    .category-info {
+      justify-content: center !important;
+      margin: auto !important;
+
+      .section-title {
+        .sub-title {
+          text-transform: uppercase;
+          display: block;
+          font-weight: 500;
+          margin-bottom: 10px;
         }
-    }
 
-    .discover-section {
-        .sorting-menu {
-            align-items: center;
-            text-align: center;
-            justify-content: center;
+        & h1 {
+          font-size: 37px;
+          max-width: 100%;
+          font-weight: 700;
         }
+      }
     }
+  }
 
-    /* NAVBAR CARTICON */
-    
+  .discover-section {
+    .sorting-menu {
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
+  }
 
-    
+  /* NAVBAR CARTICON */
 }
-
-
-
-
-
 
 /* MIN-WIDTH-(991px) */
 @media only screen and (min-width: 991px) {
-    .top-header {
-        padding: 15px 0px 25px 0px;
-        
-        .container {
-            & address {
-                & p {
-                    font-size: 14px;
-                }
+  .top-header {
+    padding: 15px 0px 25px 0px;
 
-                & a {
-                    font-size: 15px!important;
-                }
+    .container {
+      & address {
+        & p {
+          font-size: 14px;
+        }
 
+        & a {
+          font-size: 15px !important;
+        }
+      }
+    }
+  }
+
+  /* BIO EDIT */
+  .user-account-area {
+    .profile-content {
+      & textarea {
+        width: 80%;
+      }
+
+      .icon-container {
+        background-color: var(--main-color);
+        border-radius: 50px;
+        display: grid;
+        place-content: center;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.5s ease-in-out;
+        width: 33px;
+        height: 33px;
+        padding: 10px;
+        border: none;
+
+        &.addWidth {
+          width: 65px !important;
+          height: 40px;
+        }
+      }
+    }
+  }
+
+  /* NAVBAR */
+  .main-nav {
+    &.show-hidden {
+      background-color: #fff;
+      position: sticky !important;
+      position: -webkit-sticky;
+      top: 0!important;
+      padding: 0!important;
+      z-index: 999;
+      box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+      z-index: 1;
+      transition: 0.7s ease!important;
+
+      .container {
+        z-index: 999;
+        transition: 0.7s ease!important;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  .navbar {
+    &.not-showing-on-scroll {
+      .container {
+        transition: 0.5s linear;
+        box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+        z-index: 999;
+        background-color: #fff;
+        transform: translateY(-20px);
+        border-radius: 3px;
+        /* padding: 0px 20px; */
+      }
+    }
+  }
+
+  /* PAGE TITLE AREA */
+  .page-title-area {
+    position: relative;
+    transform: translateY(-101px);
+  }
+
+  /* HERO SECTION */
+  .hero-section {
+    transform: translateY(-101px);
+    height: 833px;
+
+    .owl-one {
+      height: 650px;
+      .item {
+        margin: auto;
+
+        .main-banner {
+          height: 830px;
+          max-width: 750px;
+          display: flex;
+          justify-content: center;
+          padding: 250px 0px 125px;
+        }
+
+        .main-banner-content {
+          display: flex !important;
+          flex-direction: column;
+          /* padding: 0 25px 0 25px; */
+          align-items: start;
+          text-align: start;
+          gap: 15px;
+
+          .sub-title {
+            text-align: start;
+            position: relative;
+            font-weight: 700 !important;
+            display: flex;
+            font-size: 14px;
+            gap: 10px;
+
+            &::before {
+              position: absolute;
+              content: "";
+              left: 0;
+              top: 0;
+              width: 3px;
+              height: 100%;
+              background: var(--main-color);
+              margin-right: 20px !important;
             }
-        }
-    }
+          }
 
-    /* NAVBAR */
-    .navbar {
-        .container {
-            box-shadow: 0 2px 28px 0 rgba(0,0,0,.06);
-            z-index: 999;
-            background-color: #fff;
-            transform: translateY(-20px);
-            border-radius: 3px;
-            padding: 0px 20px;
-        }
-    }
+          & p {
+            line-height: 1.8;
+            font-size: 16px;
+            text-align: start;
+          }
 
-    /* PAGE TITLE AREA */
-    .page-title-area {
+          .default-btn {
+            display: inline-block;
+            padding: 13px 25px 12px 55px;
+            position: relative;
+            background-color: #ff1949;
+            color: #fff;
+            border: 2px solid #ff1949;
+            border-radius: 1px;
+            font-size: 14.5px;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .owl-nav {
+        justify-content: space-between;
+        transform: translateY(-490px);
+        transition: 0.5s linear;
+
+        & button {
+          left: 20px;
+          top: 50%;
+          color: #252525;
+          font-size: 35px;
+          border: none;
+          background: rgba(255, 255, 255, 0.7) !important;
+          border-radius: 0;
+          width: 55px;
+          height: 55px;
+          transition: 0.2s;
+
+          &:hover {
+            background-color: #ff1949 !important;
+          }
+        }
+      }
+
+      .owl-dots {
+        flex-wrap: nowrap !important;
+        position: absolute;
+        bottom: -250px;
+        left: 0;
+        right: 0;
+        transform: translateY(-100px);
+      }
+    }
+  }
+
+  /* ABOUT SECTION */
+  .about-section {
+    padding: 0px 30px 0px 30px;
+
+    .content {
+      .left-content {
+        padding-bottom: 50px;
         position: relative;
-        transform: translateY(-101px);
+        padding-right: 100px;
+
+        .right-img {
+          right: 30px;
+        }
+      }
+    }
+  }
+
+  /* COURSE CATEGORY */
+  .category-section,
+  .discover-section {
+    .category-info {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between !important;
+      align-items: center;
+      margin-bottom: 60px;
+      width: 100% !important;
     }
 
-    /* HERO SECTION */
-    .hero-section {
-        transform: translateY(-101px);
-        height: 833px;
+    .discover-info {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between !important;
+      align-items: center;
+      margin-bottom: 15px;
+      width: 100% !important;
+    }
+  }
 
-        .owl-one {
-            height: 650px;
-            .item {
-                margin: auto;
+  /* ERROR PAGE */
+  .error-page {
+    height: 550px;
+    padding: 150px 0 100px 0 !important;
+    transform: translateY(-164px);
+  }
 
-                .main-banner {
-                    height: 830px;
-                    max-width: 750px;
-                    display: flex;
-                    justify-content: center;
-                    padding: 250px 0px 125px;
+  /* LOGIN PAGE */
+  .login-area,
+  .register-area,
+  .forgotpassword-area {
+    .login-image {
+      height: 100%;
+      background-image: url("../src/assets/Login-Form/login-bg.jpg");
+      width: 100%;
+      background-repeat: no-repeat;
 
-                }
-
-                .main-banner-content {
-                    display: flex!important;
-                    flex-direction: column;
-                    /* padding: 0 25px 0 25px; */
-                    align-items: start;
-                    text-align: start;
-                    gap: 15px;
-
-                    .sub-title {
-                        text-align: start;
-                        position: relative;
-                        font-weight: 700!important;
-                        display: flex;
-                        font-size: 14px;
-                        gap: 10px;
-    
-                        &::before {
-                            position: absolute;
-                            content: "";
-                            left: 0;
-                            top: 0;
-                            width: 3px;
-                            height: 100%;
-                            background: var(--main-color);
-                            margin-right: 20px!important;
-                        }
-                    }
-
-                    & p {
-                        line-height: 1.8;
-                        font-size: 16px;
-                        text-align: start;
-                    }
-
-
-                    .default-btn {
-                        display: inline-block;
-                        padding: 13px 25px 12px 55px;
-                        position: relative;
-                        background-color: #ff1949;
-                        color: #fff;
-                        border: 2px solid #ff1949;
-                        border-radius: 1px;
-                        font-size: 14.5px;
-                        font-weight: 700;
-                    }
-                }
-            }
-
-            .owl-nav {
-                justify-content: space-between;
-                transform: translateY(-490px);
-                transition: .5s linear;
-    
-                & button {
-                    left: 20px;
-                    top: 50%;
-                    color: #252525;
-                    font-size: 35px;
-                    border: none;
-                    background: rgba(255, 255, 255, .7)!important;
-                    border-radius: 0;
-                    width: 55px;
-                    height: 55px;
-                    transition: .2s;
-    
-                    &:hover {
-                        background-color: #ff1949!important;
-                    }
-                }
-            }
-            
-            .owl-dots {
-                flex-wrap: nowrap!important;
-                position: absolute;
-                bottom: -250px;
-                left: 0;
-                right: 0;
-                transform: translateY(-100px);
-            }
-        }
+      & img {
+        display: none;
+      }
     }
 
-    /* ABOUT SECTION */
-    .about-section {
-        padding: 0px 30px 0px 30px;
+    .register-image,
+    .forgotpassword-image {
+      height: 100%;
+      background-image: url("../src/assets/Signup/register-bg.jpg");
+      width: 100%;
+      background-repeat: no-repeat;
 
-        .content {
-            .left-content {
-                padding-bottom: 50px;
-                position: relative;
-                padding-right: 100px;
-
-                .right-img {
-                    right: 30px;
-                }
-            }
-        }
+      & img {
+        display: none;
+      }
     }
 
-    /* COURSE CATEGORY */
-    .category-section, .discover-section {
-        .category-info {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-between!important;
-            align-items: center;
-            margin-bottom: 60px;
-            width: 100%!important;
-        }
-
-        .discover-info {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-between!important;
-            align-items: center;
-            margin-bottom: 15px;
-            width: 100%!important;
-        }
+    .login-content,
+    .register-content,
+    .forgotpassword-content {
+      height: 100%;
+      padding-top: 80px;
+      padding-bottom: 80px;
     }
-
-    /* ERROR PAGE */
-    .error-page {
-        height: 550px;
-        padding: 150px 0 100px 0!important;
-        transform: translateY(-164px);
-    }
-
-    /* LOGIN PAGE */
-    .login-area, .register-area {
-        .login-image {
-            height: 100%;
-            background-image: url("../src/assets/Login-Form/login-bg.jpg");
-            width: 100%;
-            background-repeat: no-repeat;
-
-            & img {
-                display: none;
-            }
-        }
-
-        .register-image {
-            height: 100%;
-            background-image: url("../src/assets/Signup/register-bg.jpg");
-            width: 100%;
-            background-repeat: no-repeat;
-
-            & img {
-                display: none;
-            }
-        }
-    
-        .login-content, .register-content {
-            height: 100%;
-            padding-top: 80px;
-            padding-bottom: 80px;
-        }
-    }
+  }
 }
-
-
-
-
 
 /* MIN WIDTH-(992px) | MAX-WIDTH-(1199px) */
 @media (992px <= width <= 1199px) {
-    .single-courses-box .courses-content h3 {
-        & a {
-            font-size: 18px;
-        }
+  .single-courses-box .courses-content h3 {
+    & a {
+      font-size: 18px;
     }
+  }
 }
-
-
-
 
 /* | MIN WIDTH-(867px) | */
 @media only screen and (min-width: 768px) {
-    .productDetails-page {
-        .ui.container {
-          display: block;
-          max-width: 100% !important;
-        }
-      
-        .products-details-area {
-          padding: 0px;
-        }
-
-        .ui .ui.items .item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-    
-            .ui.image {
-                max-width: 450px;
-            }
-        }
-
-        .ui.items>.item>.image+.content {
-            min-width: 0;
-            width: auto;
-            display: block;
-            margin-left: 0;
-            align-self: top;
-            padding-left: 1.5em;
-        }
+  .productDetails-page {
+    .ui.container {
+      display: block;
+      max-width: 100% !important;
     }
 
+    .products-details-area {
+      padding: 0px;
+    }
+
+    .ui .ui.items .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .ui.image {
+        max-width: 450px;
+      }
+    }
+
+    .ui.items > .item > .image + .content {
+      min-width: 0;
+      width: auto;
+      display: block;
+      margin-left: 0;
+      align-self: top;
+      padding-left: 1.5em;
+    }
+  }
 }
-
-
-
 
 /* | MIN WIDTH-(1200px) | */
 @media only screen and (min-width: 1200px) {
-    .about-section {
-        .left-content {
-            .right-img {
-                transform: translateY(-100px);
-            }
-        }
+  .about-section {
+    .left-content {
+      .right-img {
+        transform: translateY(-100px);
+      }
     }
+  }
 
-    .ui.container {
-        width: 1127px;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
+  .ui.container {
+    width: 1127px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
