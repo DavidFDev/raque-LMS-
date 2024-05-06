@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom"
-import { FaChevronDown } from "react-icons/fa";
+import { useEffect, useState } from "react";
 import { IoLogInOutline } from "react-icons/io5";
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const CountdownArea = () => {
     const [time, setTime] = useState(new Date());
@@ -21,12 +20,12 @@ const CountdownArea = () => {
         const minutes = time.getMinutes();
         const seconds = time.getSeconds();
         let day = 284;
-        localStorage.setItem("day", JSON.stringify(day));
+        window.localStorage.setItem("day", JSON.stringify(day));
 
         // hours = hours % 12 || 12;
 
         return `
-            <div id="days">${hours >= 24 ? padZero(localStorage.getItem("day") - 1) : padZero(localStorage.getItem("day"))} <span>Days</span> <FaChevronDown className="chevron-icon"/>
+            <div id="days">${hours >= 24 ? padZero(JSON.parse(window.localStorage.getItem("day")) - 1) : padZero(localStorage.getItem("day"))} <span>Days</span> <FaChevronDown className="chevron-icon"/>
             </div>
 
             <div id="hours">${padZero(hours)}<span>Hours</span> <FaChevronDown className="chevron-icon"/>

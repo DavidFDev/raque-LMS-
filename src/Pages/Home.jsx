@@ -23,66 +23,6 @@ import user5 from '../assets/DiscoverCourses/user5.jpg'
 import user6 from '../assets/DiscoverCourses/user6.jpg'
 
 const Home = () => {
-  const options = {
-    loop: true,
-    items: 1,
-    nav:true,
-    dots: true,
-    autoplay:true,
-    smartSpeed: 1000,
-    autoplayTimeout: 5000,
-    autoplayHoverPause: true,
-    animateOut: 'fadeOut',
-    responsive: {
-      0: {
-          items: 1
-      },
-      600: {
-          items: 1
-      },
-      1000: {
-          items: 1
-      }
-    },
-
-  };
-
-  const owlCarouselTwo = {
-    loop:true,
-    margin: 20,
-    dots: true,
-    nav:true,
-    center: true,
-    items:1,
-    responsive:{
-      320:{
-      items: 1
-      },
-      576:{
-      items : 1
-      },
-      600:{
-      items:1
-      },
-      // breakpoint from 768 up
-      758:{
-      items:2
-      },
-      768 : {
-      items: 2
-      },
-      920:{
-      items:2
-      },
-      992:{
-      items:3
-      },
-    },
-    smartSpeed: 1000,
-    autoplay:true,
-    autoplayTimeout: 5000,
-    autoplayHoverPause: true,
-  }
 
   const infos = [
     {
@@ -161,9 +101,9 @@ const Home = () => {
 
   return (
     <>
-      <HeroSection options={options} />
+      <HeroSection />
       <AboutSection/>
-      <Category owlCarouselTwo={owlCarouselTwo} />
+      <Category />
       <FunFact/>
       <DiscoverCourses infos={infos}/>
       <MissionArea/>

@@ -3,6 +3,10 @@ import { BiBookReader, BiUserPin } from "react-icons/bi";
 import { FaDeviantart } from "react-icons/fa";
 import { useEffect, useState } from 'react';
 import Odometer from 'react-odometerjs';
+import { useContext } from "react";
+import { ProductContext } from "../Context/ProductContext";
+import { PRODUCTS } from "../products";
+import ParticlesComponent from "../Components/Particles";
 
 const FunFact = () => {
     const [value, setValue] = useState(1234);
@@ -19,6 +23,7 @@ const FunFact = () => {
         <div className="container">
             <div className="funfacts-inner bg-deepred">
                 <div className="row align-items-center">
+                    <ParticlesComponent id="particles" />
                     <div className="col-6 col-xm-6 col-md-3 col-lg-3 mb-3 mb-lg-0">
                         <div className="single-funfact">
                             <div className="icon">
@@ -26,7 +31,7 @@ const FunFact = () => {
                             </div>
 
                             <div className="odometer odometer-auto-theme" data-count="50">
-                                <h1>50</h1>
+                                <h1>3</h1>
                             </div>
 
                             <div className="purpose">
@@ -41,7 +46,7 @@ const FunFact = () => {
                             </div>
 
                             <div className="odometer odometer-auto-theme" data-count="1754">
-                                <h1>1754</h1>
+                                <h1>{PRODUCTS.length}</h1>
                             </div>
 
                             <div className="purpose">
@@ -56,7 +61,7 @@ const FunFact = () => {
                             </div>
 
                             <div className="odometer odometer-auto-theme" data-count="8190">
-                                <h1>8190</h1>
+                                <h1>2</h1>
                             </div>
 
                             <div className="purpose">
@@ -72,7 +77,7 @@ const FunFact = () => {
                             </div>
 
                             <div className="odometer odometer-auto-theme" data-count="654">
-                                <h1>654</h1>
+                                <h1>40</h1>
                             </div>
 
                             <div className="purpose">

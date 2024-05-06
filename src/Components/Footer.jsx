@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <>
       <div className="footer" style={{ background: "#12141b" }}>
-        <div className="container">
+        <div className="container p-lg-0">
           <div className="footer-wrapper">
             <div className="row">
 
@@ -34,7 +34,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <MdOutlineEmail className="icon"/>
-                      <a href="mailto:idornigiedavid1@gmail.com">idornigiedavid1@gmail.com</a>
+                      <a href="mailto:idornigiedavid1@gmail.com">raquereinforce@gmail.com</a>
                     </li>
                   </ul>
 

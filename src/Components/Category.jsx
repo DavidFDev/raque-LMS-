@@ -1,7 +1,6 @@
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import $ from 'jquery';
 import { FaRegEye, FaCode } from "react-icons/fa";
 import { IoLayersOutline, IoCameraOutline } from "react-icons/io5";
 import { LiaFlagCheckeredSolid } from "react-icons/lia";
@@ -9,7 +8,7 @@ import { BiHealth } from "react-icons/bi";
 import { LuLineChart } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
-const Category = ({ options }) => {
+const Category = () => {
 
   return (
     <div className="category-section ptb-100">
