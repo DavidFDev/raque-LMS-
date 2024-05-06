@@ -3,14 +3,14 @@ import { useAuthContext } from "../Context/AuthContext"
 
 
 const NewsletterForm = () => {
-    const {email} = useAuthContext();
+    const {isLoggedIn, email} = useAuthContext();
 
     const [userEmail, setUserEmail] = useState(email);
     
   return (
     <form className="newsletter-form d-flex flex-column gap-2">
-        <label htmlFor="email" className="text-white">Your e-mail address:</label>
-        <input className="form-control mb-1 bg-transparent" type="email" name="email" id="email" placeholder="Enter your email" required autoComplete="on" value={userEmail} onChange={e => setUserEmail(e.target.value)} />
+        <label htmlFor="useremail" className="text-white">Your e-mail address:</label>
+        <input className="form-control mb-1 bg-transparent" type="email" name="email" id="useremail" placeholder="Enter your email" autoComplete="on" value={userEmail} onChange={e => setUserEmail(e.target.value)} required/>
         <button type="submit" className="btn w-100 bg-deepred text-white">Subscribe</button>
     </form>
   )
