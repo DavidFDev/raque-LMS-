@@ -3,7 +3,7 @@ import member1 from '../assets/Team/1.jpg'
 import member2 from '../assets/Team/2.jpg'
 import member3 from '../assets/Team/3.jpg'
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
-import ParticlesComponent from "../Components/Particles";
+import ParticlesComponent from "./Particles";
 
 
 const TeamArea = () => {
@@ -29,8 +29,7 @@ const TeamArea = () => {
     ]
 
   return (
-    <div className="team-area ptb-100">
-        <ParticlesComponent id="particles"/>
+    <section className="team-area ptb-100">
 
         <div className="container">
             <div className="section-title d-flex flex-column align-items-center text-center">
@@ -94,7 +93,10 @@ const TeamArea = () => {
                 </div>
             </div>
         </div>
-    </div>
+
+        <ParticlesComponent id="particles"/>
+
+    </section>
   )
 }
 

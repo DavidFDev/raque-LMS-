@@ -6,7 +6,7 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const MissionArea = () => {
   return (
-    <div className="mission-area">
+    <section className="mission-area">
         <div className="container">
             <div className="mission-area-content">
                 <div className="section-title text-left">
@@ -43,7 +43,7 @@ const MissionArea = () => {
                 </OwlCarousel>
             </div>
         </div>
-    </div>
+    </section>
   )
 }
 

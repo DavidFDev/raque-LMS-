@@ -20,7 +20,7 @@ export const PRODUCTS = [
     rating: 5,
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     productName: "Novel Bunch",
-    price: 455.56,
+    price: "Free",
   },
 
   {
@@ -32,7 +32,7 @@ export const PRODUCTS = [
     productName: "Book Chicks",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     outdatedPrice: 652.5,
-    price: 541.78,
+    price: "Free",
   },
 
   {
@@ -43,7 +43,7 @@ export const PRODUCTS = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     productName: "Book Divas",
     rating: 5,
-    price: 140.72,
+    price: "Free",
   },
 
   {
@@ -55,7 +55,7 @@ export const PRODUCTS = [
     productName: "Book Smart",
     rating: 4,
     outdatedPrice: 600.0,
-    price: 547.13,
+    price: "Free",
   },
 
   {
@@ -66,7 +66,7 @@ export const PRODUCTS = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     productName: "Book Broads",
     rating: 5,
-    price: 655.43,
+    price: "Free",
   },
 
   {
@@ -77,6 +77,6 @@ export const PRODUCTS = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     productName: "Page Tuners",
     rating: 4,
-    price: 415.54,
+    price: "Free",
   },
 ];

@@ -4,7 +4,7 @@ import aboutImg1 from '../assets/About-img/about-1.jpeg'
 import aboutImg2 from '../assets/About-img/about-2.jpeg'
 const AboutSection = () => {
   return (
-    <div className='about-section'>
+    <section className='about-section'>
         <div className="container">
             <div className="content">
                 <div className="row">
@@ -49,7 +49,7 @@ const AboutSection = () => {
 
             </div>
         </div>
-    </div>
+    </section>
   )
 }
 

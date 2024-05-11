@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const HeroSection = () => {
 
   return (
-    <div className='hero-section'>
+    <section className='hero-section'>
         {/* SECTION 1 [SHOWCASE] */}
 
         {/* OWL CAROUSEL */}
@@ -132,7 +132,7 @@ const HeroSection = () => {
             </div>
 
         </OwlCarousel>
-    </div>
+    </section>
   )
 }
 

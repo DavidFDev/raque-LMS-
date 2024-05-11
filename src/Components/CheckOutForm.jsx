@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { TbDeviceLandlinePhone } from "react-icons/tb";
 import { TbHandClick } from "react-icons/tb";
 import { cartContext } from "../Context/CartContext";
+import { useAuthContext } from "../Context/AuthContext";
 
 
 const CheckOutForm = () => {
+  const { handleCheckout, isLoggedIn } = useAuthContext()
   const [firstname, setFirstname] = useState("");
   const [lastname, setLirstname] = useState("");
   const [email, setEmail] = useState("");
@@ -13,25 +15,63 @@ const CheckOutForm = () => {
   const [address, setAddress] = useState("");
   const [town, setTown] = useState("");
   const [state, setState] = useState("");
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [borrowDate, setBorrowDate] = useState('');
+  const [returnDate, setReturnDate] = useState('');
 
   const { cartSubTotalPrice, networkFee } = useContext(cartContext);
 
   const [cartItems, setCartItems] = useState([]);
 
-  console.log(cartItems);
-
+  /* GETTING ITEMS FROM LOCAL STORAGE AND RETRIVING THE STRING */
   useEffect(() => {
-    // Retrieving the string
     let retString = localStorage.getItem("cartItems");
  
     let cartBox = JSON.parse(retString);
 
-    return setCartItems(cartBox);
+    setCartItems(cartBox);
   }, [setCartItems]);
 
 
+  
+  /* CALCULTED BORROW AND RETURN DATE */ 
+  useEffect(() => {
+
+    const handleCalculateDates = () => {
+      const oneDay = 24 * 60 * 60 * 1000; // One day in milliseconds
+      const borrowDate = new Date(currentDate);
+      const returnDate = new Date(currentDate.getTime() + oneDay);
+  
+      setBorrowDate(borrowDate.toLocaleDateString());
+      setReturnDate(returnDate.toLocaleDateString());
+    };
+
+    handleCalculateDates();
+
+  }, [])
+  
+
+  /* CREATED AN EMPTY ARRAY AND PUSHED ITEMS(OBJECT) INTO THE EMPTY ARRAY */
+  let cartItem = []
+  cartItems.map((item) => {
+    cartItem.push({
+      "itemId": item.id,
+      "productName": item.productName,
+      "borrowDate": borrowDate,
+      "returnDate": returnDate
+    })
+  })
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    handleCheckout([ cartItem ])
+  };
+
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="col-lg-6 col-md-12">
           <div className="billing-details">
@@ -264,7 +304,7 @@ const CheckOutForm = () => {
                         </td>
                         <td className="product-total">
                           <span className="subtotal-amount">
-                          &#8358;{parseFloat(price * quantity).toFixed(2)}
+                            {price}
                           </span>
                         </td>
                       </tr>
@@ -278,7 +318,7 @@ const CheckOutForm = () => {
 
                     <td className="order-subtotal-price">
                       <span className="order-subtotal-amount">
-                      &#8358;{parseFloat(cartSubTotalPrice).toFixed(2)}
+                        {cartItems.length}
                       </span>
                     </td>
                   </tr>
@@ -289,7 +329,7 @@ const CheckOutForm = () => {
                     </td>
 
                     <td className="shipping-price">
-                      <span>&#8358;{parseFloat(networkFee).toFixed(2)}</span>
+                      <span>&#8358;{parseFloat(networkFee * cartItems.length).toFixed(2)}</span>
                     </td>
                   </tr>
 
@@ -300,7 +340,7 @@ const CheckOutForm = () => {
 
                     <td className="product-subtotal">
                       <span className="subtotal-amount">
-                        &#8358;{parseFloat(cartSubTotalPrice + networkFee).toFixed(2)}
+                        &#8358;{parseFloat(networkFee * cartItems.length).toFixed(2)}
                       </span>
                     </td>
                   </tr>

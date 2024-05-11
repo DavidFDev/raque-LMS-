@@ -112,7 +112,7 @@ const BlogArea = () => {
   ];
 
   return (
-    <div className="blog-area ptb-100">
+    <section className="blog-area ptb-100">
       <div className="container">
         <div className="blog-content d-flex align-items-center justify-content-lg-between justify-content-center">
 
@@ -237,7 +237,7 @@ const BlogArea = () => {
           ))}
         </OwlCarousel>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,75 +1,51 @@
+import { useEffect, useState } from "react";
+import { useAuthContext } from "../Context/AuthContext";
+import { Tooltip } from 'react-tooltip'
+
+
 const RecentOrders = () => {
+  const { recentOrders } = useAuthContext();
+  const [slicedOrders, setSlicedOrders] = useState([]);
+
+
+  useEffect(() => {
+    const slicedArray = recentOrders.slice(0, 6);
+    setSlicedOrders(slicedArray);
+  }, [recentOrders]);
+
   return (
     <div className="order-form">
       <h3>Recent Orders</h3>
       <div className="main-table">
-        <table className="table border text-center">
+        <table className="table border text-center" data-tooltip-id="edit-bio" data-tooltip-content="Scroll in x-axis to view all">
           <thead>
             <tr>
               <th>Order</th>
-              <th>Date</th>
+              <th>Borrow Date</th>
               <th>Status</th>
-              <th>Total</th>
+              <th>Return Date</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr>
-              <td>#074145O5</td>
-              <td>October 18, 2023</td>
-              <td>Completed </td>
-              <td>
-                <span>&#8358;</span>49.00 for 1 item
-              </td>
-            </tr>
-
-            <tr>
-              <td>#074145O6</td>
-              <td>October 18, 2023</td>
-              <td>On Hold </td>
-              <td>
-                <span>&#8358;</span>49.00 for 1 item
-              </td>
-            </tr>
-
-            <tr>
-              <td>#074145O7</td>
-              <td>October 18, 2023</td>
-              <td>Completed </td>
-              <td>
-                <span>&#8358;</span>49.00 for 1 item
-              </td>
-            </tr>
-
-            <tr>
-              <td>#074145O5</td>
-              <td>October 18, 2023</td>
-              <td>Completed </td>
-              <td>
-                <span>&#8358;</span>49.00 for 1 item
-              </td>
-            </tr>
-
-            <tr>
-              <td>#074145O6</td>
-              <td>October 18, 2023</td>
-              <td>On Hold</td>
-              <td>
-                <span>&#8358;</span>49.00 for 1 item
-              </td>
-            </tr>
-
-            <tr>
-              <td>#074145O7</td>
-              <td>October 18, 2023</td>
-              <td>Completed </td>
-              <td>
-                <span>&#8358;</span>49.00 for 1 item
-              </td>
-            </tr>
+            {slicedOrders.map((item, i) => {
+              const { itemId, borrowDate, returnDate } = item;
+              return (
+                <tr key={i}>
+                  <td style={{ textOverflow: "ellipsis", overflow: "hidden" }}>
+                    {itemId}
+                  </td>
+                  <td>{borrowDate}</td>
+                  <td>Completed </td>
+                  <td>{returnDate}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
+
+      <Tooltip id="edit-bio" />
     </div>
   );
 };

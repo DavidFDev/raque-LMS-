@@ -47,7 +47,7 @@ const CartItem = ({ item }) => {
         </td>
 
         <td className="product-price">
-          <span className="unit-amount">&#8358;{price}</span>
+          <span className="unit-amount">{price}</span>
         </td>
 
         <td className="product-quantity">
@@ -72,7 +72,7 @@ const CartItem = ({ item }) => {
 
         <td className="product-subtotal">
           <span className="subtotal-amount">
-            &#8358;{parseFloat(price * quantity).toFixed(2)}
+            {price}
           </span>
 
           <span

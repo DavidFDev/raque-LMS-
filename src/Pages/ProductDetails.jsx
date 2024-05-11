@@ -119,8 +119,7 @@ const ProductDetails = () => {
               <h3>{productName}</h3>
 
               <span className="new-price">
-                <TbCurrencyNaira className="naija-currency" />
-                {parseFloat(price * itemQuantity).toFixed(2)}
+                {price}
               </span>
 
               <div className="product-review">

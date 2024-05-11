@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const Category = () => {
 
   return (
-    <div className="category-section ptb-100">
+    <section className="category-section ptb-100">
         <div className="container">
             <div className="category-info">
                 <div className="section-title text-center text-lg-start">
@@ -123,7 +123,7 @@ const Category = () => {
                 </div>
             </OwlCarousel>
         </div>    
-    </div>
+    </section>
   )
 }
 

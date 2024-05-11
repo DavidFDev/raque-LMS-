@@ -10,6 +10,7 @@ const CartForm = () => {
 
   const [coupon, setCoupon] = useState("");
   const [cartItems, setCartItems] = useState([]);
+  const [items, setItem] = useState({});
 
   useEffect(() => {
     // Retrieving the string
@@ -17,14 +18,15 @@ const CartForm = () => {
 
     let cartBox = JSON.parse(retString);
 
-    return setCartItems(cartBox);
-  }, [setCartItems]);
+    setCartItems(cartBox);
 
 
+
+  }, [setCartItems, setItem]);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
 
 
   return (
@@ -49,7 +51,6 @@ const CartForm = () => {
 
       <div className="cart-buttons">
         <div className="row align-items-center">
-
           <div className="col-12 text-right">
             <a href="#" className="default-btn">
               <PiShoppingCartSimpleBold className="start-icon" />
@@ -65,16 +66,18 @@ const CartForm = () => {
 
         <ul>
           <li>
-            Subtotal{" "}
-            <span>&#8358;{parseFloat(cartSubTotalPrice).toFixed(2)}</span>
+            Total Books <span>{cartItems.length}</span>
           </li>
           <li>
-            Network Fee <span>&#8358;{parseFloat(networkFee).toFixed(2)}</span>
+            Network Fee{" "}
+            <span>
+              &#8358;{parseFloat(networkFee * cartItems.length).toFixed(2)}
+            </span>
           </li>
           <li>
             Total{" "}
             <span>
-              &#8358;{parseFloat(cartSubTotalPrice + networkFee).toFixed(2)}
+              &#8358;{parseFloat(networkFee * cartItems.length).toFixed(2)}
             </span>
           </li>
         </ul>

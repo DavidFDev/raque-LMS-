@@ -37,7 +37,7 @@ const Products = ({ product }) => {
             className="add-to-cart-btn d-flex flex-nowrap align-items-center gap-2"
             onClick={() => addToCart(product, id, price)}
           >
-            Add To Cart <BiCartAlt />
+            Borrow <BiCartAlt />
           </button>
           
           {/* SPECIAL SALE */}
@@ -59,7 +59,7 @@ const Products = ({ product }) => {
             <span className="old">
               {outdatedPrice && `$${outdatedPrice}${Number(0)}`}
             </span>
-            <span className="new">₦{parseFloat(price).toFixed(2)}</span>
+            <span className="new">{price}</span>
           </div>
 
           {/* RATING */}

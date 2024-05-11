@@ -7,6 +7,8 @@ const jwt = require("jsonwebtoken");
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const CartModel = require("./models/Cart.js");
+const bodyParser = require("body-parser");
 dotenv.config();
 
 /* BCRYPT */
@@ -21,7 +23,7 @@ app.use(
     credentials: true,
   })
 );
-
+app.use(bodyParser.json())
 mongoose.connect("mongodb://127.0.0.1:27017/Students");
 
 app.get("/test", (req, res) =>
@@ -166,8 +168,6 @@ app.post("/forgot-password", async (req, res) => {
 /* RESET PASSWORD */
 app.post("/resetPassword/:token", async (req, res) => {
   const token = req.params.token;
-
-  console.log(req.body)
 
   const { password } = req.body;
 
@@ -375,6 +375,106 @@ app.get("/verify", async (req, res) => {
     res.json({message: "Token expired", status: false})
   }
 });
+
+
+
+
+
+/* CART CONTROLLER */
+app.post("/checkout", async (req, res) => {
+  try {
+    const token = req.cookies.token;
+
+    const [cartItem] = req.body;
+
+    if (!token) return res.json({ status: false, messsage: "Please login!" });
+
+    const decoded = jwt.verify(token, process.env.KEY);
+
+    const student = await StudentModel.findOne({ name: decoded.name });
+
+    if (!student) return res.json({ status: false, message: "Please login - (No user found)" });
+
+    // Check if cart already exists for this student
+    let existingCart = await CartModel.findOne({ studentId: student.email });
+
+    if (!existingCart) {
+      // If cart doesn't exist, create a new one
+      const newCart = new CartModel({
+        items: cartItem,
+        studentId: student.email
+      });
+
+      await newCart.save();
+
+      const cartToken = jwt.sign({ email: newCart.studentId }, process.env.KEY, { expiresIn: "95d" });
+      res.cookie("cartToken", cartToken, { httpOnly: true, maxAge: (95 * 24 * 60 * 60 * 1000) });
+
+      return res.json({ status: true, message: "Cart items saved successfully", items: newCart });
+    } else {
+      // If cart exists, push new item to existing cart
+      existingCart.items.push(...cartItem);
+      await existingCart.save();
+
+      const cartToken = jwt.sign({ email: existingCart.studentId }, process.env.KEY);
+      res.cookie("cartToken", cartToken, { httpOnly: true, maxAge: (95 * 24 * 60 * 60 * 1000) });
+
+      return res.json({ status: true, message: "Item added to cart successfully", items: existingCart });
+    }
+
+  } catch (error) {
+    console.log("Error while saving cart items:", error);
+    res.status(500).json({
+      message: "An error occurred while saving cart items"
+    });
+  }
+});
+
+
+
+
+
+
+app.get("/orders", async (req, res) => {
+  try {
+    const cartToken = req.cookies.cartToken;
+    if (!cartToken) return res.json({ status: false, message: "No orders/No token" });
+
+    const userToken = req.cookies.token;
+    if (!userToken) return res.json({ status: false, message: "please login" });
+
+    const cartDecoded = jwt.verify(cartToken, process.env.KEY);
+    const userDecoded = jwt.verify(userToken, process.env.KEY);
+
+    const cart = await CartModel.findOne({ studentId: cartDecoded.email });
+    if (!cart) return res.json({ status: false, message: "Cart not found" });
+
+    const user = await StudentModel.findOne({ name: userDecoded.name });
+    if (!user) return res.json({ status: false, message: "User not found" });
+
+
+    
+    const newCartToken = jwt.sign({ email: user.email }, process.env.KEY)
+    res.cookie("cartToken", newCartToken, {httpOnly: true})
+    
+    const newCartDecoded = jwt.verify(newCartToken, process.env.KEY)
+
+    const studentCart = await CartModel.findOne({ studentId: newCartDecoded.email })
+
+    
+    if (user.email !== studentCart.studentId ) return res.json({ status: false, message: "userId don't match" });
+
+
+    return res.json({ status: true, message: "Recorded orders", items: cart.items });
+
+  } catch (error) {
+    console.log("Error getting cart", error);
+    res.json({ message: "An error occurred while trying to get orders: " + error, status: false });
+  }
+});
+
+
+
 
 /* SERVER RESPONSE */
 app.listen(process.env.PORT, () => {

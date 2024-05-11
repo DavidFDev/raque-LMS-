@@ -23,7 +23,7 @@ const RelatedProducts = ({ data }) => {
             onClick={() => addToCart(data, id)}
             className="add-to-cart-btn"
           >
-            Add To Cart <BiCartAlt className="bx bx-cart" />
+            Borrow <BiCartAlt className="bx bx-cart" />
           </button>
         </div>
 
@@ -33,7 +33,7 @@ const RelatedProducts = ({ data }) => {
           </h3>
 
           <div className="price">
-            <TbCurrencyNaira className="naija-currency"/><span className="new">{parseFloat(price).toFixed(2)}</span>
+            <span className="new">{price}</span>
           </div>
 
           <div className="rating">

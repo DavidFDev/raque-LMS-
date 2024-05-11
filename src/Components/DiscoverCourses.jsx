@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const DiscoverCourses = ({ infos }) => {
 
   return (
-    <div className="discover-section">
+    <section className="discover-section">
         <div className="container">
           <div className="discover-info">
             <div className="section-title text-center text-lg-start">
@@ -105,7 +105,7 @@ const DiscoverCourses = ({ infos }) => {
           </div>
 
         </div>    
-    </div>
+    </section>
   )
 }
 

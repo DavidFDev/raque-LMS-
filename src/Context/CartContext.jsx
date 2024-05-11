@@ -8,6 +8,12 @@ const CartProvider = ({ children }) => {
   const [cartSubTotalPrice, setCartTotalPrice] = useState(0);
   const [networkFee, setNetworkFee] = useState(3);
 
+
+
+
+
+
+  
   useEffect(() => {
     const rawStoredCart = localStorage.getItem("cartItems");
     let storedCart = [];
@@ -31,6 +37,12 @@ const CartProvider = ({ children }) => {
     return setCartTotalPrice(cartTotalPrice);
   }, [setCart]);
 
+
+
+
+
+
+
   // ADD TO CART
   const addToCart = (product, id) => {
     const newItem = { ...product, quantity: 1 };
@@ -38,6 +50,8 @@ const CartProvider = ({ children }) => {
     const cartItem = cart.find((item) => {
       return item.id === id;
     });
+
+
 
     /* If cart item is already in the cart */
     let newCart = [];
@@ -56,11 +70,25 @@ const CartProvider = ({ children }) => {
     localStorage.setItem("cartItems", JSON.stringify(newCart));
   };
 
+
+
+
+
+
   // INCREASE ITEM QUANTITY
   const increaseQuantity = (id) => {
     const cartItem = cart.find((item) => item.id === id);
     addToCart(cartItem, id);
   };
+
+
+
+
+
+
+
+
+
 
   // DECREASE ITEM QUANTITY
   const decreaseQuantity = (id) => {
@@ -78,12 +106,20 @@ const CartProvider = ({ children }) => {
       });
 
       setCart(newCart);
+      localStorage.setItem("cartItems", JSON.stringify(newCart));
     }
 
     if (cartItem.quantity < 1 || cartItem.quantity === 0) {
       removeFromCart(id);
     }
   };
+
+
+
+
+
+
+
 
   // REMOVE FROM CART
   const removeFromCart = (id) => {

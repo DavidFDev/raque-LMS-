@@ -11,7 +11,7 @@ import partner6 from '../assets/Partners/6.png'
 
 const PartnersArea = () => {
   return (
-    <div className="partner-area bg-deepred ptb-100">
+    <section className="partner-area bg-deepred ptb-100">
         <div className="container">
             <div className="section-title text-center">
                 <h1 className="text-capitalize text-white">our company &amp; partners</h1>
@@ -97,7 +97,7 @@ const PartnersArea = () => {
 
             </OwlCarousel>
         </div>
-    </div>
+    </section>
   )
 }
 

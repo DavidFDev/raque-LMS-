@@ -20,12 +20,21 @@ const CountdownArea = () => {
         const minutes = time.getMinutes();
         const seconds = time.getSeconds();
         let day = 284;
-        window.localStorage.setItem("day", JSON.stringify(day));
+
+        hours >= padZero(0) ? day - 1 : day = 284;
+
+        const dayString = JSON.stringify(day)
+
+        localStorage.setItem("dayCount", dayString);
+
+        const stringDay = localStorage.getItem("dayCount")
+
+        const realDate = JSON.parse(stringDay);
 
         // hours = hours % 12 || 12;
 
         return `
-            <div id="days">${hours >= 24 ? padZero(JSON.parse(window.localStorage.getItem("day")) - 1) : padZero(localStorage.getItem("day"))} <span>Days</span> <FaChevronDown className="chevron-icon"/>
+            <div id="days">${hours >= padZero(0) && realDate - 1} <span>Days</span> <FaChevronDown className="chevron-icon"/>
             </div>
 
             <div id="hours">${padZero(hours)}<span>Hours</span> <FaChevronDown className="chevron-icon"/>

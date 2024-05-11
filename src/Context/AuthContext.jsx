@@ -14,6 +14,8 @@ const AuthProvider = ({ children }) => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [bio, setBio] = useState("")
+  const [recentOrders, setRecentOrders] = useState([])
+  const [orders, setOrders] = useState([])
   const [activateErrMsg, setActivateErrMsg] = useState(false);
   const [errParagraph, setErrParagraph] = useState();
   const [successMsg, setSuccessMsg] = useState(false);
@@ -49,6 +51,7 @@ const AuthProvider = ({ children }) => {
 
 
 
+  
 
 
 
@@ -183,8 +186,35 @@ const AuthProvider = ({ children }) => {
 
 
 
+  const handleCheckout = ([cartItem]) => {
+    axios.defaults.withCredentials = true;
+    axios.post("http://localhost:3001/checkout", [cartItem]).then(result => {
+      // let orders = []
+      if (result.data.status) {
+        console.log(result.data)
+      } else {
+        console.log(result.data)
+      }
+    }).catch(err => console.log(err))
+  }
 
 
+  useEffect(() => {
+    axios.defaults.withCredentials = true
+    axios.get("http://localhost:3001/orders").then(result => {
+      if (!result.data.status) {
+        console.log(result.data)
+      } else {
+        setRecentOrders(result.data.items)
+        setOrders(result.data.items)
+      }
+    }).catch(err => console.log(err))
+  }, [])
+  
+
+
+
+ 
 
 
 
@@ -289,12 +319,15 @@ const AuthProvider = ({ children }) => {
     password,
     activateErrMsg,
     errParagraph,
+    recentOrders,
+    orders,
     handleResetPassword,
     handleForgotPassword,
     handleLogin,
     handleLogout,
     handleLogoutButton,
     handleSignup,
+    handleCheckout,
     handleUpdate,
     handleMessage,
   };

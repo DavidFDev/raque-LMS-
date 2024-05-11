@@ -3,7 +3,7 @@ import StudentForm from './StudentForm';
 const StudentFormArea = () => {
 
   return (
-    <div className='student-form-area ptb-100'>
+    <section className='student-form-area ptb-100'>
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-6 col-md-12 mb-md-4 mb-lg-0 text-center text-lg-start">
@@ -21,7 +21,7 @@ const StudentFormArea = () => {
                 </div>
             </div>
         </div>
-    </div>
+    </section>
   )
 }
 

@@ -3,8 +3,6 @@ import { BiBookReader, BiUserPin } from "react-icons/bi";
 import { FaDeviantart } from "react-icons/fa";
 import { useEffect, useState } from 'react';
 import Odometer from 'react-odometerjs';
-import { useContext } from "react";
-import { ProductContext } from "../Context/ProductContext";
 import { PRODUCTS } from "../products";
 import ParticlesComponent from "../Components/Particles";
 
@@ -19,7 +17,7 @@ const FunFact = () => {
     }, []);
 
   return (
-    <div className="funfacts-section">
+    <section className="funfacts-section">
         <div className="container">
             <div className="funfacts-inner bg-deepred">
                 <div className="row align-items-center">
@@ -88,7 +86,7 @@ const FunFact = () => {
                 </div>
             </div>
         </div>
-    </div>
+    </section>
   )
 }
 
