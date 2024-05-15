@@ -7,8 +7,25 @@ const CartProvider = ({ children }) => {
   const [cartItemsQuantity, setCartItemsQuantity] = useState(0);
   const [cartSubTotalPrice, setCartTotalPrice] = useState(0);
   const [networkFee, setNetworkFee] = useState(3);
+  const [ databaseItem, setDatabaseItem ] = useState([])
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [borrowDate, setBorrowDate] = useState('');
+  const [returnDate, setReturnDate] = useState('');
+  
+  useEffect(() => {
 
+    const handleCalculateDates = () => {
+      const oneDay = 24 * 60 * 60 * 1000; // One day in milliseconds
+      const borrowDate = new Date(currentDate);
+      const returnDate = new Date(currentDate.getTime() + oneDay);
+  
+      setBorrowDate(borrowDate.toLocaleDateString());
+      setReturnDate(returnDate.toLocaleDateString());
+    };
 
+    handleCalculateDates();
+
+  }, [])
 
 
 
@@ -39,10 +56,6 @@ const CartProvider = ({ children }) => {
 
 
 
-
-
-
-
   // ADD TO CART
   const addToCart = (product, id) => {
     const newItem = { ...product, quantity: 1 };
@@ -70,6 +83,15 @@ const CartProvider = ({ children }) => {
     localStorage.setItem("cartItems", JSON.stringify(newCart));
   };
 
+
+  /*const addToDatabase = (product) => {
+    setDatabaseItem([{
+      "itemId": product.id,
+      "productName": product.productName,
+      "borrowDate": borrowDate,
+      "returnDate": returnDate
+    }])
+  } */
 
 
 
@@ -134,8 +156,10 @@ const CartProvider = ({ children }) => {
     <cartContext.Provider
       value={{
         cart,
-        addToCart,
         networkFee,
+        databaseItem,
+        addToCart,
+        // addToDatabase,
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,

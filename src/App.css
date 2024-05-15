@@ -281,40 +281,6 @@ p {
 
 /* ****** END ****** */
 
-/* .default-btn {
-    display: inline-block;
-    padding: 13px 25px 12px 25px;
-    position: relative;
-    background-color: #ff1949;
-    color: #fff;
-    border: 2px solid #ff1949;
-    border-radius: 1px;
-    font-size: 14.5px;
-    font-weight: 700;
-
-    .start-icon {
-        transition: 0.3s linear;
-    }
-
-    .end-icon {
-        display: none;
-        transition: 0.3s linear;
-    }
-
-    &:hover {
-        background-color: #0eb582;
-        border: 2px solid #0eb582;
-
-        .start-icon {
-            display: none;
-        }
-
-        .end-icon {
-            display: inline-block!important;
-        }
-    }
-} */
-
 /* ****** SECTION TITLE ****** */
 .section-title .sub-title {
   text-transform: uppercase;
@@ -2641,21 +2607,7 @@ p {
   }
 }
 
-/* .single-product-box .product-image .add-to-cart-btn {
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
-  background-color: #252525;
-  color: #fff;
-  padding: 18px 20px 13px;
-  text-transform: uppercase;
-  opacity: 1;
-  visibility: visible;
-  display: block;
-  font-size: 15px;
-  font-weight: 600;
-} */
+
 
 .single-product-box .product-image .sale-btn {
   position: absolute;
@@ -2790,7 +2742,7 @@ p {
           }
         }
 
-        & button {
+        & button[type*="submit"] {
           transition: 0.5s;
           display: block;
           width: 100%;
@@ -2813,6 +2765,74 @@ p {
         .forgot-password {
           text-align: right;
           margin-top: 20px;
+        }
+
+        .nav.nav-tabs {
+          border-bottom: none;
+          margin-bottom: 25px;
+
+          .input-option {
+            background-color: #fff;
+            border-radius: 50px;
+            position: relative;
+
+            &.left-h::before {
+              position: absolute;
+              content: '';
+              top: 0;
+              background-color: var(--main-color);
+              width: 50%;
+              height: 100%;
+              border-radius: 50px;
+              cursor: pointer;
+              z-index: 1;
+              transition: 0.3s ease;
+              transform: translateX(0%)!important;
+            }
+
+            &.right-h::before {
+              position: absolute;
+              content: '';
+              top: 0;
+              background-color: var(--main-color);
+              width: 50%;
+              height: 100%;
+              border-radius: 50px;
+              cursor: pointer;
+              z-index: 1;
+              transition: 0.3s ease;
+              transform: translateX(100%)!important;
+            }
+
+
+            .nav-item {
+              z-index: 2;
+
+              & button {
+                border-radius: 50px!important;
+                border: none;
+                color: #000;
+                transition: 0.1s linear;
+
+                & span {
+                  transition: .1s!important;
+                }
+  
+                &.active {
+                  background: transparent;
+                  color: #fff;
+                }
+  
+                &:hover {
+                  background: none!important;
+                }
+              }
+
+            }
+
+
+          }
+
         }
 
         .forgot-password a {
@@ -3644,6 +3664,41 @@ p {
 }
 
 /* PRODUCT DETAILS PAGE */
+.reading-page {
+  background-color: #000; 
+  height: 100vh; 
+  width: 100vw; 
+  overflow: hidden;
+  position: relative;
+
+  .due-dates {
+    padding: 10px 0 10px 0;
+    background-color: #252525;
+    height: 70px;
+
+    .due-date {
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .container {
+    .icons {
+      position: absolute; 
+      left: 0; 
+      top: 100px; 
+      display: flex;
+      flex-direction: column; 
+      gap: 10px;
+    }
+
+
+  }
+
+}
+
+
 .productDetails-page {
   .products-details-image {
     & img {

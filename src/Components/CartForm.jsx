@@ -6,7 +6,7 @@ import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
 const CartForm = () => {
-  const { cartSubTotalPrice, networkFee } = useContext(cartContext);
+  const { cartSubTotalPrice, networkFee, cart } = useContext(cartContext);
 
   const [coupon, setCoupon] = useState("");
   const [cartItems, setCartItems] = useState([]);
@@ -43,7 +43,7 @@ const CartForm = () => {
             </tr>
           </thead>
 
-          {cartItems.map((item) => {
+          {cart.map((item) => {
             return <CartItem item={item} key={item.id} />;
           })}
         </table>
@@ -66,18 +66,18 @@ const CartForm = () => {
 
         <ul>
           <li>
-            Total Books <span>{cartItems.length}</span>
+            Total Books <span>{cart.length}</span>
           </li>
           <li>
             Network Fee{" "}
             <span>
-              &#8358;{parseFloat(networkFee * cartItems.length).toFixed(2)}
+              &#8358;{parseFloat(networkFee * cart.length).toFixed(2)}
             </span>
           </li>
           <li>
             Total{" "}
             <span>
-              &#8358;{parseFloat(networkFee * cartItems.length).toFixed(2)}
+              &#8358;{parseFloat(networkFee * cart.length).toFixed(2)}
             </span>
           </li>
         </ul>

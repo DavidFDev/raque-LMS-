@@ -8,6 +8,8 @@ import PageNotFound from "./Pages/404Page";
 import Profile from "./Pages/UserProfile/Profile";
 import "./Responsive.css";
 import Checkout from "./Pages/Checkout";
+import TimeMgtProvider from "./Context/TimeMgtContext";
+import ReadingPage from "./Pages/ReadingPage";
 const Cart = React.lazy(() => import("./Pages/Cart/Cart"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Home = React.lazy(() => import("./Pages/Home"));
@@ -36,32 +38,35 @@ const App = () => {
 
       <Router>
         <Suspense fallback={<Loading />}>
-          <AuthProvider>
-            <Routes>
-              {/* ENTRY PAGES */}
+            <TimeMgtProvider>
+              <AuthProvider>
+                <Routes>
+                  {/* ENTRY PAGES */}
 
-              <Route path="login" element={<Login />} />
-              <Route path="register" element={<SignUp />} />
-              <Route path="forgot-password" element={<ForgotPassword />} />
-              <Route path="resetPassword/:token" element={<ResetPassword />} />
+                  <Route path="login" element={<Login />} />
+                  <Route path="register" element={<SignUp />} />
+                  <Route path="forgot-password" element={<ForgotPassword />} />
+                  <Route path="resetPassword/:token" element={<ResetPassword />} />
 
-              {/* END OF ENTRY PAGES */}
+                  <Route path="reading/:id" element={<ReadingPage />} />
+                  {/* END OF ENTRY PAGES */}
 
-              <Route path="/" element={<Layout />}>
-                {/* <Route path="profile" element={<Profile />} /> */}
-                <Route index element={<Home />} />
-                <Route path="shop" element={<Shop />} />
-                <Route path="product/:id" element={<ProductDetails />} />
-                <Route path="cart" element={<Cart />} />
-                <Route path="checkout" element={<Checkout />} />
-                <Route path="pricing" element={<Pricing />} />
-                <Route path="contact" element={<Contact />} />
-                <Route path="mybio" element={<UserBio />} />
-                <Route path="profile" element={<UserAccount />} />
-                <Route path="*" element={<PageNotFound />} />
-              </Route>
-            </Routes>
-          </AuthProvider>
+                  <Route path="/" element={<Layout />}>
+                    <Route path="product/:id" element={<ProductDetails />} />
+                    {/* <Route path="profile" element={<Profile />} /> */}
+                    <Route index element={<Home />} />
+                    <Route path="shop" element={<Shop />} />
+                    <Route path="cart" element={<Cart />} />
+                    <Route path="checkout" element={<Checkout />} />
+                    <Route path="pricing" element={<Pricing />} />
+                    <Route path="contact" element={<Contact />} />
+                    <Route path="mybio" element={<UserBio />} />
+                    <Route path="profile" element={<UserAccount />} />
+                    <Route path="*" element={<PageNotFound />} />
+                  </Route>
+                </Routes>
+              </AuthProvider>
+            </TimeMgtProvider>
         </Suspense>
       </Router>
 

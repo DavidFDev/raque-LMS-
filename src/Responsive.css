@@ -25,6 +25,12 @@
   }
 }
 
+
+
+
+
+
+
 /* | MAX-WIDTH-(767px) | */
 @media only screen and (max-width: 767px) {
   body {
@@ -547,6 +553,15 @@
   }
 }
 
+
+
+
+
+
+
+
+
+
 /* MIN-WIDTH (576px) */
 @media (min-width: 576px) {
   /* FOOTER */
@@ -558,6 +573,10 @@
     }
   }
 }
+
+
+
+
 
 /* MIN WIDTH-(768px) */
 @media (min-width: 768px) {
@@ -644,6 +663,11 @@
   }
 }
 
+
+
+
+
+
 /* MIN-WIDTH-(576px) */
 @media only screen and (min-width: 567px) {
   /* ABOUT SECTION */
@@ -659,6 +683,11 @@
     }
   }
 }
+
+
+
+
+
 
 /* MIN WIDTH-(576px) | MAX-WIDTH-(767px) */
 @media (576px <= width <= 767px) {
@@ -683,6 +712,11 @@
     }
   }
 }
+
+
+
+
+
 
 /* MIN WIDTH-(768PX) | MAX-WIDTH-(991PX) */
 @media (768px <= width <= 991px) {
@@ -914,6 +948,12 @@
   }
 }
 
+
+
+
+
+
+
 /* MAX-WIDTH-(991PX) */
 @media only screen and (max-width: 991px) {
   .navbar {
@@ -958,7 +998,60 @@
     }
   }
 
-  /* NAVBAR CARTICON */
+  /* PRODUCT DETAILS PAGE */
+  .reading-page {
+    background-color: #000; 
+    height: 100vh; 
+    width: 100vw; 
+    overflow: hidden;
+    position: relative;
+  
+    .due-dates {
+      padding: 15px;
+      background-color: #252525;
+      height: 100px;
+
+      .default-btn {
+        /* padding-top: 4px;
+        padding-bottom: 4px; */
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        font-size: 10px;
+
+        & svg {
+          font-size: 20px!important;
+        }
+      }
+  
+      .due-date {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        font-size: 12px;
+      }
+    }
+  
+    .container {
+      .icons {
+        position: absolute; 
+        left: auto; 
+        bottom: 30%!important; 
+        top: auto;
+        display: flex;
+        flex-direction: row; 
+        gap: 10px;
+      }
+  
+      /* & img {
+        background-color: transparent; 
+        background-blend-mode: screen; 
+        width: 100%;
+      } */
+    }
+  
+  }
 }
 
 /* MIN-WIDTH-(991px) */

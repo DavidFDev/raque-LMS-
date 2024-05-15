@@ -66,8 +66,8 @@ const Header = () => {
                       <p className="d-none d-md-inline text-white mb-0">
                         Contact email
                       </p>
-                      <a href="mailto: hello@raque.com">
-                        raquereinforce@gmail..com
+                      <a href="mailto:hello@raque.com">
+                        raquereinforce@gmail.com
                       </a>
                     </span>
                   </div>

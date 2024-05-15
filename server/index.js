@@ -9,6 +9,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const CartModel = require("./models/Cart.js");
 const bodyParser = require("body-parser");
+const twilio = require("twilio")
 dotenv.config();
 
 /* BCRYPT */
@@ -116,48 +117,79 @@ app.post("/login", async (req, res) => {
 
 
 
-/* VALIDATE USER EMAIL TO UPDATE THE USER INFO */
-app.post("/forgot-password", async (req, res) => {
-  const { email } = req.body;
-  try {
-    const student = await StudentModel.findOne({ email });
-    if (!student) return res.json({ status: false, message: "No record for this user" });
 
+
+
+const client = new twilio(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
+/* VALIDATE USER EMAIL OR PHONE TO UPDATE THE USER INFO */
+app.post("/forgot-password", async (req, res) => {
+  const { email, phone, phoneNumber } = req.body;
+  try {
+    const student = await StudentModel.findOne( email.length !== 0 ? { email } : phone.length !== 0 && { phone } );
+
+    if (!student) return res.json({ status: false, message: "No record for this user" });
     const token = jwt.sign({ _id: student._id }, process.env.KEY, {
       expiresIn: "15m",
     });
 
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "raquereinforce@gmail.com",
-        pass: "xdkutqvhdzdmzfuq",
-      },
-    });
 
-    let mailOptions = {
-      from: "Raque Team raquereinforce@@gmail.com",
-      to: student.email,
-      subject: "Reset Password",
-      text: `http://localhost:5173/resetPassword/${token}`,
-    };
+    if (email) {
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: `${process.env.SUPPORT_EMAIL}`,
+          pass: `${process.env.EMAIL_PASS}`,
+        },
+      });
+  
+      let mailOptions = {
+        from: "Raque Team raquereinforce@@gmail.com",
+        to: student.email,
+        subject: "Reset Password",
+        text: `http://localhost:5173/resetPassword/${token}`,
+      };
+  
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          return res.json({ message: "Error sending email", status: false });
+        } else {
+          return res.json({
+            // you can also use -  message: "Email sent: " + info.response,
+            status: true,
+            emailMessage: "Please check your inbox for the link",
+          });
+        }
 
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        return res.json({ message: "Error sending email", status: false });
-      } else {
-        return res.json({
-          message: "Email sent: " + info.response,
-          status: true,
-        });
+      })
+      
+      
+    } else if (phone.length !== 0) {
+      const SMSAPI = async () => {
+        try {
+          // Send SMS using Twilio
+          const message = await client.messages.create({
+            body: `http://localhost:5173/resetPassword/${token}`,
+            from: '+23407044593001',
+            to: student.phone,
+          });
+          
+          !message && res.json({ status: false, message: "Failed to send SMS" })
+  
+          return res.json({ status: true, message: "SMS sent successfully!" })
+        } catch (error) {
+          console.log("Error sending SMS:", error)
+          res.status(500).json({ status: false, message: "Failed to send SMS" })
+        }
       }
-    })
+
+      SMSAPI();
+    }
 
     res.clearCookie("token")
 
-    // res.end()
+    // res.end() 
   } catch (error) {
-    console.log(error);
+    console.log(error); 
     res.send(error);
   }
 });
@@ -276,70 +308,35 @@ app.post("/contact", async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "raquereinforce@gmail.com",
-        // pass: "xdkutqvhdzdmzfuq",
+        user: `${process.env.SUPPORT_EMAIL}`,
+        pass: `${process.env.EMAIL_PASS}`,
       },
     });
  
+    // Configure email options
     let mailOptions = {
-      from: `${name} Raque-user ${email}`,
-      to: "raquereinforce@@gmail.com",
-      subject: `${subject}`,
-      text: `${message}`,
+      from: `${name} <${email}>`,
+      to: `${process.env.SUPPORT_EMAIL}`, 
+      subject: subject,
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`
     };
 
+    // Send the email
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        return res.json({ message: "Error sending email", status: false });
+        console.error('Error sending email:', error);
+        return res.status(500).json({ message: 'Error sending email', status: false });
       } else {
-        return res.json({
-          message: "Email sent: " + info.response,
-          status: true,
-        });
+        console.log('Email sent:', info.response);
+        return res.status(200).json({ message: 'Email sent successfully', status: true });
       }
     });
-    
+
   } catch (error) {
-    console.log(error)
-    res.json(error)
+    console.error('Error processing contact request:', error);
+    return res.status(500).json({ message: 'An error occurred', error: error });
   }
 })
-
-
-
-
-
-
-
-app.get("/verifyNewUser", async (req, res) => {
-  try {
-    const token = req.cookies.token;
-    
-    if (!token) {
-      return res.json({ meessage: "no token", status: false });
-    }
-
-    const decoded = jwt.verify(token, process.env.KEY);
-
-    const student = await StudentModel.findOne({email: decoded.email})
-
-    if (student) {
-      return res.json({ meessage: "Authorized", status: true, userInfo: {
-        name: student.name,
-        email: student.email,
-        phone: student.phone,
-        bio: student.bio,
-        password: student.password,
-      }});
-    } 
-
-
-    res.end();
-  } catch (error) {
-    console.log(error);
-    res.json({message: "Token expired", status: false})
-  }
-});
 
 
 
@@ -356,15 +353,16 @@ app.get("/verify", async (req, res) => {
 
     const decoded = jwt.verify(token, process.env.KEY);
 
-    const student = await StudentModel.findOne({name: decoded.name})
+    const student = await StudentModel.findOne(decoded.email ? {email: decoded.email} : decoded.name && {name: decoded.name} )
 
     if (student) {
       return res.json({ meessage: "Authorized", status: true, userInfo: {
         name: student.name,
         email: student.email,
         phone: student.phone,
-        bio: student.bio,
+        bio: student.bio, 
         password: student.password,
+        joinDate: student.createdAt,
       }});
     } 
 
@@ -381,19 +379,17 @@ app.get("/verify", async (req, res) => {
 
 
 /* CART CONTROLLER */
-app.post("/checkout", async (req, res) => {
+app.post("/shop", async (req, res) => {
   try {
     const token = req.cookies.token;
 
-    const [cartItem] = req.body;
+    const cartItem = req.body; 
 
     if (!token) return res.json({ status: false, messsage: "Please login!" });
 
     const decoded = jwt.verify(token, process.env.KEY);
 
-    const student = await StudentModel.findOne({ name: decoded.name });
-
-    if (!student) return res.json({ status: false, message: "Please login - (No user found)" });
+    const student = await StudentModel.findOne(decoded.email ? { email: decoded.email } : decoded.name && { name: decoded.name } );
 
     // Check if cart already exists for this student
     let existingCart = await CartModel.findOne({ studentId: student.email });
@@ -402,7 +398,7 @@ app.post("/checkout", async (req, res) => {
       // If cart doesn't exist, create a new one
       const newCart = new CartModel({
         items: cartItem,
-        studentId: student.email
+        studentId: student.email 
       });
 
       await newCart.save();
@@ -419,7 +415,7 @@ app.post("/checkout", async (req, res) => {
       const cartToken = jwt.sign({ email: existingCart.studentId }, process.env.KEY);
       res.cookie("cartToken", cartToken, { httpOnly: true, maxAge: (95 * 24 * 60 * 60 * 1000) });
 
-      return res.json({ status: true, message: "Item added to cart successfully", items: existingCart });
+      res.json({ status: true, message: "Item added to cart successfully", items: existingCart });
     }
 
   } catch (error) {
@@ -433,37 +429,32 @@ app.post("/checkout", async (req, res) => {
 
 
 
-
-
 app.get("/orders", async (req, res) => {
   try {
     const cartToken = req.cookies.cartToken;
-    if (!cartToken) return res.json({ status: false, message: "No orders/No token" });
+    if (!cartToken) return res.json({ status: false, message: "No token" });
 
     const userToken = req.cookies.token;
     if (!userToken) return res.json({ status: false, message: "please login" });
 
     const cartDecoded = jwt.verify(cartToken, process.env.KEY);
-    const userDecoded = jwt.verify(userToken, process.env.KEY);
+    const userDecoded = jwt.verify(userToken, process.env.KEY); 
 
     const cart = await CartModel.findOne({ studentId: cartDecoded.email });
     if (!cart) return res.json({ status: false, message: "Cart not found" });
 
-    const user = await StudentModel.findOne({ name: userDecoded.name });
+    const user = await StudentModel.findOne(userDecoded.name ? { name: userDecoded.name } : userDecoded.email && { email: userDecoded.email } );
     if (!user) return res.json({ status: false, message: "User not found" });
 
-
     
-    const newCartToken = jwt.sign({ email: user.email }, process.env.KEY)
+    const newCartToken = jwt.sign({ email: cart.studentId }, process.env.KEY)
     res.cookie("cartToken", newCartToken, {httpOnly: true})
     
     const newCartDecoded = jwt.verify(newCartToken, process.env.KEY)
-
+ 
     const studentCart = await CartModel.findOne({ studentId: newCartDecoded.email })
-
     
     if (user.email !== studentCart.studentId ) return res.json({ status: false, message: "userId don't match" });
-
 
     return res.json({ status: true, message: "Recorded orders", items: cart.items });
 

@@ -5,8 +5,19 @@ import { BiCartAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { cartContext } from "../Context/CartContext";
+import { ProductContext } from "../Context/ProductContext";
+import { useState, useEffect } from "react";
+import { useAuthContext } from "../Context/AuthContext";
+import { useDateAndTimeContext } from "../Context/TimeMgtContext";
 
 const Products = ({ product }) => {
+  const { products } = useContext(ProductContext);
+  const { addToCart, cart } = useContext(cartContext);
+  const { handleCheckout } = useAuthContext();
+  const { handleCalculateDates, borrowDate, returnDate, isExpired } = useDateAndTimeContext();
+
+  const [notification, setNotification] = useState();
+
   // Destructure Product...
   const {
     id,
@@ -17,7 +28,51 @@ const Products = ({ product }) => {
     outdatedPrice,
     price,
   } = product;
-  const { addToCart } = useContext(cartContext);
+
+
+
+
+
+
+
+
+  const handleSubmit = () => {
+    handleCalculateDates()
+    
+    /* CREATED AN EMPTY ARRAY AND PUSHED ITEMS(OBJECT) INTO THE EMPTY ARRAY */
+    let cartItem = [];
+    cartItem.push({
+      itemId: product.id,
+      productName: product.productName,
+      borrowDate: borrowDate,
+      returnDate: returnDate,
+    });
+
+    addToCart(product, id, price);
+    handleCheckout(cartItem);
+
+    const handleNotification = async () => {
+      try {
+        if (!("Notification" in window)) {
+          /* CHECK IF NOTIFICATION NOT SUPPORTED IN BROWSER */
+          console.log("Browser doesn't support notification");
+        } else {
+          const permission = await Notification.requestPermission();
+          if (permission === "granted") {
+            new window.Notification("Example Notification", {
+              body: "This is Raque",
+              data: "Borrowed an item from the library",
+              tag: "borrow indicator",
+            });
+          }
+        }
+      } catch (error) {
+        console.error("Error requesting notification permission:", error);
+      }
+    };
+
+    handleNotification();
+  };
 
   return (
     // SINGLE PRODUCT...
@@ -30,16 +85,15 @@ const Products = ({ product }) => {
             <img src={mainProduct2} alt="image" className="img-fluid" />
           </Link>
 
-          {/* {console.log(cart)} */}
-
           {/* BUTTON */}
-          <button
-            className="add-to-cart-btn d-flex flex-nowrap align-items-center gap-2"
-            onClick={() => addToCart(product, id, price)}
+          <Link
+            to={`/reading/${id}`}
+            className="add-to-cart-btn d-flex flex-nowrap align-items-center gap-2 text-capitalize"
+            onClick={handleSubmit}
           >
             Borrow <BiCartAlt />
-          </button>
-          
+          </Link>
+
           {/* SPECIAL SALE */}
           {productName === "Book Chicks" && (
             <div className="sale-btn">Sale!</div>

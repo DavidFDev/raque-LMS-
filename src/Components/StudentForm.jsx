@@ -20,6 +20,7 @@ const StudentForm = () => {
             <div className="col-lg-6 col-md-6">
                 <div className="form-group">
                     <input type="text" className="form-control" placeholder="Your name*" 
+                        name="name"
                         onChange={(e) => setName(e.target.value)} 
                         value={name}
                         required={true}
@@ -47,6 +48,7 @@ const StudentForm = () => {
             <div className="col-lg-6 col-md-6">
                 <div className="form-group">
                     <input type="email" className="form-control" placeholder="Your email*" onChange={(e) => setEmail(e.target.value)} 
+                        name="email"
                         value={email}
                         required={true}
                         autoComplete='on'

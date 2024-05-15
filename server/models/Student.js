@@ -6,6 +6,7 @@ const StudentSchema = new mongoose.Schema({
   bio: { type: String },
   phone: { type: String, require: true, unique: true },
   password: { type: String, require: true },
+  createdAt: { type: Date, default: Date.now },
 });
 
 const StudentModel = mongoose.model("students", StudentSchema);

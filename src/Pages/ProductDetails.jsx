@@ -1,34 +1,31 @@
-import { useContext, useEffect, useState } from "react";
-import { FaMinus, FaPlus } from "react-icons/fa6";
-import { TbCurrencyNaira } from "react-icons/tb";
-
-import RelatedProducts from "../Components/RelatedProducts";
-
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
-
+import { useContext, useEffect, useState } from "react";
+import { FaMinus, FaPlus } from "react-icons/fa6";
 import { IoChevronForward } from "react-icons/io5";
+import { RiStarFill, RiStarHalfFill } from "react-icons/ri";
 import { Link, useParams } from "react-router-dom";
+import RelatedProducts from "../Components/RelatedProducts";
+import { useAuthContext } from "../Context/AuthContext";
 import { cartContext } from "../Context/CartContext";
 import { ProductContext } from "../Context/ProductContext";
-import { useAuthContext } from "../Context/AuthContext";
-import { RiStarFill } from "react-icons/ri";
-import { RiStarHalfFill } from "react-icons/ri";
-
 
 const ProductDetails = () => {
   /* CONTEXTS */
   const { id } = useParams();
   const { products } = useContext(ProductContext);
-  const { addToCart, increaseQuantity, decreaseQuantity } =
-    useContext(cartContext);
-  const { isLoggedIn, handleLogoutButton } = useAuthContext();
+  const { addToCart, increaseQuantity, decreaseQuantity } = useContext(cartContext);
+  const { isLoggedIn, handleLogoutButton, recentOrders } = useAuthContext(); 
 
   /* STATE */
-  const [itemQuantity, setItemQuantity] = useState(1);
+  // const [itemQuantity, setItemQuantity] = useState(1);
   const [productData, setProductData] = useState({});
   const [filteredItems, setFilteredItems] = useState([]);
   const [slicedItem, setSlicedItems] = useState([]);
+  const [order, setOrder] = useState([]);
+
+
+
 
   /* GET THE SINGLE PRODUCT BASED ON THE ID */
   useEffect(() => {
@@ -47,6 +44,8 @@ const ProductDetails = () => {
     setSlicedItems(slicedItems);
   }, [id]);
 
+
+
   /* DESTRUCTURING THE PRODUCT */
   const { productName, price, mainProduct, quantity, description, rating } =
     productData;
@@ -58,48 +57,50 @@ const ProductDetails = () => {
     handleLogoutButton({ id });
   };
 
+
   return (
-    <div className="productDetails-page">
-      {/* PAGE TITLE AREA */}
-      <div className="page-title-area">
-        <div className="container">
-          <div className="d-table">
-            <div className="d-table-cell">
-              <div className="title-content">
-                <ul>
-                  <li>
-                    <Link to="/" className="text-decoration-none text-dark">
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <span>
-                      <IoChevronForward />
-                    </span>
-                  </li>
-                  <li>
-                    <span>Product Details</span>
-                  </li>
-                </ul>
-                <h2 className="text-capitalize">Product Details</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <>
+     <div className="productDetails-page">
+       {/* PAGE TITLE AREA */}
+       <div className="page-title-area">
+         <div className="container">
+           <div className="d-table">
+             <div className="d-table-cell">
+               <div className="title-content">
+                 <ul>
+                   <li>
+                     <Link to="/" className="text-decoration-none text-dark">
+                       Home
+                     </Link>
+                   </li>
+                   <li>
+                     <span>
+                       <IoChevronForward />
+                     </span>
+                   </li>
+                   <li>
+                     <span>Product Details</span>
+                   </li>
+                 </ul>
+                 <h2 className="text-capitalize">Product Details</h2>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
 
-      <div className="container py-5 py-lg-0">
-        <div className="row align-items-center">
-          <div className="col-lg-6 mb-4 mb-lg-0">
-            <div className="d-flex flex-column gap-3">
-              <div className="products-details-image">
-                <div className="product-image">
-                  <img src={mainProduct} alt="" style={{ width: "100%" }}/>
-                </div>
-              </div>
+       <div className="container py-5 py-lg-0">
+         <div className="row align-items-center">
+           <div className="col-lg-6 mb-4 mb-lg-0">
+             <div className="d-flex flex-column gap-3">
+               <div className="products-details-image">
+                 <div className="product-image">
+                   <img src={mainProduct} alt="" style={{ width: "100%" }}/>
+                 </div>
+               </div>
 
-              <div className="d-flex gap-2">
-                {filteredItems.map((item) => {
+               <div className="d-flex gap-2">
+                 {filteredItems.map((item) => {
                   return (
                     <Link to={`/product/${item.id}`} key={item.id}>
                       <img
@@ -207,7 +208,7 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        {/* PRODUCTS TAB */}
+       {/* PRODUCTS TAB */}
         <div className="row">
           <div className="col-12">
             <div className="nav nav-tabs products-details-tab mb-4">
@@ -306,6 +307,7 @@ const ProductDetails = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

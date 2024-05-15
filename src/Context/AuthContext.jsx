@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const useAuthContext = () => useContext(AuthContext);
 
@@ -69,28 +69,11 @@ const AuthProvider = ({ children }) => {
         setPassword(result.data.userInfo.password);
       } else {
         setIsLoggedIn(false);
-        console.log(result)
       }
     }).catch((err) => console.log(err))
   }, []);
 
 
-
-
-
-
-  useEffect(() => {
-    axios.defaults.withCredentials = true;
-    axios.get("http://localhost:3001/verifyNewUser").then((result) => {
-      if (result.data.status) {
-        setIsLoggedIn(true);
-        setEmail(result.data.userInfo.email);
-        setName(result.data.userInfo.name);
-        setPhone(result.data.userInfo.phone)
-        setPassword(result.data.userInfo.password);
-      }
-    }).catch((err) => console.log(err))
-  }, []);
 
 
 
@@ -186,15 +169,16 @@ const AuthProvider = ({ children }) => {
 
 
 
-  const handleCheckout = ([cartItem]) => {
+  const handleCheckout = (cartItem) => {
     axios.defaults.withCredentials = true;
-    axios.post("http://localhost:3001/checkout", [cartItem]).then(result => {
-      // let orders = []
+    axios.post("http://localhost:3001/shop", cartItem).then(result => {
+
       if (result.data.status) {
-        console.log(result.data)
+        setRecentOrders(result.data.items)
       } else {
         console.log(result.data)
       }
+
     }).catch(err => console.log(err))
   }
 
@@ -203,16 +187,13 @@ const AuthProvider = ({ children }) => {
     axios.defaults.withCredentials = true
     axios.get("http://localhost:3001/orders").then(result => {
       if (!result.data.status) {
-        console.log(result.data)
+        return false
       } else {
         setRecentOrders(result.data.items)
         setOrders(result.data.items)
       }
     }).catch(err => console.log(err))
   }, [])
-  
-
-
 
  
 
@@ -248,26 +229,33 @@ const AuthProvider = ({ children }) => {
 
 
 
-  const handleForgotPassword = ({ email }) => {
+  const handleForgotPassword = ({ email, phone, phoneNumber }) => {
     axios.defaults.withCredentials = true;
 
     axios
-      .post("http://localhost:3001/forgot-password", { email })
+      .post("http://localhost:3001/forgot-password", { email, phone, phoneNumber })
       .then((result) => {
         if (!result.data.status) {
           setErrParagraph(result.data.message);
           setActivateErrMsg(true);
+        } else if (result.status === 500) {
+          setErrParagraph(result.data);
+          setActivateErrMsg(true);
         } else {
-          setSuccessPara("Please check your email for the link");
+          setSuccessPara(email.length !== 0 ? result.data.emailMessage : phone.length !== 0 && result.data.message);
           setSuccessMsg(true);
           setActivateErrMsg(false)
-
+          console.log(result.data)
           setTimeout(() => {
             navigate("/login")
           }, 4000);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        setErrParagraph(`${err.response.data.message} - (${err.response.statusText})`);
+        setActivateErrMsg(true);
+      });
   };
 
 
