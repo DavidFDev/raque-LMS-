@@ -2742,7 +2742,7 @@ p {
           }
         }
 
-        & button[type*="submit"] {
+        & button[type="submit"] {
           transition: 0.5s;
           display: block;
           width: 100%;
@@ -3333,7 +3333,7 @@ p {
           font-weight: 500;
         }
 
-        & button[type*="submit"] {
+        & button[type="submit"] {
           border-radius: 50px;
         }
       }
@@ -3935,7 +3935,7 @@ p {
   }
 
   .single-product-box {
-    & button[type*="button"] {
+    & button[type="button"] {
       display: flex;
       flex-wrap: nowrap;
       justify-content: space-between;
