@@ -14,11 +14,11 @@ const ProductDetails = () => {
   /* CONTEXTS */
   const { id } = useParams();
   const { products } = useContext(ProductContext);
-  const { addToCart, increaseQuantity, decreaseQuantity } = useContext(cartContext);
-  const { isLoggedIn, handleLogoutButton, recentOrders } = useAuthContext(); 
+  const { addToCart } = useContext(cartContext);
+  const { isLoggedIn, handleLogoutButton } = useAuthContext(); 
 
   /* STATE */
-  // const [itemQuantity, setItemQuantity] = useState(1);
+  const [itemQuantity, setItemQuantity] = useState(1);
   const [productData, setProductData] = useState({});
   const [filteredItems, setFilteredItems] = useState([]);
   const [slicedItem, setSlicedItems] = useState([]);
@@ -47,7 +47,7 @@ const ProductDetails = () => {
 
 
   /* DESTRUCTURING THE PRODUCT */
-  const { productName, price, mainProduct, quantity, description, rating } =
+  const { productName, price, mainProduct, description, rating } =
     productData;
 
   /* HANDLE FORM SUBMISSION  */
