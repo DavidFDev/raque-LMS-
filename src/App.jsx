@@ -1,37 +1,25 @@
-import React, { Suspense } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import Layout from "./Components/Layout";
 import Loading from "./Components/Loading";
 import AuthProvider from "./Context/AuthContext";
-import PageNotFound from "./Pages/404Page";
-import Profile from "./Pages/UserProfile/Profile";
-import "./Responsive.css";
-import Checkout from "./Pages/Checkout";
 import TimeMgtProvider from "./Context/TimeMgtContext";
+import PageNotFound from "./Pages/404Page";
+import Checkout from "./Pages/Checkout";
 import ReadingPage from "./Pages/ReadingPage";
-const Cart = React.lazy(() => import("./Pages/Cart/Cart"));
-const Contact = React.lazy(() => import("./Pages/Contact"));
-const Home = React.lazy(() => import("./Pages/Home"));
-const Pricing = React.lazy(() => import("./Pages/Pricing"));
-const ProductDetails = React.lazy(() => import("./Pages/ProductDetails"));
-const Shop = React.lazy(() => import("./Pages/Shop"));
-const Login = React.lazy(() => import("./Pages/User/User-Entry/Login"));
-const SignUp = React.lazy(() => import("./Pages/User/User-Entry/SignUp"));
-const UserAccount = React.lazy(() =>
-  import("./Pages/User/User-Entry/UserAccount")
-);
-const ForgotPassword = React.lazy(() =>
-  import("./Pages/User/User-Entry/ForgotPassword")
-);
-
-const ResetPassword = React.lazy(() =>
-  import("./Pages/User/User-Entry/ResetPassword")
-);
-
-const UserBio = React.lazy(() =>
-  import("./Pages/User/User-Entry/UserBio")
-);
+import "./Responsive.css";
+import Cart from "./Pages/Cart/Cart";
+import Contact from "./Pages/Contact";
+import Home from "./Pages/Home";
+import Pricing from "./Pages/Pricing";
+import ProductDetails from "./Pages/ProductDetails";
+import Shop from "./Pages/Shop";
+import Login from "./Pages/User/User-Entry/Login";
+import SignUp from "./Pages/User/User-Entry/SignUp";
+import UserAccount from "./Pages/User/User-Entry/UserAccount";
+import ForgotPassword from "./Pages/User/User-Entry/ForgotPassword";
+import ResetPassword from "./Pages/User/User-Entry/ResetPassword";
+import UserBio from "./Pages/User/User-Entry/UserBio";
 
 const App = () => {
   return (
