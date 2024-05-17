@@ -20,8 +20,17 @@ const AuthProvider = ({ children }) => {
   const [errParagraph, setErrParagraph] = useState();
   const [successMsg, setSuccessMsg] = useState(false);
   const [successPara, setSuccessPara] = useState("")
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Simulate a data fetching process
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // 3 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
 
 
 
@@ -121,6 +130,7 @@ const AuthProvider = ({ children }) => {
       .post("https://raquebookshelf.onrender.com/login", userData)
       .then((result) => {
         if (!result.data.status) {
+          setLoading(false)
           setActivateErrMsg(true);
           setErrParagraph(result.data.message);
         } else if (result.data.status) {
@@ -134,7 +144,7 @@ const AuthProvider = ({ children }) => {
           setSuccessPara(result.data.message);
           setSuccessMsg(true);
           setActivateErrMsg(false)
-
+          setLoading(true)
           setTimeout(() => {
             navigate("/profile")
             setSuccessMsg(false);
@@ -308,6 +318,7 @@ const AuthProvider = ({ children }) => {
     errParagraph,
     recentOrders,
     orders,
+    loading,
     handleResetPassword,
     handleForgotPassword,
     handleLogin,

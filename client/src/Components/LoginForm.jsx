@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useAuthContext } from "../Context/AuthContext";
 import SocialAuth from "./SocialAuth";
 import { Link } from "react-router-dom";
+import Loader from '../Components/Loader';
 
 const LoginForm = () => {
-  const { activateErrMsg, errParagraph, handleLogin, successPara, successMsg } = useAuthContext();
+  const { activateErrMsg, errParagraph, handleLogin, successPara, successMsg, loading } = useAuthContext();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -65,7 +66,7 @@ const LoginForm = () => {
       </div>
 
       {/* LOGIN BUTTON */}
-      <button type="submit">Login</button>
+      <button type="submit">{loading ? <Loader/> : "Login"}</button>
 
       <div className="forgot-password">
         <Link to="/forgot-password">Forgot Password?</Link>
