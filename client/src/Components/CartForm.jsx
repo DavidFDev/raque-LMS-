@@ -14,13 +14,11 @@ const CartForm = () => {
 
   useEffect(() => {
     // Retrieving the string
-    let retString = localStorage.getItem("cartItems");
+    let retString = localStorage.getItem(JSON.parse("cartItems"));
 
-    let cartBox = JSON.parse(retString);
+    // let cartBox = JSON.parse(retString);
 
-    setCartItems(cartBox);
-
-
+    setCartItems(retString);
 
   }, [setCartItems, setItem]);
 

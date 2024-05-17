@@ -148,7 +148,7 @@ app.post("/forgot-password", async (req, res) => {
         from: "Raque Team raquereinforce@@gmail.com",
         to: student.email,
         subject: "Reset Password",
-        text: `http://localhost:5173/resetPassword/${token}`,
+        text: `https://raqueshelf.onrender.com/resetPassword/${token}`,
       };
   
       transporter.sendMail(mailOptions, (error, info) => {
