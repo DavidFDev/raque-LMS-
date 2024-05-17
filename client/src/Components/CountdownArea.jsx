@@ -5,23 +5,42 @@ import { Link } from "react-router-dom";
 
 const CountdownArea = () => {
   const [time, setTime] = useState(new Date());
-  const [days, setDays] = useState(284);
+  const [days, setDays] = useState(() => {
+    // Initialize days from localStorage or default to 284
+    const savedDays = localStorage.getItem("dayCount");
+    return savedDays ? JSON.parse(savedDays) : 284;
+  });
+  const [lastChecked, setLastChecked] = useState(() => {
+    // Initialize lastChecked from localStorage or default to current time
+    const savedLastChecked = localStorage.getItem("lastChecked");
+    return savedLastChecked ? new Date(savedLastChecked) : new Date();
+  });
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       const now = new Date();
       setTime(now);
 
-      const hours = now.getHours();
-      setDays(hours >= 0 ? days - 1 : 284);
+      // Calculate the difference in hours between now and the last checked time
+      const timeDifference = now - new Date(lastChecked);
+      const hoursDifference = timeDifference / (1000 * 60 * 60);
 
-      localStorage.setItem("dayCount", JSON.stringify(days));
+      if (hoursDifference >= 24) {
+        // If 24 hours or more have passed, decrement the days
+        setDays(prevDays => {
+          const newDays = prevDays - 1;
+          localStorage.setItem("dayCount", JSON.stringify(newDays));
+          return newDays;
+        });
+        setLastChecked(now);
+        localStorage.setItem("lastChecked", now.toISOString());
+      }
     }, 1000);
 
     return () => {
       clearInterval(intervalId);
     };
-  }, [days]);
+  }, [lastChecked]);
 
   function padZero(number) {
     return number < 10 ? "0" + number : number;
