@@ -59,7 +59,7 @@ app.post("/register", async (req, res) => {
     });
 
     const token = jwt.sign({email: newUser.email}, process.env.KEY, {expiresIn: "120h"})
-    res.cookie("token", token, {httpOnly: true, sameSite: "none", maxAge: (30 * 24 * 60 * 60 * 1000)})
+    res.cookie("token", token, {httpOnly: true, sameSite: "none", secure: true, maxAge: (30 * 24 * 60 * 60 * 1000)})
     
     await newUser.save();
 
@@ -98,7 +98,7 @@ app.post("/login", async (req, res) => {
     }
 
     const token = jwt.sign({name: student.name}, process.env.KEY, {expiresIn: "120h"})
-    res.cookie("token", token, {httpOnly: true, sameSite: "none", maxAge: (30 * 24 * 60 * 60 * 1000)})
+    res.cookie("token", token, {httpOnly: true, sameSite: "none", secure: true, maxAge: (30 * 24 * 60 * 60 * 1000)})
 
     return res.json({
       message: "Login Successfully",
@@ -242,7 +242,7 @@ app.post("/profile", async (req, res) => {
     if (!student) return res.json({ status: false, message: "Not updated" });
     
     const token = jwt.sign({name: student.name}, process.env.KEY, {expiresIn: "120h"})
-    res.cookie("token", token, {httpOnly: true, sameSite: "none", maxAge: (30 * 24 * 60 * 60 * 1000)})
+    res.cookie("token", token, {httpOnly: true, sameSite: "none", secure: true, maxAge: (30 * 24 * 60 * 60 * 1000)})
 
     
     const validToken = req.cookies.token;
@@ -386,7 +386,7 @@ app.post("/shop", async (req, res) => {
       await newCart.save();
 
       const cartToken = jwt.sign({ email: newCart.studentId }, process.env.KEY, { expiresIn: "95d" });
-      res.cookie("cartToken", cartToken, { httpOnly: true, sameSite: "none", maxAge: (95 * 24 * 60 * 60 * 1000) });
+      res.cookie("cartToken", cartToken, { httpOnly: true, sameSite: "none", secure: true, maxAge: (95 * 24 * 60 * 60 * 1000) });
 
       return res.json({ status: true, message: "Cart items saved successfully", items: newCart });
     } else {
@@ -395,7 +395,7 @@ app.post("/shop", async (req, res) => {
       await existingCart.save();
 
       const cartToken = jwt.sign({ email: existingCart.studentId }, process.env.KEY);
-      res.cookie("cartToken", cartToken, { httpOnly: true, sameSite: "none", maxAge: (95 * 24 * 60 * 60 * 1000) });
+      res.cookie("cartToken", cartToken, { httpOnly: true, sameSite: "none", secure: true, maxAge: (95 * 24 * 60 * 60 * 1000) });
 
       res.json({ status: true, message: "Item added to cart successfully", items: existingCart });
     }
@@ -430,7 +430,7 @@ app.get("/orders", async (req, res) => {
 
     
     const newCartToken = jwt.sign({ email: cart.studentId }, process.env.KEY)
-    res.cookie("cartToken", newCartToken, {httpOnly: true, sameSite: "none"})
+    res.cookie("cartToken", newCartToken, {httpOnly: true, secure: true, sameSite: "none"})
     
     const newCartDecoded = jwt.verify(newCartToken, process.env.KEY)
 
