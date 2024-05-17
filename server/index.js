@@ -25,7 +25,7 @@ app.use(
   })
 );
 app.use(bodyParser.json())
-mongoose.connect("mongodb://127.0.0.1:27017/Students");
+mongoose.connect(`${process.env.MONGODB_PROD_URL}`);
 
 app.get("/test", (req, res) =>
   res.json({
