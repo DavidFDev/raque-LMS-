@@ -2,6 +2,9 @@ import { BiPlanet } from "react-icons/bi";
 import { FaArrowsAltH } from "react-icons/fa";
 import aboutImg1 from '../assets/About-img/about-1.jpeg'
 import aboutImg2 from '../assets/About-img/about-2.jpeg'
+
+
+
 const AboutSection = () => {
   return (
     <section className='about-section'>

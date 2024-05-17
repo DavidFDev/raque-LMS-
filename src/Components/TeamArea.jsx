@@ -3,7 +3,7 @@ import member1 from '../assets/Team/1.jpg'
 import member2 from '../assets/Team/2.jpg'
 import member3 from '../assets/Team/3.jpg'
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
-import ParticlesComponent from "./Particles";
+// import ParticlesComponent from "./Particles";
 
 
 const TeamArea = () => {
@@ -94,7 +94,7 @@ const TeamArea = () => {
             </div>
         </div>
 
-        <ParticlesComponent id="particles"/>
+        {/* <ParticlesComponent id="particles"/> */}
 
     </section>
   )

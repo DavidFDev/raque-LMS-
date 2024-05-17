@@ -34,7 +34,7 @@ const SignupForm = () => {
 
         {/* NAME */}
         <div className="form-group">
-            <input type="text" name="email" placeholder="Enter Full Name" autoComplete="off" autoCapitalize="on" className="form-control text-capitalize" value={name} onChange={(e) => setName(e.target.value)} required/>
+            <input type="text" name="name" id="name" placeholder="Enter Full Name" autoComplete="off" autoCapitalize="on" className="form-control text-capitalize" value={name} onChange={(e) => setName(e.target.value)} required/>
             <span className="form-email-feedback"></span>
         </div>
 

@@ -120,7 +120,7 @@ app.post("/login", async (req, res) => {
 
 
 
-const client = new twilio(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
+// const client = new twilio(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
 /* VALIDATE USER EMAIL OR PHONE TO UPDATE THE USER INFO */
 app.post("/forgot-password", async (req, res) => {
   const { email, phone, phoneNumber } = req.body;
@@ -163,26 +163,6 @@ app.post("/forgot-password", async (req, res) => {
       })
       
       
-    } else if (phone.length !== 0) {
-      const SMSAPI = async () => {
-        try {
-          // Send SMS using Twilio
-          const message = await client.messages.create({
-            body: `http://localhost:5173/resetPassword/${token}`,
-            from: '+23407044593001',
-            to: student.phone,
-          });
-          
-          !message && res.json({ status: false, message: "Failed to send SMS" })
-  
-          return res.json({ status: true, message: "SMS sent successfully!" })
-        } catch (error) {
-          console.log("Error sending SMS:", error)
-          res.status(500).json({ status: false, message: "Failed to send SMS" })
-        }
-      }
-
-      SMSAPI();
     }
 
     res.clearCookie("token")
@@ -451,6 +431,7 @@ app.get("/orders", async (req, res) => {
     res.cookie("cartToken", newCartToken, {httpOnly: true})
     
     const newCartDecoded = jwt.verify(newCartToken, process.env.KEY)
+
  
     const studentCart = await CartModel.findOne({ studentId: newCartDecoded.email })
     
@@ -463,7 +444,6 @@ app.get("/orders", async (req, res) => {
     res.json({ message: "An error occurred while trying to get orders: " + error, status: false });
   }
 });
-
 
 
 

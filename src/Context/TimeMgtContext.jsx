@@ -38,7 +38,6 @@ const TimeMgtProvider = ({ children }) => {
     const currentDateTime = new Date(); // Get the current date and time
     setIsExpired(currentDateTime > returnDateTime); 
 
-    console.log(returnTimestamp)
   };
 
   const formatDate = (date) => {

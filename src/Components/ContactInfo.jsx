@@ -1,7 +1,7 @@
 import { FiPhoneCall } from "react-icons/fi";
 import { LiaMapMarkerAltSolid } from "react-icons/lia";
 import { MdOutlineEmail } from "react-icons/md";
-import ParticlesComponent from "./Particles";
+// import ParticlesComponent from "./Particles";
 
 
 const ContactInfo = () => {

@@ -1146,7 +1146,7 @@
     transform: translateY(-101px);
     height: 833px;
 
-    .owl-one {
+    .slick-slider {
       height: 650px;
       .item {
         margin: auto;
@@ -1230,13 +1230,13 @@
         }
       }
 
-      .owl-dots {
+      .slick-dots {
         flex-wrap: nowrap !important;
         position: absolute;
         bottom: -250px;
         left: 0;
         right: 0;
-        transform: translateY(-100px);
+        transform: translateY(-30px);
       }
     }
   }
@@ -1244,7 +1244,7 @@
   /* ABOUT SECTION */
   .about-section {
     padding: 0px 30px 0px 30px;
-
+    overflow-x: hidden!important;
     .content {
       .left-content {
         padding-bottom: 50px;

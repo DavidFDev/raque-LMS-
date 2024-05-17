@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import Layout from "./Components/Layout";
@@ -6,58 +7,70 @@ import AuthProvider from "./Context/AuthContext";
 import TimeMgtProvider from "./Context/TimeMgtContext";
 import PageNotFound from "./Pages/404Page";
 import Checkout from "./Pages/Checkout";
-import ReadingPage from "./Pages/ReadingPage";
 import "./Responsive.css";
-import Cart from "./Pages/Cart/Cart";
-import Contact from "./Pages/Contact";
-import Home from "./Pages/Home";
-import Pricing from "./Pages/Pricing";
-import ProductDetails from "./Pages/ProductDetails";
-import Shop from "./Pages/Shop";
-import Login from "./Pages/User/User-Entry/Login";
-import SignUp from "./Pages/User/User-Entry/SignUp";
-import UserAccount from "./Pages/User/User-Entry/UserAccount";
-import ForgotPassword from "./Pages/User/User-Entry/ForgotPassword";
-import ResetPassword from "./Pages/User/User-Entry/ResetPassword";
-import UserBio from "./Pages/User/User-Entry/UserBio";
+import { PopupNotificationProvider } from "./Context/PopupNotificationContext";
+const ReadingPage = React.lazy(() => import("./Pages/ReadingPage"));
+const Cart = React.lazy(() => import("./Pages/Cart/Cart"));
+const Contact = React.lazy(() => import("./Pages/Contact"));
+const Home = React.lazy(() => import("./Pages/Home"));
+const Pricing = React.lazy(() => import("./Pages/Pricing"));
+const ProductDetails = React.lazy(() => import("./Pages/ProductDetails"));
+const Shop = React.lazy(() => import("./Pages/Shop"));
+const Login = React.lazy(() => import("./Pages/User/User-Entry/Login"));
+const SignUp = React.lazy(() => import("./Pages/User/User-Entry/SignUp"));
+const UserAccount = React.lazy(() =>
+  import("./Pages/User/User-Entry/UserAccount")
+);
+const ForgotPassword = React.lazy(() =>
+  import("./Pages/User/User-Entry/ForgotPassword")
+);
+const ResetPassword = React.lazy(() =>
+  import("./Pages/User/User-Entry/ResetPassword")
+);
+const UserBio = React.lazy(() => import("./Pages/User/User-Entry/UserBio"));
+import NotificationPopup from "./Components/NotificationPopup";
 
 const App = () => {
   return (
+    <Router>
+      <Suspense fallback={<Loading />}>
+        <AuthProvider>
+          <TimeMgtProvider>
+            <PopupNotificationProvider>
+              <NotificationPopup />
+              <Routes>
+                {/* ENTRY PAGES */}
 
-      <Router>
-        <Suspense fallback={<Loading />}>
-            <TimeMgtProvider>
-              <AuthProvider>
-                <Routes>
-                  {/* ENTRY PAGES */}
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<SignUp />} />
+                <Route path="forgot-password" element={<ForgotPassword />} />
+                <Route
+                  path="resetPassword/:token"
+                  element={<ResetPassword />}
+                />
 
-                  <Route path="login" element={<Login />} />
-                  <Route path="register" element={<SignUp />} />
-                  <Route path="forgot-password" element={<ForgotPassword />} />
-                  <Route path="resetPassword/:token" element={<ResetPassword />} />
+                <Route path="reading/:id" element={<ReadingPage />} />
+                {/* END OF ENTRY PAGES */}
 
-                  <Route path="reading/:id" element={<ReadingPage />} />
-                  {/* END OF ENTRY PAGES */}
-
-                  <Route path="/" element={<Layout />}>
-                    <Route path="product/:id" element={<ProductDetails />} />
-                    {/* <Route path="profile" element={<Profile />} /> */}
-                    <Route index element={<Home />} />
-                    <Route path="shop" element={<Shop />} />
-                    <Route path="cart" element={<Cart />} />
-                    <Route path="checkout" element={<Checkout />} />
-                    <Route path="pricing" element={<Pricing />} />
-                    <Route path="contact" element={<Contact />} />
-                    <Route path="mybio" element={<UserBio />} />
-                    <Route path="profile" element={<UserAccount />} />
-                    <Route path="*" element={<PageNotFound />} />
-                  </Route>
-                </Routes>
-              </AuthProvider>
-            </TimeMgtProvider>
-        </Suspense>
-      </Router>
-
+                <Route path="/" element={<Layout />}>
+                  <Route path="product/:id" element={<ProductDetails />} />
+                  {/* <Route path="profile" element={<Profile />} /> */}
+                  <Route index element={<Home />} />
+                  <Route path="shop" element={<Shop />} />
+                  <Route path="cart" element={<Cart />} />
+                  <Route path="checkout" element={<Checkout />} />
+                  <Route path="pricing" element={<Pricing />} />
+                  <Route path="contact" element={<Contact />} />
+                  <Route path="mybio" element={<UserBio />} />
+                  <Route path="profile" element={<UserAccount />} />
+                  <Route path="*" element={<PageNotFound />} />
+                </Route>
+              </Routes>
+            </PopupNotificationProvider>
+          </TimeMgtProvider>
+        </AuthProvider>
+      </Suspense>
+    </Router>
   );
 };
 

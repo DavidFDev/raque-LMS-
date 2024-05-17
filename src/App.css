@@ -9,6 +9,8 @@
   transition: 0.4s !important;
 }
 
+
+
 .default-btn svg {
   transition: 0.3s linear !important;
 }
@@ -18,6 +20,7 @@ body {
   background-color: #fff;
   margin: 0;
   padding: 0;
+  overflow-x: hidden!important;
   /* position: relative; */
 }
 
@@ -1024,11 +1027,11 @@ p {
 
 /* HERO SECTION */
 .hero-section {
-  background-color: #252525;
+  /* background-color: #252525; */
   /* border-bottom: 3px solid #ff1949; */
   position: relative;
 
-  .owl-one {
+  .slick-slider {
     .item {
       margin: auto;
 
@@ -1190,17 +1193,43 @@ p {
       }
     }
 
-    .owl-dots {
+    .slick-dots {
       flex-wrap: nowrap !important;
       position: absolute;
+      align-items: center!important;
       bottom: -120px;
       left: 0;
       right: 0;
-      transform: translateY(-100px);
+      transition: 0.4s linear!important;
+      /* transform: translateY(-100px); */
 
-      .owl-dot {
-        &.active span {
+      & li {
+        font-size: 33px;
+
+        & button:before {
+          font-family: 'slick';
+          font-size: 6px;
+          line-height: 20px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 12px;
+          height: 12px;
+          content: '';
+          text-align: center;
+          border-radius: 50%;
+          opacity: .25;
+          background-color: #000;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        &.slick-active button::before {
           background: var(--main-color) !important;
+          border: 2px solid #ccc;
+          width: 12px;
+          height: 12px;
+          opacity: 1;
         }
 
         &:hover span {
@@ -1221,7 +1250,7 @@ p {
 /* ABOUT SECTION */
 .about-section {
   padding: 80px 30px 0px 30px;
-
+  overflow-x: hidden!important;
   .content {
     padding-left: 0;
     text-align: center;
@@ -1306,7 +1335,7 @@ p {
     }
   }
 
-  .owl-two {
+  .slick-two {
     .single-categories-course-box {
       .icon {
         width: 100px;
@@ -1404,8 +1433,12 @@ p {
     }
   }
 
-  .owl-two {
+  .slick-two {
     position: relative;
+
+    /* .slick-list {
+      margin: 20px;
+    } */
 
     .owl-nav {
       position: absolute !important;
@@ -4278,4 +4311,28 @@ p {
       font-weight: 600;
     }
   }
+}
+
+
+
+/* POPUP NOTIFICATION */
+.notification-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #444;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.notification-popup span {
+  margin-right: 10px;
+}
+
+.notification-popup .close-icon {
+  cursor: pointer;
 }

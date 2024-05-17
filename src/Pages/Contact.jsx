@@ -4,7 +4,7 @@ import { IoChevronForward } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import Map from "../Components/Map";
 
-import ParticlesComponent from "../Components/Particles";
+
 
 
 const Contact = () => {
@@ -52,7 +52,7 @@ const Contact = () => {
           <ContactForm />
         </section>
 
-        <ParticlesComponent id="particles"/>
+
       </div>
 
       <section className="map">

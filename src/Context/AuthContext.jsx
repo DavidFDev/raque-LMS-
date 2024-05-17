@@ -201,21 +201,20 @@ const AuthProvider = ({ children }) => {
 
 
   /* HANDLE UPDATE */
-  const handleUpdate = ({ userEmail, newPassword, currentPassword, fullName, userBio }) => {
+  const handleUpdate = ({ userEmail, newPassword, currentPassword, fullName }) => {
     axios.defaults.withCredentials = true;
 
     axios
-      .post("http://localhost:3001/profile", { userEmail, newPassword, currentPassword, fullName, userBio })
+      .post("http://localhost:3001/profile", { userEmail, newPassword, currentPassword, fullName })
       .then((result) => {
         if (result.data.status) {
           setActivateErrMsg(false)
           setErrParagraph(result.data.message)
+          setSuccessMsg(true)
+          setSuccessPara(result.data.message)
         } else {
-          setTimeout(() => {
-            setActivateErrMsg(true)
-            setErrParagraph(result.data.message)
-
-          }, 1000);
+          setActivateErrMsg(true)
+          setErrParagraph(result.data.message)
         }
       })
       .catch((err) => console.log(err));

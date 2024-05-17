@@ -1,7 +1,5 @@
 import { FaPen } from "react-icons/fa";
 
-import 'react-tooltip/dist/react-tooltip.css'
-import { Tooltip } from 'react-tooltip'
 
 import { useAuthContext } from "../Context/AuthContext";
 import { useState } from "react";
@@ -48,13 +46,11 @@ const BioForm = () => {
             : "icon-container rounded-circle"
         }
         onClick={handleBioReset}
-        data-tooltip-id="edit-bio" data-tooltip-content={isActive ? "Submit" : "Edit bio"}
       >
         {!isActive ? <FaPen className="icon" /> : "Done"}
       </button>
 
 
-      <Tooltip id="edit-bio" />
     </form>
   );
 };

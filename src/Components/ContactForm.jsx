@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import MainContactForm from "./MainContactForm";
-import ParticlesComponent from "./Particles";
+// import TsParticles from "./Particles";
 const ContactForm = () => {
 
 
