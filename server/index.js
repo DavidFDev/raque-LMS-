@@ -292,7 +292,7 @@ app.post("/contact", async (req, res) => {
         pass: `${process.env.EMAIL_PASS}`,
       },
     });
- 
+  
     // Configure email options
     let mailOptions = {
       from: `${name} <${email}>`,
