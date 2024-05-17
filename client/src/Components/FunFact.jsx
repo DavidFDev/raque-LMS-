@@ -2,6 +2,7 @@
 import { BiBookReader, BiUserPin } from "react-icons/bi";
 import { FaDeviantart } from "react-icons/fa";
 import { PRODUCTS } from "../products";
+import { FaUsers } from "react-icons/fa";
 
 const FunFact = () => {
 
@@ -10,11 +11,10 @@ const FunFact = () => {
         <div className="container">
             <div className="funfacts-inner bg-deepred">
                 <div className="row align-items-center">
-                    {/* <ParticlesComponent id="particles" /> */}
                     <div className="col-6 col-xm-6 col-md-3 col-lg-3 mb-3 mb-lg-0">
                         <div className="single-funfact">
                             <div className="icon">
-                                {/* <ImUsers /> */}
+                                <FaUsers />
                             </div>
 
                             <div className="odometer odometer-auto-theme" data-count="50">

@@ -73,39 +73,39 @@ const BlogArea = () => {
           </Link>
         </div>
 
-
-
-        <Slider className="blog-slides mt-5 " {...settings}>
-          {blogPosts.map((singlePost, index) => (
-            <div className="item" key={index}>
-              <div className="single-blog-post mb-30">
-                <div className="post-image">
-                  <Link to="single-blog.html" className="d-block">
-                    <img src={singlePost.img} alt="image" className="img-fluid" />
-                  </Link>
-                  <div className="tag">
-                    <Link to="/" className={singlePost.tagClassName}>{singlePost.tag}</Link>
+        <div className="slider-container">
+          <Slider className="blog-slides mt-5" {...settings}>
+            {blogPosts.map((singlePost, index) => (
+              <div className="item slider-item" key={index}>
+                <div className="single-blog-post mb-30">
+                  <div className="post-image">
+                    <Link to="single-blog.html" className="d-block">
+                      <img src={singlePost.img} alt="image" className="img-fluid" />
+                    </Link>
+                    <div className="tag">
+                      <Link to="/" className={singlePost.tagClassName}>{singlePost.tag}</Link>
+                    </div>
+                  </div>
+                  <div className="post-content">
+                    <ul className="post-meta mb-2">
+                      <li className="post-author">
+                        <img src={singlePost.userImg} className="d-inline-block rounded-circle me-2 img-fluid" alt="image" />
+                        By:&nbsp;<Link to="/" className="d-inline-block text-altgreen">{singlePost.userName}</Link>
+                      </li>
+                      <li><Link to="/" className="text-dark">{singlePost.postDate}</Link></li>
+                    </ul>
+                    <h3>
+                      <Link to="single-blog.html" className="d-inline-block text-dark">{singlePost.review}</Link>
+                    </h3>
+                    <Link to="/" className="read-more-btn text-dark">
+                      <span>Read More &nbsp;<FaArrowRightLong /></span>
+                    </Link>
                   </div>
                 </div>
-                <div className="post-content">
-                  <ul className="post-meta mb-2">
-                    <li className="post-author">
-                      <img src={singlePost.userImg} className="d-inline-block rounded-circle me-2 img-fluid" alt="image" />
-                      By:&nbsp;<Link to="/" className="d-inline-block text-altgreen">{singlePost.userName}</Link>
-                    </li>
-                    <li><Link to="/" className="text-dark">{singlePost.postDate}</Link></li>
-                  </ul>
-                  <h3>
-                    <Link to="single-blog.html" className="d-inline-block text-dark">{singlePost.review}</Link>
-                  </h3>
-                  <Link to="/" className="read-more-btn text-dark">
-                    <span>Read More &nbsp;<FaArrowRightLong /></span>
-                  </Link>
-                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        </div>
       </div>
     </section>
   );

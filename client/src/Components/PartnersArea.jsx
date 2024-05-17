@@ -19,15 +19,15 @@ const PartnersArea = () => {
     autoplay: true,
     responsive: [
       {
-        breakpoint: 992,
+        breakpoint: 991,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
         },
       },
       {
-        breakpoint: 920,
+        breakpoint: 876,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         },
       },
       {
@@ -37,26 +37,13 @@ const PartnersArea = () => {
         },
       },
       {
-        breakpoint: 758,
+        breakpoint: 767,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
       {
         breakpoint: 576,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 320,
         settings: {
           slidesToShow: 1,
         },
@@ -72,48 +59,48 @@ const PartnersArea = () => {
         </div>
 
         <Slider {...settings} className="mt-4">
-          <div className="item item-1">
-            <div className="single-partner-item">
+          <div className="item">
+            <div className="single-partner-item d-flex justify-content-center">
               <Link to="/">
                 <img src={partner1} alt="Partner Image" className="img-fluid" />
               </Link>
             </div>
           </div>
 
-          <div className="item item-2">
-            <div className="single-partner-item">
+          <div className="item">
+            <div className="single-partner-item d-flex justify-content-center">
               <Link to="/">
                 <img src={partner2} alt="Partner Image" className="img-fluid" />
               </Link>
             </div>
           </div>
 
-          <div className="item item-3">
-            <div className="single-partner-item">
+          <div className="item">
+            <div className="single-partner-item d-flex justify-content-center">
               <Link to="/">
                 <img src={partner3} alt="Partner Image" className="img-fluid" />
               </Link>
             </div>
           </div>
 
-          <div className="item item-4">
-            <div className="single-partner-item">
+          <div className="item">
+            <div className="single-partner-item d-flex justify-content-center">
               <Link to="/">
                 <img src={partner4} alt="Partner Image" className="img-fluid" />
               </Link>
             </div>
           </div>
 
-          <div className="item item-5">
-            <div className="single-partner-item">
+          <div className="item">
+            <div className="single-partner-item d-flex justify-content-center">
               <Link to="/">
                 <img src={partner5} alt="Partner Image" className="img-fluid" />
               </Link>
             </div>
           </div>
 
-          <div className="item item-6">
-            <div className="single-partner-item">
+          <div className="item">
+            <div className="single-partner-item d-flex justify-content-center">
               <Link to="/">
                 <img src={partner6} alt="Partner Image" className="img-fluid" />
               </Link>

@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap); @import url(https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+
+
+
 :root {
   --main-color: #ff1949;
 }
@@ -315,6 +318,10 @@ p {
   border-radius: 5px 5px 0 0;
   transition: 0.5s;
   margin-bottom: 30px;
+
+  &:hover {
+    transform: translateY(-20px);
+  }
 }
 
 .single-courses-box,
@@ -1336,7 +1343,14 @@ p {
   }
 
   .slick-two {
+    &.slick-slider {
+      .slick-slide > div {
+        margin: 5px!important;
+      }
+    }
+
     .single-categories-course-box {
+      /* margin: 10px!important; */
       .icon {
         width: 100px;
         height: 100px;
@@ -1376,6 +1390,25 @@ p {
         left: 0;
         top: 0;
       }
+    }
+
+    .slick-prev, .slick-next {
+      font-size: 0;
+      line-height: 0;
+      position: absolute;
+      top: 50%;
+      display: block;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      cursor: pointer;
+      color: transparent;
+      border: 1px solid var(--main-color);
+      outline: none;
+      background: transparent;
     }
 
     .item-1 {
@@ -1552,6 +1585,10 @@ p {
 
   .sorting-menu {
     margin-bottom: 10px;
+
+    .filter.mixitup-control-active {
+      color: var(--main-color);
+    }
   }
 
   .sorting-menu .filter {
@@ -1566,6 +1603,38 @@ p {
 
   .shorting {
     padding: 20px 0 20px 0;
+  }
+
+  /* Smooth transition for filtered elements */
+  .shorting .mix {
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .shorting .mix.hidden {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .single-courses-box {
+    &:hover {
+      .courses-tag {
+        transition: 0.5s;
+      }
+
+      .courses-tag {
+        background-color: #0eb582;
+        & a {
+          color: #fff;
+        }
+      }
+    }
   }
 }
 
@@ -1895,6 +1964,10 @@ p {
 }
 
 /* BLOG SECTION */
+.single-blog-post {
+  margin: 10px;
+}
+
 .single-blog-post .post-image {
   transition: 0.3s cubic-bezier(0.3, 0.58, 0.55, 1);
   position: relative;
@@ -4375,3 +4448,4 @@ p {
     transform: rotate(360deg);
   }
 }
+
