@@ -2,10 +2,14 @@ import { useState } from "react";
 import { useAuthContext } from "../Context/AuthContext";
 import SocialAuth from "./SocialAuth";
 import { Link } from "react-router-dom";
-import Loader from '../Components/Loader';
+import Loader from "./Loader";
+
+
+
 
 const LoginForm = () => {
-  const { activateErrMsg, errParagraph, handleLogin, successPara, successMsg, loading } = useAuthContext();
+  const { activateErrMsg, errParagraph, handleLogin, successPara, loading, successMsg } = useAuthContext();
+
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -20,8 +20,10 @@ const AuthProvider = ({ children }) => {
   const [errParagraph, setErrParagraph] = useState();
   const [successMsg, setSuccessMsg] = useState(false);
   const [successPara, setSuccessPara] = useState("")
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+
 
   useEffect(() => {
     // Simulate a data fetching process
@@ -31,6 +33,8 @@ const AuthProvider = ({ children }) => {
 
     return () => clearTimeout(timer);
   }, []);
+
+
 
 
 
@@ -317,6 +321,7 @@ const AuthProvider = ({ children }) => {
     activateErrMsg,
     errParagraph,
     recentOrders,
+    loading,
     orders,
     loading,
     handleResetPassword,
