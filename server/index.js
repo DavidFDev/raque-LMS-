@@ -25,7 +25,9 @@ app.use(
   })
 );
 app.use(bodyParser.json())
-mongoose.connect(`${process.env.MONGODB_PROD_URL}`);
+mongoose.connect(`${process.env.MONGODB_PROD_URL}`).then(() => {
+  console.log("Database Connected!")
+}).catch((err) => console.log(err))
 
 app.get("/test", (req, res) =>
   res.json({

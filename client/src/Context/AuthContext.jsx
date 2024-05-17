@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
   /* HANDLE SIGNUP */
   const handleSignup = ({ name, email, phone, password }) => {
     axios
-      .post("http://localhost:3001/register", { name, email, phone, password })
+      .post("https://raquebookshelf.onrender.com/register", { name, email, phone, password })
       .then((result) => {
         console.log(result);
 
@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("http://localhost:3001/verify").then((result) => {
+    axios.get("https://raquebookshelf.onrender.com/verify").then((result) => {
       if (result.data.status) {
         setIsLoggedIn(true);
         setEmail(result.data.userInfo.email);
@@ -85,7 +85,7 @@ const AuthProvider = ({ children }) => {
 
   const handleMessage = ({ email, name, phone, subject, message }) => {
     axios.defaults.withCredentials = true;
-    axios.post("http://localhost:3001/contact", { email, name, phone, subject, message }).then(result => {
+    axios.post("https://raquebookshelf.onrender.com/contact", { email, name, phone, subject, message }).then(result => {
 
       if (result.data.status) {
         setSuccessMsg(true)
@@ -118,7 +118,7 @@ const AuthProvider = ({ children }) => {
     axios.defaults.withCredentials = true;
 
     axios
-      .post("http://localhost:3001/login", userData)
+      .post("https://raquebookshelf.onrender.com/login", userData)
       .then((result) => {
         if (!result.data.status) {
           setActivateErrMsg(true);
@@ -160,7 +160,7 @@ const AuthProvider = ({ children }) => {
   const handleLogoutButton = ({id}) => {
     axios.defaults.withCredentials = true;
 
-    axios.post(`http://localhost:3001/${id}`).then(result => {
+    axios.post(`https://raquebookshelf.onrender.com/${id}`).then(result => {
       if (result.data.status) {
         setIsLoggedIn(false)
       }
@@ -171,7 +171,7 @@ const AuthProvider = ({ children }) => {
 
   const handleCheckout = (cartItem) => {
     axios.defaults.withCredentials = true;
-    axios.post("http://localhost:3001/shop", cartItem).then(result => {
+    axios.post("https://raquebookshelf.onrender.com/shop", cartItem).then(result => {
 
       if (result.data.status) {
         setRecentOrders(result.data.items)
@@ -185,7 +185,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     axios.defaults.withCredentials = true
-    axios.get("http://localhost:3001/orders").then(result => {
+    axios.get("https://raquebookshelf.onrender.com/orders").then(result => {
       if (!result.data.status) {
         return false
       } else {
@@ -205,7 +205,7 @@ const AuthProvider = ({ children }) => {
     axios.defaults.withCredentials = true;
 
     axios
-      .post("http://localhost:3001/profile", { userEmail, newPassword, currentPassword, fullName })
+      .post("https://raquebookshelf.onrender.com/profile", { userEmail, newPassword, currentPassword, fullName })
       .then((result) => {
         if (result.data.status) {
           setActivateErrMsg(false)
@@ -232,7 +232,7 @@ const AuthProvider = ({ children }) => {
     axios.defaults.withCredentials = true;
 
     axios
-      .post("http://localhost:3001/forgot-password", { email, phone, phoneNumber })
+      .post("https://raquebookshelf.onrender.com/forgot-password", { email, phone, phoneNumber })
       .then((result) => {
         if (!result.data.status) {
           setErrParagraph(result.data.message);
@@ -268,7 +268,7 @@ const AuthProvider = ({ children }) => {
     axios.defaults.withCredentials = true;
 
     axios
-      .post("http://localhost:3001/resetPassword/"+token, { password })
+      .post("https://raquebookshelf.onrender.com/resetPassword/"+token, { password })
       .then((response) => {
         if (response.data.status) {
             setSuccessPara(response.data.message);
