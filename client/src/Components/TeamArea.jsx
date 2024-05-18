@@ -3,7 +3,8 @@ import member1 from '../assets/Team/1.jpg'
 import member2 from '../assets/Team/2.jpg'
 import member3 from '../assets/Team/3.jpg'
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
-// import ParticlesComponent from "./Particles";
+import { TbUsersGroup } from "react-icons/tb";
+
 
 
 const TeamArea = () => {
@@ -85,9 +86,9 @@ const TeamArea = () => {
                 <div className="col-lg-12 col-md-12 col-sm-12">
                     <div className="team-btn-box text-center">
                         <Link to="/" className="default-btn">
-                            <i className="bx bx-show-alt icon-arrow before"></i>
+                            <TbUsersGroup className="start-icon" />
                             <span className="label">Meet All Instructor</span>
-                            <i className="bx bx-show-alt icon-arrow after"></i>
+                            <TbUsersGroup className="end-icon" />
                         </Link>
                     </div>
                 </div>
