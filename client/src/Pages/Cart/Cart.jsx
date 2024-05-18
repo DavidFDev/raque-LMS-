@@ -12,7 +12,7 @@ const Cart = () => {
               <div className="title-content">
                 <ul>
                   <li>
-                    <Link to={"/"} className="text-decoration-none text-dark">
+                    <Link to="/" className="text-decoration-none text-dark">
                       Home
                     </Link>
                   </li>

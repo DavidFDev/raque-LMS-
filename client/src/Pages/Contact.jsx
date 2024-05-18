@@ -20,7 +20,7 @@ const Contact = () => {
                     <ul>
                       <li>
                         <Link
-                          to={"/contact"}
+                          to="/"
                           className="text-decoration-none text-dark"
                         >
                           Home

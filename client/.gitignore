@@ -12,7 +12,7 @@ dist-ssr
 *.local
 
 # secret
-client/server/.env
+../server/.env
 
 # Editor directories and files
 .vscode/*
