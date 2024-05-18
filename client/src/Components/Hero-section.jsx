@@ -8,6 +8,7 @@ const HeroSection = () => {
   const settings = {
     dots: true,
     infinite: true,
+    arrows: false,
     speed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
