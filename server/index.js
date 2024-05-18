@@ -194,7 +194,8 @@ app.post("/resetPassword/:token", async (req, res) => {
       decoded._id,
       {
         password: hash,
-      }
+      },
+      {new: true}
     );
 
     if (!student) return res.json({ status: false, message: "Not updated" });

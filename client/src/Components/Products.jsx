@@ -85,7 +85,7 @@ const Products = ({ product }) => {
           </h3>
           <div className={`${className} d-flex flex-nowrap gap-2 justify-content-center align-items-center`}>
             {outdatedPrice && <span className="old">${outdatedPrice}</span>}
-            <span className="new">{price}</span>
+            <span className="new">${price}</span>
           </div>
           <div className="rating">
             <FaStar className="star-icon" />
