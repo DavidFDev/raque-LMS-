@@ -9,7 +9,7 @@ const HeroSection = () => {
     dots: true,
     infinite: true,
     arrows: false,
-    speed: 3000,
+    speed: 9000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
