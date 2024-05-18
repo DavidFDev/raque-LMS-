@@ -1209,7 +1209,7 @@ p {
       left: 0;
       right: 0;
       transition: 0.4s linear!important;
-      /* transform: translateY(-100px); */
+      transform: translateY(-70px);
 
       & li {
         font-size: 33px;
