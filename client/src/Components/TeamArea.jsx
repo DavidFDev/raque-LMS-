@@ -49,7 +49,7 @@ const TeamArea = () => {
 
                             <div className="member-content text-center d-flex flex-column gap-1">
                                 <h3 className="mb-0">
-                                    <a href="single-instructor.html">{member.name}</a>
+                                    <a href="">{member.name}</a>
                                 </h3>
                                 <span className="text-deepred">{member.profession}</span>
 

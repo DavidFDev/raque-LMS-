@@ -59,7 +59,7 @@ const DiscoverCourses = ({ infos }) => {
               <div className={`col-lg-4 col-md-6 mix ${filter !== "all" && info.tag !== filter ? 'hidden' : ''}`} key={index}>
                 <div className="single-courses-box mb-30">
                   <div className="courses-image">
-                    <Link to="single-courses.html" className="d-block img-fluid">
+                    <Link to="#" className="d-block img-fluid">
                       <img src={info.headingImage} alt="image" className="img-fluid"/>
                     </Link>
                     <div className="courses-tag">
@@ -74,7 +74,7 @@ const DiscoverCourses = ({ infos }) => {
                     </div>
 
                     <h3>
-                      <Link to="single-courses.html" className="d-inline-block">{info.description}</Link>
+                      <Link to="#" className="d-inline-block">{info.description}</Link>
                     </h3>
 
                     <div className="courses-rating d-flex align-items-center gap-1">

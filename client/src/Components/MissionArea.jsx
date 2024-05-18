@@ -31,7 +31,7 @@ const MissionArea = () => {
                 <h3>Quality can be better than quantity in this platform</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut nisi ut aliquip ex ea commodo consequat.</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut nisi ut aliquip ex ea commodo consequat.</p>
-                <Link to="about-style-2.html" className="default-btn">
+                <Link to="" className="default-btn">
                   <BiUserPin className="start-icon me-2" />
                   <span className="label">Learn More</span>
                   <BiUserPin className="end-icon" />
