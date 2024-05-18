@@ -323,7 +323,6 @@ const AuthProvider = ({ children }) => {
     recentOrders,
     loading,
     orders,
-    loading,
     handleResetPassword,
     handleForgotPassword,
     handleLogin,

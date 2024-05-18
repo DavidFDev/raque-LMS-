@@ -53,8 +53,8 @@ const BlogArea = () => {
     responsive: [
       { breakpoint: 992, settings: { slidesToShow: 2 } },
       { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 576, settings: { slidesToShow: 1 } },
-      { breakpoint: 320, settings: { slidesToShow: 1 } }
+      { breakpoint: 576, settings: { slidesToShow: 1, arrows: false } },
+      { breakpoint: 320, settings: { slidesToShow: 1, arrows: false } }
     ]
   };
 

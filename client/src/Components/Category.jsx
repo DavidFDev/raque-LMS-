@@ -17,9 +17,9 @@ const Category = () => {
     slidesToScroll: 1,
     autoplay: true,
     responsive: [
-      { breakpoint: 320, settings: { slidesToShow: 1 } },
-      { breakpoint: 576, settings: { slidesToShow: 1 } },
-      { breakpoint: 600, settings: { slidesToShow: 1 } },
+      { breakpoint: 320, settings: { slidesToShow: 1, arrows: false } },
+      { breakpoint: 576, settings: { slidesToShow: 1, arrows: false }},
+      { breakpoint: 600, settings: { slidesToShow: 1, arrows: false } },
       { breakpoint: 758, settings: { slidesToShow: 2 } },
       { breakpoint: 768, settings: { slidesToShow: 2 } },
       { breakpoint: 920, settings: { slidesToShow: 3 } },
