@@ -14,7 +14,7 @@ const StudentForm = () => {
   const [phone, setPhone] = useState();
   const [message, setMessage] = useState("");
 
-  const { activateErrMsg, errParagraph, successMsg, successPara } =
+  const { activateErrMsg, errParagraph, successMsg, successPara, handleFeedback } =
     useAuthContext();
 
   const handleSubmit = (e) => {
