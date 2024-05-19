@@ -111,7 +111,6 @@ const Home = () => {
       <TeamArea/>
       <StudentFormArea/>
       <BlogArea/>
-      <CountdownArea/>
     </>
   )
 }

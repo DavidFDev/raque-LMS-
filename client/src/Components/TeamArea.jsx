@@ -35,8 +35,8 @@ const TeamArea = () => {
         <div className="container">
             <div className="section-title d-flex flex-column align-items-center text-center">
                 <span className="sub-title">Make Connections</span>
-                <h2>Team of Instructors</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut nisi ut aliquip ex ea.</p>
+                <h2>Meet the team</h2>
+                <p>Connect with our talented team members who bring diverse skills and expertise to our projects. We are dedicated to delivering high-quality solutions and fostering meaningful collaborations. Reach out to us to learn more and see how we can work together to achieve your goals.</p>
             </div>
 
             <div className="row justify-content-center">

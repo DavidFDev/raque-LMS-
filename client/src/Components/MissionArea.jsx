@@ -1,8 +1,8 @@
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import { BiUserPin } from "react-icons/bi";
-import Slider from 'react-slick';
+import Slider from "react-slick";
 
 const MissionArea = () => {
   const settings = {
@@ -29,8 +29,18 @@ const MissionArea = () => {
             <div className="item item-1">
               <div>
                 <h3>Quality can be better than quantity in this platform</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut nisi ut aliquip ex ea commodo consequat.</p>
+                <p>
+                  Our library management system offers a vast collection of free
+                  books available to read online, making it accessible to all
+                  university students. Enjoy unlimited access to a diverse range
+                  of academic and leisure reading materials without any cost.
+                </p>
+                <p>
+                  Our platform is user-friendly, with a seamless interface that
+                  allows you to easily find and read books from any device.
+                  Whether you're conducting research or looking for something to
+                  read in your free time, our online library has you covered.
+                </p>
                 <Link to="" className="default-btn">
                   <BiUserPin className="start-icon me-2" />
                   <span className="label">Learn More</span>
@@ -42,8 +52,17 @@ const MissionArea = () => {
             <div className="item item-2">
               <div>
                 <h3>A place where you can achieve</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut nisi ut aliquip ex ea commodo consequat.</p>
+                <p>
+                  Explore a vast collection of free books available for you to
+                  read online. Enhance your knowledge and support your studies
+                  with our comprehensive digital library.
+                </p>
+                <p>
+                  Our platform offers an easy-to-navigate interface, providing
+                  students with unlimited access to educational resources at no
+                  cost. Start your reading journey today and discover a wealth
+                  of information right at your fingertips.
+                </p>
                 <Link to="/" className="default-btn">
                   <BiUserPin className="start-icon me-2" />
                   <span className="label">Learn More</span>

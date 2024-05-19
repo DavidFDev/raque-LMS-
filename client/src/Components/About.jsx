@@ -22,12 +22,12 @@ const AboutSection = () => {
                         <div className="right-content text-center text-lg-start">
                             <div className="top d-flex flex-column gap-2">
                                 <span className="sub-title text-deepred">ABOUT US</span>
-                                <h1>Learn New Skills to go ahead for Your Career</h1>
+                                <h1>Discover Unlimited Knowledge with Free Online Books</h1>
                                 <h6 className='sub-text'>We can support student forum 24/7 for national and international students.</h6>
                             </div>
 
                             <div className="bottom">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia laborum.</p>
+                                <p>Expand your knowledge and enhance your career prospects with our comprehensive courses. Our dedicated team is available around the clock to assist with any questions or concerns you may have. Join our community of learners and take the next step towards achieving your professional goals. Let us help you reach your full potential and succeed in your chosen field.</p>
 
                                 <div className="space">
                                     <h5 className="achieve-space">

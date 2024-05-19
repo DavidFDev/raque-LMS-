@@ -33,7 +33,7 @@ const HeroSection = () => {
                         <span className="highlight"></span>
                         THE FUTURE
                       </span>
-                      <h1>Transformative course for those who learn differently</h1>
+                      <h1>Educational Books for those who learn differently</h1>
                       <p>Raque students by introducing collaboratives outside R, internships and search experience abroad</p>
 
                       <div className="links">
@@ -100,7 +100,7 @@ const HeroSection = () => {
                         <span className="highlight"></span>
                         <span>AIM FOR EXCELLENCE</span>
                       </span>
-                      <h1>Learn a new skill from online courses</h1>
+                      <h1>Learn a new skill from our online books</h1>
                       <p>Raque students by introducing collaboratives outside R, internships and search experience abroad</p>
 
                       <div className="links">

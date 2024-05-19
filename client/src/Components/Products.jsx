@@ -46,8 +46,8 @@ const Products = ({ product }) => {
         } else {
           const permission = await Notification.requestPermission();
           if (permission === "granted") {
-            new window.Notification("Automated notification", {
-              body: "Raquebookshelf",
+            new window.Notification("YCT Library", {
+              body: "Nothing yet",
               data: "Borrowed an item from the library",
               tag: "borrow indicator",
             });
@@ -84,8 +84,8 @@ const Products = ({ product }) => {
             <Link to={`/product/${id}`}>{productName}</Link>
           </h3>
           <div className={`${className} d-flex flex-nowrap gap-2 justify-content-center align-items-center`}>
-            {outdatedPrice && <span className="old">${outdatedPrice}</span>}
-            <span className="new">${price}</span>
+          
+            <span className="new">{price}</span>
           </div>
           <div className="rating">
             <FaStar className="star-icon" />
