@@ -326,22 +326,24 @@ app.post("/", async (req, res) => {
 
   try {
     const student = await StudentModel.findOne({ email });
-    if (!student) return res.json({ status: false, message: "No record for this user" });
+    if (!student) {
+      return res.json({ status: false, message: "No record for this user" });
+    }
 
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: `${process.env.SUPPORT_EMAIL}`,
-        pass: `${process.env.EMAIL_PASS}`,
+        user: process.env.SUPPORT_EMAIL,
+        pass: process.env.EMAIL_PASS,
       },
     });
-  
+
     // Configure email options
     let mailOptions = {
       from: `${name} <${email}>`,
-      to: `${process.env.SUPPORT_EMAIL}`, 
-      subject: subject,
-      text: `Name: ${name}\nAddress: ${address}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`
+      to: process.env.SUPPORT_EMAIL,
+      subject: "Feedback from " + name,
+      text: `Name: ${name}\nAddress: ${address}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`,
     };
 
     // Send the email
@@ -359,7 +361,8 @@ app.post("/", async (req, res) => {
     console.error('Error processing feedback request:', error);
     return res.status(500).json({ message: 'An error occurred', error: error });
   }
-})
+});
+
 
 
 
