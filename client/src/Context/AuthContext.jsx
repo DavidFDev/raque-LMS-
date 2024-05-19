@@ -124,9 +124,18 @@ const AuthProvider = ({ children }) => {
           clearInterval(interval)
         }
       } else {
-        setActivateErrMsg(true)
-        setErrParagraph(result.data.message)
+        const interval = setInterval(() => {
+          setActivateErrMsg(true)
+          setErrParagraph(result.data.message)
+        }, 4000);
+
+        return () => {
+          clearInterval(interval)
+        }
       }
+    }).catch(err => {
+      setErrParagraph(`${err.response.data.message} - (${err.response.statusText})`);
+      setActivateErrMsg(true);
     })
   }
 
