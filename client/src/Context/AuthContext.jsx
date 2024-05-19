@@ -112,24 +112,30 @@ const AuthProvider = ({ children }) => {
 
   const handleFeedback = ({ email, name, phone, address, message }) => {
     axios.defaults.withCredentials = true;
-    axios.post("https://raquebookshelf.onrender.com", { email, name, phone, address, message }).then(result => {
-
+    axios.post("https://raquebookshelf.onrender.com", { email, name, phone, address, message })
+    .then(result => {
       if (result.data.status) {
-        const interval = setInterval(() => {
-          setSuccessMsg(true)
-          setSuccessPara(result.data.message)
+        setSuccessMsg(true);
+        setSuccessPara(result.data.message);
+        setTimeout(() => {
+          setSuccessMsg(false);
         }, 4000);
       } else {
-        const interval = setInterval(() => {
-          setActivateErrMsg(true)
-          setErrParagraph(result.data.message)
+        setActivateErrMsg(true);
+        setErrParagraph(result.data.message);
+        setTimeout(() => {
+          setActivateErrMsg(false);
         }, 4000);
       }
     }).catch(err => {
-      setErrParagraph(`${err.response.data.message} - (${err.response.statusText})`);
+      setErrParagraph(`${err.response?.data?.message || 'An error occurred'} - (${err.response?.statusText || 'Unknown error'})`);
       setActivateErrMsg(true);
-    })
-  }
+      setTimeout(() => {
+        setActivateErrMsg(false);
+      }, 4000);
+    });
+  };
+  
 
 
 
