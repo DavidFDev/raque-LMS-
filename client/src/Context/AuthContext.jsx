@@ -112,26 +112,18 @@ const AuthProvider = ({ children }) => {
 
   const handleFeedback = ({ email, name, phone, address, message }) => {
     axios.defaults.withCredentials = true;
-    axios.post("https://raquebookshelf.onrender.com/", { email, name, phone, address, message }).then(result => {
+    axios.post("https://raquebookshelf.onrender.com", { email, name, phone, address, message }).then(result => {
 
       if (result.data.status) {
         const interval = setInterval(() => {
           setSuccessMsg(true)
           setSuccessPara(result.data.message)
         }, 4000);
-
-        return () => {
-          clearInterval(interval)
-        }
       } else {
         const interval = setInterval(() => {
           setActivateErrMsg(true)
           setErrParagraph(result.data.message)
         }, 4000);
-
-        return () => {
-          clearInterval(interval)
-        }
       }
     }).catch(err => {
       setErrParagraph(`${err.response.data.message} - (${err.response.statusText})`);
