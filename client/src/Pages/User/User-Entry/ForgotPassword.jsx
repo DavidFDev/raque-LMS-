@@ -39,7 +39,7 @@ const ForgotPassword = () => {
                   </div>
 
                   {/* REGISTER TITLE */}
-                  <h3>Validate Email</h3>
+                  <h3>Validate Account</h3>
 
                   <p>
                     Forgot your password?&nbsp;{" "}
