@@ -322,7 +322,7 @@ app.post("/contact", async (req, res) => {
 })
 
 app.post("/", async (req, res) => {
-  const {email, name, phone, address, message} = req.body;
+  const { email, name, phone, address, message } = req.body;
 
   try {
     const student = await StudentModel.findOne({ email });
@@ -356,7 +356,7 @@ app.post("/", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error processing contact request:', error);
+    console.error('Error processing feedback request:', error);
     return res.status(500).json({ message: 'An error occurred', error: error });
   }
 })
