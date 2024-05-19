@@ -6,6 +6,7 @@ import { cartContext } from "../Context/CartContext";
 import { ProductContext } from "../Context/ProductContext";
 import { useAuthContext } from "../Context/AuthContext";
 import { useDateAndTimeContext } from "../Context/TimeMgtContext";
+import Logo from "../assets/Logo/white-logo.png"
 
 const Products = ({ product }) => {
   const { products } = useContext(ProductContext);
@@ -47,9 +48,10 @@ const Products = ({ product }) => {
           const permission = await Notification.requestPermission();
           if (permission === "granted") {
             new window.Notification("YCT Library", {
-              body: "Nothing yet",
+              body: `You have borrowed "${productName}". Please return it by ${returnDate}.`,
               data: "Borrowed an item from the library",
               tag: "borrow indicator",
+              icon: Logo, // Adding the logo to the notification
             });
           }
         }
