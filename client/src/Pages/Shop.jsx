@@ -5,13 +5,26 @@ import Products from "../Components/Products";
 import ShopHeading from "../Components/shopHeading";
 import { cartContext } from "../Context/CartContext";
 import { ProductContext } from "../Context/ProductContext";
+import SearchBooksForm from "../Components/SearchBooksForm";
+import coverImg from "../assets/Products/thirdProduct.jpg"
+
 
 const Shop = () => {
-  const { products } = useContext(ProductContext);
+  const { products, books } = useContext(ProductContext);
   const { cart, removeFromCart } = useContext(cartContext);
 
   const [sortName, setSortName] = useState("Sort by Popularity");
   const [isActive, setIsActive] = useState(false);
+
+  const bookWithCovers = books.map(singleBook => {
+    return {
+      ...singleBook,
+      id: (singleBook.id).replace("/works/", ""),
+      cover_img: singleBook.coverId ? `https://covers.openlibrary.org/b/id/${singleBook.coverId}-L.jpg` : coverImg
+    }
+  });
+
+  console.log(bookWithCovers)
 
   const sortOptions = [
     "Sort by Popularity",
@@ -31,58 +44,19 @@ const Shop = () => {
       <section className="shop-products pb-100 pt-5 pt-lg-0">
         <div className="container">
           <div className="woocommerce-topbar">
-            <div className="row align-items-center">
-              <div className="col-lg-4 col-md-4 col-sm-4">
+            <div className="row align-items-center justify-content-between">
+              <div className="col-12 col-md-6 mb-3 mb-md-0">
                 <div className="topbar-result-count">
                   <p className="mb-0">Showing 1 – 6 of 6</p>
                 </div>
               </div>
 
-              <div className="col-lg-8 col-md-8">
+
+              <div className="col-12 col-md-6">
                 <div className="topbar-ordering-and-search">
-                  <div className="row align-items-center">
-                    <div className="col-lg-6 col-md-6 col-sm-6">
-                      <div className="topbar-ordering">
-                        <div
-                          className="sort-options-box d-flex flex-nowrap align-items-center gap-3"
-                          onClick={() => setIsActive(!isActive)}
-                        >
-                          {sortName}
-                          <FaChevronDown
-                            className={isActive ? "rotate180" : "rotate360"}
-                            style={{ transition: "0.5s ease" }}
-                          />
-                        </div>
-
-                        {isActive && (
-                          <div className="sort-dropdown d-flex flex-column gap-3 text-start">
-                            {sortOptions.map((name, index) => (
-                              <div
-                                className="sort-item"
-                                key={index}
-                                onClick={() => setSortName(name)}
-                              >
-                                Sort by {name}
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="col-lg-6 col-md-6 col-sm-6">
-                      <div className="topbar-search">
-                        <form>
-                          <label>
-                            <IoSearch className="pt-0" />
-                          </label>
-                          <input
-                            type="text"
-                            className="input-search"
-                            placeholder="Search here..."
-                          />
-                        </form>
-                      </div>
+                  <div className="">
+                    <div className="topbar-search">
+                      <SearchBooksForm/> 
                     </div>
                   </div>
                 </div>
@@ -91,8 +65,8 @@ const Shop = () => {
           </div>
 
           <div className="row">
-            {products.map((item) => (
-              <Products product={item} key={item.id} />
+            {bookWithCovers.slice(0, 20).map((item, i) => (
+              <Products product={item} key={i} />
             ))}
 
             <div className="col-lg-12 col-md-12 col-sm-12">

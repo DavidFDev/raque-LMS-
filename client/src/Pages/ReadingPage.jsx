@@ -8,11 +8,51 @@ import { TbMessageSearch } from "react-icons/tb";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ProductContext } from "../Context/ProductContext";
 import { useDateAndTimeContext } from "../Context/TimeMgtContext";
+import coverImg from "../assets/Products/thirdProduct.jpg"
+const URL = "https://openlibrary.org/works/";
+
 
 const ReadingPage = () => {
   /* CONTEXTS */
   const { id } = useParams();
-  const { products } = useContext(ProductContext);
+  const [ loading, setLoading ] = useState(false);
+  const { books } = useContext(ProductContext);
+  const [ book, setBook ] = useState(null);
+
+
+  useEffect(() => {
+    setLoading(true);
+    const getBookDetails = async () => {
+      try {
+        const response = await fetch(`${URL}${id}.json`)
+        const data =  response.json()
+
+        if (data) {
+          const { description, title, covers, subject_places, subject_times, subjects } = data;
+
+          const newBooks = {
+            description: description ? description.value : "No description found",
+            title,
+            cover_img: covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : coverImg,
+            subject_places: subject_places ? subject_places.join(", ") : "NO subiect places round",
+            subject_times : subject_times ? subject_times.join(", ") : "No subject times found",
+            subjects: subjects ? subjects. join(", ") : "No subjects found"
+          }
+
+          setBook(newBooks)
+
+        } else {
+          setBook(null)
+        }
+
+      } catch(err) {
+        console.log(err)
+        setLoading(false)
+      }
+    }
+
+    getBookDetails()
+  }, [id])
 
   /* STATE */
   const [productData, setProductData] = useState({});
@@ -28,17 +68,24 @@ const ReadingPage = () => {
 
   /* GET THE SINGLE PRODUCT BASED ON THE ID */
   useEffect(() => {
-    if (products) {
-      const product = products.find((item) => item.id === id);
-      setProductData(product || {});
+    if (books) {
+      const libBooks = books.find((item) => item.id === id);
+      setProductData(libBooks || {});
     }
-  }, [id, products]);
+  }, [id, books]);
 
 
 
 
   /* DESTRUCTURING THE PRODUCT */
-  const { mainProduct } = productData;
+  const {
+    description,
+    title,
+    cover_img,
+    subject_places,
+    subject_times,
+    subjects } 
+  = book;
 
   /* HANDLE RETURN */
   const handleReturn = () => {
@@ -81,7 +128,9 @@ const ReadingPage = () => {
           <TbMessageSearch className="fs-2 text-white" />
         </div>
 
-        {mainProduct && <img src={mainProduct} className="img-fluid" alt="book" />}
+        { title }
+
+        {cover_img && <img src={cover_img} className="img-fluid" alt="book" />}
       </div>
     </div>
   );

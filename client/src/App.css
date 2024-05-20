@@ -2546,6 +2546,38 @@ p {
   margin-bottom: 40px;
 }
 
+.topbar-ordering-and-search {
+  & form {
+    justify-self: end;
+    & input {
+      position: relative;
+      height: 50px;
+      color: #252525;
+      background-color: #eef5f9;
+      display: block;
+      width: 100%;
+      border-radius: 30px;
+      padding: 3px 15px 0 48px;
+      border: none;
+      transition: 0.5s;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    & button {
+      position: absolute;
+      top: 20%;
+      right: 5%;
+      background-color: transparent;
+      border: none;
+
+      & svg {
+        color: var(--main-color);
+      }
+    }
+  }
+}
+
 .woocommerce-topbar .topbar-ordering {
   cursor: pointer;
 }
@@ -2569,42 +2601,13 @@ p {
   z-index: 99;
 }
 
-.woocommerce-topbar .topbar-ordering-and-search .topbar-search form {
-  position: relative;
-}
 
-.woocommerce-topbar .topbar-ordering-and-search .topbar-search form label {
-  display: block;
-  margin-bottom: 0;
-  position: absolute;
-  left: 20px;
-  top: 12px;
-  font-size: 18px;
-  color: var(--main-color);
-}
-
-.woocommerce-topbar
-  .topbar-ordering-and-search
-  .topbar-search
-  form
-  .input-search {
-  height: 50px;
-  color: #252525;
-  background-color: #eef5f9;
-  display: block;
-  width: 100%;
-  border-radius: 30px;
-  padding: 3px 15px 0 48px;
-  border: none;
-  transition: 0.5s;
-  font-size: 14px;
-  font-weight: 400;
-}
 
 .single-product-box {
   text-align: center;
+  border-radius: 10px;
   background-color: #fff;
-  box-shadow: 0 0 40px 3px rgba(0, 0, 0, 0.05);
+  box-shadow:  rgba(0, 0, 0, 0.05) 0px 5px 15px 0px;
 }
 
 .cart-totals,
@@ -2617,10 +2620,13 @@ p {
   overflow: hidden;
   position: relative;
   text-align: left;
-}
+  border-radius: 10px;
 
-.single-product-box .product-image a img {
-  transition: 0.5s;
+  & a img {
+    transition: 0.5s;
+    height: 400px;
+    object-fit: cover;
+  }
 }
 
 .single-product-box .product-image a img:nth-child(2) {

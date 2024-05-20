@@ -8,6 +8,7 @@ import { useAuthContext } from "../Context/AuthContext";
 import { useDateAndTimeContext } from "../Context/TimeMgtContext";
 import Logo from "../assets/Logo/white-logo.png"
 
+
 const Products = ({ product }) => {
   const { products } = useContext(ProductContext);
   const { addToCart, cart } = useContext(cartContext);
@@ -16,15 +17,14 @@ const Products = ({ product }) => {
 
   const [notification, setNotification] = useState(null);
 
-  const {
-    id,
-    className,
-    mainProduct,
-    mainProduct2,
-    productName,
-    outdatedPrice,
-    price,
-  } = product;
+  const { id,
+    authur,
+    coverId,
+    edition_count,
+    first_publish_year,
+    cover_img,
+    title } 
+  = product;
 
   const handleSubmit = () => {
     handleCalculateDates();
@@ -32,7 +32,7 @@ const Products = ({ product }) => {
     let cartItem = [];
     cartItem.push({
       itemId: product.id,
-      productName: product.productName,
+      productName: product.title,
       borrowDate: borrowDate,
       returnDate: returnDate,
     });
@@ -48,10 +48,10 @@ const Products = ({ product }) => {
           const permission = await Notification.requestPermission();
           if (permission === "granted") {
             new window.Notification("YCT Library", {
-              body: `You have borrowed "${productName}". Please return it by ${returnDate}.`,
+              body: `You have borrowed "${title}". Please return it by ${returnDate}.`,
               data: "Borrowed an item from the library",
               tag: "borrow indicator",
-              icon: Logo, 
+              icon: Logo, // Adding the logo to the notification
             });
           }
         }
@@ -68,8 +68,8 @@ const Products = ({ product }) => {
       <div className="single-product-box mb-30">
         <div className="product-image">
           <Link to={`/product/${id}`}>
-            <img src={mainProduct} alt="product image" className="img-fluid" />
-            <img src={mainProduct2} alt="product image" className="img-fluid" />
+            <img src={cover_img} alt="product image" className="w-100" />
+            {/* <img src={mainProduct2} alt="product image" className="img-fluid" /> */}
           </Link>
           <Link to={`/reading/${id}`}
             className="add-to-cart-btn d-flex flex-nowrap align-items-center gap-2 text-capitalize"
@@ -77,26 +77,33 @@ const Products = ({ product }) => {
           >
             Borrow <BiCartAlt />
           </Link>
-          {productName === "Book Chicks" && (
-            <div className="sale-btn">Sale!</div>
-          )}
         </div>
+      
+
+
         <div className="product-content">
           <h3>
-            <Link to={`/product/${id}`}>{productName}</Link>
+            <Link to={`/product/${id}`}>{title}</Link>
           </h3>
-          <div className={`${className} d-flex flex-nowrap gap-2 justify-content-center align-items-center`}>
-          
-            <span className="new">{price}</span>
+          <div className={`d-flex flex-nowrap gap-2 justify-content-center align-items-center`}>
+            <span className="new">{ authur.join(", ") } </span>
           </div>
-          <div className="rating">
-            <FaStar className="star-icon" />
-            <FaStar className="star-icon" />
-            <FaStar className="star-icon" />
-            <FaStar className="star-icon" />
-            <FaStar className="star-icon" />
+            
+          <div className='book-item-info-item edition-count'>
+            <span className='text-capitalize fw-bold'>Total Editions: </ span> 
+            <span> { edition_count } </span>
+          </div>
+
+
+          <div className='book-item-info-item edition-count'>
+            <span className='text-capitalize fw-bold'>First Publish Year: </ span> 
+            <span> { first_publish_year } </span>
           </div>
         </div>
+
+
+
+
       </div>
     </div>
   );
