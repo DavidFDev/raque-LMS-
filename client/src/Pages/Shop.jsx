@@ -46,7 +46,10 @@ const Shop = () => {
             <div className="row align-items-center justify-content-between">
               <div className="col-12 col-md-6 mb-3 mb-md-0">
                 <div className="topbar-result-count">
-                  <p className="mb-0">Showing 1 – 6 of 6</p>
+                  <p className="mb-0 d-flex flex-nowrap align-items-center gap-2">
+                    <span> Showing </span> 
+                    <span>1 - {`${books.length} of ${books.length}`}</span>
+                  </p>
                 </div>
               </div>
 

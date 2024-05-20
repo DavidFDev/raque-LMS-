@@ -16,10 +16,10 @@ const ShopHeading = () => {
                             <span> <IoChevronForward/> </span>
                         </li>
                         <li>
-                            <span className='page-name'>Shop</span>
+                            <span className='page-name'>Books</span>
                         </li>
                     </ul>
-                    <h2 className='page-name'>Shop</h2>
+                    <h2 className='page-name'>Books</h2>
                 </div>
             </div>
         </div>

@@ -1,3 +1,7 @@
+:root {
+    --main-color: #1B7339;
+}
+
 @keyframes bounce {
   0%,
   80%,
@@ -19,7 +23,7 @@
 .loading-bullets div {
   width: 1em;
   height: 1em;
-  background-color: #333;
+  background-color: var(--main-color);
   border-radius: 50%;
   display: inline-block;
   animation: bounce 1.4s infinite ease-in-out both;
