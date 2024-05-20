@@ -12,15 +12,6 @@ const ProductProvider = ({ children }) => {
   const [ loading, setLoading ] = useState(true)
   const [ resultTitle, setResultTitle ] = useState("")
 
-  // FETCH PRODUCTS - (API) USE useEffect()//REACT HOOK || IMPORT A CREATED DATA INTO THIS FILES AND USE IT AS THE PRODUCT CONTEXT VALUE
-  useEffect(() => {
-    try {
-      setProducts(PRODUCTS);
-    } catch (error) {
-      console.log(error)
-    }
-  }, [PRODUCTS, setProducts]);
-
 
   const fetchBooks = useCallback(async() => {
     setLoading(true)
@@ -64,8 +55,6 @@ const ProductProvider = ({ children }) => {
       setLoading(false)
     }
   }, [searchTerm])
-
-  console.log(books)
 
   useEffect(() => {
     fetchBooks();
