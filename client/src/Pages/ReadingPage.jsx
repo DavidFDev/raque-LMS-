@@ -9,6 +9,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { ProductContext } from "../Context/ProductContext";
 import { useDateAndTimeContext } from "../Context/TimeMgtContext";
 import coverImg from "../assets/Products/thirdProduct.jpg"
+import LoadingBullets from "../Components/Spinner";
 const URL = "https://openlibrary.org/works/";
 
 
@@ -44,7 +45,7 @@ const ReadingPage = () => {
         } else {
           setBook(null)
         }
-
+        setLoading(false)
       } catch(err) {
         console.log(err)
         setLoading(false)
@@ -97,42 +98,48 @@ const ReadingPage = () => {
 
 
   return (
-    <div className="reading-page">
-      <div className="due-dates d-flex align-items-center justify-content-center gap-5">
-        <button type="submit" className="default-btn" onClick={handleReturn}>
-          <MdAssignmentReturn className="start-icon" />
-          <span className="label">
-            {isExpired ? "Borrow for 1 hour" : "Return now"}
-          </span>
-          <MdAssignmentReturn className="end-icon" />
-        </button>
+    <>
+      {loading ? (
+        <LoadingBullets/>
+      ) : (
+        <div className="reading-page">
+          <div className="due-dates d-flex align-items-center justify-content-center gap-5">
+            <button type="submit" className="default-btn" onClick={handleReturn}>
+              <MdAssignmentReturn className="start-icon" />
+              <span className="label">
+                {isExpired ? "Borrow for 1 hour" : "Return now"}
+              </span>
+              <MdAssignmentReturn className="end-icon" />
+            </button>
 
-        <div className="due-date gap-3">
-          {isExpired ? (
-            <span>Your loan has expired</span>
-          ) : (
-            <span>Borrow ends at - {returnDate}</span>
-          )}
-          <span>
-            <PiWarningCircleBold className="fs-3" />
-          </span>
+            <div className="due-date gap-3">
+              {isExpired ? (
+                <span>Your loan has expired</span>
+              ) : (
+                <span>Borrow ends at - {returnDate}</span>
+              )}
+              <span>
+                <PiWarningCircleBold className="fs-3" />
+              </span>
+            </div>
+          </div>
+
+          <div className="container py-4 d-flex justify-content-center">
+            <div className="icons">
+              <FaRegCalendarCheck className="fs-2 text-white" />
+              <Link to="/">
+                <MdOutlineHomeWork className="fs-2 text-white" />
+              </Link>
+              <TbMessageSearch className="fs-2 text-white" />
+            </div>
+
+            { title }
+
+            {cover_img && <img src={cover_img} className="img-fluid" alt="book" />}
+          </div>
         </div>
-      </div>
-
-      <div className="container py-4 d-flex justify-content-center">
-        <div className="icons">
-          <FaRegCalendarCheck className="fs-2 text-white" />
-          <Link to="/">
-            <MdOutlineHomeWork className="fs-2 text-white" />
-          </Link>
-          <TbMessageSearch className="fs-2 text-white" />
-        </div>
-
-        { title }
-
-        {cover_img && <img src={cover_img} className="img-fluid" alt="book" />}
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

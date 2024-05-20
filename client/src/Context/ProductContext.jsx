@@ -54,9 +54,10 @@ const ProductProvider = ({ children }) => {
       } else {
         setBooks([])
         setResultTitle("No search result found !")
+        setLoading(false)
       }
 
-      
+      setLoading(false)
       
     } catch (err) {
       console.log(err)
@@ -71,7 +72,7 @@ const ProductProvider = ({ children }) => {
   }, [searchTerm, fetchBooks])
 
   return (
-    <ProductContext.Provider value={{ products, loading, setSearchTerm, books, resultTitle, setResultTitle }}>
+    <ProductContext.Provider value={{ products, loading, setSearchTerm, books, resultTitle, setResultTitle, setLoading }}>
       {children}
     </ProductContext.Provider>
   );
