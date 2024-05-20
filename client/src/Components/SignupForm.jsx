@@ -10,7 +10,6 @@ const SignupForm = () => {
     const [phone, setPhone] = useState("")
     const [password, setPassword] = useState("")
 
-    console.log('SIGNUP COMPONENT ')
 
     /* HANDLE SUBMIT */
     const handleSubmit = (e) => {

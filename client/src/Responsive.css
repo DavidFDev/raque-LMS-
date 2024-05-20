@@ -968,6 +968,22 @@
     }
   }
 
+  .login-image,
+  .register-image,
+  .forgotpassword-image {
+    background-position: center center !important;
+    background-size: cover !important;
+    height: 500px!important;
+    width: 100vw;
+
+
+    & img {
+      height: 100%;
+      width: 100vw;
+      object-fit: cover;
+    }
+  }
+
   .course-category {
     .category-info {
       justify-content: center !important;
@@ -1053,6 +1069,11 @@
   
   }
 }
+
+
+
+
+
 
 /* MIN-WIDTH-(991px) */
 @media only screen and (min-width: 991px) {
@@ -1293,7 +1314,7 @@
   .forgotpassword-area {
     .login-image {
       height: 100%;
-      background-image: url("../src/assets/Login-Form/login-bg.jpg");
+      background-image: url("../src/assets/Signup/pexels-george-milton-7034646.jpg");
       width: 100%;
       background-repeat: no-repeat;
 
@@ -1305,7 +1326,7 @@
     .register-image,
     .forgotpassword-image {
       height: 100%;
-      background-image: url("../src/assets/Signup/register-bg.jpg");
+      background-image: url("../src/assets/Signup/pexels-pixabay-256273.jpg");
       width: 100%;
       background-repeat: no-repeat;
 

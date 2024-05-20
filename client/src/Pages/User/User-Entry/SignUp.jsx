@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import MainLogo from '../../../Components/MainLogo';
 import SignupForm from "../../../Components/SignupForm";
-import LoginPageImg from '../../../assets/Signup/register-bg.jpg';
+import SignupPageImg from "../../../Components/SignupPageImg";
 
 const SignUp = () => {
 
@@ -12,7 +12,7 @@ const SignUp = () => {
         <div className="col-lg-6 col-md-12 p-0">
             {/* REGISTER IMAGE & MAIN IMAGE */}
             <div className="register-image">
-              <img src={LoginPageImg} className="img-fluid" alt="image"/>
+              <SignupPageImg/>
             </div>
         </div>
 

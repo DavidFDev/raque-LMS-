@@ -2791,9 +2791,9 @@ p {
   .forgotpassword-image {
     background-position: center center !important;
     background-size: cover !important;
+    object-fit: cover;
   }
 
-  .register-image,
   .forgotpassword-image {
     height: 100% !important;
     width: 100%;

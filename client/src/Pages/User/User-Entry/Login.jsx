@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import LoginForm from '../../../Components/LoginForm';
-import LoginPageImg from '../../../assets/Login-Form/login-bg.jpg';
 import LogoImgWhite from '../../../assets/Logo/white-logo.png';
 import MainLogo from '../../../Components/MainLogo'
+import LoginPageImg from '../../../Components/LoginPageImg';
 const Login = () => {
 
   return (
@@ -11,7 +11,7 @@ const Login = () => {
       <div className="col-lg-6 col-md-12 p-0">
         {/* LOGIN IMAGE POSITION-(TOP & LEFT) */}
         <div className="login-image">
-          <img src={LoginPageImg} className='img-fluid' alt="image"/>
+          <LoginPageImg/>
         </div>
       </div>
 
