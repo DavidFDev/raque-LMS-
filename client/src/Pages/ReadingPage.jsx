@@ -42,7 +42,7 @@ const ReadingPage = () => {
 
   /* HANDLE RETURN */
   const handleReturn = () => {
-    navigate("/shop");
+    navigate("/books");
   };
 
 

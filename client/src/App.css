@@ -6,7 +6,7 @@
 
 
 :root {
-  --main-color: #ff1949;
+  --main-color: #1B7339;
 }
 
 *:not(svg) {
@@ -48,7 +48,7 @@ a {
 
 a:focus,
 a:hover {
-  color: #ff1949;
+  color: var(--main-color);
 }
 
 .ptb-100 {
@@ -145,9 +145,9 @@ p {
   display: inline-block;
   padding: 13px 25px 12px 55px;
   position: relative;
-  background-color: #ff1949;
+  background-color: var(--main-color);
   color: #fff;
-  border: 2px solid #ff1949;
+  border: 2px solid var(--main-color);
   border-radius: 1px;
   font-size: 14.5px;
   font-weight: 700;
@@ -292,7 +292,7 @@ p {
 .section-title .sub-title {
   text-transform: uppercase;
   display: block;
-  color: #ff1949;
+  color: var(--main-color);
   font-weight: 500;
   margin-bottom: 10px;
 }
@@ -446,7 +446,7 @@ p {
   flex: 0 0 29%;
   max-width: 29%;
   text-align: right;
-  color: #ff1949;
+  color: var(--main-color);
   font-size: 18px;
   font-weight: 500;
 }
@@ -684,7 +684,7 @@ p {
         transform: scaleX(0);
         border-radius: 0;
         transition: 0.2s ease-in-out;
-        border-top: 2px solid #ff1949;
+        border-top: 2px solid var(--main-color);
         padding: 0 !important;
 
         .dropdown-item {
@@ -712,7 +712,7 @@ p {
               border-bottom: 1px dashed transparent !important;
 
               & svg {
-                color: #ff1949 !important;
+                color: var(--main-color) !important;
               }
 
               & span {
@@ -817,7 +817,7 @@ p {
   width: 60%;
   height: 100%;
   z-index: -1;
-  background: #ff1949;
+  background: var(--main-color);
   transition: 0.9s;
 }
 
@@ -904,7 +904,7 @@ p {
         transform: scaleX(0);
         border-radius: 0;
         transition: 0.2s ease-in-out;
-        border-top: 2px solid #ff1949;
+        border-top: 2px solid var(--main-color);
         padding: 0 !important;
 
         .dropdown-item {
@@ -1036,7 +1036,7 @@ p {
 /* HERO SECTION */
 .hero-section {
   /* background-color: #252525; */
-  /* border-bottom: 3px solid #ff1949; */
+  /* border-bottom: 3px solid var(--main-color); */
   position: relative;
 
   .slick-slider {
@@ -1089,9 +1089,9 @@ p {
             display: inline-block;
             padding: 13px 25px 12px 25px;
             position: relative;
-            background-color: #ff1949;
+            background-color: var(--main-color);
             color: #fff;
-            border: 2px solid #ff1949;
+            border: 2px solid var(--main-color);
             border-radius: 1px;
             font-size: 14.5px;
             font-weight: 700;
@@ -1196,7 +1196,7 @@ p {
         transition: 0.2s;
 
         &:hover {
-          background-color: #ff1949 !important;
+          background-color: var(--main-color) !important;
         }
       }
     }
@@ -1268,7 +1268,7 @@ p {
     .right-content {
       .top {
         .sub-title {
-          color: #ff1949;
+          color: var(--main-color);
           font-weight: 500;
         }
 
@@ -1493,7 +1493,7 @@ p {
         transition: 0.2s;
 
         &:hover {
-          background-color: #ff1949 !important;
+          background-color: var(--main-color) !important;
         }
       }
     }
@@ -1516,7 +1516,7 @@ p {
 
 
   .funfacts-inner {
-    background-color: #ff1949;
+    background-color: var(--main-color);
     border-radius: 15px;
     padding: 50px;
     position: relative;
@@ -1844,7 +1844,7 @@ p {
 }
 
 .students-feedback-form h3 {
-  background-color: #ff1949;
+  background-color: var(--main-color);
   margin-bottom: 0;
   color: #fff;
   padding: 25px 20px;
@@ -1949,7 +1949,7 @@ p {
   width: 0;
   height: 2px;
   transition: 0.5s;
-  background: #ff1949;
+  background: var(--main-color);
 }
 
 .students-feedback-form form .form-group .label-title .icon {
@@ -2034,7 +2034,7 @@ p {
 .single-blog-post .post-image .tag a {
   display: inline-block;
   background-color: #fff;
-  color: #ff1949;
+  color: var(--main-color);
   transition: 0.5s;
   border-radius: 5px;
   padding: 4px 12px;
@@ -2093,7 +2093,7 @@ p {
 .single-blog-post .post-content .read-more-btn::before {
   content: "";
   position: absolute;
-  background-color: #ff1949;
+  background-color: var(--main-color);
   left: 0;
   bottom: 0;
   height: 1px;
@@ -2370,7 +2370,7 @@ p {
     position: relative;
 
     & svg {
-      color: #ff1949;
+      color: var(--main-color);
     }
   }
 }
@@ -2580,7 +2580,7 @@ p {
   left: 20px;
   top: 12px;
   font-size: 18px;
-  color: #ff1949;
+  color: var(--main-color);
 }
 
 .woocommerce-topbar
@@ -2870,10 +2870,10 @@ p {
           width: 100%;
           padding: 13px 25px 12px;
           position: relative;
-          background-color: #ff1949;
+          background-color: var(--main-color);
           color: #fff;
           box-shadow: 0 5px 28.5px 1.5px rgba(255, 97, 47, 0.2);
-          border: 2px solid #ff1949;
+          border: 2px solid var(--main-color);
           border-radius: 5px;
           font-size: 14.5px;
           font-weight: 700;
@@ -2959,7 +2959,7 @@ p {
 
         .forgot-password a {
           display: inline-block;
-          color: #ff1949;
+          color: var(--main-color);
           text-decoration: underline;
         }
 
@@ -2977,12 +2977,12 @@ p {
             display: block;
             width: 100%;
             position: relative;
-            border: 1px solid #ff1949;
+            border: 1px solid var(--main-color);
             background-color: transparent;
             transition: 0.5s;
             padding: 12px 30px;
             border-radius: 2px;
-            color: #ff1949;
+            color: var(--main-color);
             font-weight: 500;
 
             & svg {
@@ -3048,7 +3048,7 @@ p {
       }
 
       .upload {
-        background-color: #ff1949;
+        background-color: var(--main-color);
         border: none;
         height: 30px;
         width: 30px;
@@ -3274,7 +3274,7 @@ p {
             width: 30px;
             height: 30px;
             text-align: center;
-            color: #ff1949;
+            color: var(--main-color);
             background-color: #f4f4f4;
             font-size: 18px;
             position: relative;
@@ -3349,7 +3349,7 @@ p {
       }
 
       &.active {
-        background-color: #ff1949;
+        background-color: var(--main-color);
         color: #fff !important;
         font-weight: 500;
 
@@ -3359,7 +3359,7 @@ p {
       }
 
       &:hover {
-        background-color: #ff1949;
+        background-color: var(--main-color);
         color: #fff !important;
         border: 1px solid transparent !important;
 
@@ -3843,7 +3843,7 @@ p {
 
     .new-price {
       margin-bottom: 15px;
-      color: #ff1949;
+      color: var(--main-color);
       font-size: 15px;
       font-weight: 600;
     }
@@ -3884,7 +3884,7 @@ p {
         font-weight: 500;
 
         & span {
-          color: #ff1949;
+          color: var(--main-color);
           display: inline;
 
           &.in-stock {
@@ -4072,7 +4072,7 @@ p {
 
   .user-actions {
     padding: 15px 20px;
-    border-top: 3px solid #ff1949;
+    border-top: 3px solid var(--main-color);
     position: relative;
     margin-bottom: 40px;
     box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
@@ -4081,7 +4081,7 @@ p {
     & span {
       display: inline-block;
       font-weight: 500;
-      color: #ff1949;
+      color: var(--main-color);
 
       & a {
         display: inline-block;
@@ -4105,7 +4105,7 @@ p {
       &::before {
         content: "";
         position: absolute;
-        background: #ff1949;
+        background: var(--main-color);
         bottom: -1px;
         left: 0;
         width: 50px;
@@ -4211,7 +4211,7 @@ p {
     &::before {
       content: "";
       position: absolute;
-      background: #ff1949;
+      background: var(--main-color);
       bottom: -1px;
       left: 0;
       width: 50px;
@@ -4293,7 +4293,7 @@ p {
       border-radius: 2px;
 
       .icon {
-        color: #ff1949 !important;
+        color: var(--main-color) !important;
       }
 
       &:hover {
@@ -4323,7 +4323,7 @@ p {
           bottom: 0;
           width: 0;
           height: 1px;
-          background: #ff1949;
+          background: var(--main-color);
           display: none;
           animation: links 0.5s forwards;
         }
@@ -4367,7 +4367,7 @@ p {
         }
 
         &:focus {
-          border: 1px solid #ff1949;
+          border: 1px solid var(--main-color);
           padding-left: 15px;
         }
       }

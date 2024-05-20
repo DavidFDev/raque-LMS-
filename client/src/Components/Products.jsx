@@ -51,7 +51,7 @@ const Products = ({ product }) => {
               body: `You have borrowed "${productName}". Please return it by ${returnDate}.`,
               data: "Borrowed an item from the library",
               tag: "borrow indicator",
-              icon: Logo, // Adding the logo to the notification
+              icon: Logo, 
             });
           }
         }

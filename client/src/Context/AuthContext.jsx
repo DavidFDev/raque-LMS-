@@ -8,7 +8,6 @@ export const useAuthContext = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(Boolean);
-  const { id } = useParams();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
