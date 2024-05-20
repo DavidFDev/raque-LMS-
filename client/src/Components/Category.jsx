@@ -33,7 +33,7 @@ const Category = () => {
       <div className="container">
         <div className="category-info">
           <div className="section-title text-center text-lg-start">
-            <span className="sub-title text-uppercase text-deepred">
+            <span className="sub-title text-uppercase text-altlemon">
               COURSES CATEGORIES
             </span>
             <h1 className="title text-capitalize text-dark">

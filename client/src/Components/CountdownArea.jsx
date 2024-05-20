@@ -51,7 +51,7 @@ const CountdownArea = () => {
   const seconds = time.getSeconds();
 
   return (
-    <section className="countdown-area ptb-100 bg-deepred">
+    <section className="countdown-area ptb-100 bg-altlemon">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-6 col-md-12">

@@ -353,7 +353,7 @@ const CheckOutForm = () => {
 
               <button
                 type="submit"
-                className="btn-deepred default-btn d-lg-inline-block "
+                className="btn-altlemon default-btn d-lg-inline-block "
               >
                 <TbDeviceLandlinePhone className="start-icon" />
                 <span className="label">Place order</span>

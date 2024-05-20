@@ -21,7 +21,7 @@ const AboutSection = () => {
                     <div className="col-md-12 col-lg-6">
                         <div className="right-content text-center text-lg-start">
                             <div className="top d-flex flex-column gap-2">
-                                <span className="sub-title text-deepred">ABOUT US</span>
+                                <span className="sub-title text-altlemon">ABOUT US</span>
                                 <h1>Discover Unlimited Knowledge with Free Online Books</h1>
                                 <h6 className='sub-text'>We can support student forum 24/7 for national and international students.</h6>
                             </div>

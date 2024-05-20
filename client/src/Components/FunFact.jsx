@@ -22,7 +22,7 @@ const FunFact = () => {
   return (
     <section className="funfacts-section">
       <div className="container">
-        <div className="funfacts-inner bg-deepred">
+        <div className="funfacts-inner bg-altlemon">
           <div className="row align-items-center">
             <div className="col-6 col-xm-6 col-md-3 col-lg-3 mb-3 mb-lg-0">
               <div className="single-funfact">

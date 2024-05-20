@@ -17,7 +17,7 @@ const Header = () => {
     <>
       {/* DEFAULT SYSTEM RESPONSE NOTIFICATION */}
 
-      <div className="top-header bg-deepred">
+      <div className="top-header bg-altlemon">
         <div className="container">
           {/* <div className="success-alert">
             <div className="alert alert-success" role="alert">
@@ -86,7 +86,7 @@ const Header = () => {
                   <Link
                     to="/login"
                     type="button"
-                    className="text-deepred bg-white fw-bolder"
+                    className="text-altlemon bg-white fw-bolder"
                   >
                     <GrLogin className="icon" />
                     &nbsp; &nbsp;

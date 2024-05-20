@@ -51,7 +51,7 @@ const TeamArea = () => {
                                 <h3 className="mb-0">
                                     <a href="">{member.name}</a>
                                 </h3>
-                                <span className="text-deepred">{member.profession}</span>
+                                <span className="text-altlemon">{member.profession}</span>
 
                                 <ul className="social list-unstyled d-flex flex-nowrap gap-2 align-items-center justify-content-center">
                                     <li>

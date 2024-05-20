@@ -26,7 +26,7 @@ const DiscoverCourses = ({ infos }) => {
       <div className="container">
         <div className="discover-info">
           <div className="section-title text-center text-lg-start">
-            <span className="sub-title text-uppercase text-deepred">
+            <span className="sub-title text-uppercase text-altlemon">
               discover courses
             </span>
             <h1 className="title text-capitalize text-dark">
@@ -34,7 +34,7 @@ const DiscoverCourses = ({ infos }) => {
             </h1>
           </div>
 
-          <Link to={"courses-category-style-1.html"} className="btn-deepred default-btn d-none d-lg-inline-block">
+          <Link to={"courses-category-style-1.html"} className="btn-altlemon default-btn d-none d-lg-inline-block">
             <FaRegEye className="start-icon"/>
             <span className="label">View All</span>
             <FaRegEye className="end-icon"/>

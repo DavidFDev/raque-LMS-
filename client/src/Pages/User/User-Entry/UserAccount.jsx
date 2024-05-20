@@ -208,7 +208,7 @@ const UserAccount = () => {
                           <Link
                             to="/login"
                             onClick={handleLogout}
-                            className="text-deepred"
+                            className="text-altlemon"
                             style={{ cursor: "pointer" }}
                           >
                             Logout
@@ -218,13 +218,13 @@ const UserAccount = () => {
 
                         <p>
                           From your account dashboard you can view your{" "}
-                          <span className="text-deepred">recent orders</span>,
+                          <span className="text-altlemon">recent orders</span>,
                           manage your
-                          <span className="text-deepred">
+                          <span className="text-altlemon">
                             shipping and billing addresses
                           </span>
                           , and
-                          <span className="text-deepred">
+                          <span className="text-altlemon">
                             edit your password and account details
                           </span>
                           .

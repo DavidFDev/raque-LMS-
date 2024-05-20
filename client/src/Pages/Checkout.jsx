@@ -7,7 +7,7 @@ const Checkout = () => {
     <section className='checkout-area'>
         <div className="container p-lg-0">
             <div className="user-actions d-flex align-items-center flex-nowrap gap-2">
-                <TbLogin2 className="icon fs-4 text-deepred" />
+                <TbLogin2 className="icon fs-4 text-altlemon" />
                 <span>
                     Returning customer? &nbsp;
                     <Link to="/login">Click here to login</Link>

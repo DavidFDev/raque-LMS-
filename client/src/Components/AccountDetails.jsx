@@ -86,7 +86,7 @@ const AccountDetails = () => {
                   onClick={() => setShowCurrentPassword(!showCurrentPassword)}
                 />
               </div>
-              {activateErrMsg && <span className="text-deepred">{errParagraph}</span>}
+              {activateErrMsg && <span className="text-altlemon">{errParagraph}</span>}
             </div>
           </div>
 
@@ -109,7 +109,7 @@ const AccountDetails = () => {
                   onClick={() => setShowNewPassword(!showNewPassword)}
                 />
               </div>
-              {activateErrMsg && <span className="text-deepred">{errParagraph}</span>}
+              {activateErrMsg && <span className="text-altlemon">{errParagraph}</span>}
             </div>
           </div>
 

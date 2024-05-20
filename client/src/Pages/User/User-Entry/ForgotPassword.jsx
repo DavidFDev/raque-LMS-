@@ -43,7 +43,7 @@ const ForgotPassword = () => {
 
                   <p>
                     Forgot your password?&nbsp;{" "}
-                    <span className="text-deepred">
+                    <span className="text-altlemon">
                       Enter your email below👇
                     </span>
                   </p>

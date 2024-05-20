@@ -21,7 +21,7 @@ const MissionArea = () => {
       <div className="container">
         <div className="mission-area-content">
           <div className="section-title text-left">
-            <span className="sub-title text-deepred">Discover Mission</span>
+            <span className="sub-title text-altlemon">Discover Mission</span>
             <h2>Why our platform is better</h2>
           </div>
 

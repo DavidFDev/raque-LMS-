@@ -39,7 +39,7 @@ const BlogArea = () => {
     { img: blogPost1, tag: "Learning", tagClassName: "text-altgreen", userImg: user1, userName: "Steven Smith", postDate: date, review: "World largest elephant toothpaste experiment in 2023" },
     { img: blogPost2, tag: "Education", tagClassName: "text-altblue", userImg: user2, userName: "Lina D'Souza", postDate: date, review: "Most Popular Education Posts Of The Week 20-26 Aug" },
     { img: blogPost3, tag: "Learning", tagClassName: "text-warning", userImg: user3, userName: "David Malan", postDate: date, review: "How to enhance education quality management system" },
-    { img: blogPost4, tag: "Management", tagClassName: "text-deepred", userImg: user4, userName: "David Warner", postDate: date, review: "Global education: Ideas for the way move forward" },
+    { img: blogPost4, tag: "Management", tagClassName: "text-altlemon", userImg: user4, userName: "David Warner", postDate: date, review: "Global education: Ideas for the way move forward" },
     { img: blogPost5, tag: "Ideas", tagClassName: "text-altgreen", userImg: user5, userName: "Olivar Waise", postDate: date, review: "New report reimagines the broader education workforce" },
     { img: blogPost6, tag: "Workforce", tagClassName: "text-warning", userImg: user6, userName: "Clarice James", postDate: date, review: "New report reimagines the broader education workforce" }
   ];
@@ -66,7 +66,7 @@ const BlogArea = () => {
             <span className="sub-title text-uppercase">explore news</span>
             <h2>Our Latest Insights</h2>
           </div>
-          <Link to={"courses-category-style-1.html"} className="btn-deepred default-btn d-none d-lg-inline-block ">
+          <Link to={"courses-category-style-1.html"} className="btn-altlemon default-btn d-none d-lg-inline-block ">
             <BiBookReader className="start-icon" />
             <span className="label">Read All</span>
             <BiBookReader className="end-icon" />

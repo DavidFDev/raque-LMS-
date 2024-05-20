@@ -11,7 +11,7 @@ const ContactForm = () => {
                 <span className="sub-title">Contact Us</span>
                 <h2>Drop us Message for any Query</h2>
                 <p style={{textOverflow: "ellipsis"}}>
-                    Already use <span className="text-deepred">Raque</span>? <Link to="/login">Sign In</Link> so we can tailor your support experiences. If it's not possible, we'd still like to hear from you.
+                    Already use <span className="text-altlemon">Raque</span>? <Link to="/login">Sign In</Link> so we can tailor your support experiences. If it's not possible, we'd still like to hear from you.
                 </p>
             </div>
 
