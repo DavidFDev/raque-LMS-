@@ -10,7 +10,6 @@ import Logo from "../assets/Logo/white-logo.png"
 
 
 const Products = ({ product }) => {
-  const { products } = useContext(ProductContext);
   const { addToCart, cart } = useContext(cartContext);
   const { handleCheckout } = useAuthContext();
   const { handleCalculateDates, borrowDate, returnDate, isExpired } = useDateAndTimeContext();
@@ -26,9 +25,11 @@ const Products = ({ product }) => {
     title } 
   = product;
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    // Call synchronous function
     handleCalculateDates();
-
+  
+    // Prepare the cart item
     let cartItem = [];
     cartItem.push({
       itemId: product.id,
@@ -36,9 +37,15 @@ const Products = ({ product }) => {
       borrowDate: borrowDate,
       returnDate: returnDate,
     });
-
-    addToCart(product, id, price);
-    handleCheckout(cartItem);
+  
+    // Call asynchronous functions and wait for them to complete
+    try {
+      await addToCart(product, id, price);
+      await handleCheckout(cartItem);
+      console.log('Successfully added to cart and handled checkout');
+    } catch (error) {
+      console.error('Error occurred during add to cart or checkout:', error);
+    }
 
     const handleNotification = async () => {
       try {
@@ -51,7 +58,7 @@ const Products = ({ product }) => {
               body: `You have borrowed "${title}". Please return it by ${returnDate}.`,
               data: "Borrowed an item from the library",
               tag: "borrow indicator",
-              icon: Logo, // Adding the logo to the notification
+              icon: Logo, 
             });
           }
         }
@@ -69,7 +76,6 @@ const Products = ({ product }) => {
         <div className="product-image">
           <Link to={`/product/${id}`}>
             <img src={cover_img} alt="product image" className="w-100" />
-            {/* <img src={mainProduct2} alt="product image" className="img-fluid" /> */}
           </Link>
           <Link to={`/reading/${id}`}
             className="add-to-cart-btn d-flex flex-nowrap align-items-center gap-2 text-capitalize"
