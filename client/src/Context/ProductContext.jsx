@@ -20,7 +20,6 @@ const ProductProvider = ({ children }) => {
       const data = await response.json();
       const  { docs } = data;
 
-
       if (docs) {
         const newBooks = docs.slice(0, 20).map((bookSingle) => {
           const { key, author_name, cover_i, edition_count, first_publish_year, title } = bookSingle;
@@ -59,6 +58,18 @@ const ProductProvider = ({ children }) => {
   useEffect(() => {
     fetchBooks();
   }, [searchTerm, fetchBooks])
+
+
+
+  useEffect(() => {
+    searchBooks();
+  }, []);
+
+  const searchBooks = async () => {
+    const response = await fetch(`https://archive.org/advancedsearch.php?q=${searchTerm}&fl[]=identifier,title,creator&rows=10&output=json`);
+    const data = await response.json();
+    console.log(data.response.docs)
+  };
 
   return (
     <ProductContext.Provider value={{ products, loading, setSearchTerm, books, resultTitle, setResultTitle, setLoading }}>

@@ -47,8 +47,8 @@ const ProductDetails = () => {
 
 
   /* DESTRUCTURING THE PRODUCT */
-  const { productName, price, mainProduct, description, rating } =
-    productData;
+  // const { productName, price, mainProduct, description, rating } =
+  //   productData;
 
   /* HANDLE FORM SUBMISSION  */
   const handleSubmit = (e) => {

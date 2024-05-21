@@ -3792,11 +3792,11 @@ p {
 
 /* PRODUCT DETAILS PAGE */
 .reading-page {
-  background-color: #000; 
-  height: 100vh; 
-  width: 100vw; 
-  overflow: hidden;
-  position: relative;
+  background-color: #ccc; 
+  /* height: 100vh; 
+  width: 100vw;  */
+  /* overflow: hidden; */
+  /* position: relative; */
 
   .due-dates {
     padding: 10px 0 10px 0;
@@ -3810,18 +3810,63 @@ p {
     }
   }
 
-  .container {
-    .icons {
-      position: absolute; 
-      left: 0; 
-      top: 100px; 
-      display: flex;
-      flex-direction: column; 
-      gap: 10px;
-    }
-
-
+    /* ReadingPage.css */
+  .reading-page {
+    background-color: #f8f9fa;
+    padding: 2em 0;
   }
+
+  .reading-page .container {
+    max-width: 800px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 2em;
+  }
+
+  .reading-page .icons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1.5em;
+  }
+
+  .reading-page .icons a,
+  .reading-page .icons svg {
+    color: #333;
+    transition: color 0.3s ease;
+  }
+
+  .reading-page .icons a:hover,
+  .reading-page .icons svg:hover {
+    color: #007bff;
+  }
+
+  .reading-page h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+
+  .reading-page img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .reading-page p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+  }
+
+  .reading-page p strong {
+    font-weight: bold;
+  }
+
 
 }
 

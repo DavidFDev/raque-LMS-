@@ -40,7 +40,7 @@ const Products = ({ product }) => {
   
     // Call asynchronous functions and wait for them to complete
     try {
-      await addToCart(product, id, price);
+      await addToCart(product, id);
       await handleCheckout(cartItem);
       console.log('Successfully added to cart and handled checkout');
     } catch (error) {
