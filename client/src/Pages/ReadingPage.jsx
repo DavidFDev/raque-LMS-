@@ -81,7 +81,9 @@ const ReadingPage = () => {
   return (
     <>
       {loading ? (
-        <LoadingBullets />
+        <div className="d-flex justify-content-center" style={{ height: "100vh" }}>
+          <LoadingBullets />
+        </div>
       ) : (
         <div className="reading-page">
           <div className="due-dates d-flex align-items-center justify-content-center gap-5">
@@ -109,26 +111,6 @@ const ReadingPage = () => {
             </div>
           </div>
 
-          {/* <div className="container py-4 d-flex justify-content-center">
-            <div className="icons">
-              <Link to="/">
-                <MdOutlineHomeWork className="fs-2 text-white" />
-              </Link>
-            </div>
-
-            {book && (
-              <>
-                <h2>{book.title}</h2>
-                {book.cover_img && (
-                  <img src={book.cover_img} className="img-fluid" alt="book" />
-                )}
-                <p>{book.description}</p>
-                <p>Places: {book.subject_places}</p>
-                <p>Times: {book.subject_times}</p>
-                <p>Subjects: {book.subjects}</p>
-              </>
-            )}
-          </div> */}
 
           <section className="book-details">
             <div className="container">

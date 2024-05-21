@@ -69,7 +69,9 @@ const Shop = () => {
           <div className="row">
             {
               loading ? (
-                <LoadingBullets/>
+                <div className="d-flex justify-content-center" style={{ height: "100%" }}>
+                  <LoadingBullets />
+                </div>
               ) : (
                 bookWithCovers.slice(0, 20).map((item, i) => (
                   <Products product={item} key={i} />
