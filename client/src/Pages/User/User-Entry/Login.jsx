@@ -24,7 +24,7 @@ const Login = () => {
                   {/* LOGO */}
                   <div className="logo">
                     {/* BLACK LOGO */}
-                    <Link to="/">
+                    <Link to="/" className="text-dark">
                       <MainLogo/>
                     </Link>
                     

@@ -37,11 +37,7 @@ const HeroSection = () => {
                       <p>Raque students by introducing collaboratives outside R, internships and search experience abroad</p>
 
                       <div className="links">
-                        <Link to="/courses-category-style-1" className="btn btn-altlemon text-white default-btn d-flex gap-2 flex-nowrap align-items-center">
-                          <FaArrowsAltH className="start-icon"/>
-                          <span className="label">View Courses</span>
-                          <FaArrowsAltH className="end-icon"/>
-                        </Link>                     
+
                         <button className="starter-btn btn text-white">
                           <span>Get Started Free</span>
                         </button>
@@ -70,11 +66,6 @@ const HeroSection = () => {
                       <p>Raque students by introducing collaboratives outside R, internships and search experience abroad</p>
 
                       <div className="links">
-                        <Link to="/courses-category-style-1" className="btn btn-altlemon text-white default-btn d-flex gap-2 flex-nowrap align-items-center">
-                          <FaArrowsAltH className="start-icon"/>
-                          <span className='label'>View Courses</span>
-                          <FaArrowsAltH className="end-icon"/>
-                        </Link> 
 
                         <button className="starter-btn btn text-white">
                           <span>Get Started Free</span>
@@ -104,11 +95,6 @@ const HeroSection = () => {
                       <p>Raque students by introducing collaboratives outside R, internships and search experience abroad</p>
 
                       <div className="links">
-                        <Link to="/courses-category-style-1" className="btn btn-altlemon text-white default-btn d-flex gap-2 flex-nowrap align-items-center">
-                          <FaArrowsAltH className="start-icon"/>
-                          <span className='label'>View Courses</span>
-                          <FaArrowsAltH className="end-icon"/>
-                        </Link>      
 
                         <button className="starter-btn btn text-white">
                           <span>Get Started Free</span>

@@ -25,8 +25,8 @@ const ForgotPassword = () => {
                 {/* REGUSTER FORM */}
                 <div className="forgotpassword-form">
                   <div className="logo">
-                    <Link to="/">
-                      <MainLogo />
+                    <Link to="/" className="text-dark">
+                      <MainLogo/>
                     </Link>
 
                     <Link to="/" className="d-none">

@@ -112,7 +112,7 @@ const NavOtherOptionsSm = () => {
 
         <Link to="/cart" className="cart-wrapper cursor-pointer">
           <BiCartAlt className={isActive ? "cart-icon icon fs-4 rotate-160" : "cart-icon icon fs-4 rotate-360"} style={{ transition: "0.5s ease-in-out" }}/>
-          <span>{cartItemsQuantity}</span>
+          <span style={{ backgroundColor: cartItemsQuantity <= 0 ? "red" : "lemon" }}>{cartItemsQuantity}</span>
         </Link>
 
         <div className="search-wrapper d-flex my-2 my-lg-0">

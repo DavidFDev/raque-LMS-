@@ -37,13 +37,6 @@ const AboutSection = () => {
 
                                     <p>Education encompasses both the teaching and learning of knowledge, proper conduct, and technical competency.</p>
 
-                                    <button className="default-btn">
-                                        <FaArrowsAltH className="start-icon"/>
-                                        <span className="label">
-                                            View Courses
-                                        </span>
-                                        <FaArrowsAltH className="end-icon"/>
-                                    </button>
                                 </div>
                             </div>
                         </div>

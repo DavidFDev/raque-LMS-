@@ -25,7 +25,7 @@ const SignUp = () => {
                 {/* REGUSTER FORM */}
                 <div className="register-form">
                   <div className="logo">
-                      <Link to="/">
+                      <Link to="/" className="text-dark">
                         <MainLogo/>
                       </Link>
 
