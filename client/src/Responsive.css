@@ -1356,7 +1356,14 @@
       font-size: 18px;
     }
   }
+
+
+  .become-student-partner-content {
+    padding: 50px;
+  }
 }
+
+
 
 /* | MIN WIDTH-(867px) | */
 @media only screen and (min-width: 768px) {

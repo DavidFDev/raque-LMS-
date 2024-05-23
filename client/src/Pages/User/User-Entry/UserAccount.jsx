@@ -3,7 +3,6 @@ import { IoChevronForward } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
 import userImg from "../../../assets/User/userImg.png";
 
-import { FiHome } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 import AccountDetails from "../../../Components/AccountDetails";
@@ -11,10 +10,10 @@ import AllOrders from "../../../Components/AllOrders";
 import RecentOrders from "../../../Components/RecentOrders";
 
 
-import { useAuthContext } from "../../../Context/AuthContext";
-import BioForm from "../../../Components/BioForm";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
+import BioForm from "../../../Components/BioForm";
+import { useAuthContext } from "../../../Context/AuthContext";
 
 import {
   FaFacebookF,
@@ -25,7 +24,6 @@ import {
   FaTwitter,
 } from "react-icons/fa6";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { TbWorld } from "react-icons/tb";
 
 const UserAccount = () => {
   const { isLoggedIn, handleLogout, name, email, phone } = useAuthContext();
@@ -94,12 +92,6 @@ const UserAccount = () => {
                           <FaPhone className="icon" />
                           <a href="tel:+234 704 459 3001">
                             {isLoggedIn && phone}
-                          </a>
-                        </li>
-                        <li>
-                          <TbWorld className="icon" />
-                          <a href="#" target="_blank">
-                            www.digitaldove.com
                           </a>
                         </li>
                       </ul>

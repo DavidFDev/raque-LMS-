@@ -7,6 +7,7 @@ import StoryArea from "../Components/OurStory";
 import ValuesArea from "../Components/OurValue";
 import TeamArea from "../Components/TeamArea";
 import PartnersArea from "../Components/PartnersArea";
+import BecomeStudentPartnerArea from "../Components/Transform";
 
 const Aboutus = () => {
   return (
@@ -55,6 +56,7 @@ const Aboutus = () => {
 
       <TeamArea className="pt-0" />
 
+      <BecomeStudentPartnerArea/>
 
     </>
   );
