@@ -3,7 +3,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { useAuthContext } from "../Context/AuthContext";
 
 const MainContactForm = () => {
-  const { handleMessage } = useAuthContext()
+  const { handleMessage, successPara, errParagraph, activateErrMsg, successMsg } = useAuthContext()
 
 
   const [name, setName] = useState("");
@@ -20,6 +20,27 @@ const MainContactForm = () => {
 
   return (
     <form id="contactForm" onSubmit={handleSubmit}>
+      {/* UI ERROR MESSAGE */}
+      {activateErrMsg ? (
+        <div className="ui error message text-start">
+          <div className="content">
+            <div className="header fw-bold">Oops!</div>
+            <p className="form-ui-error">{errParagraph}</p>
+          </div>
+        </div>
+      ) : (
+        successMsg && (
+          <div className="ui success message text-start">
+            <div className="content">
+              <div className="header fw-bold">Success!</div>
+              <p className="form-ui-success">{successPara}</p>
+            </div>
+          </div>
+        )
+      )}
+
+
+
       <div className="row">
         <div className="col-lg-6 col-md-12">
           <div className="form-group">
