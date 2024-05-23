@@ -75,15 +75,15 @@ const Footer = () => {
                 <div className="support-links main-footer-info">
                   <ul className="list-unstyled">
                     <li>
-                      <Link to="/about">About</Link>
+                      <Link to="/about" className={location.pathname === "/about" ? "text-altlemon" : ""}>About</Link>
                     </li>
 
                     <li>
-                      <Link to="/feedback">Feedback</Link>
+                      <Link to="/feedback" className={location.pathname === "/feedback" ? "text-altlemon" : ""}>Feedback</Link>
                     </li>
 
                     <li>
-                      <Link to="/pricing">Pricing</Link>
+                      <Link to="/pricing" className={location.pathname === "/pricing" ? "text-altlemon" : ""}>Pricing</Link>
                     </li>
 
                     <li>
@@ -91,11 +91,11 @@ const Footer = () => {
                     </li>
 
                     <li>
-                      <Link to={"/register"}>Signup</Link>
+                      <Link to="/register">Signup</Link>
                     </li>
 
                     <li>
-                      <Link to={"/"}>Contact</Link>
+                      <Link to="/contact" className={location.pathname === "/contact" ? "text-altlemon" : ""}>Contact</Link>
                     </li>
                   </ul>
                 </div>

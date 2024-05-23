@@ -156,7 +156,7 @@ app.post("/forgot-password", async (req, res) => {
           return res.json({ message: "Error sending email", status: false });
         } else {
           return res.json({
-            // you can also use -  message: "Email sent: " + info.response,
+            // message: "Email sent: " + info.response,
             status: true,
             emailMessage: "Please check your inbox for the link",
           });
