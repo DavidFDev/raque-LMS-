@@ -48,7 +48,7 @@ const Shop = () => {
                 <div className="topbar-result-count">
                   <p className="mb-0 d-flex flex-nowrap align-items-center gap-2">
                     <span> Showing </span> 
-                    <span>1 - {`${books.length} of ${books.length}`}</span>
+                    <span>{!books.length ? 0 : 1} - {`${books.length} of ${books.length}`}</span>
                   </p>
                 </div>
               </div>
