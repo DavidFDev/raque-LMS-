@@ -75,27 +75,27 @@ const Footer = () => {
                 <div className="support-links main-footer-info">
                   <ul className="list-unstyled">
                     <li>
-                      <Link to={"signup"}>Privacy</Link>
+                      <Link to="/about">About</Link>
                     </li>
 
                     <li>
-                      <Link to={"login"}>FAQ's</Link>
+                      <Link to="/feedback">Feedback</Link>
                     </li>
 
                     <li>
-                      <Link to={"/"}>Support</Link>
+                      <Link to="/pricing">Pricing</Link>
                     </li>
 
                     <li>
-                      <Link to={"/"}>Terms</Link>
+                      <Link to="/login">Login</Link>
                     </li>
 
                     <li>
-                      <Link to={"/"}>Conditions</Link>
+                      <Link to={"/register"}>Signup</Link>
                     </li>
 
                     <li>
-                      <Link to={"/"}>Policy</Link>
+                      <Link to={"/"}>Contact</Link>
                     </li>
                   </ul>
                 </div>

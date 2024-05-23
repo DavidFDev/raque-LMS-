@@ -34,7 +34,6 @@ const NavLinks = () => {
 
           <li className="dropdown-item"><Link to="/register" className="dropdown-link">Register</Link></li>
 
-          <li className="dropdown-item"><Link to="" className="dropdown-link">FAQ's</Link></li>
         </ul>
 
       </li>
