@@ -171,16 +171,6 @@ const UserAccount = () => {
                         </a>
                       </li>
 
-                      <li className="nav-item" role="representation">
-                        <a
-                          href="#tab3Id"
-                          className="nav-link text-capitalize"
-                          data-bs-toggle="tab"
-                        >
-                          <FiHome />
-                          <span className="">Addresses</span>
-                        </a>
-                      </li>
 
                       <li className="nav-item" role="representation">
                         <a
@@ -245,69 +235,6 @@ const UserAccount = () => {
                         </div>
                       </div>
 
-                      {/* ADDRESS */}
-                      <div
-                        className="tab-pane fade"
-                        id="tab3Id"
-                        role="tabpanel"
-                      >
-                        <div className="address">
-                          <div className="userAccount-content">
-                            <p>
-                              The following addresses will be used on the
-                              checkout page by default.
-                            </p>
-
-                            <div className="userAccount-addresses">
-                              <div className="row">
-                                <div className="col-lg-6 col-md-6">
-                                  <div className="addresses-title d-flex align-items-center justify-content-between">
-                                    <h3>Billing address</h3>
-                                    <a
-                                      href="#tab5Id"
-                                      className="edit"
-                                      data-bs-toggle="tab"
-                                      role="button"
-                                      aria-haspopup="true"
-                                      aria-expanded="false"
-                                    >
-                                      Edit
-                                    </a>
-                                  </div>
-
-                                  <address className="text-capitalize">
-                                    {name}
-                                    <br />
-                                    ET
-                                    <br />
-                                    3774 Joy Lane Los Angeles, CA 90071
-                                  </address>
-                                </div>
-
-                                <div className="col-lg-6 col-md-6 mt-3 mt-lg-0">
-                                  <div className="addresses-title d-flex align-items-center justify-content-between">
-                                    <h3>Shipping address</h3>
-                                    <a
-                                      href="#tab5Id"
-                                      className="edit"
-                                      data-bs-toggle="tab"
-                                      role="button"
-                                      aria-haspopup="true"
-                                      aria-expanded="false"
-                                    >
-                                      Add
-                                    </a>
-                                  </div>
-                                  <address>
-                                    You have not set up this type of address
-                                    yet.
-                                  </address>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
 
                       {/* ACCOUNT DETAILS AND EDIT */}
                       <div
