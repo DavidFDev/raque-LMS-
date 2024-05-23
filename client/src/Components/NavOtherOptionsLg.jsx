@@ -118,7 +118,7 @@ const NavOtherOptionsLg = () => {
 
 
         <Link to="/cart" className="cart-wrapper cursor-pointer">
-          <BiCartAlt className="cart-icon icon fs-4" />
+          <BiCartAlt className="cart-icon icon fs-4" style={{ color: location.pathname === "/cart" ? "#0eb582" : "#000" }} />
           <span>{cartItemsQuantity}</span>
         </Link>
 

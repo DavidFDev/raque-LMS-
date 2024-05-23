@@ -999,7 +999,6 @@ p {
 
     .cart-icon {
       transition: 0.2ms ease !important;
-      color: #000;
 
       &:hover {
         color: var(--main-color);
