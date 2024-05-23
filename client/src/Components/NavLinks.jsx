@@ -24,7 +24,7 @@ const NavLinks = () => {
         </div>
 
         <ul className="dropdown-menu">
-          <li className="dropdown-item"><Link to="" className="dropdown-link">About </Link></li>
+          <li className="dropdown-item"><Link to="/about" className="dropdown-link">About </Link></li>
 
           <li className="dropdown-item"><Link to="/pricing" className="dropdown-link">Pricing</Link></li>
 

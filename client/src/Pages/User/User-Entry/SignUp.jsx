@@ -35,7 +35,7 @@ const SignUp = () => {
                     </div>
                     
                     {/* REGISTER TITLE */}
-                    <h3>Open up your Raque Account now</h3>
+                    <h3>Open up your Yctlibrary Account now</h3>
                     
                     {/* LOGIN IF YOU'RE ALREADY A USER */}
                     <p>

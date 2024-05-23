@@ -34,7 +34,7 @@ const HeroSection = () => {
                         THE FUTURE
                       </span>
                       <h1>Educational Books for those who learn differently</h1>
-                      <p>Raque students by introducing collaboratives outside R, internships and search experience abroad</p>
+                      <p>Yctlibrary students by introducing collaboratives outside R, internships and search experience abroad</p>
 
                       <div className="links">
 
@@ -63,7 +63,7 @@ const HeroSection = () => {
                         WEAPON IS EDUCATION
                       </span>
                       <h1>Thinking out of the box and create a learning learner</h1>
-                      <p>Raque students by introducing collaboratives outside R, internships and search experience abroad</p>
+                      <p>Yctlibrary students by introducing collaboratives outside R, internships and search experience abroad</p>
 
                       <div className="links">
 
@@ -92,7 +92,7 @@ const HeroSection = () => {
                         <span>AIM FOR EXCELLENCE</span>
                       </span>
                       <h1>Learn a new skill from our online books</h1>
-                      <p>Raque students by introducing collaboratives outside R, internships and search experience abroad</p>
+                      <p>Yctlibrary students by introducing collaboratives outside R, internships and search experience abroad</p>
 
                       <div className="links">
 

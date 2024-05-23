@@ -30,7 +30,7 @@ const Home = () => {
       tag: "Business",
       user: user1,
       name: "Steven Smith",
-      description: "Raque Professional IT Expert Certificate Course",
+      description: "Yctlibrary Professional IT Expert Certificate Course",
       rating: `${Number(5)}.0 (1 ratinng)`,
       students: Number(10),
       lessons: Number(6),

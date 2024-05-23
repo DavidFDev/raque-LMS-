@@ -38,6 +38,10 @@
   }
 
   .section-title {
+    margin-bottom: 35px;
+  }
+
+  .section-title {
     & h2 {
       font-size: 27px;
     }

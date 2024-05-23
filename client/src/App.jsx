@@ -18,6 +18,7 @@ const ProductDetails = React.lazy(() => import("./Pages/ProductDetails"));
 const Shop = React.lazy(() => import("./Pages/Shop"));
 const Login = React.lazy(() => import("./Pages/User/User-Entry/Login"));
 const SignUp = React.lazy(() => import("./Pages/User/User-Entry/SignUp"));
+const About = React.lazy(() => import("./Pages/Aboutus"))
 const UserAccount = React.lazy(() =>
   import("./Pages/User/User-Entry/UserAccount")
 );
@@ -58,6 +59,7 @@ const App = () => {
                   <Route index element={<Home />} />
                   <Route path="books" element={<Shop />} />
                   <Route path="cart" element={<Cart />} />
+                  <Route path="about" element={<About />} />
                   <Route path="checkout" element={<Checkout />} />
                   <Route path="pricing" element={<Pricing />} />
                   <Route path="contact" element={<Contact />} />

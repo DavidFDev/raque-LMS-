@@ -39,7 +39,7 @@ const Login = () => {
 
                   {/* SIGNUP */}
                   <p>
-                    New to Raque?&nbsp;
+                    New to Yctlibrary?&nbsp;
                     <Link to={"/register"} className='signup-link'>Signup</Link>
                   </p>
 
