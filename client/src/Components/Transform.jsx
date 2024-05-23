@@ -1,5 +1,5 @@
-import React from 'react';
 import { FaPlusCircle } from 'react-icons/fa'; 
+import { Link } from 'react-router-dom';
 
 const BecomeStudentPartnerArea = () => {
     return (
@@ -11,9 +11,9 @@ const BecomeStudentPartnerArea = () => {
                             <h2>Become a Student</h2>
                             <p>Join thousands of students in learning new skills, advancing your career, and enriching your life.</p>
                             <a href="login.html" className="default-btn">
-                                <FaPlusCircle className="icon-arrow before" />
+                                <FaPlusCircle className="start-icon before" />
                                 <span className="label">Apply Now</span>
-                                <FaPlusCircle className="icon-arrow after" />
+                                <FaPlusCircle className="end-icon after" />
                             </a>
                         </div>
                     </div>
@@ -35,9 +35,9 @@ const BecomeStudentPartnerArea = () => {
                             <h2>Become a Partner</h2>
                             <p>Choose from hundreds of free courses, or get a degree or certificate at a breakthrough price. Learn at your own pace.</p>
                             <Link to="/login" className="default-btn">
-                                <FaPlusCircle className="icon-arrow before" />
+                                <FaPlusCircle className="start-icon before" />
                                 <span className="label">Contact Us</span>
-                                <FaPlusCircle className="icon-arrow after" />
+                                <FaPlusCircle className="end-icon after" />
                             </Link>
                         </div>
                     </div>
