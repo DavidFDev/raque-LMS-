@@ -51,17 +51,17 @@ const Footer = () => {
                       </a>
                     </div>
                     <div className="social-link">
-                      <a href="http://www.facebook.com">
+                      <a href="http://www.instagram.com">
                         <FaInstagram className="icon"/>
                       </a>
                     </div>
                     <div className="social-link">
-                      <a href="http://www.facebook.com">
+                      <a href="http://www.linkedin.com">
                         <FaLinkedinIn className="icon"/>
                       </a>
                     </div>
                     <div className="social-link">
-                      <a href="http://www.facebook.com">
+                      <a href="http://www.pinterest.com">
                         <FaPinterestP className="icon"/>
                       </a>
                     </div>
