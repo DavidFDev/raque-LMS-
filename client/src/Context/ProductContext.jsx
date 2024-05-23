@@ -68,7 +68,6 @@ const ProductProvider = ({ children }) => {
   const searchBooks = async () => {
     const response = await fetch(`https://archive.org/advancedsearch.php?q=${searchTerm}&fl[]=identifier,title,creator&rows=10&output=json`);
     const data = await response.json();
-    console.log(data.response.docs)
   };
 
   return (
