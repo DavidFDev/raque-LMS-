@@ -111,7 +111,34 @@ const AuthProvider = ({ children }) => {
 
   const handleFeedback = ({ email, name, phone, address, message }) => {
     axios.defaults.withCredentials = true;
-    axios.post("https://raquebookshelf.onrender.com" ? "https://raquebookshelf.onrender.com" : "https://raquebookshelf.onrender.com/feedback", { email, name, phone, address, message })
+    axios.post("https://raquebookshelf.onrender.com", { email, name, phone, address, message })
+    .then(result => {
+      if (result.data.status) {
+        setSuccessMsg(true);
+        setSuccessPara(result.data.message);
+        setTimeout(() => {
+          setSuccessMsg(false);
+        }, 4000);
+      } else {
+        setActivateErrMsg(true);
+        setErrParagraph(result.data.message);
+        setTimeout(() => {
+          setActivateErrMsg(false);
+        }, 4000);
+      }
+    }).catch(err => {
+      setErrParagraph(`${err.response?.data?.message || 'An error occurred'} - (${err.response?.statusText || 'Unknown error'})`);
+      setActivateErrMsg(true);
+      setTimeout(() => {
+        setActivateErrMsg(false);
+      }, 4000);
+    });
+  };
+
+
+  const handleFeedbackPage = ({ email, name, phone, address, message }) => {
+    axios.defaults.withCredentials = true;
+    axios.post("https://raquebookshelf.onrender.com/feedback", { email, name, phone, address, message })
     .then(result => {
       if (result.data.status) {
         setSuccessMsg(true);
@@ -353,6 +380,7 @@ const AuthProvider = ({ children }) => {
     loading,
     orders,
     handleFeedback,
+    handleFeedbackPage,
     handleResetPassword,
     handleForgotPassword,
     handleLogin,

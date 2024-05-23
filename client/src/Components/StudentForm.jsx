@@ -14,13 +14,17 @@ const StudentForm = () => {
   const [phone, setPhone] = useState();
   const [message, setMessage] = useState("");
 
-  const { activateErrMsg, errParagraph, successMsg, successPara, handleFeedback } =
+  const { activateErrMsg, errParagraph, successMsg, successPara, handleFeedback, handleFeedbackPage } =
     useAuthContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     handleFeedback({ email, name, phone, address, message });
+
+    if (window.location.href === "https://raquebookshelf.onrender.com/feedback") {
+      handleFeedbackPage({ email, name, phone, address, message });
+    }
   };
 
   return (
