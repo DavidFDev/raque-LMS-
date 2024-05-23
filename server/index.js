@@ -321,7 +321,7 @@ app.post("/contact", async (req, res) => {
   }
 })
 
-app.post("/", async (req, res) => {
+app.post("/" ? "/" : "/feedback" && "feedback", async (req, res) => {
   const { email, name, phone, address, message } = req.body;
 
   try {
