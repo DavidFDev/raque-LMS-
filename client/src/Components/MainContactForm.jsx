@@ -3,7 +3,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { useAuthContext } from "../Context/AuthContext";
 
 const MainContactForm = () => {
-  const { handleMessage, successPara, errParagraph, activateErrMsg, successMsg } = useAuthContext()
+  const { handleMessage, successPara, errParagraph, activateErrMsg, successMsg, loading } = useAuthContext()
 
 
   const [name, setName] = useState("");
@@ -137,7 +137,7 @@ const MainContactForm = () => {
         <div className="col-lg-12 col-md-12">
           <button type="submit" className="default-btn">
             <FaLongArrowAltRight className="start-icon before" />
-            <span className="label">Send Message</span>
+            <span className="label">{ loading ? <Loader/> : "Send Message" }</span>
             <FaLongArrowAltRight className="end-icon after" />
           </button>
 

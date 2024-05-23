@@ -3,7 +3,7 @@ import { useAuthContext } from "../Context/AuthContext";
 import { useParams } from "react-router-dom";
 
 const ResetPasswordForm = () => {
-  const { handleResetPassword, activateErrMsg, errParagraph, successPara, successMsg } = useAuthContext();
+  const { handleResetPassword, activateErrMsg, errParagraph, successPara, successMsg, loading } = useAuthContext();
   const [password, setPassword] = useState("");
   const { token } = useParams();
 
@@ -46,7 +46,7 @@ const ResetPasswordForm = () => {
       </div>
 
       {/* LOGIN BUTTON */}
-      <button type="submit">Reset </button>
+      <button type="submit">{ loading ? <Loader/> : "Reset" } </button>
     </form>
   );
 };

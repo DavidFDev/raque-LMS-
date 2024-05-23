@@ -54,7 +54,7 @@ const SignupForm = () => {
         
         {/* SUBMIT BUTTON */}
         <button type="submit">
-            Sign Up
+            {loading ? <Loader/> : "Sign Up"}
         </button>
 
        <SocialAuth />

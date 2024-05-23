@@ -6,6 +6,7 @@ import { FiPhone } from "react-icons/fi";
 import { MdMailOutline } from "react-icons/md";
 import { VscFeedback } from "react-icons/vsc";
 import { useAuthContext } from "../Context/AuthContext";
+import Loader from "./Loader";
 
 const StudentForm = () => {
   const [name, setName] = useState("");
@@ -14,7 +15,7 @@ const StudentForm = () => {
   const [phone, setPhone] = useState();
   const [message, setMessage] = useState("");
 
-  const { activateErrMsg, errParagraph, successMsg, successPara, handleFeedback, handleFeedbackPage } =
+  const { activateErrMsg, errParagraph, successMsg, successPara, handleFeedback, handleFeedbackPage, loading } =
     useAuthContext();
 
   const handleSubmit = (e) => {
@@ -143,7 +144,7 @@ const StudentForm = () => {
             className="default-btn d-flex gap-2 align-items-center flex-nowrap justify-content-center m-auto "
           >
             <VscFeedback className="start-icon" />
-            <span className="label">Send Message</span>
+            <span className="label">{loading ? <Loader/> : "Send Message"}</span>
             <VscFeedback className="end-icon" />
           </button>
         </div>

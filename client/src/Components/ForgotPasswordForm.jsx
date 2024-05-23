@@ -7,7 +7,7 @@ const ForgotPasswordForm = () => {
     activateErrMsg,
     errParagraph,
     handleForgotPassword,
-    successPara,
+    successPara, loading,
   } = useAuthContext();
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -152,7 +152,7 @@ const ForgotPasswordForm = () => {
       </div>
 
       {/* SEND LINK BUTTON */}
-      <button type="submit">Send Link</button>
+      <button type="submit">{loading ? <Loader/> : "Send Link"}</button>
     </form>
   );
 };

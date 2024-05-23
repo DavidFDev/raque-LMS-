@@ -39,27 +39,32 @@ const AuthProvider = ({ children }) => {
 
 
   /* HANDLE SIGNUP */
-  const handleSignup = ({ name, email, phone, password }) => {
-    axios
-      .post("https://yctlibserver.onrender.com/register", { name, email, phone, password })
-      .then((result) => {
-        console.log(result);
-
-        if (!result.data.status) {
-          setActivateErrMsg(true);
-          setErrParagraph(result.data.message);
-        } else {
-          navigate("/profile");
-          setEmail(email);
-          setName(name);
-          setPassword(password);
-          setPhone(phone);
-          setIsLoggedIn(true);
-          setActivateErrMsg(false);
-        }
-      })
-      .catch((err) => console.log(err));
+  const handleSignup = async ({ name, email, phone, password, setLoading }) => {
+    setLoading(true);
+    try {
+      const result = await axios.post("https://yctlibserver.onrender.com/register", { name, email, phone, password });
+      console.log(result);
+  
+      if (!result.data.status) {
+        setActivateErrMsg(true);
+        setErrParagraph(result.data.message);
+      } else {
+        navigate("/profile");
+        setEmail(email);
+        setName(name);
+        setPassword(password);
+        setPhone(phone);
+        setIsLoggedIn(true);
+        setActivateErrMsg(false);
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
   };
+  
+  
 
 
 
@@ -72,17 +77,24 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    axios.get("https://yctlibserver.onrender.com/verify").then((result) => {
-      if (result.data.status) {
-        setIsLoggedIn(true);
-        setEmail(result.data.userInfo.email);
-        setName(result.data.userInfo.name);
-        setPhone(result.data.userInfo.phone)
-        setPassword(result.data.userInfo.password);
-      } else {
-        setIsLoggedIn(false);
+    async function verifyUser() {
+      try {
+        const result = await axios.get("https://yctlibserver.onrender.com/verify");
+        if (result.data.status) {
+          setIsLoggedIn(true);
+          setEmail(result.data.userInfo.email);
+          setName(result.data.userInfo.name);
+          setPhone(result.data.userInfo.phone);
+          setPassword(result.data.userInfo.password);
+        } else {
+          setIsLoggedIn(false);
+        }
+      } catch (err) {
+        console.log(err);
       }
-    }).catch((err) => console.log(err))
+    }
+
+    verifyUser();
   }, []);
 
 
@@ -95,9 +107,10 @@ const AuthProvider = ({ children }) => {
 
 
 
-  const handleMessage = ({ email, name, phone, subject, message }) => {
+  const handleMessage = async ({ email, name, phone, subject, message }) => {
     axios.defaults.withCredentials = true;
-    axios.post("https://yctlibserver.onrender.com/contact", { email, name, phone, subject, message }).then(result => {
+    try {
+      const result = await axios.post("https://yctlibserver.onrender.com/contact", { email, name, phone, subject, message });
       if (result.data.status) {
         setSuccessMsg(true);
         setSuccessPara(result.data.message);
@@ -111,47 +124,23 @@ const AuthProvider = ({ children }) => {
           setActivateErrMsg(false);
         }, 4000);
       }
-    }).catch(err => {
+    } catch (err) {
       setErrParagraph(`${err.response?.data?.message || 'An error occurred'} - (${err.response?.statusText || 'Unknown error'})`);
       setActivateErrMsg(true);
       setTimeout(() => {
         setActivateErrMsg(false);
       }, 4000);
-    });
-  }
-
-
-  const handleFeedback = ({ email, name, phone, address, message }) => {
-    axios.defaults.withCredentials = true;
-    axios.post("https://yctlibserver.onrender.com", { email, name, phone, address, message })
-    .then(result => {
-      if (result.data.status) {
-        setSuccessMsg(true);
-        setSuccessPara(result.data.message);
-        setTimeout(() => {
-          setSuccessMsg(false);
-        }, 4000);
-      } else {
-        setActivateErrMsg(true);
-        setErrParagraph(result.data.message);
-        setTimeout(() => {
-          setActivateErrMsg(false);
-        }, 4000);
-      }
-    }).catch(err => {
-      setErrParagraph(`${err.response?.data?.message || 'An error occurred'} - (${err.response?.statusText || 'Unknown error'})`);
-      setActivateErrMsg(true);
-      setTimeout(() => {
-        setActivateErrMsg(false);
-      }, 4000);
-    });
+    }
   };
 
 
-  const handleFeedbackPage = ({ email, name, phone, address, message }) => {
-    axios.defaults.withCredentials = true;
-    axios.post("https://yctlibserver.onrender.com/feedback", { email, name, phone, address, message })
-    .then(result => {
+
+  const handleFeedback = async ({ email, name, phone, address, message }) => {
+    try {
+      setLoading(true);
+      axios.defaults.withCredentials = true;
+      const result = await axios.post("https://yctlibserver.onrender.com", { email, name, phone, address, message });
+  
       if (result.data.status) {
         setSuccessMsg(true);
         setSuccessPara(result.data.message);
@@ -165,14 +154,49 @@ const AuthProvider = ({ children }) => {
           setActivateErrMsg(false);
         }, 4000);
       }
-    }).catch(err => {
+    } catch (err) {
       setErrParagraph(`${err.response?.data?.message || 'An error occurred'} - (${err.response?.statusText || 'Unknown error'})`);
       setActivateErrMsg(true);
       setTimeout(() => {
         setActivateErrMsg(false);
       }, 4000);
-    });
+    } finally {
+      setLoading(false);
+    }
   };
+  
+
+
+  const handleFeedbackPage = async ({ email, name, phone, address, message }, setLoading) => {
+    try {
+      setLoading(true);
+      axios.defaults.withCredentials = true;
+      const result = await axios.post("https://yctlibserver.onrender.com/feedback", { email, name, phone, address, message });
+  
+      if (result.data.status) {
+        setSuccessMsg(true);
+        setSuccessPara(result.data.message);
+        setTimeout(() => {
+          setSuccessMsg(false);
+        }, 4000);
+      } else {
+        setActivateErrMsg(true);
+        setErrParagraph(result.data.message);
+        setTimeout(() => {
+          setActivateErrMsg(false);
+        }, 4000);
+      }
+    } catch (err) {
+      setErrParagraph(`${err.response?.data?.message || 'An error occurred'} - (${err.response?.statusText || 'Unknown error'})`);
+      setActivateErrMsg(true);
+      setTimeout(() => {
+        setActivateErrMsg(false);
+      }, 4000);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
 
   
   
@@ -189,49 +213,54 @@ const AuthProvider = ({ children }) => {
 
 
   /* Handle Login */
-  const handleLogin = ({ name, email, password }) => {
+  const handleLogin = async ({ name, email, password, setLoading }) => {
+    setLoading(true); 
+  
     const userData = {
       name,
       email,
       password,
     };
-
+  
     axios.defaults.withCredentials = true;
-
-    axios
-      .post("https://yctlibserver.onrender.com/login", userData)
-      .then((result) => {
-        if (!result.data.status) {
-          setLoading(false)
-          setActivateErrMsg(true);
-          setErrParagraph(result.data.message);
-        } else if (result.data.status) {
-          /* SAVE INTO THE LOCALSTORAGE */
-
-          setEmail(email);
-          setName(result.data.userInfo.userName);
-          setPassword(password);
-          setBio(result.data.userInfo.bio)
-          setIsLoggedIn(true);
-          setSuccessPara(result.data.message);
-          setSuccessMsg(true);
-          setActivateErrMsg(false)
-          setLoading(true)
-          setTimeout(() => {
-            navigate("/profile")
-            setSuccessMsg(false);
-          }, 3000);
-
-        } else if (result.data === "Token Expired") {
-          navigate("/login");
-          setIsLoggedIn(false);
-          setErrParagraph(result.data);
-        } else {
-          setIsLoggedIn(true);
-        }
-      })
-      .catch((err) => console.log(err));
+  
+    try {
+      const result = await axios.post("https://yctlibserver.onrender.com/login", userData);
+  
+      if (!result.data.status) {
+        setLoading(false);
+        setActivateErrMsg(true);
+        setErrParagraph(result.data.message);
+      } else if (result.data.status) {
+        /* SAVE INTO THE LOCALSTORAGE */
+  
+        setEmail(email);
+        setName(result.data.userInfo.userName);
+        setPassword(password);
+        setBio(result.data.userInfo.bio)
+        setIsLoggedIn(true);
+        setSuccessPara(result.data.message);
+        setSuccessMsg(true);
+        setActivateErrMsg(false);
+        setTimeout(() => {
+          navigate("/profile")
+          setSuccessMsg(false);
+        }, 3000);
+  
+      } else if (result.data === "Token Expired") {
+        navigate("/login");
+        setIsLoggedIn(false);
+        setErrParagraph(result.data);
+      } else {
+        setIsLoggedIn(true);
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false); // Set loading to false after operation completes
+    }
   };
+  
 
 
 
@@ -253,7 +282,7 @@ const AuthProvider = ({ children }) => {
 
   const handleCheckout = (cartItem) => {
     axios.defaults.withCredentials = true;
-    axios.post("https://yctlibserver.onrender.com/shop", cartItem).then(result => {
+    axios.post("https://yctlibserver.onrender.com/books", cartItem).then(result => {
 
       if (result.data.status) {
         setRecentOrders(result.data.items)
@@ -283,61 +312,70 @@ const AuthProvider = ({ children }) => {
 
 
   /* HANDLE UPDATE */
-  const handleUpdate = ({ userEmail, newPassword, currentPassword, fullName }) => {
+  const handleUpdate = async ({ userEmail, newPassword, currentPassword, fullName }) => {
     axios.defaults.withCredentials = true;
+    setLoading(true);
 
-    axios
-      .post("https://yctlibserver.onrender.com/profile", { userEmail, newPassword, currentPassword, fullName })
-      .then((result) => {
-        if (result.data.status) {
-          setActivateErrMsg(false)
-          setErrParagraph(result.data.message)
-          setSuccessMsg(true)
-          setSuccessPara(result.data.message)
-        } else {
-          setActivateErrMsg(true)
-          setErrParagraph(result.data.message)
-        }
-      })
-      .catch((err) => console.log(err));
-  };
+    try {
+      const result = await axios.post("https://yctlibserver.onrender.com/profile", { userEmail, newPassword, currentPassword, fullName });
 
-
-
-
-
-
-
-
-
-  const handleForgotPassword = ({ email, phone, phoneNumber }) => {
-    axios.defaults.withCredentials = true;
-
-    axios
-      .post("https://yctlibserver.onrender.com/forgot-password", { email, phone, phoneNumber })
-      .then((result) => {
-        if (!result.data.status) {
-          setErrParagraph(result.data.message);
-          setActivateErrMsg(true);
-        } else if (result.status === 500) {
-          setErrParagraph(result.data);
-          setActivateErrMsg(true);
-        } else {
-          setSuccessPara(email.length !== 0 ? result.data.emailMessage : phone.length !== 0 && result.data.message);
-          setSuccessMsg(true);
-          setActivateErrMsg(false)
-          console.log(result.data)
-          setTimeout(() => {
-            navigate("/login")
-          }, 4000);
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-        setErrParagraph(`${err.response.data.message} - (${err.response.statusText})`);
+      if (result.data.status) {
+        setActivateErrMsg(false);
+        setErrParagraph(result.data.message);
+        setSuccessMsg(true);
+        setSuccessPara(result.data.message);
+      } else {
         setActivateErrMsg(true);
-      });
+        setErrParagraph(result.data.message);
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
   };
+
+
+
+
+
+
+
+
+
+
+  
+  const handleForgotPassword = async ({ email, phone, phoneNumber }) => {
+    axios.defaults.withCredentials = true;
+
+    setLoading(true);
+    try {
+      const result = await axios.post("https://yctlibserver.onrender.com/forgot-password", { email, phone, phoneNumber });
+
+      if (!result.data.status) {
+        setErrParagraph(result.data.message);
+        setActivateErrMsg(true);
+      } else if (result.status === 500) {
+        setErrParagraph(result.data);
+        setActivateErrMsg(true);
+      } else {
+        setSuccessPara(email.length !== 0 ? result.data.emailMessage : phone.length !== 0 && result.data.message);
+        setSuccessMsg(true);
+        setActivateErrMsg(false);
+        console.log(result.data);
+        setTimeout(() => {
+          navigate("/login");
+        }, 4000);
+      }
+    } catch (err) {
+      console.log(err);
+      setErrParagraph(`${err.response.data.message} - (${err.response.statusText})`);
+      setActivateErrMsg(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
 
 
