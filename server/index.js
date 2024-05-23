@@ -321,7 +321,7 @@ app.post("/contact", async (req, res) => {
   }
 })
 
-app.post("/" ? "/" : "/feedback" && "/feedback", async (req, res) => {
+app.post("/", async (req, res) => {
   const { email, name, phone, address, message } = req.body;
 
   try {
@@ -405,6 +405,8 @@ app.post("/feedback", async (req, res) => {
     return res.status(500).json({ message: 'An error occurred', error: error });
   }
 });
+
+
 
 
 

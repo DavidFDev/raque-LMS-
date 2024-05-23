@@ -2535,7 +2535,7 @@ p {
 }
 
 /* SHOP PAGE */
-.page-title-area.shop {
+.shop.page-title-area {
   background: url("../src/assets/Page-Title/checkout.jpeg") center center/cover
     no-repeat fixed padding-box border-box !important;
   padding-top: 330px;
