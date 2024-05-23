@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://raqueshelf.onrender.com",
+    origin: "https://yctbookshelf.onrender.com",
     credentials: true,
   })
 );
