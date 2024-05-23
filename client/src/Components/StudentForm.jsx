@@ -22,7 +22,7 @@ const StudentForm = () => {
 
     handleFeedback({ email, name, phone, address, message });
 
-    if (window.location.href === "https://yctlibrary.onrender.com/feedback") {
+    if (location.pathname === "/feedback") {
       handleFeedbackPage({ email, name, phone, address, message });
     }
   };
