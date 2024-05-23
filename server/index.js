@@ -139,8 +139,8 @@ app.post("/forgot-password", async (req, res) => {
       let transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-          user: process.env.SUPPORT_EMAIL,
-          pass: process.env.EMAIL_PASS,
+          user: `${process.env.SUPPORT_EMAIL}`,
+          pass: `${process.env.EMAIL_PASS}`,
         },
       });
   
@@ -291,15 +291,15 @@ app.post("/contact", async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.SUPPORT_EMAIL,
-        pass: process.env.EMAIL_PASS,
+        user: `${process.env.SUPPORT_EMAIL}`,
+        pass: `${process.env.EMAIL_PASS}`,
       },
     });
   
     // Configure email options
     let mailOptions = {
       from: `${name} <${email}>`,
-      to: process.env.SUPPORT_EMAIL, 
+      to: `${process.env.SUPPORT_EMAIL}`, 
       subject: subject,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`
     };
@@ -334,14 +334,14 @@ app.post("/", async (req, res) => {
       service: "gmail",
       auth: {
         user: `${process.env.SUPPORT_EMAIL}`,
-        pass: process.env.EMAIL_PASS,
+        pass: `${process.env.EMAIL_PASS}`,
       },
     });
 
     // Configure email options
     let mailOptions = {
       from: `${name} <${email}>`,
-      to: process.env.SUPPORT_EMAIL,
+      to: `${process.env.SUPPORT_EMAIL}`,
       subject: "Feedback from " + name,
       text: `Name: ${name}\nAddress: ${address}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`,
     };
@@ -376,15 +376,15 @@ app.post("/feedback", async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.SUPPORT_EMAIL,
-        pass: process.env.EMAIL_PASS,
+        user: `${process.env.SUPPORT_EMAIL}`,
+        pass: `${process.env.EMAIL_PASS}`,
       },
     });
 
     // Configure email options
     let mailOptions = {
       from: `${name} <${email}>`,
-      to: process.env.SUPPORT_EMAIL,
+      to: `${process.env.SUPPORT_EMAIL}`,
       subject: "Feedback from " + name,
       text: `Name: ${name}\nAddress: ${address}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`,
     };
