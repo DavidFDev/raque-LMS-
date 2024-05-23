@@ -3124,25 +3124,17 @@ p {
   background-size: contain;
   background-repeat: repeat;
 
-  &.bg-color::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: url(../../assets/img/bg-lines.svg);
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  &.bg-color {
+    background: var(--altlemon);
+    
+
   }
 
   & h2 {
     margin-bottom: 14px;
     font-size: 37px;
     font-weight: 700;
-    color: #000;
+    color: #fff;
   }
 
   & p {
@@ -3152,8 +3144,8 @@ p {
 
   .default-btn {
     border-radius: 30px;
-    background-color: #ffffff;
-    color: #252525;
+    background-color: var(--main-color);
+    color: #fff;
   }
 
   .become-student-partner-image {

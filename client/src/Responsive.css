@@ -787,6 +787,17 @@
     margin-bottom: 50px;
   }
 
+  /* ABOUT US */
+  .become-student-partner-content {
+    padding: 25px!important;
+
+
+    & h2 {
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+  }
+
   /* BIO EDIT */
   .user-account-area {
     .profile-content {

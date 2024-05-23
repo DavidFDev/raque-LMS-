@@ -364,6 +364,48 @@ app.post("/", async (req, res) => {
 });
 
 
+app.post("/feedback", async (req, res) => {
+  const { email, name, phone, address, message } = req.body;
+
+  try {
+    const student = await StudentModel.findOne({ email });
+    if (!student) {
+      return res.json({ status: false, message: "No record for this user" });
+    }
+
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.SUPPORT_EMAIL,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    // Configure email options
+    let mailOptions = {
+      from: `${name} <${email}>`,
+      to: process.env.SUPPORT_EMAIL,
+      subject: "Feedback from " + name,
+      text: `Name: ${name}\nAddress: ${address}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`,
+    };
+
+    // Send the email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email:', error);
+        return res.status(500).json({ message: 'Error sending email', status: false });
+      } else {
+        console.log('Email sent:', info.response);
+        return res.status(200).json({ message: 'Email sent successfully', status: true });
+      }
+    });
+
+  } catch (error) {
+    console.error('Error processing feedback request:', error);
+    return res.status(500).json({ message: 'An error occurred', error: error });
+  }
+});
+
 
 
 

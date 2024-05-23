@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
 export const useAuthContext = () => useContext(AuthContext);
 
@@ -111,7 +111,7 @@ const AuthProvider = ({ children }) => {
 
   const handleFeedback = ({ email, name, phone, address, message }) => {
     axios.defaults.withCredentials = true;
-    axios.post("https://raquebookshelf.onrender.com", { email, name, phone, address, message })
+    axios.post("https://raquebookshelf.onrender.com" ? "https://raquebookshelf.onrender.com" : "https://raquebookshelf.onrender.com/feedback" && "https://raquebookshelf.onrender.com/feedback", { email, name, phone, address, message })
     .then(result => {
       if (result.data.status) {
         setSuccessMsg(true);
@@ -134,6 +134,8 @@ const AuthProvider = ({ children }) => {
       }, 4000);
     });
   };
+
+  
   
 
 

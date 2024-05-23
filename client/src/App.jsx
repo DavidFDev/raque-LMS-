@@ -30,6 +30,7 @@ const ResetPassword = React.lazy(() =>
 );
 const UserBio = React.lazy(() => import("./Pages/User/User-Entry/UserBio"));
 import NotificationPopup from "./Components/NotificationPopup";
+import Feedback from "./Pages/Feedback";
 
 const App = () => {
   return (
@@ -60,6 +61,7 @@ const App = () => {
                   <Route path="books" element={<Shop />} />
                   <Route path="cart" element={<Cart />} />
                   <Route path="about" element={<About />} />
+                  <Route path="feedback" element={<Feedback />} />
                   <Route path="checkout" element={<Checkout />} />
                   <Route path="pricing" element={<Pricing />} />
                   <Route path="contact" element={<Contact />} />

@@ -28,7 +28,7 @@ const NavLinks = () => {
 
           <li className="dropdown-item"><Link to="/pricing" className="dropdown-link">Pricing</Link></li>
 
-          <li className="dropdown-item"><Link to="" className="dropdown-link">Feedback</Link></li>
+          <li className="dropdown-item"><Link to="/feedback" className="dropdown-link">Feedback</Link></li>
 
           <li className="dropdown-item"><Link to="/login" className="dropdown-link">Log In</Link></li>
 
