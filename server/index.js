@@ -125,56 +125,58 @@ app.post("/login", async (req, res) => {
 // const client = new twilio(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
 /* VALIDATE USER EMAIL OR PHONE TO UPDATE THE USER INFO */
 app.post("/forgot-password", async (req, res) => {
-  const { email, phone, phoneNumber } = req.body;
-  try {
-    const student = await StudentModel.findOne( email.length !== 0 ? { email } : phone.length !== 0 && { phone } );
+  const { email, phone } = req.body;
 
+  try {
+    const query = email ? { email } : phone ? { phone } : null;
+    if (!query) return res.json({ status: false, message: "No email or phone provided" });
+
+    const student = await StudentModel.findOne(query);
     if (!student) return res.json({ status: false, message: "No record for this user" });
+
     const token = jwt.sign({ _id: student._id }, process.env.KEY, {
       expiresIn: "15m",
     });
-
 
     if (email) {
       let transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-          user: `${process.env.SUPPORT_EMAIL}`,
-          pass: `${process.env.EMAIL_PASS}`,
+          user: process.env.SUPPORT_EMAIL,
+          pass: process.env.EMAIL_PASS,
         },
       });
-  
+
       let mailOptions = {
-        from: "Raque Team raquereinforce@@gmail.com",
+        from: "Raque Team <raquereinforce@gmail.com>",
         to: student.email,
         subject: "Reset Password",
         text: `https://raqueshelf.onrender.com/resetPassword/${token}`,
       };
-  
+
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           return res.json({ message: "Error sending email", status: false });
         } else {
           return res.json({
-            // message: "Email sent: " + info.response,
             status: true,
             emailMessage: "Please check your inbox for the link",
           });
         }
-
-      })
-      
-      
+      });
+    } else if (phone) {
+      // Handle phone case here if needed, e.g., sending an SMS
+      return res.json({
+        status: true,
+        phoneMessage: "A message has been sent to your phone number",
+      });
     }
-
-    res.clearCookie("token")
-
-    // res.end() 
   } catch (error) {
-    console.log(error); 
-    res.send(error);
+    console.log(error);
+    res.status(500).send(error);
   }
 });
+
 
 
 
@@ -291,29 +293,23 @@ app.post("/contact", async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: `${process.env.SUPPORT_EMAIL}`,
-        pass: `${process.env.EMAIL_PASS}`,
+        user: process.env.SUPPORT_EMAIL,
+        pass: process.env.EMAIL_PASS,
       },
     });
   
     // Configure email options
     let mailOptions = {
       from: `${name} <${email}>`,
-      to: `${process.env.SUPPORT_EMAIL}`, 
+      to: process.env.SUPPORT_EMAIL, 
       subject: subject,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`
     };
 
     // Send the email
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error('Error sending email:', error);
-        return res.status(500).json({ message: 'Error sending email', status: false });
-      } else {
-        console.log('Email sent:', info.response);
-        return res.status(200).json({ message: 'Email sent successfully', status: true });
-      }
-    });
+    await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully');
+    return res.status(200).json({ message: 'Email sent successfully', status: true });
 
   } catch (error) {
     console.error('Error processing contact request:', error);
@@ -333,29 +329,24 @@ app.post("/", async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: `${process.env.SUPPORT_EMAIL}`,
-        pass: `${process.env.EMAIL_PASS}`,
+        user: process.env.SUPPORT_EMAIL,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     // Configure email options
     let mailOptions = {
       from: `${name} <${email}>`,
-      to: `${process.env.SUPPORT_EMAIL}`,
+      to: process.env.SUPPORT_EMAIL,
       subject: "Feedback from " + name,
       text: `Name: ${name}\nAddress: ${address}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`,
     };
 
+
     // Send the email
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error('Error sending email:', error);
-        return res.status(500).json({ message: 'Error sending email', status: false });
-      } else {
-        console.log('Email sent:', info.response);
-        return res.status(200).json({ message: 'Email sent successfully', status: true });
-      }
-    });
+    await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully');
+    return res.status(200).json({ message: 'Email sent successfully', status: true });
 
   } catch (error) {
     console.error('Error processing feedback request:', error);
@@ -376,29 +367,23 @@ app.post("/feedback", async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: `${process.env.SUPPORT_EMAIL}`,
-        pass: `${process.env.EMAIL_PASS}`,
+        user: process.env.SUPPORT_EMAIL,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     // Configure email options
     let mailOptions = {
       from: `${name} <${email}>`,
-      to: `${process.env.SUPPORT_EMAIL}`,
+      to: process.env.SUPPORT_EMAIL,
       subject: "Feedback from " + name,
       text: `Name: ${name}\nAddress: ${address}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`,
     };
 
     // Send the email
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error('Error sending email:', error);
-        return res.status(500).json({ message: 'Error sending email', status: false });
-      } else {
-        console.log('Email sent:', info.response);
-        return res.status(200).json({ message: 'Email sent successfully', status: true });
-      }
-    });
+    await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully');
+    return res.status(200).json({ message: 'Email sent successfully', status: true });
 
   } catch (error) {
     console.error('Error processing feedback request:', error);
