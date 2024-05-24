@@ -39,7 +39,7 @@ const AuthProvider = ({ children }) => {
 
 
   /* HANDLE SIGNUP */
-  const handleSignup = async ({ name, email, phone, password, setLoading }) => {
+  const handleSignup = async ({ name, email, phone, password }) => {
     setLoading(true);
     try {
       const result = await axios.post("https://yctlibserver.onrender.com/register", { name, email, phone, password });
@@ -167,7 +167,7 @@ const AuthProvider = ({ children }) => {
   
 
 
-  const handleFeedbackPage = async ({ email, name, phone, address, message }, setLoading) => {
+  const handleFeedbackPage = async ({ email, name, phone, address, message }) => {
     try {
       setLoading(true);
       axios.defaults.withCredentials = true;
@@ -213,7 +213,7 @@ const AuthProvider = ({ children }) => {
 
 
   /* Handle Login */
-  const handleLogin = async ({ name, email, password, setLoading }) => {
+  const handleLogin = async ({ name, email, password }) => {
     setLoading(true); 
   
     const userData = {

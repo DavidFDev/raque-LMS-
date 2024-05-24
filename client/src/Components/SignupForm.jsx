@@ -4,7 +4,7 @@ import SocialAuth from './SocialAuth';
 import Loader from "./Loader";
 
 const SignupForm = () => {
-    const {activateErrMsg, errParagraph , handleSignup} = useAuthContext()
+    const {activateErrMsg, errParagraph , handleSignup, loading} = useAuthContext()
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
