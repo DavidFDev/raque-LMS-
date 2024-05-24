@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 const HeroSection = () => {
   const settings = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 9000,
     slidesToShow: 1,
