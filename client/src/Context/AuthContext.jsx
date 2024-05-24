@@ -108,6 +108,7 @@ const AuthProvider = ({ children }) => {
 
 
   const handleMessage = async ({ email, name, phone, subject, message }) => {
+    setLoading(true)
     axios.defaults.withCredentials = true;
     try {
       const result = await axios.post("https://yctlibserver.onrender.com/contact", { email, name, phone, subject, message });
@@ -130,6 +131,8 @@ const AuthProvider = ({ children }) => {
       setTimeout(() => {
         setActivateErrMsg(false);
       }, 4000);
+    } finally {
+      setLoading(false)
     }
   };
 
