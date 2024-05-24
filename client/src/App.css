@@ -3081,7 +3081,7 @@ p {
 .become-student-partner-content {
   position: relative;
   z-index: 1;
-  padding: 100px;
+  padding: 25px;
   background-image: url("");
   background-position: center center;
   background-size: contain;
