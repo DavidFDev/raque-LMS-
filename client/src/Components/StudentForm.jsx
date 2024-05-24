@@ -21,9 +21,11 @@ const StudentForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    location.pathname === "/feedback" && handleFeedbackPage({ email, name, phone, address, message })
+    handleFeedback({ email, name, phone, address, message });
 
-    location.pathname === "/" && handleFeedback({ email, name, phone, address, message })
+    if (location.pathname === "/feedback") {
+      handleFeedbackPage({ email, name, phone, address, message });
+    }
   };
 
   return (
