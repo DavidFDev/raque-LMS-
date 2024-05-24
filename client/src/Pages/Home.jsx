@@ -1,26 +1,23 @@
-import AboutSection from '../Components/About'
-import BlogArea from '../Components/BlogArea';
-import Category from '../Components/Category';
-import CountdownArea from '../Components/CountdownArea';
+import AboutSection from '../Components/About';
 import DiscoverCourses from '../Components/DiscoverCourses';
-import FunFact from '../Components/FunFact';
-import HeroSection from '../Components/Hero-section'
+import HeroSection from '../Components/Hero-section';
 import MissionArea from '../Components/MissionArea';
 import PartnersArea from '../Components/PartnersArea';
 import StudentFormArea from '../Components/StudentFormArea';
 import TeamArea from '../Components/TeamArea';
-import course1 from '../assets/DiscoverCourses/1.jpg'
-import course2 from '../assets/DiscoverCourses/2.jpg'
-import course3 from '../assets/DiscoverCourses/3.jpg'
-import course4 from '../assets/DiscoverCourses/4.jpg'
-import course5 from '../assets/DiscoverCourses/5.jpg'
-import course6 from '../assets/DiscoverCourses/6.jpg'
-import user1 from '../assets/DiscoverCourses/user1.jpg'
-import user2 from '../assets/DiscoverCourses/user2.jpg'
-import user3 from '../assets/DiscoverCourses/user3.jpg'
-import user4 from '../assets/DiscoverCourses/user4.jpg'
-import user5 from '../assets/DiscoverCourses/user5.jpg'
-import user6 from '../assets/DiscoverCourses/user6.jpg'
+import BecomeStudentPartnerArea from '../Components/Transform';
+import course1 from '../assets/DiscoverCourses/1.jpg';
+import course2 from '../assets/DiscoverCourses/2.jpg';
+import course3 from '../assets/DiscoverCourses/3.jpg';
+import course4 from '../assets/DiscoverCourses/4.jpg';
+import course5 from '../assets/DiscoverCourses/5.jpg';
+import course6 from '../assets/DiscoverCourses/6.jpg';
+import user1 from '../assets/DiscoverCourses/user1.jpg';
+import user2 from '../assets/DiscoverCourses/user2.jpg';
+import user3 from '../assets/DiscoverCourses/user3.jpg';
+import user4 from '../assets/DiscoverCourses/user4.jpg';
+import user5 from '../assets/DiscoverCourses/user5.jpg';
+import user6 from '../assets/DiscoverCourses/user6.jpg';
 
 const Home = () => {
 
@@ -103,14 +100,12 @@ const Home = () => {
     <>
       <HeroSection />
       <AboutSection/>
-      <Category />
-      <FunFact/>
       <DiscoverCourses infos={infos}/>
       <MissionArea/>
       <PartnersArea/>
       <TeamArea/>
       <StudentFormArea/>
-      <BlogArea/>
+      <BecomeStudentPartnerArea/>
     </>
   )
 }

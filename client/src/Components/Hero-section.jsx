@@ -1,14 +1,11 @@
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { FaArrowsAltH } from "react-icons/fa";
-import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 
 const HeroSection = () => {
   const settings = {
     dots: true,
     infinite: true,
-    arrows: false,
     speed: 9000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -111,5 +108,7 @@ const HeroSection = () => {
     </section>
   );
 };
+
+
 
 export default HeroSection;

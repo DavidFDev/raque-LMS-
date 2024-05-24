@@ -1208,7 +1208,7 @@ p {
       left: 0;
       right: 0;
       transition: 0.4s linear!important;
-      transform: translateY(-70px);
+      transform: translateY(-150px);
 
       & li {
         font-size: 33px;

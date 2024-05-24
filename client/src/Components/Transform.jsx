@@ -26,7 +26,7 @@ const BecomeStudentPartnerArea = () => {
                             <p>Join thousands of students in learning new skills, advancing your career, and enriching your life.</p>
                             <Link to="/register" className="default-btn">
                                 <FaPlusCircle className="start-icon before" />
-                                <span className="label">Apply Now</span>
+                                <span className="label">Register Now</span>
                                 <FaPlusCircle className="end-icon after" />
                             </Link>
                         </div>
