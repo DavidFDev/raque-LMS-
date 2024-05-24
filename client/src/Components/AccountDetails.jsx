@@ -24,7 +24,16 @@ const AccountDetails = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleUpdate({ userEmail, currentPassword, newPassword, fullName });
-    activateErrMsg ? showNotification(errParagraph) : successMsg && showNotification(successPara)
+    if (activateErrMsg) {
+      // If there's an error message, show it as a notification
+      showNotification(errParagraph);
+    } else {
+      if (successMsg) {
+        showNotification(successPara);
+      } else {
+        showNotification("Update successful.");
+      }
+    }
   };
 
   return (
@@ -83,9 +92,11 @@ const AccountDetails = () => {
                   autoComplete="on"
                   onChange={(e) => setCurrentPassword(e.target.value)}
                 />
-                <FaEyeSlash
-                  onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                />
+                {showNewPassword ?  ( 
+                  <FaEye onClick={() => setShowNewPassword(!showNewPassword)} />
+                  ) : (
+                  <FaEyeSlash onClick={() => setShowNewPassword(!showNewPassword)} />
+                )}
               </div>
               {activateErrMsg && <span className="text-altlemon">{errParagraph}</span>}
             </div>
@@ -106,9 +117,11 @@ const AccountDetails = () => {
                   autoComplete="on"
                   onChange={(e) => setNewPassword(e.target.value)}
                 />
-                <FaEyeSlash
-                  onClick={() => setShowNewPassword(!showNewPassword)}
-                />
+                {showNewPassword ?  ( 
+                  <FaEye onClick={() => setShowNewPassword(!showNewPassword)} />
+                  ) : (
+                  <FaEyeSlash onClick={() => setShowNewPassword(!showNewPassword)} />
+                )}
               </div>
               {activateErrMsg && <span className="text-altlemon">{errParagraph}</span>}
             </div>
