@@ -11,7 +11,7 @@ export const PopupNotificationProvider = ({ children }) => {
     setNotification(message);
     setTimeout(() => {
       setNotification(null);
-    }, 7000); // hide after 5 seconds
+    }, 7000); 
   };
 
   const hideNotification = () => {

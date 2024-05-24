@@ -446,11 +446,9 @@ app.post("/shop", async (req, res) => {
 
     const student = await StudentModel.findOne(decoded.email ? { email: decoded.email } : decoded.name && { name: decoded.name } );
 
-    // Check if cart already exists for this student
     let existingCart = await CartModel.findOne({ studentId: student.email });
 
     if (!existingCart) {
-      // If cart doesn't exist, create a new one
       const newCart = new CartModel({
         items: cartItem,
         studentId: student.email 
@@ -462,8 +460,7 @@ app.post("/shop", async (req, res) => {
       res.cookie("cartToken", cartToken, { httpOnly: true, sameSite: "none", secure: true, maxAge: (95 * 24 * 60 * 60 * 1000) });
 
       return res.json({ status: true, message: "Cart items saved successfully", items: newCart });
-    } else {
-      // If cart exists, push new item to existing cart
+    } else { 
       existingCart.items.push(...cartItem);
       await existingCart.save();
 

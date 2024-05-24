@@ -26,19 +26,18 @@ const Products = ({ product }) => {
   = product;
 
   const handleSubmit = async () => {
-    // Call synchronous function
     handleCalculateDates();
   
-    // Prepare the cart item
     let cartItem = [];
-    cartItem.push({
-      itemId: product.id,
-      productName: product.title,
-      borrowDate: borrowDate,
-      returnDate: returnDate,
-    });
+    product.map((item) => {
+      cartItem.push({
+        itemId: item.id,
+        productName: item.title,
+        borrowDate: item.borrowDate,
+        returnDate: item.returnDate,
+      });
+    })
   
-    // Call asynchronous functions and wait for them to complete
     try {
       await addToCart(product, id);
       await handleCheckout(cartItem);
