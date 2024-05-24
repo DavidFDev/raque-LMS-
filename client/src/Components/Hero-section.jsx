@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -32,13 +33,13 @@ const HeroSection = () => {
                         THE FUTURE
                       </span>
                       <h1>Educational Books for those who learn differently</h1>
-                      <p>Yctlibrary students by introducing collaboratives outside R, internships and search experience abroad</p>
+                      <p>Leaning is fun!</p>
 
                       <div className="links">
 
-                        <button className="starter-btn btn text-white">
-                          <span>Get Started Free</span>
-                        </button>
+                        <Link to="/register" className="starter-btn ps-0 btn text-white text-start">
+                          <span className='text-white text-start'>Get Started Free</span>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -61,13 +62,13 @@ const HeroSection = () => {
                         WEAPON IS EDUCATION
                       </span>
                       <h1>Thinking out of the box and create a learning learner</h1>
-                      <p>Yctlibrary students by introducing collaboratives outside R, internships and search experience abroad</p>
+                      <p>Inhale, exhale, learn, and do!</p>
 
                       <div className="links">
 
-                        <button className="starter-btn btn text-white">
-                          <span>Get Started Free</span>
-                        </button>
+                        <Link to="/register" className="starter-btn ps-0 btn text-white text-start">
+                          <span className='text-white text-start'>Get Started Free</span>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -89,14 +90,14 @@ const HeroSection = () => {
                         <span className="highlight"></span>
                         <span>AIM FOR EXCELLENCE</span>
                       </span>
-                      <h1>Learn a new skill from our online books</h1>
-                      <p>Yctlibrary students by introducing collaboratives outside R, internships and search experience abroad</p>
+                      <h1>Extend your knowledge from our online books</h1>
+                      <p>Dive into the world of online novels where reading is not only fun but also enriching. Explore a wide variety of genres and stories, enhancing your knowledge and imagination with every page you turn.</p>
 
                       <div className="links">
 
-                        <button className="starter-btn btn text-white">
-                          <span>Get Started Free</span>
-                        </button>
+                        <Link to="/register" className="starter-btn ps-0 btn text-white text-start">
+                          <span className='text-white text-start'>Get Started Free</span>
+                        </Link>
                       </div>
                     </div>
                   </div>

@@ -1080,43 +1080,7 @@ p {
         }
 
         .links {
-          display: flex;
-          flex-wrap: nowrap;
-          align-items: center;
 
-          .default-btn {
-            display: inline-block;
-            padding: 13px 25px 12px 25px;
-            position: relative;
-            background-color: var(--main-color);
-            color: #fff;
-            border: 2px solid var(--main-color);
-            border-radius: 1px;
-            font-size: 14.5px;
-            font-weight: 700;
-
-            .start-icon {
-              transition: 0.3s linear;
-            }
-
-            .end-icon {
-              display: none;
-              transition: 0.3s linear;
-            }
-
-            &:hover {
-              background-color: #0eb582;
-              border: 2px solid #0eb582;
-
-              .start-icon {
-                display: none;
-              }
-
-              .end-icon {
-                display: inline-block !important;
-              }
-            }
-          }
 
           .starter-btn {
             font-weight: bold;
