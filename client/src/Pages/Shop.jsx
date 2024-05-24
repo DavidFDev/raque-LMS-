@@ -1,21 +1,16 @@
-import { useContext, useState } from "react";
-import { FaChevronDown, FaTimes } from "react-icons/fa";
-import { IoSearch } from "react-icons/io5";
+import { useContext } from "react";
 import Products from "../Components/Products";
+import SearchBooksForm from "../Components/SearchBooksForm";
+import LoadingBullets from "../Components/Spinner";
 import ShopHeading from "../Components/shopHeading";
 import { cartContext } from "../Context/CartContext";
 import { ProductContext } from "../Context/ProductContext";
-import SearchBooksForm from "../Components/SearchBooksForm";
-import coverImg from "../assets/Products/thirdProduct.jpg"
-import LoadingBullets from "../Components/Spinner";
+import coverImg from "../assets/Products/thirdProduct.jpg";
 
 
 const Shop = () => {
   const { products, books, loading } = useContext(ProductContext);
   const { cart, removeFromCart } = useContext(cartContext);
-
-  const [sortName, setSortName] = useState("Sort by Popularity");
-  const [isActive, setIsActive] = useState(false);
 
   const bookWithCovers = books.map(singleBook => {
     return {
@@ -25,13 +20,6 @@ const Shop = () => {
     }
   });
 
-  const sortOptions = [
-    "Sort by Popularity",
-    "Sort by latest",
-    "Default sorting",
-    "Sort by rating",
-    "Sort by new",
-  ];
 
   return (
     <>
@@ -76,6 +64,7 @@ const Shop = () => {
                 bookWithCovers.slice(0, 20).map((item, i) => (
                   <Products product={item} key={i} />
                 ))
+
               )
             }
           </div>

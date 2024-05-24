@@ -1,12 +1,10 @@
-import { FaStar } from "react-icons/fa";
+import { useContext, useState } from "react";
 import { BiCartAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
-import { cartContext } from "../Context/CartContext";
-import { ProductContext } from "../Context/ProductContext";
 import { useAuthContext } from "../Context/AuthContext";
+import { cartContext } from "../Context/CartContext";
 import { useDateAndTimeContext } from "../Context/TimeMgtContext";
-import Logo from "../assets/Logo/white-logo.png"
+import Logo from "../assets/Logo/yctlibrary.png";
 
 
 const Products = ({ product }) => {
@@ -26,16 +24,18 @@ const Products = ({ product }) => {
   = product;
 
   const handleSubmit = async () => {
+
     handleCalculateDates();
   
     let cartItem = [];
-    cartItem.push({
+    cartItem.push({ 
       itemId: product.id,
       productName: product.title,
       borrowDate: borrowDate,
       returnDate: returnDate,
     });
   
+
     try {
       await addToCart(product, id);
       await handleCheckout(cartItem);
@@ -103,8 +103,6 @@ const Products = ({ product }) => {
             <span> { first_publish_year } </span>
           </div>
         </div>
-
-
 
 
       </div>

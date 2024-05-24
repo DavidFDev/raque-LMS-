@@ -434,7 +434,7 @@ app.get("/verify", async (req, res) => {
 
 
 /* CART CONTROLLER */
-app.post("/shop", async (req, res) => {
+app.post("/books", async (req, res) => {
   try {
     const token = req.cookies.token;
 
