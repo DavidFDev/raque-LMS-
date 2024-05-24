@@ -29,14 +29,12 @@ const Products = ({ product }) => {
     handleCalculateDates();
   
     let cartItem = [];
-    product.map((item) => {
-      cartItem.push({
-        itemId: item.id,
-        productName: item.title,
-        borrowDate: item.borrowDate,
-        returnDate: item.returnDate,
-      });
-    })
+    cartItem.push({
+      itemId: product.id,
+      productName: product.title,
+      borrowDate: borrowDate,
+      returnDate: returnDate,
+    });
   
     try {
       await addToCart(product, id);
