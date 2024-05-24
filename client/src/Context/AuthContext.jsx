@@ -231,8 +231,7 @@ const AuthProvider = ({ children }) => {
         setLoading(false);
         setActivateErrMsg(true);
         setErrParagraph(result.data.message);
-      } else if (result.data.status) {
-        /* SAVE INTO THE LOCALSTORAGE */
+      } else {
   
         setEmail(email);
         setName(result.data.userInfo.userName);
@@ -247,17 +246,11 @@ const AuthProvider = ({ children }) => {
           setSuccessMsg(false);
         }, 3000);
   
-      } else if (result.data === "Token Expired") {
-        navigate("/login");
-        setIsLoggedIn(false);
-        setErrParagraph(result.data);
-      } else {
-        setIsLoggedIn(true);
-      }
+      } 
     } catch (err) {
       console.log(err);
     } finally {
-      setLoading(false); // Set loading to false after operation completes
+      setLoading(false); 
     }
   };
   
@@ -268,30 +261,44 @@ const AuthProvider = ({ children }) => {
 
 
 
-  const handleLogoutButton = ({id}) => {
-    axios.defaults.withCredentials = true;
-
-    axios.post(`https://yctlibserver.onrender.com/${id}`).then(result => {
+  const handleLogoutButton = async ({ id }) => {
+    try {
+      setLoading(true); 
+      axios.defaults.withCredentials = true;
+  
+      const result = await axios.post(`https://yctlibserver.onrender.com/${id}`);
+      
       if (result.data.status) {
-        setIsLoggedIn(false)
+        setIsLoggedIn(false);
       }
-    })
-  } 
-
-
-
-  const handleCheckout = (cartItem) => {
-    axios.defaults.withCredentials = true;
-    axios.post("https://yctlibserver.onrender.com/books", cartItem).then(result => {
-
-      if (result.data.status) {
-        setRecentOrders(result.data.items)
-      } else {
-        console.log(result.data)
-      }
-
-    }).catch(err => console.log(err))
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoading(false); // Set loading state to false after request completes (success or failure)
+    }
   }
+  
+
+
+
+  const handleCheckout = async (cartItem) => {
+    setLoading(true);
+    try {
+      axios.defaults.withCredentials = true;
+      const result = await axios.post("https://yctlibserver.onrender.com/books", cartItem);
+      
+      if (result.data.status) {
+        setRecentOrders(result.data.items);
+      } else {
+        console.log(result.data);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+  
 
 
   useEffect(() => {
@@ -362,7 +369,7 @@ const AuthProvider = ({ children }) => {
         setSuccessPara(email.length !== 0 ? result.data.emailMessage : phone.length !== 0 && result.data.message);
         setSuccessMsg(true);
         setActivateErrMsg(false);
-        console.log(result.data);
+
         setTimeout(() => {
           navigate("/login");
         }, 4000);
