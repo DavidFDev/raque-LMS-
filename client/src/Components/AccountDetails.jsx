@@ -28,12 +28,12 @@ const AccountDetails = () => {
       
       if (activateErrMsg) {
         // If there's an error message, show it as a notification
-        showNotification(errParagraph);
+        return showNotification(errParagraph);
       } else {
         if (successMsg) {
-          showNotification(successPara);
+          return showNotification(successPara);
         } else {
-          showNotification(errParagraph);
+          return showNotification(errParagraph);
         }
       }
     } catch (error) {
