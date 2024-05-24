@@ -93,9 +93,9 @@ const AccountDetails = () => {
                   onChange={(e) => setCurrentPassword(e.target.value)}
                 />
                 {showNewPassword ?  ( 
-                  <FaEye onClick={() => setShowNewPassword(!showNewPassword)} />
+                  <FaEye onClick={() => setShowCurrentPassword(!showCurrentPassword)} />
                   ) : (
-                  <FaEyeSlash onClick={() => setShowNewPassword(showNewPassword)} />
+                  <FaEyeSlash onClick={() => setShowCurrentPassword(showCurrentPassword)} />
                 )}
               </div>
               {activateErrMsg && <span className="text-altlemon">{errParagraph}</span>}
@@ -120,7 +120,7 @@ const AccountDetails = () => {
                 {showNewPassword ?  ( 
                   <FaEye onClick={() => setShowNewPassword(!showNewPassword)} />
                   ) : (
-                  <FaEyeSlash onClick={() => setShowNewPassword(showNewPassword)} />
+                  <FaEyeSlash onClick={() => setShowNewPassword(!showNewPassword)} />
                 )}
               </div>
               {activateErrMsg && <span className="text-altlemon">{errParagraph}</span>}
