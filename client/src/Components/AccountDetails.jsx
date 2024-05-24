@@ -92,7 +92,7 @@ const AccountDetails = () => {
                   autoComplete="on"
                   onChange={(e) => setCurrentPassword(e.target.value)}
                 />
-                {showNewPassword ?  ( 
+                {showCurrentPassword ?  ( 
                   <FaEye onClick={() => setShowCurrentPassword(!showCurrentPassword)} />
                   ) : (
                   <FaEyeSlash onClick={() => setShowCurrentPassword(showCurrentPassword)} />
@@ -120,7 +120,7 @@ const AccountDetails = () => {
                 {showNewPassword ?  ( 
                   <FaEye onClick={() => setShowNewPassword(!showNewPassword)} />
                   ) : (
-                  <FaEyeSlash onClick={() => setShowNewPassword(!showNewPassword)} />
+                  <FaEyeSlash onClick={() => setShowNewPassword(showNewPassword)} />
                 )}
               </div>
               {activateErrMsg && <span className="text-altlemon">{errParagraph}</span>}
