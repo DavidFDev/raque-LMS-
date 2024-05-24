@@ -32,7 +32,9 @@ const AccountDetails = () => {
       } else {
         if (successMsg) {
           showNotification(successPara);
-        } 
+        } else {
+          showNotification(errParagraph);
+        }
       }
     } catch (error) {
       // Handle any errors that occur during the update process
