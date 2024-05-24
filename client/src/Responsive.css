@@ -555,6 +555,11 @@
       font-size: 22px !important;
     }
   }
+
+  .become-student-partner-content h2 {
+    margin-bottom: 10px;
+    font-size: 27px;
+  }
 }
 
 

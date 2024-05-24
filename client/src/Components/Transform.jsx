@@ -47,7 +47,7 @@ const BecomeStudentPartnerArea = () => {
                     <div className="col-lg-6 col-md-6">
                         <div className="become-student-partner-content text-center text-md-start">
                             <h2 className='text-dark'>Become a Partner</h2>
-                            <p>Choose from hundreds of free courses, or get a degree or certificate at a breakthrough price. Learn at your own pace.</p>
+                            <p className='text-dark '>Choose from hundreds of free courses, or get a degree or certificate at a breakthrough price. Learn at your own pace.</p>
                             <Link to={isLoggedIn ? "/contact" : "/login"} className="default-btn">
                                 <FaPlusCircle className="start-icon before" />
                                 <span className="label">Contact Us</span>
