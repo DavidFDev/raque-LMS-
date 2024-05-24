@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IoIosSave } from "react-icons/io";
 import { FaEyeSlash, FaEye } from "react-icons/fa6";
 import { useAuthContext } from "../Context/AuthContext";
 import { usePopupNotification } from '../Context/PopupNotificationContext';
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "bootstrap/dist/css/bootstrap.css";
+import Loader from './Loader';
 
 
 
 
 const AccountDetails = () => {
-  const { email, name, password, handleUpdate, errParagraph, successPara, successMsg, activateErrMsg } = useAuthContext();
+  const { email, name, password, handleUpdate, errParagraph, successPara, successMsg, activateErrMsg, loading } = useAuthContext();
   const { showNotification } = usePopupNotification();
 
   const [fullName, setFullName] = useState(name);
@@ -116,7 +117,7 @@ const AccountDetails = () => {
           <div className="col-12">
             <button type="submit" className="default-btn">
               <IoIosSave className="start-icon" />
-              <span className="label">Save Changes</span>
+              <span className="label">{loading ? <Loader/> : "Save Changes"}</span>
               <IoIosSave className="end-icon" />
             </button>
           </div>

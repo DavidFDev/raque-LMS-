@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../Context/AuthContext";
 import { useParams } from "react-router-dom";
+import Loader from "./Loader";
 
 const ResetPasswordForm = () => {
   const { handleResetPassword, activateErrMsg, errParagraph, successPara, successMsg, loading } = useAuthContext();

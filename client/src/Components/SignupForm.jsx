@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from '../Context/AuthContext';
 import SocialAuth from './SocialAuth';
+import Loader from "./Loader";
 
 const SignupForm = () => {
     const {activateErrMsg, errParagraph , handleSignup} = useAuthContext()

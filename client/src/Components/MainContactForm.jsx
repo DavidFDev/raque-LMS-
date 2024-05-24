@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useAuthContext } from "../Context/AuthContext";
+import Loader from "./Loader";
 
 const MainContactForm = () => {
   const { handleMessage, successPara, errParagraph, activateErrMsg, successMsg, loading } = useAuthContext()

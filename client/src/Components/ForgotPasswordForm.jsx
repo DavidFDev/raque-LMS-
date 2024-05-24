@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "../Context/AuthContext";
+import Loader from "./Loader";
 
 const ForgotPasswordForm = () => {
   const {
