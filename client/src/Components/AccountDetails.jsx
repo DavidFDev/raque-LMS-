@@ -21,20 +21,26 @@ const AccountDetails = () => {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    handleUpdate({ userEmail, currentPassword, newPassword, fullName });
-    if (activateErrMsg) {
-      // If there's an error message, show it as a notification
-      showNotification(errParagraph);
-    } else {
-      if (successMsg) {
-        showNotification(successPara);
+    try {
+      await handleUpdate({ userEmail, currentPassword, newPassword, fullName });
+      
+      if (activateErrMsg) {
+        // If there's an error message, show it as a notification
+        showNotification(errParagraph);
       } else {
-        showNotification("Update successful.");
+        if (successMsg) {
+          showNotification(successPara);
+        } 
       }
+    } catch (error) {
+      // Handle any errors that occur during the update process
+      console.error("Error occurred during update:", error);
+      showNotification("An error occurred while updating. Please try again later.");
     }
   };
+  
 
   return (
     <>
@@ -95,7 +101,7 @@ const AccountDetails = () => {
                 {showCurrentPassword ?  ( 
                   <FaEye onClick={() => setShowCurrentPassword(!showCurrentPassword)} />
                   ) : (
-                  <FaEyeSlash onClick={() => setShowCurrentPassword(showCurrentPassword)} />
+                  <FaEyeSlash onClick={() => setShowCurrentPassword(!showCurrentPassword)} />
                 )}
               </div>
               {activateErrMsg && <span className="text-altlemon">{errParagraph}</span>}
@@ -120,7 +126,7 @@ const AccountDetails = () => {
                 {showNewPassword ?  ( 
                   <FaEye onClick={() => setShowNewPassword(!showNewPassword)} />
                   ) : (
-                  <FaEyeSlash onClick={() => setShowNewPassword(showNewPassword)} />
+                  <FaEyeSlash onClick={() => setShowNewPassword(!showNewPassword)} />
                 )}
               </div>
               {activateErrMsg && <span className="text-altlemon">{errParagraph}</span>}
