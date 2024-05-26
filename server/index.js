@@ -151,7 +151,7 @@ app.post("/forgot-password", async (req, res) => {
         from: "Raque Team <raquereinforce@gmail.com>",
         to: student.email,
         subject: "Reset Password",
-        text: `https://raqueshelf.onrender.com/resetPassword/${token}`,
+        text: `https://yctbookshelf.onrender.com/resetPassword/${token}`,
       };
 
       transporter.sendMail(mailOptions, (error, info) => {
@@ -182,7 +182,7 @@ app.post("/forgot-password", async (req, res) => {
 
 
 /* RESET PASSWORD */
-app.post("/resetPassword/:token", async (req, res) => {
+app.post(`/resetPassword/:token`, async (req, res) => {
   const token = req.params.token;
 
   const { password } = req.body;
@@ -197,7 +197,7 @@ app.post("/resetPassword/:token", async (req, res) => {
       {
         password: hash,
       },
-      {new: true}
+      {new: true} 
     );
 
     if (!student) return res.json({ status: false, message: "Not updated" });
