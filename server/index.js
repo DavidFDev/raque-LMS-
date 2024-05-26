@@ -148,7 +148,7 @@ app.post("/forgot-password", async (req, res) => {
       });
 
       let mailOptions = {
-        from: "Raque Team <raquereinforce@gmail.com>",
+        from: "YCTLIB Team <raquereinforce@gmail.com>",
         to: student.email,
         subject: "Reset Password",
         text: `https://yctbookshelf.onrender.com/resetPassword/${token}`,
