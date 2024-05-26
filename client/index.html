@@ -4,8 +4,11 @@
     <!-- Required meta tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="png" href="src/assets/Logo/yctlibrary.png">
     <title>YCTLIB - Education Books & Active Open Learning</title>
+    <script>
+      const timestamp = new Date().getTime();
+      document.write(`<link rel="icon" type="image/png" href="src/assets/Logo/yctlibrary.png?v=${timestamp}">`);
+    </script>
     <!-- Links of CSS files -->
     <link rel="stylesheet" href="/css/main.min.css">
   </head>
