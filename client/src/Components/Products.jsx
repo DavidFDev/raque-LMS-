@@ -71,9 +71,9 @@ const Products = ({ product }) => {
     <div className="col-lg-4 col-md-6 col-sm-6" key={id}>
       <div className="single-product-box mb-30">
         <div className="product-image">
-          <Link to={`/product/${id}`}>
+          <div>
             <img src={cover_img} alt="product image" className="w-100" />
-          </Link>
+          </div>
           <Link to={`/reading/${id}`}
             className="add-to-cart-btn d-flex flex-nowrap align-items-center gap-2 text-capitalize"
             onClick={handleSubmit}
