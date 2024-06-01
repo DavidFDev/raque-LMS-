@@ -84,7 +84,7 @@ const NavOtherOptionsSm = () => {
           {/* IF SELECT IS ACTIVE(SHOW) */}
 
             <div
-              className={isActive ? "dropdown-content d-flex flex-column py-3" : "dropdown-content-below small d-flex flex-column py-3"}
+              className={isActive ? "dropdown-content smaller d-flex flex-column py-3" : "dropdown-content-below small d-flex flex-column py-3"}
               style={{ cursor: "pointer" }}
             >
               {options.map((option) => (
