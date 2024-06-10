@@ -9,7 +9,6 @@ import AccountDetails from "../../../Components/AccountDetails";
 import AllOrders from "../../../Components/AllOrders";
 import RecentOrders from "../../../Components/RecentOrders";
 
-
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import BioForm from "../../../Components/BioForm";
@@ -80,8 +79,7 @@ const UserAccount = () => {
                     <div className="profile-content">
                       <h3 className="profile-name text-capitalize">{name}</h3>
 
-                      <BioForm/>
-
+                      <BioForm />
 
                       <ul className="contact-info">
                         <li>
@@ -91,7 +89,7 @@ const UserAccount = () => {
                         <li>
                           <FaPhone className="icon" />
                           <a href="tel:+234 704 459 3001">
-                            {isLoggedIn && phone}
+                            {phone9 && phone}
                           </a>
                         </li>
                       </ul>
@@ -124,7 +122,11 @@ const UserAccount = () => {
                         </li>
                       </ul>
 
-                      <button type="button" onClick={handleLogout} className="userAccount-logout">
+                      <button
+                        type="button"
+                        onClick={handleLogout}
+                        className="userAccount-logout"
+                      >
                         Logout
                       </button>
                     </div>
@@ -162,7 +164,6 @@ const UserAccount = () => {
                           <span className="">Orders</span>
                         </a>
                       </li>
-
 
                       <li className="nav-item" role="representation">
                         <a
@@ -226,7 +227,6 @@ const UserAccount = () => {
                           <AllOrders />
                         </div>
                       </div>
-
 
                       {/* ACCOUNT DETAILS AND EDIT */}
                       <div
