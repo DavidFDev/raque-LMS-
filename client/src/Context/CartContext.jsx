@@ -7,25 +7,6 @@ const CartProvider = ({ children }) => {
   const [cartItemsQuantity, setCartItemsQuantity] = useState(0);
   const [cartSubTotalPrice, setCartTotalPrice] = useState(0);
   const [networkFee, setNetworkFee] = useState(3);
-  const [ databaseItem, setDatabaseItem ] = useState([])
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const [borrowDate, setBorrowDate] = useState('');
-  const [returnDate, setReturnDate] = useState('');
-  
-  useEffect(() => {
-
-    const handleCalculateDates = () => {
-      const oneDay = 24 * 60 * 60 * 1000; // One day in milliseconds
-      const borrowDate = new Date(currentDate);
-      const returnDate = new Date(currentDate.getTime() + oneDay);
-  
-      setBorrowDate(borrowDate.toLocaleDateString());
-      setReturnDate(returnDate.toLocaleDateString());
-    };
-
-    handleCalculateDates();
-
-  }, [])
 
 
 
@@ -60,21 +41,15 @@ const CartProvider = ({ children }) => {
   const addToCart = (product, id) => {
     const newItem = { ...product, quantity: 1 };
 
-    const cartItem = cart.find((item) => {
-      return item.id === id;
-    });
+    const cartItem = cart.find((item) => item.id === id);
 
 
 
     /* If cart item is already in the cart */
     let newCart = [];
     if (cartItem)
-      newCart = [...cart].map((item) => {
-        if (item.id === id) {
-          return { ...item, quantity: cartItem.quantity + 1 };
-        } else {
-          return item;
-        }
+      newCart = cart.map((item) => {
+        item.id === id ? { ...item, quantity: cartItem.quantity + 1 } : item;
       });
     else newCart = [...cart, newItem];
 
@@ -82,17 +57,6 @@ const CartProvider = ({ children }) => {
 
     localStorage.setItem("cartItems", JSON.stringify(newCart));
   };
-
-
-  /*const addToDatabase = (product) => {
-    setDatabaseItem([{
-      "itemId": product.id,
-      "productName": product.productName,
-      "borrowDate": borrowDate,
-      "returnDate": returnDate
-    }])
-  } */
-
 
 
 
@@ -120,11 +84,7 @@ const CartProvider = ({ children }) => {
 
     if (cartItem) {
       const newCart = cart.map((item) => {
-        if (item.id === id) {
-          return { ...item, quantity: cartItem.quantity - 1 };
-        } else {
-          return item;
-        }
+        item.id === id ? { ...item, quantity: cartItem.quantity - 1 } : item
       });
 
       setCart(newCart);
@@ -157,9 +117,7 @@ const CartProvider = ({ children }) => {
       value={{
         cart,
         networkFee,
-        databaseItem,
         addToCart,
-        // addToDatabase,
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
