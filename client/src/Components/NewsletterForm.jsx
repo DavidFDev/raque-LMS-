@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useAuthContext } from "../Context/AuthContext";
 
 const NewsletterForm = () => {
-  const { email } = useAuthContext();
+  const { isLoggedIn, email } = useAuthContext();
 
-  const [userEmail, setUserEmail] = useState(email !== 0 && email);
+  const [userEmail, setUserEmail] = useState(email !== 0 || isLoggedIn && email);
 
   return (
     <form className="newsletter-form d-flex flex-column gap-2">
