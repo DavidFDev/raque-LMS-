@@ -11,7 +11,7 @@ const Navbar = () => {
 
   useEffect(_ => {
     const handleScroll = _ => { 
-      if (window.pageYOffset > 162) {
+      if (window.scrollY > 162) {
         setScrolled(true)
       } else {
         setScrolled(false)
@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <>
       {/* NAVBAR */}
-      <nav className={!scrolled ? "navbar not-showing-on-scroll  navbar-expand-lg navbar-white bg-white" : "main-nav navbar navbar-expand-lg navbar-white bg-white show-hidden"}>
+      <nav className={`navbar navbar-expand-lg navbar-white bg-white ${!scrolled ? "not-showing-on-scroll" : "main-nav show-hidden"} `}>
         <div className="container">
           <Link className="navbar-brand" to="/">
             <MainLogo />
