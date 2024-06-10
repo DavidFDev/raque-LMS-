@@ -44,13 +44,11 @@ const ProductProvider = ({ children }) => {
       } else {
         setBooks([])
         setResultTitle("No search result found !")
-        setLoading(false)
       }
-
-      setLoading(false)
       
     } catch (err) {
       console.log(err)
+    } finally {
       setLoading(false)
     }
   }, [searchTerm])
