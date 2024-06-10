@@ -4,7 +4,7 @@ import { useAuthContext } from "../Context/AuthContext";
 const NewsletterForm = () => {
   const { email } = useAuthContext();
 
-  const [userEmail, setUserEmail] = useState(email && email);
+  const [userEmail, setUserEmail] = useState(email !== 0 && email);
 
   return (
     <form className="newsletter-form d-flex flex-column gap-2">
@@ -25,7 +25,7 @@ const NewsletterForm = () => {
         required
       />
 
-      
+
       <button type="submit" className="btn w-100 bg-altlemon text-white">
         Subscribe
       </button>
