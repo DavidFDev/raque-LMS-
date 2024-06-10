@@ -89,7 +89,7 @@ const UserAccount = () => {
                         <li>
                           <FaPhone className="icon" />
                           <a href="tel:+234 704 459 3001">
-                            {phone9 && phone}
+                            {phone && phone}
                           </a>
                         </li>
                       </ul>
