@@ -244,10 +244,14 @@ const AuthProvider = ({ children }) => {
         setSuccessPara(result.data.message);
         setSuccessMsg(true);
         setActivateErrMsg(false);
+        setRecentOrders(result.data.items)
+        setOrders(result.data.items)
+
         setTimeout(() => {
           navigate("/profile")
           setSuccessMsg(false);
-        }, 3000);
+        }, 2000);
+
   
       } 
     } catch (err) {

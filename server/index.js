@@ -116,6 +116,7 @@ app.post("/login", async (req, res) => {
         userEmail: student.email,
         userPassword: student.password,
         token: req.cookies.token,
+        items: cart.items
       },
     });
 
