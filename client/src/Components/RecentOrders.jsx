@@ -25,26 +25,27 @@ const RecentOrders = () => {
               <th>Return Date</th>
             </tr>
           </thead>
+
+
           <tbody>
-            { slicedOrders === 0 ? (
-              <tr>
-                <p>No Orders found</p>
-              </tr>
-            ) : (
-              
-              slicedOrders.map((item, i) => {
-                const { itemId, borrowDate, returnDate } = item;
-                return (
-                  <tr key={i}>
-                    <td style={{ textOverflow: "ellipsis", overflow: "hidden" }}>
-                      {itemId}
-                    </td>
-                    <td>{borrowDate}</td>
-                    <td>{returnDate}</td>
+              { slicedOrders && slicedOrders > 0 ? 
+                slicedOrders.map((item, i) => {
+                  const { itemId, borrowDate, returnDate } = item;
+                  return (
+                    <tr key={i}>
+                      <td style={{ textOverflow: "ellipsis", overflow: "hidden" }}>
+                        {itemId}
+                      </td>
+                      <td>{borrowDate}</td>
+                      <td>{returnDate}</td>
+                    </tr>
+                  );
+                }) : (
+                  <tr>
+                    <td colSpan="4">No orders found</td>
                   </tr>
-                );
-              })
-            )}
+                )
+              }
           </tbody>
         </table>
       </div>
