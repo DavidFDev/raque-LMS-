@@ -244,8 +244,8 @@ const AuthProvider = ({ children }) => {
         setSuccessPara(result.data.message);
         setSuccessMsg(true);
         setActivateErrMsg(false);
-        setRecentOrders(result.data.items)
-        setOrders(result.data.items)
+        setRecentOrders(result.data.cartItems)
+        setOrders(result.data.cartItems)
 
         setTimeout(() => {
           navigate("/profile")
