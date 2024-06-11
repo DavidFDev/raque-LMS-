@@ -10,9 +10,9 @@ const RecentOrders = () => {
       setSlicedOrders(recentOrders.slice(0, 6) || []);
     } else {
       setSlicedOrders([]);
-    } 
+    }
   }, [recentOrders]);
- 
+
   return (
     <div className="order-form">
       <h3>Recent Orders</h3>
@@ -26,26 +26,27 @@ const RecentOrders = () => {
             </tr>
           </thead>
 
-
           <tbody>
-              { slicedOrders && slicedOrders > 0 ? 
-                slicedOrders.map((item, i) => {
-                  const { itemId, borrowDate, returnDate } = item;
-                  return (
-                    <tr key={i}>
-                      <td style={{ textOverflow: "ellipsis", overflow: "hidden" }}>
-                        {itemId}
-                      </td>
-                      <td>{borrowDate}</td>
-                      <td>{returnDate}</td>
-                    </tr>
-                  );
-                }) : (
-                  <tr>
-                    <td colSpan="4">No orders found</td>
+            {slicedOrders && slicedOrders > 0 ? (
+              slicedOrders.map((item, i) => {
+                const { itemId, borrowDate, returnDate } = item;
+                return (
+                  <tr key={i}>
+                    <td
+                      style={{ textOverflow: "ellipsis", overflow: "hidden" }}
+                    >
+                      {itemId}
+                    </td>
+                    <td>{borrowDate}</td>
+                    <td>{returnDate}</td>
                   </tr>
-                )
-              }
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan="4">No orders found</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
