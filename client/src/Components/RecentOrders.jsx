@@ -27,7 +27,7 @@ const RecentOrders = () => {
           </thead>
 
           <tbody>
-            {slicedOrders && slicedOrders > 0 ? (
+            {recentOrders && recentOrders > 0 ? (
               slicedOrders.map((item, i) => {
                 const { itemId, borrowDate, returnDate } = item;
                 return (
