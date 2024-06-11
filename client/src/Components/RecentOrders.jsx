@@ -27,7 +27,7 @@ const RecentOrders = () => {
           </thead>
 
           <tbody>
-            {recentOrders && recentOrders > 0 ? (
+            {slicedOrders.length > 0 ? (
               slicedOrders.map((item, i) => {
                 const { itemId, borrowDate, returnDate } = item;
                 return (
@@ -44,7 +44,7 @@ const RecentOrders = () => {
               })
             ) : (
               <tr>
-                <td colSpan="4">No orders found</td>
+                <td colSpan="3">No orders found</td>
               </tr>
             )}
           </tbody>
