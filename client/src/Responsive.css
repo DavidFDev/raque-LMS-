@@ -26,26 +26,6 @@
 }
 
 
-/* Hide NavLinks and NavOtherOptionsLg by default */
-.nav-links-lg,
-.nav-other-options-lg {
-  display: none;
-}
-
-/* Show NavLinks and NavOtherOptionsLg on large screens */
-@media (min-width: 992px) {
-  .nav-links-lg,
-  .nav-other-options-lg {
-    display: block;
-  }
-
-  .offcanvas {
-    display: none;
-  }
-}
-
-
-
 
 
 

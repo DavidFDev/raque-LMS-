@@ -53,6 +53,8 @@ const DiscoverCourses = ({ infos }) => {
           ))}
         </div>
 
+
+
         <div className="shorting" id="MixItUp0F3ADE">
           <div className="row">
             {infos.map((info, index) => (
