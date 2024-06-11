@@ -7,22 +7,24 @@ import NavOtherOptionsLg from "./NavOtherOptionsLg";
 import { IoMenu } from "react-icons/io5";
 
 const Navbar = () => {
-  const [ scrolled, setScrolled ] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(_ => {
-    const handleScroll = _ => { 
+  const toggle = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    const handleScroll = () => { 
       if (window.scrollY > 162) {
-        setScrolled(true)
+        setScrolled(true);
       } else {
-        setScrolled(false)
+        setScrolled(false);
       }
-    }
-    window.addEventListener('scroll', handleScroll)
-    return _ => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
-
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -34,9 +36,7 @@ const Navbar = () => {
           </Link>
 
           <div className="embeded d-flex align-items-center gap-3">
-            {/* OTHER OPTIONS SM */}
             <NavOtherOptionsSm/>
-            {/* END */}
 
             <button
               className="navbar-toggler"
@@ -51,13 +51,12 @@ const Navbar = () => {
 
           </div>
 
-          
-          
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-                <MainLogo/>
+                <MainLogo />
               </h5>
+
               <button
                 type="button"
                 className="btn-close text-reset"
@@ -67,15 +66,11 @@ const Navbar = () => {
             </div>
 
             <div className="offcanvas-body">
-              <NavLinks/>
-
-
-              {/* OTHER OPTIONS LG */}
-              <NavOtherOptionsLg/>
+              <NavLinks />
               
+              <NavOtherOptionsLg />
             </div>
           </div>
-
         </div>
       </nav>
     </>

@@ -31,6 +31,8 @@ const ResetPassword = React.lazy(() =>
 const UserBio = React.lazy(() => import("./Pages/User/User-Entry/UserBio"));
 import NotificationPopup from "./Components/NotificationPopup";
 import Feedback from "./Pages/Feedback";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App = () => {
   return (

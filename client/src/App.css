@@ -854,6 +854,89 @@ p {
   }
 
   .container {
+    .offcanvas-body {
+      .nav-item {
+        position: relative!important;
+  
+        .nav-link {
+          color: #252525;
+          font-size: 16.4px;
+          font-weight: 500;
+          padding: 30px 0;
+          margin-left: 24px;
+          cursor: pointer;
+          margin-right: 9px;
+  
+          .icon {
+            font-size: 10px;
+            margin-left: 8px;
+            transition: 0.3s ease-in-out;
+          }
+        }
+  
+        &:hover {
+          .icon {
+            transform: rotate(-180deg) !important;
+          }
+  
+          .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: scaleX(1) !important;
+            top: 83.999888px !important;
+          }
+  
+          &:focus .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: scaleX(1) !important;
+            top: 83.999888px !important;
+          }
+        }
+  
+        .dropdown-menu {
+          position: absolute;
+          box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+          background: #fff;
+          border: none;
+          top: 83.999888px;
+          left: 0;
+          width: 230px;
+          z-index: 99;
+          opacity: 0;
+          display: block;
+          visibility: hidden;
+          transform: scaleX(0);
+          border-radius: 0;
+          transition: 0.2s ease-in-out;
+          border-top: 2px solid var(--main-color);
+          padding: 0 !important;
+  
+          .dropdown-item {
+            padding: 0;
+  
+            &:hover {
+              & a {
+                color: var(--main-color);
+              }
+            }
+          }
+  
+          & a {
+            color: #4a6f8a;
+            padding: 13px 20px 11px;
+            margin: 0;
+            position: relative;
+            display: block;
+            border-bottom: 1px dashed #e5e5e5;
+            transition: 0.5s;
+            font-size: 15px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
     .nav-item {
       position: relative;
 
