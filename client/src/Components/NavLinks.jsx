@@ -5,7 +5,7 @@ import { useAuthContext } from "../Context/AuthContext";
 
 const NavLinks = () => {
 
-  const { isLoggedIn } = useAuthContext()
+  const { isLoggedIn, handleLogout } = useAuthContext()
 
   return (
     <ul className="navbar-nav mx-lg-auto mt-2 mt-lg-0">
@@ -107,9 +107,13 @@ const NavLinks = () => {
 
       {isLoggedIn ? (
         <li className="nav-item d-lg-none d-sm-inline-block">
-          <Link to="/login" className={location.pathname === "/login" ? "nav-link text-altlemon" : "nav-link"}>
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="userAccount-logout"
+          >
             Logout
-          </Link>
+          </button>
         </li>
       ) : (
         <>
