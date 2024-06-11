@@ -81,24 +81,34 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-
   try {
     const student = await StudentModel.findOne({ email });
 
     if (!student) {
       return res.json({
         status: false,
-        message: "a user doesn't exist with this email",
+        message: "A user doesn't exist with this email",
       });
     }
 
     const validPassword = await bcrypt.compare(password, student.password);
     if (!validPassword) {
-      return res.json({ message: "incorrect password", status: false });
+      return res.json({ message: "Incorrect password", status: false });
     }
 
-    const token = jwt.sign({name: student.name}, process.env.KEY, {expiresIn: "120h"})
-    res.cookie("token", token, {httpOnly: true, sameSite: "none", secure: true, maxAge: (30 * 24 * 60 * 60 * 1000)})
+    const token = jwt.sign({ name: student.name }, process.env.KEY, { expiresIn: "120h" });
+    res.cookie("token", token, { httpOnly: true, sameSite: "none", secure: true, maxAge: 30 * 24 * 60 * 60 * 1000 });
+
+    const cart = await CartModel.findOne({ studentId: student.email });
+
+    let cartItems = [];
+    if (cart) {
+      const cartToken = jwt.sign({ email: cart.studentId }, process.env.KEY);
+      res.cookie('cartToken', cartToken, { httpOnly: true, secure: true, sameSite: "none", maxAge: 95 * 24 * 60 * 60 * 1000 });
+      cartItems = cart.items;
+    } else {
+      console.log('No orders found');
+    }
 
     res.json({
       message: "Login Successfully",
@@ -106,25 +116,16 @@ app.post("/login", async (req, res) => {
       userInfo: {
         userName: student.name,
         userEmail: student.email,
-        userPassword: student.password,
-        token: req.cookies.token,
+        token: token,
       },
+      cartItems: cartItems,
     });
-
-    const cart = await CartModel.findOne({ studentId: student.email });
-
-    if (!cart) res.json({ message: "No orders found" })
-    
-    const cartToken = jwt.sign({ email: cart.studentId }, process.env.KEY);
-
-    res.cookie('cartToken', cartToken, { httpOnly: true, secure, sameSite: "none", maxAge: (95 * 24 * 60 * 60 * 1000) })
-    res.json({ items: cart.items })
-
   } catch (error) {
     console.log(error);
-    res.status(500).json('An error occured while logging in').send(error);
+    res.status(500).json({ message: 'An error occurred while logging in', error: error.message });
   }
 });
+
 
 
 
