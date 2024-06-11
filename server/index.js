@@ -113,6 +113,8 @@ app.post("/login", async (req, res) => {
     });
 
     const cart = await CartModel.findOne({ studentId: student.email });
+
+    if (!cart) res.json({ message: "No orders found" })
     
     const cartToken = jwt.sign({ email: cart.studentId }, process.env.KEY);
 
