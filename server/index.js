@@ -481,6 +481,32 @@ app.post("/books", async (req, res) => {
       res.json({ status: true, message: "Item added to cart successfully", items: existingCart });
     }
 
+
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.SUPPORT_EMAIL,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    // Configure email options
+    let mailOptions = {
+      from: `Yctlibrary <${process.env.SUPPORT_EMAIL}>`,
+      to: decoded.email,
+      subject: "Order from Yctlibrary",
+      text: cartItem,
+    };
+
+
+    // Send the email
+    await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully');
+    return res.status(200).json({ message: 'Email sent successfully', status: true });
+
+
+    
+
   } catch (error) {
     console.log("Error while saving cart items:", error);
     res.status(500).json({
