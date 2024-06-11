@@ -100,8 +100,15 @@ app.post("/login", async (req, res) => {
     const token = jwt.sign({name: student.name}, process.env.KEY, {expiresIn: "120h"})
     res.cookie("token", token, {httpOnly: true, sameSite: "none", secure: true, maxAge: (30 * 24 * 60 * 60 * 1000)})
 
+
+    const cart = await CartModel.findOne({ email });
     
-    res.json({
+    const cartToken = jwt.sign({ email: cart.email }, process.env.KEY);
+
+    res.cookie('cartToken', cartToken, { httpOnly: true, secure, sameSite: "none", maxAge: (95 * 24 * 60 * 60 * 1000) })
+
+    
+    return res.json({
       message: "Login Successfully",
       status: true,
       userInfo: {
@@ -111,15 +118,6 @@ app.post("/login", async (req, res) => {
         token: req.cookies.token,
       },
     });
-
-
-    const cart = await CartModel.findOne({ email: student.email });
-    
-    if (!cart) res.json({ message: "No orders found" }) 
-    
-    const cartToken = jwt.sign({ email: cart.email }, process.env.KEY);
-
-    res.cookie('cartToken', cartToken, { httpOnly: true, secure, sameSite: "none", maxAge: (95 * 24 * 60 * 60 * 1000) })
 
   } catch (error) {
     console.log(error);
