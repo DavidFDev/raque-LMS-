@@ -101,9 +101,9 @@ app.post("/login", async (req, res) => {
     res.cookie("token", token, {httpOnly: true, sameSite: "none", secure: true, maxAge: (30 * 24 * 60 * 60 * 1000)})
 
 
-    const cart = await CartModel.findOne({ email });
+    const cart = await CartModel.findOne({ studentId: email });
     
-    const cartToken = jwt.sign({ email: cart.email }, process.env.KEY);
+    const cartToken = jwt.sign({ email: cart.studentId }, process.env.KEY);
 
     res.cookie('cartToken', cartToken, { httpOnly: true, secure, sameSite: "none", maxAge: (95 * 24 * 60 * 60 * 1000) })
 
