@@ -940,6 +940,24 @@ p {
     .nav-item {
       position: relative;
 
+      .userAccount-logout {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #d9534f;
+        color: #fff;
+        cursor: pointer;
+        padding: 7px 20px 8px;
+        border-radius: 3px;
+        font-size: 15px;
+        font-weight: 500;
+        border: 1px solid transparent;
+
+        &:hover {
+          border: 1px solid var(--main-color);
+          background-color: var(--main-color);
+        }
+      }
+
       .nav-link {
         color: #252525;
         font-size: 16.4px;
