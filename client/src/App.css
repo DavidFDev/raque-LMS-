@@ -966,6 +966,11 @@ p {
         margin-left: 24px;
         cursor: pointer;
         margin-right: 9px;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--altlemon);
+        }
 
         .icon {
           font-size: 10px;
