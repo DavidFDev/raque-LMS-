@@ -104,6 +104,18 @@ const NavLinks = () => {
           Contact
         </Link>
       </li>
+
+      <li className="nav-item d-lg-none d-sm-inline-block">
+        <Link to="/login" className={location.pathname === "/login" ? "nav-link text-altlemon" : "nav-link"}>
+          Login
+        </Link>
+      </li>
+
+      <li className="nav-item d-lg-none d-sm-inline-block">
+        <Link to="/register" className={location.pathname === "/register" ? "nav-link text-altlemon" : "nav-link"}>
+          Signup
+        </Link>
+      </li>
     </ul>
   );
 };
