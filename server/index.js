@@ -100,6 +100,14 @@ app.post("/login", async (req, res) => {
     const token = jwt.sign({name: student.name}, process.env.KEY, {expiresIn: "120h"})
     res.cookie("token", token, {httpOnly: true, sameSite: "none", secure: true, maxAge: (30 * 24 * 60 * 60 * 1000)})
 
+    const cart = await CartModel.findOne({ email: student.email });
+
+    if (!cart) res.json({ message: "No orders found", status: false }) 
+    
+    const cartToken = jwt.sign({ email: cart.email }, process.env.KEY);
+
+    res.cookie('cartToken', cartToken, { httpOnly: true, secure, sameSite: "none", maxAge: (95 * 24 * 60 * 60 * 1000) })
+
     return res.json({
       message: "Login Successfully",
       status: true,
@@ -110,6 +118,7 @@ app.post("/login", async (req, res) => {
         token: req.cookies.token,
       },
     });
+
   } catch (error) {
     console.log(error);
     res.send(error);
@@ -513,7 +522,7 @@ app.get("/orders", async (req, res) => {
 
   } catch (error) {
     console.log("Error getting cart", error);
-    res.json({ message: "An error occurred while trying to get orders: " + error, status: false });
+    res.status(500).json({ message: "An error occurred while trying to get orders: " + error, status: false });
   }
 });
 
