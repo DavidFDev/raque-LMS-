@@ -51,7 +51,8 @@ const Navbar = () => {
 
           </div>
 
-          <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
+          data-bs-scroll="true">
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
                 <MainLogo />
@@ -71,6 +72,7 @@ const Navbar = () => {
               <NavOtherOptionsLg />
             </div>
           </div>
+
         </div>
       </nav>
     </>
