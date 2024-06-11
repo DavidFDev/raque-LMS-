@@ -108,7 +108,6 @@ app.post("/login", async (req, res) => {
         userEmail: student.email,
         userPassword: student.password,
         token: req.cookies.token,
-        items: cart.items
       },
     });
 
@@ -119,6 +118,7 @@ app.post("/login", async (req, res) => {
     const cartToken = jwt.sign({ email: cart.studentId }, process.env.KEY);
 
     res.cookie('cartToken', cartToken, { httpOnly: true, secure, sameSite: "none", maxAge: (95 * 24 * 60 * 60 * 1000) })
+    res.json({ items: cart.items })
 
   } catch (error) {
     console.log(error);
