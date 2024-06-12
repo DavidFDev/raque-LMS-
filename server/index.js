@@ -500,10 +500,13 @@ app.post("/books", async (req, res) => {
 
 
     // Send the email
-    await transporter.sendMail(mailOptions);
-    console.log('Email sent successfully');
-    return res.status(200).json({ message: 'Email sent successfully', status: true });
-
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return res.json({ message: "Error sending email", status: false });
+      } else {
+        return res.status(200).json({ message: 'Email sent successfully', status: true });
+      }
+    });
 
     
 
