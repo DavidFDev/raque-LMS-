@@ -459,6 +459,34 @@ app.post("/books", async (req, res) => {
 
     let existingCart = await CartModel.findOne({ studentId: student.email });
 
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.SUPPORT_EMAIL,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+    
+
+    // Configure email options
+    let mailOptions = {
+      from: `Yctlibrary <${process.env.SUPPORT_EMAIL}>`,
+      to: student.email,
+      subject: "Order from Yctlibrary",
+      text: cartItem,
+    };
+
+
+    // Send the email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return res.json({ message: "Error sending email", status: false });
+      } else {
+        return res.status(200).json({ message: 'Email sent successfully', status: true });
+      }
+    });
+
+
     if (!existingCart) {
       const newCart = new CartModel({
         items: cartItem,
@@ -481,32 +509,6 @@ app.post("/books", async (req, res) => {
       res.json({ status: true, message: "Item added to cart successfully", items: existingCart });
     }
 
-
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.SUPPORT_EMAIL,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    // Configure email options
-    let mailOptions = {
-      from: `Yctlibrary <${process.env.SUPPORT_EMAIL}>`,
-      to: student.email,
-      subject: "Order from Yctlibrary",
-      text: cartItem,
-    };
-
-
-    // Send the email
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        return res.json({ message: "Error sending email", status: false });
-      } else {
-        return res.status(200).json({ message: 'Email sent successfully', status: true });
-      }
-    });
 
     
 
