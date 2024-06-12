@@ -493,7 +493,7 @@ app.post("/books", async (req, res) => {
     // Configure email options
     let mailOptions = {
       from: `Yctlibrary <${process.env.SUPPORT_EMAIL}>`,
-      to: decoded.email,
+      to: student.email,
       subject: "Order from Yctlibrary",
       text: cartItem,
     };
