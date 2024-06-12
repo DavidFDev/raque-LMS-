@@ -490,21 +490,18 @@ app.post("/books", async (req, res) => {
       },
     });
 
-    // Configure email options
     let mailOptions = {
-      from: `Yctlibrary <raquereinforce@gmail.com>`,
+      from: `Yctlibrary <${process.env.SUPPORT_EMAIL}>`,
       to: student.email,
       subject: "Order from Yctlibrary",
-      text: cartItem,
+      text: `You have added the following items to your cart: ${JSON.stringify(cartItem, null, 2)}`,
     };
 
-
-    // Send the email
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        return res.json({ message: "Error sending email", status: false });
+        console.error("Error sending email:", error);
       } else {
-        return res.status(200).json({ message: 'Email sent successfully', status: true });
+        console.log('Email sent successfully:', info.response);
       }
     });
 
