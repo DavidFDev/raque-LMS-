@@ -79,6 +79,12 @@ h6 {
   font-family: Poppins, sans-serif !important;
 }
 
+/* FIREFOX */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--altlemon) #f1f1f1;
+}
+
 legend {
   font-family: Poppins, sans-serif;
 }
