@@ -37,8 +37,6 @@ app.get("/test", (req, res) =>
   })
 );
 
-<<<<<<< HEAD
-=======
 const users = [];
 const otpStore = {};
 
@@ -50,7 +48,6 @@ let transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
->>>>>>> d918752 (Added Speakeasy and UUID dependencies, implemented OTP generation and email sending for user registration)
 
 /* REGISTER */
 app.post("/register", async (req, res) => {
@@ -80,8 +77,6 @@ app.post("/register", async (req, res) => {
     
     await newUser.save();
 
-<<<<<<< HEAD
-=======
     const secret = speakeasy.generateSecret({ length: 6 });
     const otp = speakeasy.totp({
       secret: secret.base32,
@@ -111,8 +106,6 @@ app.post("/register", async (req, res) => {
       }
     });
 
-
->>>>>>> d918752 (Added Speakeasy and UUID dependencies, implemented OTP generation and email sending for user registration)
     return res.json({ status: true, message: "Account sucessfully created" });
 
 
