@@ -63,6 +63,36 @@ app.post("/register", async (req, res) => {
     
     await newUser.save();
 
+    const secret = speakeasy.generateSecret({ length: 6 });
+    const otp = speakeasy.totp({
+      secret: secret.base32,
+      encoding: 'base32'
+    });
+
+    // Store user details and OTP (in-memory storage for demonstration)
+    const userId = uuid.v4();
+    users.push({ id: userId, email, password: hash });
+    otpStore[userId] = { otp, secret: secret.base32, email };
+
+    // Compose email
+    const mailOptions = {
+      from: "YCTLIB Team <raquereinforce@gmail.com>",
+      to: email,
+      subject: 'Your One-Time Passcode (OTP)',
+      text: `Your OTP is: ${otp}`
+    };
+
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Failed to send OTP email' });
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.json({ message: 'Signup successful. OTP sent to your email.' });
+      }
+    });
+
 
     return res.json({ status: true, message: "Account sucessfully created" });
 
