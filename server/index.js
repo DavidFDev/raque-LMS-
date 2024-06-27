@@ -83,10 +83,10 @@ app.post("/register", async (req, res) => {
       encoding: 'base32'
     });
 
-    // Store user details and OTP (in-memory storage for demonstration)
-    const userId = uuid.v4();
-    users.push({ id: userId, email, password: hash });
-    otpStore[userId] = { otp, secret: secret.base32, email };
+    await StudentModel.updateOne(
+      { _id: newUser._id },
+      { $set: { otpSecret: secret.base32 } }
+    );
 
     // Compose email
     const mailOptions = {
