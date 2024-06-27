@@ -35,17 +35,6 @@ app.get("/test", (req, res) =>
   })
 );
 
-const users = [];
-const otpStore = {};
-
-
-let transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.SUPPORT_EMAIL,
-    pass: process.env.EMAIL_PASS,
-  },
-});
 
 /* REGISTER */
 app.post("/register", async (req, res) => {
