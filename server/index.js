@@ -10,6 +10,8 @@ const cors = require("cors");
 const CartModel = require("./models/Cart.js");
 const bodyParser = require("body-parser");
 const twilio = require("twilio")
+const speakeasy = require('speakeasy');
+const uuid = require('uuid')
 dotenv.config();
 
 /* BCRYPT */
@@ -35,6 +37,20 @@ app.get("/test", (req, res) =>
   })
 );
 
+<<<<<<< HEAD
+=======
+const users = [];
+const otpStore = {};
+
+
+let transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.SUPPORT_EMAIL,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+>>>>>>> d918752 (Added Speakeasy and UUID dependencies, implemented OTP generation and email sending for user registration)
 
 /* REGISTER */
 app.post("/register", async (req, res) => {
@@ -64,6 +80,39 @@ app.post("/register", async (req, res) => {
     
     await newUser.save();
 
+<<<<<<< HEAD
+=======
+    const secret = speakeasy.generateSecret({ length: 6 });
+    const otp = speakeasy.totp({
+      secret: secret.base32,
+      encoding: 'base32'
+    });
+
+    // Store user details and OTP (in-memory storage for demonstration)
+    const userId = uuid.v4();
+    users.push({ id: userId, email, password: hash });
+    otpStore[userId] = { otp, secret: secret.base32, email };
+
+    // Compose email
+    const mailOptions = {
+      from: "YCTLIB Team <raquereinforce@gmail.com>",
+      to: email,
+      subject: 'Your One-Time Passcode (OTP)',
+      text: `Your OTP is: ${otp}`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Failed to send OTP email' });
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.json({ message: 'Signup successful. OTP sent to your email.' });
+      }
+    });
+
+
+>>>>>>> d918752 (Added Speakeasy and UUID dependencies, implemented OTP generation and email sending for user registration)
     return res.json({ status: true, message: "Account sucessfully created" });
 
 
