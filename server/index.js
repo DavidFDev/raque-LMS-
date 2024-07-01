@@ -38,6 +38,7 @@ app.get("/test", (req, res) =>
 );
 
 
+
 let transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -74,16 +75,19 @@ app.post("/register", async (req, res) => {
     
     await newUser.save();
 
+
     const secret = speakeasy.generateSecret({ length: 6 });
     const otp = speakeasy.totp({
       secret: secret.base32,
       encoding: 'base32'
     });
 
+    // Store user details and OTP (in-memory storage for demonstration)
     await StudentModel.updateOne(
       { _id: newUser._id },
       { $set: { otpSecret: secret.base32 } }
     );
+
 
     // Compose email
     const mailOptions = {
@@ -103,6 +107,7 @@ app.post("/register", async (req, res) => {
       }
     });
 
+ 
     return res.json({ status: true, message: "Account sucessfully created" });
 
 
