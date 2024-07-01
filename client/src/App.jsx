@@ -52,7 +52,7 @@ const App = () => {
                 <Route path="register" element={<SignUp />} />
                 <Route path="forgot-password" element={<ForgotPassword />} />
                 <Route path="resetPassword/:token" element={<ResetPassword />} />
-                <Route path="verifyOTP" element={<VerifyOTP />} />
+                <Route path="verifyUser" element={<VerifyOTP />} />
 
 
 
