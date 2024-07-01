@@ -37,9 +37,6 @@ app.get("/test", (req, res) =>
   })
 );
 
-const users = [];
-const otpStore = {};
-
 
 let transporter = nodemailer.createTransport({
   service: "gmail",
