@@ -73,6 +73,7 @@ app.post("/register", async (req, res) => {
     const token = jwt.sign({email: newUser.email}, process.env.KEY, {expiresIn: "120h"})
     res.cookie("token", token, {httpOnly: true, sameSite: "none", secure: true, maxAge: (30 * 24 * 60 * 60 * 1000)})
     
+
     await newUser.save();
 
 
@@ -84,7 +85,7 @@ app.post("/register", async (req, res) => {
 
     // Store user details and OTP (in-memory storage for demonstration)
     await StudentModel.updateOne(
-      { _id: newUser._id },
+      { _id: newUser.id },
       { $set: { otpSecret: secret.base32 } }
     );
 
