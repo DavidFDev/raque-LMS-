@@ -3,7 +3,7 @@ import { useAuthContext } from "../Context/AuthContext";
 import { useParams } from "react-router-dom";
 import Loader from "./Loader";
 
-const ResetPasswordForm = () => {
+const ResetPasswordForm = ({ label }) => {
   const { handleResetPassword, activateErrMsg, errParagraph, successPara, successMsg, loading } = useAuthContext();
   const [password, setPassword] = useState("");
   const { token } = useParams();
@@ -38,7 +38,7 @@ const ResetPasswordForm = () => {
           type="password"
           name="password"
           id="password"
-          placeholder="New Password"
+          placeholder={label}
           className="form-control"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

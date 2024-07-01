@@ -85,7 +85,7 @@ app.post("/register", async (req, res) => {
 
     // Store user details and OTP (in-memory storage for demonstration)
     await StudentModel.updateOne(
-      { _id: newUser.id },
+      { _id: newUser._id },
       { $set: { otpSecret: secret.base32 } }
     );
 
@@ -118,6 +118,40 @@ app.post("/register", async (req, res) => {
   }
 });
 
+
+/* VERIFY OTP */
+app.post("/verifyUser",  async (req, res) => {
+  const { email, otp } = req.body;
+
+  try {
+    const student = await StudentModel.findOne({ email });
+
+    if (!student) {
+      return res.status(400).json({ status: false, message: 'User not found' });
+    }
+
+    const isValid = speakeasy.totp.verify({
+      secret: student.otpSecret,
+      encoding: 'base32',
+      token: otp
+    });
+
+    if (isValid) {
+      await StudentModel.updateOne(
+        { _id: student._id },
+        { $set: { isVerified: true, otpSecret: null } } // Clear OTP secret after verification
+      );
+      return res.json({ status: true, message: 'OTP verified successfully' });
+    } else {
+      return res.status(400).json({ status: false, message: 'Invalid OTP' });
+    }
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ status: false, message: 'Internal server error' });
+  }
+})
+  
 
  
 

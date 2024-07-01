@@ -28,6 +28,9 @@ const ForgotPassword = React.lazy(() =>
 const ResetPassword = React.lazy(() =>
   import("./Pages/User/User-Entry/ResetPassword")
 );
+const VerifyOTP = React.lazy(() =>
+  import("./Pages/User/User-Entry/VerifyOTP")
+);
 const UserBio = React.lazy(() => import("./Pages/User/User-Entry/UserBio"));
 import NotificationPopup from "./Components/NotificationPopup";
 import Feedback from "./Pages/Feedback";
@@ -48,10 +51,10 @@ const App = () => {
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<SignUp />} />
                 <Route path="forgot-password" element={<ForgotPassword />} />
-                <Route
-                  path="resetPassword/:token"
-                  element={<ResetPassword />}
-                />
+                <Route path="resetPassword/:token" element={<ResetPassword />} />
+                <Route path="verifyOTP" element={<VerifyOTP />} />
+
+
 
                 <Route path="reading/:id" element={<ReadingPage />} />
                 {/* END OF ENTRY PAGES */}

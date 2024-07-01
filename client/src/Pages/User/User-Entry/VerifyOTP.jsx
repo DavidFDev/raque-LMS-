@@ -3,7 +3,7 @@ import ResetPasswordForm from "../../../Components/ResetPasswordForm";
 import MainLogo from '../../../Components/MainLogo';
 import LoginPageImg from "../../../Components/LoginPageImg";
 
-const ResetPassword = () => {
+const VerifyOTP = () => {
   return (
     <section className="forgotpassword-area">
       <div className="row m-0 h-100">
@@ -31,11 +31,11 @@ const ResetPassword = () => {
                   </div>
 
                   {/* RESET TITLE */}
-                  <h3>Reset Password</h3>
+                  <h3>Verify OTP</h3>
 
 
                     {/* FORM */}
-                  <ResetPasswordForm label="Enter New Password" />
+                  <ResetPasswordForm label="Enter OTP" />
 
                   {/* MAIN FORM END */}
                 </div>
@@ -57,4 +57,4 @@ const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+export default VerifyOTP;
