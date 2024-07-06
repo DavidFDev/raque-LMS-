@@ -3,7 +3,7 @@ import MainLogo from '../../../Components/MainLogo';
 import LoginPageImg from "../../../Components/LoginPageImg";
 import OTPForm from "../../../Components/OTPForm";
 
-const VerifyOTP = () => {
+const VerifyOtp = () => {
 
   return (
     <section className="forgotpassword-area">
@@ -58,4 +58,4 @@ const VerifyOTP = () => {
   );
 };
 
-export default VerifyOTP;
+export default VerifyOtp;
