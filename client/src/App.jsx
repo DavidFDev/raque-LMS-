@@ -29,7 +29,7 @@ const ResetPassword = React.lazy(() =>
   import("./Pages/User/User-Entry/ResetPassword")
 );
 const VerifyOTP = React.lazy(() =>
-  import("./Pages/User/User-Entry/VerifyOTP")
+  import("./Pages/User/User-Entry/VerifyOtp")
 );
 const UserBio = React.lazy(() => import("./Pages/User/User-Entry/UserBio"));
 import NotificationPopup from "./Components/NotificationPopup";
