@@ -121,10 +121,12 @@ app.post("/register", async (req, res) => {
 
 /* VERIFY OTP */
 app.post("/verifyUser",  async (req, res) => {
-  const { email, otp } = req.body;
+  const { otp } = req.body;
+  const { token } = req.cookies
 
   try {
-    const student = await StudentModel.findOne({ email });
+    const decoded = jwt.verify(token, process.env.KEY)
+    const student = await StudentModel.findOne({ email: decoded.email });
 
     if (!student) {
       return res.status(400).json({ status: false, message: 'User not found' });
@@ -139,7 +141,7 @@ app.post("/verifyUser",  async (req, res) => {
     if (isValid) {
       await StudentModel.updateOne(
         { _id: student._id },
-        { $set: { isVerified: true, otpSecret: null } } // Clear OTP secret after verification
+        { $set: { isVerified: true, otpSecret: null } } 
       );
       return res.json({ status: true, message: 'OTP verified successfully' });
     } else {

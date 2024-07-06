@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const AuthContext = createContext();
@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
         setActivateErrMsg(true);
         setErrParagraph(result.data.message);
       } else {
-        navigate("/profile");
+        navigate("/verifyUser");
         setEmail(email);
         setName(name);
         setPassword(password);
@@ -63,6 +63,29 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
+
+  const handleVerifyOTP = async ({ otp }) => {
+    setLoading(true)
+    try {
+      const response = await axios.post("https://yctlibserver.onrender.com/verifyUser", { otp });
+
+      if (response.data.status) {
+        navigate("/profile")
+        setIsLoggedIn(true);
+        setActivateErrMsg(false);
+      } else {
+        setIsLoggedIn(false);
+        setActivateErrMsg(true);
+        setErrParagraph(result.data.message);
+      }
+      
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false)
+    }
+  }
   
   
 
@@ -454,6 +477,7 @@ const AuthProvider = ({ children }) => {
     handleCheckout,
     handleUpdate,
     handleMessage,
+    handleVerifyOTP,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

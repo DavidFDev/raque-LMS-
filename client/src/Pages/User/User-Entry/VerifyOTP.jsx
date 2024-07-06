@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import ResetPasswordForm from "../../../Components/ResetPasswordForm";
 import MainLogo from '../../../Components/MainLogo';
 import LoginPageImg from "../../../Components/LoginPageImg";
+import OTPForm from "../../../Components/OTPForm";
 
 const VerifyOTP = () => {
+
   return (
     <section className="forgotpassword-area">
       <div className="row m-0 h-100">
@@ -35,7 +36,7 @@ const VerifyOTP = () => {
 
 
                     {/* FORM */}
-                  <ResetPasswordForm label="Enter OTP" />
+                  <OTPForm/>
 
                   {/* MAIN FORM END */}
                 </div>
