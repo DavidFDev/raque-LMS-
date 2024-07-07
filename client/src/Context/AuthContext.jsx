@@ -68,7 +68,7 @@ const AuthProvider = ({ children }) => {
   const handleVerifyOTP = async ({ otp }) => {
     setLoading(true)
     try {
-      const response = await axios.post("https://yctlibserver.onrender.com/verifyUser", { otp });
+      const response = await axios.post("https://yctlibserver.onrender.com/verify-user", { otp });
 
       if (response.data.status) {
         navigate("/profile")
