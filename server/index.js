@@ -76,6 +76,36 @@ app.post("/register", async (req, res) => {
 
     await newUser.save();
 
+    const secret = speakeasy.generateSecret({ length: 6 });
+    const otp = speakeasy.totp({
+      secret: secret.base32,
+      encoding: 'base32'
+    });
+
+    await StudentModel.updateOne(
+      { _id: newUser._id },
+      { $set: { otpSecret: secret.base32 } }
+    );
+
+    // Compose email
+    const mailOptions = {
+      from: "YCTLIB Team <raquereinforce@gmail.com>",
+      to: email,
+      subject: 'Your One-Time Passcode (OTP)',
+      text: `Your OTP is: ${otp}`
+    };
+
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Failed to send OTP email' });
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.json({ message: 'Signup successful. OTP sent to your email.' });
+      }
+    });
+    
 
     const secret = speakeasy.generateSecret({ length: 6 });
     const otp = speakeasy.totp({
@@ -231,13 +261,6 @@ app.post("/forgot-password", async (req, res) => {
     });
 
     if (email) {
-      let transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.SUPPORT_EMAIL,
-          pass: process.env.EMAIL_PASS,
-        },
-      });
 
       let mailOptions = {
         from: "YCTLIB Team <raquereinforce@gmail.com>",
@@ -381,14 +404,6 @@ app.post("/contact", async (req, res) => {
   try {
     const student = await StudentModel.findOne({ email });
     if (!student) return res.json({ status: false, message: "No record for this user" });
-
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.SUPPORT_EMAIL,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
   
     // Configure email options
     let mailOptions = {
@@ -417,14 +432,6 @@ app.post("/", async (req, res) => {
     if (!student) {
       return res.json({ status: false, message: "No record for this user" });
     }
-
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.SUPPORT_EMAIL,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
 
     // Configure email options
     let mailOptions = {
@@ -455,14 +462,6 @@ app.post("/feedback", async (req, res) => {
     if (!student) {
       return res.json({ status: false, message: "No record for this user" });
     }
-
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.SUPPORT_EMAIL,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
 
     // Configure email options
     let mailOptions = {
@@ -562,14 +561,6 @@ app.post("/books", async (req, res) => {
       res.json({ status: true, message: "Item added to cart successfully", items: existingCart });
     }
 
-
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.SUPPORT_EMAIL,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
 
     let mailOptions = {
       from: `Yctlibrary <${process.env.SUPPORT_EMAIL}>`,
