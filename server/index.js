@@ -117,6 +117,8 @@ app.post("/register", async (req, res) => {
 });
 
 
+
+
 /* VERIFY OTP */
 app.post("/verifyUser",  async (req, res) => {
   const { otp } = req.body;
