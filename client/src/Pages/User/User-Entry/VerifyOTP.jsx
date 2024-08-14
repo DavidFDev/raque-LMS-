@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import MainLogo from '../../../Components/MainLogo';
 import LoginPageImg from "../../../Components/LoginPageImg";
-import OTPForm from "../../../Components/OtpForm";
+import OTPForm from "../../../Components/OTPForm";
 
 const VerifyOtp = () => {
 
