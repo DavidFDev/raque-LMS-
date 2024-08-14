@@ -1,0 +1,1 @@
+import{j as s}from"./index-iwJBcb3x.js";import{B as r}from"./BioForm-ww--pZD0.js";const e=()=>s.jsx("div",{className:"user-bio",children:s.jsx("div",{className:"container px-lg-0",children:s.jsx("div",{className:"bio-form",children:s.jsx(r,{})})})});export{e as default};
